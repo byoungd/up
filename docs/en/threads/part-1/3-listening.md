@@ -142,7 +142,7 @@ Process-oriented listening research suggests that guided prediction, monitoring,
 
 Dictation can expose word boundaries, endings, function words, and spelling. Full-text dictation is expensive, however, and can reduce attention to a word checklist.
 
-Choose only 5-20 seconds that change the task: a number, negation, condition, owner, proper name, step, or recurringly misheard chunk.
+Choose only 5-20 seconds that change the task: a number, negation, condition, owner, proper name, step, or recurrently misheard chunk.
 
 | My sound candidate | Reliable transcript | Cause of difference | Retest in a new sentence |
 | --- | --- | --- | --- |

@@ -6,7 +6,7 @@ updated: 2026-09-01
 
 # Author Projects and Real-world Practice
 
-This page centralises projects in which Han Xiankai has a direct role so that commercial relationships do not blend into learning-method recommendations. It is disclosure, not a purchase, investment, or return promise.
+This page centralises projects in which Han Xiankai has a direct role so that commercial relationships do not blend into learning-method recommendations. It is a disclosure, not a purchase, investment, or return promise.
 
 To analyse a public experience mentioned here, use the [AI Case Review Template](templates/ai-case-review.md) to separate source, facts, judgment, and unknown outcomes first; project disclosure is not an independent audit.
 
