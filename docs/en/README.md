@@ -19,7 +19,7 @@ Subtitle: **Lifelong Learning Guide for the AI Era**. This living manuscript beg
   <a href="../downloads/life-level-up-guide-en.pdf" download>Download English PDF</a>
   <a href="../downloads/life-level-up-guide-zh.pdf" download>下载中文 PDF</a>
   <a href="https://github.com/byoungd/up">Source and corrections</a>
-  <a href="../templates/reader-field-note">Reader Field Note</a>
+  <a href="../templates/reader-field-note.md">Reader Field Note</a>
   <a href="https://creativecommons.org/licenses/by-nc/4.0/">Text CC BY-NC 4.0</a>
 </div>
 
@@ -145,7 +145,7 @@ A method reveals its strength only after it enters a life. Relationships end and
   </figure>
   <figure class="latest-update">
     <img class="latest-update-fan-photo" src="../assets/latest/agentic-db-fans.webp" alt="Han Xiankai with readers at the Agentic DB conference" width="1100" height="1467" loading="lazy" decoding="async" fetchpriority="low" />
-    <figcaption><strong>Meeting in the real world</strong>At the Alibaba × NVIDIA Agentic DB conference, meeting readers and peers face to face and returning public writing to real people and real questions.</figcaption>
+    <figcaption><strong>Meeting in the real world</strong>At the Alibaba × NVIDIA Agentic DB conference, Han Xiankai met readers and peers face to face, returning public writing to real people and real questions.</figcaption>
   </figure>
 </div>
 
