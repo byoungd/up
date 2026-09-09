@@ -14,6 +14,7 @@ All notable project-level changes are documented here. Content pages retain thei
 - Added time-to-first-action and non-sensitive conditions to the reader field-note form and bilingual template, making future reader evidence more comparable without collecting identity or private project data.
 - Regenerated both EPUB and PDF editions after the toolkit entry change and added bilingual browser assertions for the new first-use path.
 - Added an npm override for `smol-toml@1.8.0`, resolving the high-severity DoS advisory reached through `markdownlint-cli2` while retaining the current Markdown lint tool.
+- Added pinned `pip-audit==2.10.1` checks for the complete Python PDF dependency tree in CI and Pages builds; the current audit reports no known vulnerabilities.
 
 ### 2026-09-09 learning tools and accessible publication
 

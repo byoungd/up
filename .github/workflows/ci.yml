@@ -26,14 +26,18 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-          cache-dependency-path: requirements-pdf.txt
+          cache-dependency-path: |
+            requirements-pdf.txt
+            requirements-audit.txt
       - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "21"
       - run: npm ci
       - run: python -m pip install -r requirements-pdf.txt
+      - run: python -m pip install -r requirements-audit.txt
       - run: npm audit --audit-level=high
+      - run: python -m pip_audit -r requirements-pdf.txt
       - run: npm run check
       - run: npm run book:validate -- --reports-dir outputs/epubcheck
       - uses: actions/upload-artifact@v7

@@ -11,6 +11,7 @@
 - Linux CI browser setup removes an unrelated stale runner Google Chrome apt source before installing the pinned Playwright Chromium dependency; this was added after a real runner hash-mismatch failure, not as a speculative workaround.
 - 生产构建现在还限制每个 SSR HTML 页面为 150,000 bytes 原始大小（约 146.5 KiB），防止预渲染页面无意中膨胀；本次最大页面约 114 KiB，低于门禁。
 - npm audit 当前为 0 vulnerabilities；`markdownlint-cli2` 通过 `smol-toml@1.8.0` override 避免了传递依赖的高危 DoS 版本，且 54 项脚本测试与格式检查仍通过。
+- Python 3.12 的 `pip-audit==2.10.1` 已对完整 `requirements-pdf.txt` 依赖树检查通过（No known vulnerabilities found），并已加入 CI/Pages 门禁。
 
 ## 真实反馈到产品决策
 
