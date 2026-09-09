@@ -196,6 +196,11 @@ test("reader field notes preserve immediate, delayed, transfer, editorial, and p
   expect(template).toContain("separated what I observed from what I infer or hope");
 });
 
+test("fresh pages do not prefetch offscreen route chunks before a reader chooses a link", async ({ page }) => {
+  await page.goto("./");
+  await expect(page.locator('link[rel="prefetch"]')).toHaveCount(0);
+});
+
 test("main book chapters leave continuous reading to the authoritative pager", () => {
   const manualPager = /^(?:(?:上一篇|下一篇|下一部|返回首页)[：:]|(?:Prev|Previous|Next|Next Part|Back to the home page):)/m;
   const sources = [...zhNavigation.slice(1, 7), ...enNavigation.slice(1, 7)]

@@ -5,7 +5,7 @@
 ## 当前已建立的证据
 
 - 55 项 Node 脚本回归和 6 项 PDF 布局回归覆盖内容解析、生成同步、私有资源、路由、EPUB、PDF 和公开读者回执契约；内容检查覆盖 177 个 Markdown，格式检查同时覆盖 42 份生成的工作表。
-- 代表性桌面和移动页面、双语搜索、模板下载/复制、双主题、键盘操作和 320px 重排都有浏览器回归；上一轮完整站点回归为 548/548，使用 Playwright 1.63.0 与 Chromium 153。
+- 代表性桌面和移动页面、双语搜索、模板下载/复制、双主题、键盘操作、离屏预取门禁和 320px 重排都有浏览器回归；上一轮完整站点回归为 554/554，使用 Playwright 1.63.0 与 Chromium 153。
 - 两种 EPUB 通过固定版本 EPUBCheck 5.3.0 的零错误、零警告检查，130 个 XHTML 通过断网小屏阅读检查；PDF 代码边界与受影响页面有实际渲染复核。
 - CI 使用同一构建产物完成 Linux 浏览器测试；依赖、外链、生成文件和发布入口均有自动门禁。
 - Linux CI browser setup removes an unrelated stale runner Google Chrome apt source before installing the pinned Playwright Chromium dependency; this was added after a real runner hash-mismatch failure, not as a speculative workaround.
@@ -36,7 +36,7 @@
 
 ### 本地网络基线（2026-09-10）
 
-在新 Chromium context 中以 Chrome DevTools 网络模拟器测量刚完成的生产构建预览；每个路由独立冷启动，未把本地服务器的未压缩字节误报为线上 CDN 结果。Fast 3G（200 kB/s、150 ms）下，中文首页、英文首页、阅读篇和学习状态模板的 first paint 约 0.93–1.18 s，DOMContentLoaded 约 1.00–1.25 s，完整加载约 1.09–1.34 s；首次传输约 266–279 KiB。Slow 3G（62.5 kB/s、400 ms）下，对应 first paint 约 2.22–2.26 s，DOMContentLoaded 约 2.92–2.95 s，完整加载约 3.31–3.34 s，首次传输相近。
+在新 Chromium context 中以 Chrome DevTools 网络模拟器测量刚完成的生产构建预览；每个路由独立冷启动，未把本地服务器的未压缩字节误报为线上 CDN 结果。Fast 3G（200 kB/s、150 ms）下，中文首页、英文首页、阅读篇和学习状态模板的 first paint 约 0.93–1.18 s，DOMContentLoaded 约 1.00–1.25 s，完整加载约 1.09–1.34 s；首次传输约 266–279 KiB。Slow 3G（62.5 kB/s、400 ms）下，对应 first paint 约 2.22–2.26 s，DOMContentLoaded 约 2.92–2.95 s，完整加载约 3.31–3.34 s，首次传输相近。此次还在中文首页做了新 Chromium 冷启动 A/B：VitePress 默认预取开启时有 20 个 `prefetch` 链接、31 个初始请求和 5 个预取脚本请求；关闭后为 0、11 和 0。项目已关闭离屏路由自动预取，后续导航仍按点击按需加载。
 
 这些数值说明首屏 HTML 是当前主要传输项，而不是搜索索引：初始脚本请求没有加载本地搜索索引，索引在打开搜索时按需载入。下一步应在真实 Pages/CDN 响应和中端设备上复测，并记录 gzip、LCP、缓存命中和搜索打开延迟；当前证据不足以支持重写渲染或引入新的性能架构。
 

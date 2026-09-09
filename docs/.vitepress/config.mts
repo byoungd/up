@@ -173,6 +173,7 @@ export default defineConfig({
   description: defaultDescription,
   base,
   cleanUrls: true,
+  router: { prefetchLinks: false },
   lastUpdated: true,
   srcExclude: ["SUMMARY.md", "en/SUMMARY.md", "public/**"],
   sitemap: {

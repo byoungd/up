@@ -18,6 +18,7 @@ All notable project-level changes are documented here. Content pages retain thei
 - Added `READER_RESEARCH.md`, a privacy-first protocol for repeatable first-use, saved-output, return-visit, and accessibility observations; it keeps future reader evidence separate from synthetic examples and automated regression claims.
 - Made the public reader-field-note issue form preserve immediate results, delayed retests, changed-condition transfer, and six privacy checks from the downloadable worksheet; added a contract test so the public route cannot silently drop those fields.
 - Added a localized, accessible recovery message and reload action when the VitePress local search index fails to load, with desktop and mobile regression coverage for both languages.
+- Disabled VitePress's automatic offscreen route prefetching after a fresh-page A/B showed 20 prefetch links and 31 initial requests with it enabled versus 0 prefetch links and 11 requests when disabled; navigation remains on-demand.
 
 ### 2026-09-09 learning tools and accessible publication
 
