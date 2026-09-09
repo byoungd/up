@@ -11,6 +11,14 @@
 - Linux CI browser setup removes an unrelated stale runner Google Chrome apt source before installing the pinned Playwright Chromium dependency; this was added after a real runner hash-mismatch failure, not as a speculative workaround.
 - 生产构建现在还限制每个 SSR HTML 页面为 150,000 bytes 原始大小（约 146.5 KiB），防止预渲染页面无意中膨胀；本次最大页面约 114 KiB，低于门禁。
 
+## 真实反馈到产品决策
+
+- [Issue 190](https://github.com/byoungd/up/issues/190) 描述长期学习跨会话状态丢失。已转成完整学习状态模板、跨会话 Python 实战、可编辑下载和“路径不等于 AI 已读证据”的边界说明；仍需要真实读者复测保存和恢复流程。
+- [Issue 172](https://github.com/byoungd/up/issues/172) 说工具不知道怎样使用。已在工具箱首屏提供四行最小动作、完整 walkthrough 和 42 份可编辑工作表；仍需要观察第一次使用者能否在一次访问内完成最小输出。
+- [Issue 173](https://github.com/byoungd/up/issues/173) 询问初中阶段学习方法。家庭学习篇、共同协议和首页入口已覆盖学习者主体性、家长边界、学校现实、数据隐私和十四天复查；不能把成人案例直接当成儿童效果证据。
+- [Issue 151](https://github.com/byoungd/up/issues/151) 请求口语方案。首页现在直接进入无稿基线、陌生追问、听众复述、互动修复和十四天迁移；仍需要真实听众反馈，而不是把录音或语音识别分数当成能力证明。
+- [Issue 178](https://github.com/byoungd/up/issues/178) 提议外部医疗英语工具。当前没有把第三方考试或医疗资源直接加入主线，因为供应方、认证、隐私、医学边界和长期可用性尚未完成独立核验；若纳入，必须保留第三方标识、官方来源、核验日期和不构成专业/考试保证的边界。
+
 ## 尚需继续取得的证据
 
 | 维度 | 下一项有价值的验证 |
