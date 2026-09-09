@@ -269,7 +269,7 @@ img { display: block; height: auto; margin: 1.6em auto; max-width: 100%; }
 table { border-collapse: collapse; font-size: 0.86em; margin: 1.5em 0; width: 100%; }
 th, td { border: 1px solid #999; padding: 0.45em; vertical-align: top; overflow-wrap: anywhere; }
 pre { background: #f3f3f3; border: 1px solid #ddd; overflow-wrap: anywhere; word-wrap: break-word; padding: 0.8em; white-space: pre-wrap; }
-pre, code { direction: ltr; text-align: left; }
+pre, code { text-align: left; }
 code { font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.9em; }
 .book-meta, .guide-paths { margin: 1.3em 0; }
 .guide-path { display: block; margin: 0.7em 0; text-decoration: none; }
