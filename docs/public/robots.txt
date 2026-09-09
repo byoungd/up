@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://byoungd.github.io/up/sitemap.xml
