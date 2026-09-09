@@ -15,6 +15,7 @@ All notable project-level changes are documented here. Content pages retain thei
 - Regenerated both EPUB and PDF editions after the toolkit entry change and added bilingual browser assertions for the new first-use path.
 - Added an npm override for `smol-toml@1.8.0`, resolving the high-severity DoS advisory reached through `markdownlint-cli2` while retaining the current Markdown lint tool.
 - Added pinned `pip-audit==2.10.1` checks for the complete Python PDF dependency tree in CI and Pages builds; the current audit reports no known vulnerabilities.
+- Added `READER_RESEARCH.md`, a privacy-first protocol for repeatable first-use, saved-output, return-visit, and accessibility observations; it keeps future reader evidence separate from synthetic examples and automated regression claims.
 
 ### 2026-09-09 learning tools and accessible publication
 
