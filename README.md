@@ -12,6 +12,8 @@ updated: 2026-09-10
 
 副标题：**AI 时代终身学习指南**。这是一份持续更新的书稿，从英语这扇具体的门出发，写到 AI 学习、真实项目、创业失败、身体恢复，以及一个普通人怎样把生活一点点交还给自己。
 
+这是一个开放的双语书稿与静态阅读/出版项目，不是需要安装的软件包：网页、EPUB 和 PDF 负责阅读，仓库源码负责勘误、内容校验与构建。
+
 <div class="book-meta" aria-label="书稿信息">
   <span>持续更新书稿</span>
   <a href="./docs/public/downloads/life-level-up-guide-zh.epub" download>下载中文 EPUB</a>

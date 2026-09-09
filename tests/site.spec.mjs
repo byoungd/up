@@ -703,6 +703,7 @@ test("page metadata follows the route", async ({ page }) => {
 test("home metadata follows the lifelong-learning positioning", async ({ page }) => {
   await page.goto("./");
   await expect(page).toHaveTitle(/人生进阶指南/);
+  await expect(page.locator("main")).toContainText("开放的双语书稿与静态阅读/出版项目");
   await expect(page.locator('meta[name="description"]')).toHaveAttribute(
     "content",
     /AI 时代.*真实项目.*低谷/,
@@ -741,6 +742,7 @@ test("home metadata follows the lifelong-learning positioning", async ({ page })
 
   await page.goto("./en/");
   await expect(page).toHaveTitle(/Life Level-up Guide/);
+  await expect(page.locator("main")).toContainText("open bilingual manuscript and static reading/publication project");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
     "https://byoungd.github.io/up/en/",

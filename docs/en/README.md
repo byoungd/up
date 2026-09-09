@@ -12,6 +12,8 @@ updated: 2026-09-10
 
 Subtitle: **Lifelong Learning Guide for the AI Era**. This living manuscript begins with English and continues into AI learning, real projects, entrepreneurship, recovery, and the work of returning your life to yourself one small act at a time.
 
+This is an open bilingual manuscript and static reading/publication project, not software you need to install: the website, EPUB, and PDF are for reading, while the repository source holds corrections, content checks, and builds.
+
 <div class="book-meta" aria-label="Book information">
   <span>Living manuscript</span>
   <a href="../downloads/life-level-up-guide-en.epub" download>Download English EPUB</a>
