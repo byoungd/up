@@ -1445,6 +1445,8 @@ test("rhythm chapter bridges the daily system and 90-day plan", async ({ page })
 
 test("toolkit overview routes readers by problem", async ({ page }) => {
   await page.goto("./templates/toolkit");
+  await expect(page.locator("main")).toContainText("第一次使用？先做四行");
+  await expect(page.getByRole("link", { name: "工具箱实战", exact: true }).first()).toBeVisible();
   const zhMain = page.locator("main");
   await expect(zhMain.getByRole("heading", { level: 2, name: "先回答：我现在卡在哪里？" })).toBeVisible();
   await expect(zhMain.getByRole("link", { name: "学习状态", exact: true }).first()).toBeVisible();
@@ -1460,6 +1462,8 @@ test("toolkit overview routes readers by problem", async ({ page }) => {
   await expect(zhMain.getByRole("link", { name: "写作证据卡", exact: true }).first()).toBeVisible();
 
   await page.goto("./en/templates/toolkit");
+  await expect(page.locator("main")).toContainText("First time here? Start with four lines.");
+  await expect(page.getByRole("link", { name: "Toolkit Walkthrough", exact: true }).first()).toBeVisible();
   const enMain = page.locator("main");
   await expect(enMain.getByRole("heading", { level: 2, name: "First Ask: Where Am I Stuck?" })).toBeVisible();
   await expect(enMain.getByRole("link", { name: "Learning State", exact: true }).first()).toBeVisible();

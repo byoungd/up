@@ -1,7 +1,7 @@
 ---
 title: "Toolkit Overview: Choose the Problem Before the Tool"
 description: "Route every template by starting point, skill practice, AI collaboration, artifact delivery, review, and recovery so a reader can build one complete action loop with minimal record-keeping."
-updated: 2026-09-02
+updated: 2026-09-10
 ---
 
 # Toolkit Overview: Choose the Problem Before the Tool
@@ -9,6 +9,8 @@ updated: 2026-09-02
 Templates are not another course to collect. They are work sheets you can reuse: name the problem in front of you, preserve an unpolished sample, take one action, and let feedback decide what comes next.
 
 If you do not know where to begin, choose one sheet. An incomplete sheet used on a real problem is more valuable than ten blank templates.
+
+> **First time here? Start with four lines.** Write the real problem, the baseline you already have, the smallest output you can finish in 25–45 minutes, and where you will save the evidence. Then open the [Toolkit Walkthrough](toolkit-walkthrough.md) once to see a complete handover. Do not fill the whole routing table or open every template first; return here after one small action and choose the next sheet.
 
 ## First Ask: Where Am I Stuck?
 
