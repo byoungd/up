@@ -14,7 +14,8 @@ All notable project-level changes are documented here. Content pages retain thei
 - Removed website-only controls and invalid Vue attributes from EPUB code, preserved literal worksheet content, improved narrow-table reading, and added EPUBCheck 5.3.0 plus complete offline XHTML checks.
 - Fixed PDF preformatted text clipping by wrapping at measured font widths while preserving content, whitespace, and font size; added synthetic and full-publication layout regression checks and rebuilt both publication formats.
 - Recorded remaining evidence needs in `QUALITY_ROADMAP.md`, including real reader outcomes, assistive technology, device performance, and common EPUB readers.
-- Added an SSR HTML page-size budget to catch route-level payload growth before it reaches the compressed Pages response; the current largest page remains below the 150 KiB raw limit.
+- Added an SSR HTML page-size budget of 150,000 bytes (about 146.5 KiB) to catch route-level payload growth before it reaches the compressed Pages response; the current largest page remains below the limit.
+- Updated the pinned Playwright test runtime to 1.63.0 with its Chromium 153 release and refreshed the verified test counts and maintenance evidence.
 
 ### 2026-09-09 site and maintenance audit
 

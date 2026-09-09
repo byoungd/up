@@ -44,9 +44,9 @@
 
 已完成的验证结果：
 
-- Node 脚本回归：43/43 通过，其中 13 项使用真实 Vite 构建检查私有资产的内联与文件输出路径。
-- 桌面与移动端浏览器回归：498/498 通过，完整运行耗时约 7.5 分钟；使用本机 Chrome，自动重新构建并启动独立生产预览。
-- 内容与格式：175 个 Markdown 文件通过；导航、README、词表和品牌资源保持同步。
+- Node 脚本回归：54/54 通过，其中 13 项使用真实 Vite 构建检查私有资产的内联与文件输出路径；另有 6 项 PDF 布局回归通过。
+- 桌面与移动端浏览器回归：548/548 通过，完整运行耗时约 7.5 分钟；使用本机 Chrome，自动重新构建并启动独立生产预览。
+- 内容与格式：176 个 Markdown 文件通过；导航、README、词表和品牌资源保持同步。
 - 离线出版：EPUB 同步检查、PDF 语义检查和已发布文件哈希检查通过。
 - 生产构建与体积预算：通过。中文搜索约 565.5 KiB 原始 / 166.6 KiB gzip，英文约 454.7 KiB / 97.8 KiB；主题脚本约 56.5 KiB / 16.7 KiB，均在现有预算内。
 - 依赖审计：0 个已知漏洞；Git 差异空白检查通过。
@@ -79,6 +79,6 @@ git diff --check
 
 2026-09-09 直接核验官方文档及 API：VitePress 稳定通道仍为 1.6.4，2.0.0-alpha.20 属于下一代预览；Node 24 仍在支持期，Node 26 计划于 2026-10-28 进入 LTS；WCAG 2.2 是正式推荐标准，WCAG 3 仍为草案。对应来源和升级门槛已写入 [技术演进条件](MAINTENANCE.md#技术演进条件-2026-09-09-核验)。
 
-检测到测试工具已有 [Playwright 1.63.0](https://github.com/microsoft/playwright/releases/tag/v1.63.0) 稳定版本，当前 1.62.1 无 npm 审计告警且已完成全量回归。此类非安全升级通过单独的依赖 PR 验证新浏览器版本，避免将未经验证的测试环境变更混入已通过验收的修复。
+已升级到 [Playwright 1.63.0](https://github.com/microsoft/playwright/releases/tag/v1.63.0) 稳定版本，并在本地脚本、生产构建和完整浏览器回归中验证；它带来 Chromium 153 配套版本。升级后的 Linux CI 会再次验证托管 Chromium，避免测试运行时与浏览器版本漂移。
 
 新增 `.github/dependabot.yml`，按 [GitHub 官方配置规则](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file) 每周检查 npm、Actions、pip，合并兼容更新、限制积压并保留人工审核。该配置进入默认分支后生效；不自动合并、不自动绕过出版和发布门禁。
