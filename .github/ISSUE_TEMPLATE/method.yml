@@ -1,0 +1,23 @@
+name: Learning-method proposal
+description: Propose an evidence-aware change to a learning workflow.
+title: "[Method]: "
+labels: [learning-method]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Learner, context, and problem
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Proposed task and measurable outcome
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence, limitations, and primary sources
+    validations:
+      required: true

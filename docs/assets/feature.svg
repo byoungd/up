@@ -1,0 +1,53 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description">
+  <title id="title">《人生进阶指南》书籍分享封面</title>
+  <desc id="description">韩先凯著，AI 时代终身学习指南。五级上升结构代表输入、生活、工具、实践与行动。</desc>
+  <rect width="1200" height="630" fill="#f5f7f3"/>
+  <rect width="14" height="630" fill="#176f5b"/>
+  <path d="M58 94H650M58 570H650" stroke="#cfd7d1" stroke-width="1"/>
+  <g fill="none" stroke="#dfe5e0" stroke-width="1">
+    <path d="M720 70V570"/>
+    <path d="M1190 70V570"/>
+    <path d="M720 570H1190"/>
+  </g>
+
+  <g font-family="system-ui,-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+    <text x="70" y="76" fill="#176f5b" font-size="22" font-weight="700">AI 时代终身学习指南</text>
+    <text x="70" y="224" fill="#1d2926" font-size="82" font-weight="800">人生进阶指南</text>
+    <text x="72" y="306" fill="#485652" font-size="28">从英语这扇门出发，走向学习、生活、AI 与长期行动</text>
+    <text x="72" y="359" fill="#485652" font-size="24">用真实任务留下证据，在变化中继续成为生活的参与者</text>
+    <text x="72" y="446" fill="#1d2926" font-size="21" font-weight="700">发现问题 → 主动学习 → 与 AI 协作 → 完成真实任务 → 复盘迁移</text>
+    <text x="72" y="535" fill="#1d2926" font-size="24" font-weight="700">韩先凯 著</text>
+    <text x="206" y="535" fill="#6b7773" font-size="20">笔名：离谱</text>
+    <text x="72" y="605" fill="#6b7773" font-size="17">byoungd.github.io/up</text>
+  </g>
+
+  <g font-family="system-ui,-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+    <rect x="754" y="410" width="62" height="100" rx="4" fill="#176f5b"/>
+    <rect x="838" y="360" width="62" height="150" rx="4" fill="#c0523a"/>
+    <rect x="922" y="305" width="62" height="205" rx="4" fill="#b8862b"/>
+    <rect x="1006" y="250" width="62" height="260" rx="4" fill="#3e6e8d"/>
+    <rect x="1090" y="190" width="62" height="320" rx="4" fill="#263431"/>
+    <path d="M785 395L869 345L953 290L1037 235L1121 175" fill="none" stroke="#1d2926" stroke-width="3"/>
+    <g fill="#f5f7f3" stroke="#1d2926" stroke-width="3">
+      <circle cx="785" cy="395" r="8"/>
+      <circle cx="869" cy="345" r="8"/>
+      <circle cx="953" cy="290" r="8"/>
+      <circle cx="1037" cy="235" r="8"/>
+      <circle cx="1121" cy="175" r="8"/>
+    </g>
+    <g fill="#1d2926" font-size="17" font-weight="700">
+      <text x="785" y="550">输入</text>
+      <text x="869" y="550">生活</text>
+      <text x="953" y="550">工具</text>
+      <text x="1037" y="550">实践</text>
+      <text x="1121" y="550">行动</text>
+    </g>
+    <g fill="#7a8581" font-size="13">
+      <text x="785" y="578">01</text>
+      <text x="869" y="578">02</text>
+      <text x="953" y="578">03</text>
+      <text x="1037" y="578">04</text>
+      <text x="1121" y="578">05</text>
+    </g>
+  </g>
+</svg>

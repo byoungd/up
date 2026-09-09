@@ -1,0 +1,30 @@
+name: Site or accessibility problem
+description: Report build, route, search, responsive, keyboard, or accessibility issues.
+title: "[Site]: "
+labels: [site]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: URL
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Problem type
+      options:
+        - Route or redirect
+        - Search
+        - Mobile layout
+        - Keyboard or screen reader
+        - Image or media
+        - Build or other
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction and expected result
+    validations:
+      required: true

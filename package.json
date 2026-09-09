@@ -1,0 +1,51 @@
+{
+  "name": "life-level-up-guide",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI 时代终身学习指南：学习、真实项目、低谷复原与成长证据的开放内容项目",
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs && npm run check:bundle",
+    "docs:preview": "vitepress preview docs",
+    "check:content": "node scripts/check-content.mjs",
+    "check:navigation": "node scripts/sync-navigation.mjs --check && node scripts/sync-word-lists.mjs --check && node scripts/sync-public-assets.mjs --check",
+    "check:worksheets": "node scripts/sync-worksheets.mjs --check",
+    "sync:worksheets": "node scripts/sync-worksheets.mjs",
+    "check:readme": "node scripts/sync-readme.mjs --check",
+    "check:format": "markdownlint-cli2 \"**/*.md\" \"#node_modules\" \"#docs/.vitepress/dist\"",
+    "check:bundle": "node scripts/check-build-size.mjs",
+    "book:build": "node scripts/build-epub.mjs",
+    "book:validate": "node scripts/check-epub-standard.mjs",
+    "book:check": "node scripts/build-epub.mjs --check",
+    "book:pdf:build": "node scripts/run-pdf-build.mjs",
+    "book:pdf:check": "node scripts/run-pdf-build.mjs --check",
+    "book:pdf:check:exact": "node scripts/run-pdf-build.mjs --check-exact",
+    "check": "npm run test:unit && npm run test:pdf && npm run check:navigation && npm run check:readme && npm run check:worksheets && npm run check:content && npm run check:format && npm run book:check && npm run book:pdf:check",
+    "sync:content": "node scripts/sync-navigation.mjs && node scripts/sync-word-lists.mjs && node scripts/sync-public-assets.mjs && node scripts/sync-readme.mjs && npm run sync:worksheets && npm run book:build",
+    "sync": "npm run sync:content && npm run book:pdf:build",
+    "test:unit": "node --test tests/*.test.mjs",
+    "test:pdf": "node scripts/run-pdf-build.mjs --test-layout",
+    "test:smoke": "playwright test",
+    "assets:sanitize": "node scripts/sanitize-assets.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
+    "markdownlint-cli2": "0.23.2",
+    "mdast-util-from-markdown": "2.0.3",
+    "mdast-util-gfm": "3.1.0",
+    "mdast-util-to-markdown": "2.1.2",
+    "micromark-extension-gfm": "3.0.0",
+    "sharp": "0.35.4",
+    "vitepress": "1.6.4"
+  },
+  "overrides": {
+    "esbuild": "0.25.12",
+    "smol-toml": "1.8.0",
+    "vite": "6.4.3"
+  }
+}

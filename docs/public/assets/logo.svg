@@ -1,0 +1,6 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">人生进阶指南</title>
+  <rect x="2" y="2" width="44" height="44" rx="7" fill="#176f5b"/>
+  <path d="M11 35H17V30H23V25H29V20H35V14" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"/>
+  <circle cx="35" cy="14" r="4" fill="#d56a50" stroke="#ffffff" stroke-width="2"/>
+</svg>

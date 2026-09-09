@@ -1,0 +1,31 @@
+name: Content error
+description: Report an inaccurate, unsupported, or outdated statement.
+title: "[Content]: "
+labels: [content]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page URL or path
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Current claim and problem
+      description: Quote only the smallest necessary passage. Do not include private data.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Proposed correction and primary sources
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: This report contains no sensitive personal information.
+          required: true

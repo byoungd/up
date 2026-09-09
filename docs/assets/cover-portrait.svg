@@ -1,0 +1,53 @@
+<svg width="1600" height="2560" viewBox="0 0 1600 2560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description">
+  <title id="title">《人生进阶指南》中文电子书封面</title>
+  <desc id="description">韩先凯著。五级上升结构代表输入、生活、工具、实践与行动。</desc>
+  <rect width="1600" height="2560" fill="#f5f7f3"/>
+  <rect width="30" height="2560" fill="#176f5b"/>
+  <path d="M110 210H1490M110 2290H1490" stroke="#cfd7d1" stroke-width="2"/>
+
+  <g font-family="system-ui,-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+    <text x="120" y="170" fill="#176f5b" font-size="44" font-weight="700">AI 时代终身学习指南</text>
+    <text x="112" y="560" fill="#1d2926" font-size="190" font-weight="800">人生进阶指南</text>
+    <text x="120" y="690" fill="#485652" font-size="54">从英语这扇门出发</text>
+    <text x="120" y="770" fill="#485652" font-size="54">走向学习、生活、AI 与长期行动</text>
+  </g>
+
+  <g fill="none" stroke="#dfe5e0" stroke-width="2">
+    <path d="M110 960H1490"/>
+    <path d="M110 2040H1490"/>
+  </g>
+
+  <g font-family="system-ui,-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+    <rect x="120" y="1740" width="220" height="220" rx="8" fill="#176f5b"/>
+    <rect x="395" y="1570" width="220" height="390" rx="8" fill="#c0523a"/>
+    <rect x="670" y="1390" width="220" height="570" rx="8" fill="#b8862b"/>
+    <rect x="945" y="1200" width="220" height="760" rx="8" fill="#3e6e8d"/>
+    <rect x="1220" y="1000" width="220" height="960" rx="8" fill="#263431"/>
+    <path d="M230 1680L505 1510L780 1330L1055 1140L1330 940" fill="none" stroke="#1d2926" stroke-width="8"/>
+    <g fill="#f5f7f3" stroke="#1d2926" stroke-width="7">
+      <circle cx="230" cy="1680" r="20"/>
+      <circle cx="505" cy="1510" r="20"/>
+      <circle cx="780" cy="1330" r="20"/>
+      <circle cx="1055" cy="1140" r="20"/>
+      <circle cx="1330" cy="940" r="20"/>
+    </g>
+    <g fill="#f5f7f3" font-size="38" font-weight="700" text-anchor="middle">
+      <text x="230" y="1880">输入</text>
+      <text x="505" y="1880">生活</text>
+      <text x="780" y="1880">工具</text>
+      <text x="1055" y="1880">实践</text>
+      <text x="1330" y="1880">行动</text>
+    </g>
+    <g fill="#6b7773" font-size="26" text-anchor="middle">
+      <text x="230" y="2015">01</text>
+      <text x="505" y="2015">02</text>
+      <text x="780" y="2015">03</text>
+      <text x="1055" y="2015">04</text>
+      <text x="1330" y="2015">05</text>
+    </g>
+    <text x="120" y="2210" fill="#1d2926" font-size="42" font-weight="700">发现问题 → 主动学习 → 完成真实任务 → 保存证据 → 复盘迁移</text>
+    <text x="120" y="2390" fill="#1d2926" font-size="50" font-weight="700">韩先凯 著</text>
+    <text x="405" y="2390" fill="#6b7773" font-size="36">笔名：离谱</text>
+    <text x="120" y="2500" fill="#6b7773" font-size="30">byoungd.github.io/up</text>
+  </g>
+</svg>

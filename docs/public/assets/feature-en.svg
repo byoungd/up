@@ -1,0 +1,54 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description">
+  <title id="title">Life Level-up Guide book sharing cover</title>
+  <desc id="description">By Han Xiankai. Five rising stages represent input, life, tools, practice, and action.</desc>
+  <rect width="1200" height="630" fill="#f5f7f3"/>
+  <rect width="14" height="630" fill="#176f5b"/>
+  <path d="M58 94H650M58 570H650" stroke="#cfd7d1" stroke-width="1"/>
+  <g fill="none" stroke="#dfe5e0" stroke-width="1">
+    <path d="M720 70V570"/>
+    <path d="M1190 70V570"/>
+    <path d="M720 570H1190"/>
+  </g>
+
+  <g font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <text x="70" y="76" fill="#176f5b" font-size="21" font-weight="700">A LIFELONG LEARNING GUIDE FOR THE AI ERA</text>
+    <text x="70" y="196" fill="#1d2926" font-size="70" font-weight="800">LIFE LEVEL-UP</text>
+    <text x="70" y="270" fill="#1d2926" font-size="70" font-weight="800">GUIDE</text>
+    <text x="72" y="335" fill="#485652" font-size="25">Begin with language. Move through life, AI, practice,</text>
+    <text x="72" y="374" fill="#485652" font-size="25">and the work of changing over time.</text>
+    <text x="72" y="446" fill="#1d2926" font-size="20" font-weight="700">Question → Learn → Work with AI → Deliver → Review → Transfer</text>
+    <text x="72" y="535" fill="#1d2926" font-size="24" font-weight="700">Han Xiankai</text>
+    <text x="222" y="535" fill="#6b7773" font-size="19">pen name: Li Pu</text>
+    <text x="72" y="605" fill="#6b7773" font-size="17">byoungd.github.io/up/en</text>
+  </g>
+
+  <g font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" text-anchor="middle">
+    <rect x="754" y="410" width="62" height="100" rx="4" fill="#176f5b"/>
+    <rect x="838" y="360" width="62" height="150" rx="4" fill="#c0523a"/>
+    <rect x="922" y="305" width="62" height="205" rx="4" fill="#b8862b"/>
+    <rect x="1006" y="250" width="62" height="260" rx="4" fill="#3e6e8d"/>
+    <rect x="1090" y="190" width="62" height="320" rx="4" fill="#263431"/>
+    <path d="M785 395L869 345L953 290L1037 235L1121 175" fill="none" stroke="#1d2926" stroke-width="3"/>
+    <g fill="#f5f7f3" stroke="#1d2926" stroke-width="3">
+      <circle cx="785" cy="395" r="8"/>
+      <circle cx="869" cy="345" r="8"/>
+      <circle cx="953" cy="290" r="8"/>
+      <circle cx="1037" cy="235" r="8"/>
+      <circle cx="1121" cy="175" r="8"/>
+    </g>
+    <g fill="#1d2926" font-size="14" font-weight="700">
+      <text x="785" y="550">INPUT</text>
+      <text x="869" y="550">LIFE</text>
+      <text x="953" y="550">TOOLS</text>
+      <text x="1037" y="550">PRACTICE</text>
+      <text x="1121" y="550">ACTION</text>
+    </g>
+    <g fill="#7a8581" font-size="13">
+      <text x="785" y="578">01</text>
+      <text x="869" y="578">02</text>
+      <text x="953" y="578">03</text>
+      <text x="1037" y="578">04</text>
+      <text x="1121" y="578">05</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+.DS_Store
+node_modules
+__pycache__/
+*.py[cod]
+/dist
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+.codex-artifact-work/
+outputs/
+output/pdf/
+tmp/
+playwright-report/
+test-results/
+
+# local env files
+.env.local
+.env.*.local
+
+# Local session credentials must never enter the repository or site output.
+docs/assets/session.json
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+.yarn.lock
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*

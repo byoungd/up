@@ -1,0 +1,3 @@
+Pillow==12.3.0
+pypdf==6.16.2
+reportlab==4.4.9

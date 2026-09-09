@@ -1,0 +1,21 @@
+name: Broken link
+description: Report a local or external link that no longer works.
+title: "[Link]: "
+labels: [broken-link]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page URL or path
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Broken target
+    validations:
+      required: true
+  - type: textarea
+    id: replacement
+    attributes:
+      label: Suggested official replacement

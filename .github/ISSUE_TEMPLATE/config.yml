@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security or privacy report
+    url: https://github.com/byoungd/up/security/advisories/new
+    about: Report sensitive vulnerabilities and personal-data exposure privately.

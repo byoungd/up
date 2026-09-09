@@ -1,0 +1,63 @@
+name: Reader field note / 读者现场回执
+description: Share a privacy-safe reading attempt, action, delayed result, or point of confusion.
+title: "[Reader]: "
+labels: [content]
+body:
+  - type: input
+    id: chapter
+    attributes:
+      label: Chapter or page / 章节或页面
+      description: Provide the URL or repository path.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Real problem / 真实问题
+      description: What were you trying to understand, complete, change, or stop?
+    validations:
+      required: true
+  - type: textarea
+    id: action
+    attributes:
+      label: Action and artifact / 行动与作品
+      description: What did you actually do or make after reading? A small or unsuccessful attempt is useful evidence.
+    validations:
+      required: true
+  - type: input
+    id: time_to_first_action
+    attributes:
+      label: Time to first action / 到第一次行动的时间
+      description: Approximate minutes from opening the page to a first saved output; write "not recorded" if unknown.
+    validations:
+      required: true
+  - type: textarea
+    id: conditions
+    attributes:
+      label: Non-sensitive conditions / 非敏感条件
+      description: Record only useful context such as device type, available time, prior familiarity, or whether help was used. Do not include identity, location, employer, health, or private project details.
+    validations:
+      required: true
+  - type: textarea
+    id: delayed_result
+    attributes:
+      label: Delayed result / 延迟结果
+      description: What remained after several days, what transferred to a new situation, and what disappeared? Write "not retested yet" when applicable.
+    validations:
+      required: true
+  - type: textarea
+    id: revision
+    attributes:
+      label: What should change / 哪些内容需要改变
+      description: Name one unclear passage, missing boundary, weak example, unusable tool, or unnecessary section.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy and claims / 隐私与事实
+      options:
+        - label: This note contains no private customer data, credentials, medical records, or unnecessary third-party identity details.
+          required: true
+        - label: I have separated what I observed from what I infer or hope.
+          required: true

@@ -1,0 +1,21 @@
+name: Translation issue
+description: Report missing meaning, divergence, or unnatural language between editions.
+title: "[Translation]: "
+labels: [translation]
+body:
+  - type: input
+    id: pages
+    attributes:
+      label: Chinese and English page paths
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Meaning or language problem
+    validations:
+      required: true
+  - type: textarea
+    id: revision
+    attributes:
+      label: Suggested revision
