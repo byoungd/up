@@ -17,15 +17,18 @@ import {
 import { tmpdir } from "node:os";
 import { basename, dirname, extname, join, normalize, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
+import { parseArgs } from "node:util";
 import { createMarkdownRenderer } from "vitepress";
 import { enNavigation, publicationSections, zhNavigation } from "../docs/.vitepress/navigation.mjs";
+import { configureEpubMarkdown, escapeXml, makeXhtml } from "./epub-rendering.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const DOCS = join(ROOT, "docs");
 const PUBLIC = join(DOCS, "public");
-const OUTPUT_DIR = join(PUBLIC, "downloads");
+const { values: options } = parseArgs({ options: { check: { type: "boolean" }, "output-dir": { type: "string" } } });
+const OUTPUT_DIR = options["output-dir"] ? resolve(options["output-dir"]) : join(PUBLIC, "downloads");
 const ONLINE_ROOT = "https://byoungd.github.io/up/";
-const checkOnly = process.argv.includes("--check");
+const checkOnly = options.check;
 const fixedTime = new Date("1980-01-01T00:00:00Z");
 const zipEnv = { ...process.env, TZ: "UTC" };
 
@@ -41,6 +44,10 @@ const editions = [
     frontMatter: "开卷",
     appendices: "附录与工具箱",
     contents: "目录",
+    landmarks: "阅读导航",
+    coverLabel: "封面",
+    startLabel: "开始阅读",
+    accessibilitySummary: "本书采用可调整字号的流式排版，提供目录、标题结构、表格列标题和图片替代文字。部分插图中的细节没有完整的文字描述；外部参考链接需要联网。",
     coverAlt: "《人生进阶指南》封面",
     description: "从英语、AI、真实项目与人生低谷出发，建立能够复测、迁移、恢复并承担责任的终身学习系统。",
     coverSource: join(PUBLIC, "assets/cover-portrait.png"),
@@ -56,6 +63,10 @@ const editions = [
     frontMatter: "Front Matter",
     appendices: "Appendices and Toolkit",
     contents: "Contents",
+    landmarks: "Reading navigation",
+    coverLabel: "Cover",
+    startLabel: "Start reading",
+    accessibilitySummary: "Reflowable text supports font resizing, a table of contents, structured headings, table column headers, and image alternatives. Some illustrations do not have complete text descriptions of their details. External reference links require an internet connection.",
     coverAlt: "Life Level-up Guide cover",
     description: "A lifelong-learning system for English, AI, real projects, difficult seasons, evidence, transfer, recovery, and responsibility.",
     coverSource: join(PUBLIC, "assets/cover-portrait-en.png"),
@@ -70,15 +81,6 @@ const routeToSource = new Map(
 
 function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
-}
-
-function escapeXml(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&apos;");
 }
 
 function parseFrontmatter(file) {
@@ -171,31 +173,6 @@ function rewriteHtmlAttributes(content, source, rewriteLink, rewriteImage) {
     .replace(/\s+(?:target|loading|decoding|fetchpriority)=(['"])[^'"]*\1/gi, "");
 }
 
-function makeXhtml({ lang, title, body, epubType = "chapter" }) {
-  const safeBody = body
-    .replace(/<a\b[^>]*class="header-anchor"[^>]*>[\s\S]*?<\/a>/gi, "")
-    .replace(/\s+tabindex=(['"])-?\d+\1/gi, "")
-    .replace(/&nbsp;/g, "&#160;")
-    .replace(/&ZeroWidthSpace;/g, "&#8203;")
-    .replace(/&(?!(?:amp|lt|gt|quot|apos|#\d+|#x[0-9a-f]+);)/gi, "&amp;")
-    .replace(/<(img|br|hr)(\b[^>]*?)(?<!\/)\s*>/gi, "<$1$2 />");
-  return `<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="${lang}" xml:lang="${lang}">
-<head>
-  <meta charset="utf-8" />
-  <title>${escapeXml(title)}</title>
-  <link rel="stylesheet" type="text/css" href="../styles/book.css" />
-</head>
-<body epub:type="${epubType}">
-<main>
-${safeBody}
-</main>
-</body>
-</html>
-`;
-}
-
 function unescapeXml(value) {
   return value
     .replaceAll("&quot;", '"')
@@ -261,7 +238,8 @@ function validateEpubRoot(epubRoot, edition, chapterRecords) {
   }
 
   const nav = readFileSync(join(oebps, "nav.xhtml"), "utf8");
-  const navLinks = [...nav.matchAll(/<a href="([^"]+)"/g)].map((match) => match[1]);
+  const toc = nav.match(/<nav epub:type="toc"[^>]*>([\s\S]*?)<\/nav>/)?.[1] || "";
+  const navLinks = [...toc.matchAll(/<a href="([^"]+)"/g)].map((match) => match[1]);
   if (navLinks.length !== chapterRecords.length + 1) {
     throw new Error(`${edition.file}: 导航条目数量错误: ${navLinks.length}`);
   }
@@ -276,6 +254,8 @@ body {
   margin: 5%;
   orphans: 2;
   widows: 2;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 main { max-width: 42rem; margin: 0 auto; }
 h1, h2, h3, h4 { line-height: 1.3; page-break-after: avoid; }
@@ -287,8 +267,8 @@ a { color: inherit; text-decoration: underline; text-decoration-thickness: 0.06e
 blockquote { border-left: 0.18em solid #737373; margin: 1.4em 0; padding-left: 1em; color: #555; }
 img { display: block; height: auto; margin: 1.6em auto; max-width: 100%; }
 table { border-collapse: collapse; font-size: 0.86em; margin: 1.5em 0; width: 100%; }
-th, td { border: 1px solid #999; padding: 0.45em; vertical-align: top; }
-pre { background: #f3f3f3; border: 1px solid #ddd; overflow-wrap: anywhere; padding: 0.8em; white-space: pre-wrap; }
+th, td { border: 1px solid #999; padding: 0.45em; vertical-align: top; overflow-wrap: anywhere; }
+pre { background: #f3f3f3; border: 1px solid #ddd; overflow-wrap: anywhere; word-wrap: break-word; padding: 0.8em; white-space: pre-wrap; }
 code { font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.9em; }
 .book-meta, .guide-paths { margin: 1.3em 0; }
 .guide-path { display: block; margin: 0.7em 0; text-decoration: none; }
@@ -437,7 +417,11 @@ async function buildEdition(edition, markdown, tempBase) {
 <body><nav epub:type="toc" id="toc"><h1>${escapeXml(edition.contents)}</h1><ol>
       <li><a href="text/title.xhtml">${escapeXml(edition.title)}</a></li>
 ${navSections}
-    </ol></nav></body>
+    </ol></nav>
+<nav epub:type="landmarks" aria-label="${escapeXml(edition.landmarks)}" hidden="hidden"><ol>
+  <li><a epub:type="cover" href="text/cover.xhtml">${escapeXml(edition.coverLabel)}</a></li>
+  <li><a epub:type="bodymatter" href="text/${chapterRecords[0].filename}">${escapeXml(edition.startLabel)}</a></li>
+</ol></nav></body>
 </html>
 `;
   writeFileSync(join(epubRoot, "OEBPS/nav.xhtml"), navXhtml);
@@ -463,6 +447,15 @@ ${navSections}
     <dc:rights>CC BY-NC 4.0</dc:rights>
     <dc:source>${ONLINE_ROOT}</dc:source>
     <meta property="dcterms:modified">${latestUpdated}T00:00:00Z</meta>
+    <meta property="schema:accessMode">textual</meta>
+    <meta property="schema:accessMode">visual</meta>
+    <meta property="schema:accessModeSufficient">textual,visual</meta>
+    <meta property="schema:accessibilityFeature">alternativeText</meta>
+    <meta property="schema:accessibilityFeature">readingOrder</meta>
+    <meta property="schema:accessibilityFeature">structuralNavigation</meta>
+    <meta property="schema:accessibilityFeature">tableOfContents</meta>
+    <meta property="schema:accessibilityHazard">none</meta>
+    <meta property="schema:accessibilitySummary">${escapeXml(edition.accessibilitySummary)}</meta>
   </metadata>
   <manifest>
     <item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav" />
@@ -538,7 +531,7 @@ ${navPoints.map(({ id, title, href }, index) => `    <navPoint id="${id}" playOr
 
 const tempBase = mkdtempSync(join(tmpdir(), "life-level-up-epub-"));
 try {
-  const markdown = await createMarkdownRenderer(DOCS);
+  const markdown = await createMarkdownRenderer(DOCS, { config: configureEpubMarkdown });
   const built = [];
   for (const edition of editions) built.push(await buildEdition(edition, markdown, tempBase));
   const manifest = `${JSON.stringify({
@@ -565,7 +558,7 @@ try {
     for (const { output, metadata } of built) copyFileSync(output, join(OUTPUT_DIR, metadata.file));
     writeFileSync(join(OUTPUT_DIR, "epub-manifest.json"), manifest);
     for (const { metadata } of built) {
-      console.log(`updated docs/public/downloads/${metadata.file} (${metadata.chapters} chapters, ${metadata.bytes} bytes)`);
+      console.log(`updated ${relative(ROOT, join(OUTPUT_DIR, metadata.file))} (${metadata.chapters} chapters, ${metadata.bytes} bytes)`);
     }
   }
 } finally {

@@ -24,6 +24,8 @@
 - PDF 校验使用 Python 3.12，建议在虚拟环境中安装 `requirements-pdf.txt`。可以设置 `PDF_PYTHON` 指定解释器；显式指定的解释器不可用时会直接报错，避免静默切换环境。
 - 本地开发运行 `npm run docs:dev`。
 - 快速脚本回归运行 `npm run test:unit`，已包含在完整校验中。
+- 模板下载运行 `npm run sync:worksheets` 生成，`npm run check:worksheets` 检查同步；两者已分别纳入 `sync:content` 和 `check`。
+- EPUB 独立标准检查运行 `npm run book:validate`，需要 Java 21 或兼容运行时；可用 `EPUBCHECK_JAVA` 指定 Java。命令固定 EPUBCheck 5.3.0 并验证下载 ZIP 的 SHA256，可用 `--reports-dir outputs/epubcheck` 保留 JSON 报告。CI 与 Pages 发布都要求零错误、零警告。
 - 完整校验运行 `npm run check`。
 - 生产构建运行 `npm run docs:build`；构建完成后会自动检查搜索索引、框架和主题脚本的原始与 gzip 体积预算。
 - 本地预览生产产物运行 `npm run docs:preview`。
@@ -46,9 +48,12 @@ npm run sync
 - `docs/en/SUMMARY.md`；
 - 根目录 `README.md`；
 - 英文词表镜像；
-- VitePress `public` 分享图。
+- VitePress `public` 分享图；
+- 中英文完整工作表 Markdown 下载。
 
 CI 会再次生成这些文件，并阻止未提交的差异进入主分支。
+
+`docs/public/downloads/worksheets/` 是生成的下载目录，由中英文模板导航和源文决定。不要直接编辑下载文件；生成器保留说明、GFM 表格、复选框和提示词，将填写用 Markdown 代码块展开并保留逐行字段，站内链接转换为可从本地文件使用的在线地址。`toolkit` 和 `toolkit-walkthrough` 是使用说明，不作为空白工作表提供下载。`public/**` 明确排除在网页编译和搜索之外，避免下载副本被重复索引；独立同步检查保证它们未漂移。
 同步脚本还会检查每个导航条目的字段、重复链接和 `source` 文件是否存在；路径写错时会在 `npm run check:navigation` 阶段失败。
 它还会反向检查 `docs/` 下的所有公开 Markdown 是否都被中英文导航收录，避免新页面成为孤岛。
 
@@ -118,6 +123,8 @@ GitHub Actions 不包含分析脚本、广告或用户追踪器。
 - 合并图片前先运行 `npm run assets:sanitize`，再执行完整校验。
 
 `.github/dependabot.yml` 在进入默认分支后每周检查 npm、GitHub Actions 和 Python 出版依赖，兼容的 minor/patch 更新按生态合并为 PR，每个生态最多保留 3 个版本更新 PR；主版本更新单独评估。它不自动合并或部署。PDF/字体依赖更新仍须通过出版物语义、文件清单与必要的排版复核，不能只看包版本是否最新。
+
+运行 `npm run book:validate -- --reports-dir outputs/epubcheck` 可以保存 EPUBCheck JSON 报告。该命令固定并校验官方 EPUBCheck 5.3.0 发布档案；需要 Java 21。CI 和 Pages 发布在上传产物前执行同一门禁。
 
 ### 技术演进条件（2026-09-09 核验）
 

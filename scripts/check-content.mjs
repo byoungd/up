@@ -402,7 +402,10 @@ function checkTrackedSystemFiles() {
   }
 }
 
-const markdownFiles = walk(ROOT, new Set([".md"]));
+// Public files are downloadable payloads, not VitePress manuscript sources.
+// Their generated content is checked by sync-worksheets.mjs --check.
+const markdownFiles = walk(ROOT, new Set([".md"]))
+  .filter((file) => !file.startsWith(`${join(DOCS, "public")}${sep}`));
 for (const file of markdownFiles) checkLinksAndAlt(file);
 for (const file of markdownFiles.filter((path) => path.startsWith(`${DOCS}/`))) {
   checkFrontmatter(file);

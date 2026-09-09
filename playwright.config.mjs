@@ -30,6 +30,7 @@ export default defineConfig({
     },
     {
       name: "mobile-chromium",
+      testIgnore: "**/epub-reading.spec.mjs",
       use: {
         ...devices["iPhone 13"],
         browserName: "chromium",

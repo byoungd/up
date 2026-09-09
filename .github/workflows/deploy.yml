@@ -30,10 +30,22 @@ jobs:
           python-version: "3.12"
           cache: pip
           cache-dependency-path: requirements-pdf.txt
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
       - uses: actions/configure-pages@v6
       - run: npm ci
       - run: python -m pip install -r requirements-pdf.txt
       - run: npm run check
+      - run: npm run book:validate -- --reports-dir outputs/epubcheck
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: deployment-epubcheck-report
+          path: outputs/epubcheck/
+          if-no-files-found: ignore
+          retention-days: 14
       - run: npm run docs:build
       - run: npx playwright install --with-deps chromium
       - run: npm run test:smoke

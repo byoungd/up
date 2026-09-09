@@ -6,6 +6,7 @@ import { defineConfig } from "vitepress";
 import { bilingualRoutePairs, enNavigation, toSidebar, zhNavigation } from "./navigation.mjs";
 import { legacyRedirectScript, publicRoutePath } from "./routing.mjs";
 import { privateAssetGuard } from "./private-assets.mjs";
+import { worksheetBySource } from "./worksheets.mjs";
 
 const origin = "https://byoungd.github.io";
 const base = "/up/";
@@ -132,7 +133,7 @@ export default defineConfig({
   base,
   cleanUrls: true,
   lastUpdated: true,
-  srcExclude: ["SUMMARY.md", "en/SUMMARY.md"],
+  srcExclude: ["SUMMARY.md", "en/SUMMARY.md", "public/**"],
   sitemap: {
     hostname: siteUrl,
     transformItems(items) {
@@ -149,6 +150,7 @@ export default defineConfig({
     },
   },
   markdown: {
+    theme: { light: "github-light-high-contrast", dark: "github-dark" },
     config(md) {
       md.core.ruler.after("inline", "defer-content-images", (state) => {
         for (const token of state.tokens) {
@@ -329,6 +331,10 @@ export default defineConfig({
     },
   },
   transformPageData(pageData) {
+    const worksheet = worksheetBySource.get(pageData.relativePath);
+    if (worksheet) {
+      pageData.frontmatter.worksheetDownload = { url: worksheet.download, name: worksheet.name };
+    }
     const updated = pageData.frontmatter.updated;
     const timestamp =
       updated instanceof Date

@@ -1,7 +1,7 @@
 ---
 title: "Toolkit Walkthrough: Let AI Continue a 90-Day Learning Project across Sessions"
 description: Use an explicitly synthetic Python-learning case to show how Learning State, an AI Task Brief, an unaided baseline, an artifact, an Evidence Chain, Weekly Review, and a Reader Field Note hand work over.
-updated: 2026-09-02
+updated: 2026-09-09
 ---
 
 # Toolkit Walkthrough: Let AI Continue a 90-Day Learning Project across Sessions
@@ -52,33 +52,42 @@ If this is your first use of the toolkit, follow this page for one week. Do not 
 
 The learner creates `python-learning-state.md` instead of using an AI thread as memory:
 
+Save this main file in a private notes tool or local folder, with practice materials in `evidence/week-01/` alongside it. All paths below are relative to the main file's folder. They are naming examples within the synthetic demonstration, not code downloads supplied with the book. Paths help the learner find files; file contents provide evidence that can be checked.
+
 ```markdown
 # Learning State — python-90d-v1
 
 Updated: 2026-09-02
+Main file: python-learning-state.md
+Evidence location: evidence/week-01/ (relative to the main file's folder)
 Ninety-day situation: independently deliver a CSV-summary command-line tool and explain input validation, error handling, and tests.
-Current baseline: can write variables, if, and for; cannot independently read CSV, separate functions, or write tests.
+Initial baseline: day one, no AI, 25 minutes; can write variables, if, and for, and has handled only normal CSV rows; cannot independently complete input validation, separate functions, or write tests.
 Reliable capacity: Monday, Wednesday, Friday, and Sunday, 45 minutes each.
-Existing evidence: baseline/day-01.py; crashes on a row with an empty value.
+Existing evidence: evidence/week-01/baseline.py; crashes on completely empty rows or empty amount fields.
 Repeated errors: looking at answers first; treating running code as explained code; changing several variables and losing the cause.
-Boundaries: synthetic data only; submit my version first; no make-up study after 23:00.
+Boundaries: synthetic data only; submit my version first, no AI-written final artifact; no make-up study after 23:00.
 Current phase: days 1–14, calibrate.
-Smallest next task: read a 12-row synthetic CSV, skip empty rows, and print valid-row count plus total amount.
-Acceptance: the unaided version runs; I can explain each function; at least one failing test is preserved.
+Phase gate: if core code still cannot be explained independently on day fourteen, add no framework or new course.
+Smallest next task: revise reading of a 12-row synthetic CSV so normal-row summaries and completely empty rows pass first.
+Fixed functional acceptance: (1) correct valid-row count and total for normal rows; (2) skip completely empty rows; (3) report row numbers for invalid amounts and skip those rows without crashing.
+Invalid amounts: an empty amount field, letters, or a negative number; these are input rules chosen for this demonstration only.
+Learning evidence kept separately: functions I can explain; passing and failing tests saved; neither counts toward the three functional conditions.
 Stop condition: save state when 45 minutes ends; do not stay up to finish.
 ```
 
-The state file keeps only what can change the next action. Course notes, full chat logs, and every attempt belong in the evidence folder rather than on the state page.
+The state file keeps only what can change the next action. Course notes, full chat logs, and every attempt belong in the evidence folder rather than on the state page. Future updates retain the goal, initial baseline, capacity, and boundaries that still apply. The latest version should be a complete snapshot that stands alone, not just a list of changes.
 
 ## Step Two: Give AI One Task at a Time
 
 A new conversation does not ask AI to “remember me”. It receives the latest state and one task brief:
 
-```markdown
-Below is my Learning State file. First restate the version, goal, current evidence, main errors, boundaries, and next task in no more than six bullets. Point out conflicts or gaps. Do not add facts that are absent.
+An ordinary chat does not gain file access by seeing a local path. The learner pastes the state and attaches `evidence/week-01/baseline.py` plus the necessary synthetic input for this task, or provides only the relevant excerpts. Even when a tool can read files, confirm which materials it actually read. A file whose contents were not supplied remains an index entry awaiting verification; it is not evidence already checked in this session.
 
-This session has one task: read a synthetic CSV, skip empty rows, and print valid-row count plus total amount.
-Process: let me submit an unaided version first; identify at most three problems that affect the result without giving full code; after I revise it, test with two cases. At 45 minutes, return five updates: completed, evidence, error/risk, handover, and next step.
+```markdown
+Below is my Learning State file. First restate the version, goal, current evidence, main errors, boundaries, and next task in no more than six bullets. Point out conflicts or gaps. Do not add facts that are absent; distinguish results I report from evidence you actually read this time.
+
+This session has one task: revise reading of the synthetic CSV so normal-row summaries and completely empty rows pass first.
+Process: let me submit an unaided version first; identify at most three problems that affect the result without giving full code; after I revise it, test normal and completely empty rows first and record the invalid-amount condition that has not passed. At 45 minutes, return five updates: completed, evidence, error/risk, handover, and next step. I will check them before writing them back to the main file.
 ```
 
 AI's first job is to restate the state, not begin a lecture. When the restatement is wrong, repair the state or prompt before generating another plan on a false premise.
@@ -89,11 +98,11 @@ The synthetic unaided attempt produces:
 
 | Condition | Result | Evidence |
 | --- | --- | --- |
-| 25 minutes, no answer | Reads valid rows; empty amount raises an exception; all logic in one function | `evidence/week-01/baseline.py` |
-| AI identifies only three issues | Empty-value validation, function ownership, and missing tests become visible | `evidence/week-01/feedback.md` |
-| After revision | Normal-row and empty-row tests pass; invalid amount format remains unsupported | `evidence/week-01/revision.py` |
+| 25 minutes, no answer | Correct summaries for normal rows; completely empty rows and empty amounts raise exceptions; all logic in one function | `evidence/week-01/baseline.py` |
+| AI identifies only three issues | Empty-row and amount validation, function ownership, and missing tests become visible | `evidence/week-01/feedback.md` |
+| After revision | Normal and completely empty rows pass; invalid amounts still violate the specification; two functions can be explained and failing tests are saved | `evidence/week-01/revision.py` · `evidence/week-01/tests.md` |
 
-The record is not “AI wrote the program”. It says the unaided version exposed three issues, AI helped classify them, the learner repaired two, and the third became the next task.
+The record is not “AI wrote the program”. It says the unaided version exposed issues, AI helped classify them, and the learner completed empty-row handling, function separation, and test records. The unmet invalid-amount condition became the next task. The three feedback categories and the three functional conditions are different counts.
 
 Asking for complete code first may produce a better-looking file while erasing the baseline and any way to tell which ability belongs to the learner.
 
@@ -101,34 +110,49 @@ Asking for complete code first may produce a better-looking file while erasing t
 
 Week one does not preserve the statement “learned CSV”. It records four time points:
 
+The denominator below always refers to the same three functional conditions in the state file: normal-row summaries, completely empty rows, and invalid amounts. The third condition passes only when empty, alphabetic, and negative amounts are all handled as specified. Changing the denominator cannot improve the result. Save function explanations and failing-test locations separately; they cannot replace a failed function.
+
 | Time point | Condition | Synthetic result | What it still cannot show |
 | --- | --- | --- | --- |
-| Baseline | No AI, 25 minutes | 1/3 acceptance conditions pass | Understanding of error handling |
-| Immediate after assistance | Three feedback points seen | 2/3 pass; two functions can be explained | Retention after several days |
-| Day-seven delayed retest | Old code closed; parallel CSV | 2/3 pass; invalid amount is missed again | Adaptation to a new field |
-| Transfer | Add a `currency` field | Finds where change belongs; currency validation incomplete | Structure begins to transfer, prerequisites remain missing |
+| Baseline | No AI, 25 minutes | 1/3: only normal-row summaries pass; empty rows and invalid amounts fail | Understanding of error handling |
+| Immediate after assistance | Three feedback points seen | 2/3: normal and completely empty rows pass; invalid amounts fail | Retention after several days |
+| Day-seven delayed retest | Old code closed; parallel CSV | 2/3: the same two conditions pass; invalid amounts fail again | Adaptation to a new field |
+| Transfer | Add a `currency` field and record the new requirement separately | Finds where change belongs; currency validation incomplete; excluded from the original three-condition score | Structure begins to transfer, prerequisites remain missing |
+
+Function explanations and passing/failing cases are saved in `evidence/week-01/tests.md`; the independent day-seven version is saved in `evidence/week-01/day-07-retest.py`. Explaining two functions after immediate revision is a separate learning observation and does not change the functional count.
 
 The result is not perfect and is more informative than “maintained a seven-day streak”. The next variable is not pandas, a web framework, and a database. It is input validation and failing tests.
 
 ## Step Five: Continue in a New Conversation
 
-The weekly review writes only decision-changing information back into state:
+After the weekly review, the learner checks the artifacts and tests, writes changes back into the same main file, and updates the version and date. Here is the complete `v2` snapshot, retaining the goal and boundaries:
 
 ```markdown
 # Learning State — python-90d-v2
 
 Updated: 2026-09-08
+Main file: python-learning-state.md
+Evidence location: evidence/week-01/ (relative to the main file's folder)
+Ninety-day situation: independently deliver a CSV-summary command-line tool and explain input validation, error handling, and tests.
+Initial baseline: day one, no AI, 25 minutes; can write variables, if, and for, and has handled only normal CSV rows; cannot independently complete input validation, separate functions, or write tests; only normal-row summaries passed the three functional conditions.
+Reliable capacity: Monday, Wednesday, Friday, and Sunday, 45 minutes each.
+Current phase: days 1–14, calibrate; the day-seven retest is complete.
 Completed: normal and empty CSV rows; logic separated into read_rows and summarize.
-Evidence: week-01/baseline.py; revision.py; day-07-retest.py; tests.md.
-Delayed result: 2/3 conditions remain on day seven; invalid amount fails again.
-Main error: failure paths lack tests; normal output causes testing to stop too early.
-Boundaries retained: synthetic data; unaided answer first; stop at 45 minutes; no repayment of missed time.
+Evidence: evidence/week-01/baseline.py; evidence/week-01/feedback.md; evidence/week-01/revision.py; evidence/week-01/day-07-retest.py; evidence/week-01/tests.md.
+Fixed functional acceptance: (1) correct valid-row count and total for normal rows; (2) skip completely empty rows; (3) report row numbers for invalid amounts and skip those rows without crashing.
+Invalid amounts: an empty amount field, letters, or a negative number; these are input rules chosen for this demonstration only.
+Delayed result: still 2/3 on day seven; (1) and (2) pass, (3) fails; this does not establish mastery of input validation.
+Learning evidence kept separately: two functions could be explained after immediate revision; passing/failing tests and explanations are in evidence/week-01/tests.md.
+Main error: test coverage of failure paths is incomplete; normal output causes testing to stop too early.
+Boundaries retained: synthetic data, no company data; unaided answer first, no AI-written final artifact; no make-up study after 23:00; no repayment of missed time.
+Phase gate: if core code still cannot be explained independently on day fourteen, add no framework or new course.
 Smallest next task: write three failing tests before implementing parse_amount.
-Acceptance: empty, alphabetic, and negative inputs have explicit outcomes; design choice can be explained aloud.
+Acceptance for this task: empty, alphabetic, and negative amounts are reported with row numbers and skipped; existing normal-row and completely empty-row tests still pass; record independent explanation of the design separately.
+Stop condition: save the current result and remaining errors when 45 minutes ends.
 Next review: 2026-09-15.
 ```
 
-The old conversation can close. The new one needs only `v2` and the relevant evidence locations, not tens of thousands of words from the chat. **AI did not track learning across sessions. The state file tracked it, and AI read and served that state.**
+After saving, the learner reopens the main file and confirms that it shows `v2`, the next task, and the review date before closing the old conversation. The new conversation uses the complete `v2`; when artifacts need checking, their relevant contents are supplied separately, without assuming a path means AI has read them. There is no need to paste tens of thousands of chat words or ask AI to infer deleted goals. **The state file preserved continuity across sessions; AI continues only from the material actually supplied this time.**
 
 ## Step Six: Complete a Reader Field Note after Seven Days
 
@@ -168,8 +192,8 @@ When health, safety, work responsibility, or relationships need priority, recove
 3. Handle one minimum task only and let me submit the unaided version first.
 4. Give at most three high-impact feedback points, separating observation, interpretation, and suggestion.
 5. Do not provide a complete answer unless I explicitly request it.
-6. End with: completed, evidence, error/risk, handover, and next step.
-7. Treat the file as the source of truth and do not claim memory of other conversations.
+6. End with: completed, evidence, error/risk, handover, and next step. I will check and write these back into the complete state; do not claim to have saved them for me.
+7. Treat the file as the source of truth and do not claim memory of other conversations. Mark evidence supplied only as a path, without contents you have read, as not yet verified.
 ```
 
 This protocol cannot guarantee that AI never errs. It makes errors easier to detect and preserves the learner's ownership of the problem, state, and final judgment.

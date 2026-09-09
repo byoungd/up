@@ -116,6 +116,21 @@
   object-fit: contain;
 }
 
+.vp-doc [class*="language-"] > span.lang {
+  color: var(--vp-c-text-2);
+}
+
+/* Off-canvas navigation must leave both the keyboard order and accessibility tree. */
+@media (max-width: 959px) {
+  .VPSidebar:not(.open) {
+    visibility: hidden;
+  }
+}
+
+.VPNavScreenTranslations:not(.open) .list {
+  visibility: hidden;
+}
+
 .vp-doc table {
   display: block;
   width: 100%;

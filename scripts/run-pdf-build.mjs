@@ -38,7 +38,11 @@ if (!python) {
   process.exit(1);
 }
 
-const result = spawnSync(python, [join(ROOT, "scripts/build-pdf.py"), ...process.argv.slice(2)], {
+const args = process.argv.slice(2);
+const commandArgs = args.length === 1 && args[0] === "--test-layout"
+  ? ["-m", "unittest", "discover", "-s", join(ROOT, "tests"), "-p", "pdf_layout_test.py"]
+  : [join(ROOT, "scripts/build-pdf.py"), ...args];
+const result = spawnSync(python, commandArgs, {
   cwd: ROOT,
   encoding: "utf8",
   env: {

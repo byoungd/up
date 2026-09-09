@@ -4,6 +4,17 @@ All notable project-level changes are documented here. Content pages retain thei
 
 ## Unreleased
 
+### 2026-09-09 learning tools and accessible publication
+
+#### Changed
+
+- Added 42 complete editable Markdown worksheets with bilingual download/copy controls, portable source links, and generated-file validation. Download copies are excluded from page compilation and search indexing.
+- Corrected the bilingual cross-session walkthrough so its current snapshot preserves the goal, initial baseline, capacity, boundaries, and next task; made evidence access, manual saving, and the three functional acceptance conditions explicit.
+- Repaired mobile focus isolation, closed-sidebar tab stops, named search dialogs and options, result announcements, and focus restoration; added axe and keyboard regressions across languages, themes, and narrow viewports.
+- Removed website-only controls and invalid Vue attributes from EPUB code, preserved literal worksheet content, improved narrow-table reading, and added EPUBCheck 5.3.0 plus complete offline XHTML checks.
+- Fixed PDF preformatted text clipping by wrapping at measured font widths while preserving content, whitespace, and font size; added synthetic and full-publication layout regression checks and rebuilt both publication formats.
+- Recorded remaining evidence needs in `QUALITY_ROADMAP.md`, including real reader outcomes, assistive technology, device performance, and common EPUB readers.
+
 ### 2026-09-09 site and maintenance audit
 
 #### Changed
