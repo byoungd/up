@@ -10,6 +10,14 @@ This protocol turns the remaining quality question into a small, privacy-preserv
 - Collect only a random session code, language edition, device class, viewport/zoom condition, starting question, and the minimum outcome needed to improve the path.
 - Store notes privately with access limited to the maintainers who need them. Delete raw recordings and identifying notes after the stated retention period; retain only de-identified findings and the decision they changed.
 
+## Plain-language opening script
+
+Read this before the first task and invite questions:
+
+> This is a voluntary 25–35 minute usability observation of the reading path. I am testing the pages and instructions, not your intelligence, English level, work, or learning outcome. You may skip any question, stop at any time, or ask me to delete your notes under the retention plan we just discussed. Please use a non-sensitive task and do not show passwords, customer information, health details, private messages, or anything you are not authorised to share. I will record only a random session code and the minimum non-sensitive conditions needed to improve the path. May we begin?
+
+Do not treat silence as consent. Record the participant's yes, no, or decision to stop before continuing. If the participant reveals sensitive material, pause the task, ask them to close or redact it, and do not copy it into the observation record.
+
 ## One 25–35 minute session
 
 1. **Entry:** Give the reader only a realistic question, such as “I want a first speaking practice task” or “I need to carry a Python learning state into a new AI conversation.” Do not explain the correct route.
@@ -19,6 +27,14 @@ This protocol turns the remaining quality question into a small, privacy-preserv
 5. **Debrief:** Ask which wording, field, route, or boundary was unclear; distinguish observed behavior from the participant's interpretation and preference.
 
 Use a task script with the same wording for comparable sessions. A maintainer may clarify safety or privacy, but should not silently teach the intended route during the first attempt.
+
+## Neutral closing script
+
+End with the same questions each time:
+
+> The observation is complete. Before I explain anything, what would you carry into a new session or a seven-day retest? Which wording, route, field, or boundary was unclear? Is there anything in my notes you want removed? I will separate what I observed from what you think it means, and I will not publish a quote, image, recording, or identifying detail without separate permission.
+
+Only after the participant answers may the maintainer explain the intended route or show an alternative. Record that explanation as post-task assistance; do not rewrite the first-attempt result.
 
 ## Minimum observation record
 
