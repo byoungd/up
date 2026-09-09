@@ -136,6 +136,20 @@ test("bundle budgets handle a vector-only site and still reject oversized chunks
   assert.match(oversized.stderr, /theme: budget exceeded/);
 });
 
+test("bundle budgets reject unexpectedly large SSR HTML pages", (t) => {
+  const { root, write, run } = fixture(t, "check-build-size.mjs");
+  mkdirSync(join(root, "docs/assets"), { recursive: true });
+  for (const name of ["@localSearchIndexroot.js", "@localSearchIndexen.js", "framework.js", "VPLocalSearchBox.js", "theme.js"]) {
+    write(`docs/.vitepress/dist/assets/chunks/${name}`, "export {};\n");
+  }
+  write("docs/.vitepress/dist/index.html", "<html>ok</html>\n");
+  assert.equal(run().status, 0);
+  write("docs/.vitepress/dist/large/index.html", "x".repeat(150_001));
+  const oversized = run();
+  assert.equal(oversized.status, 1);
+  assert.match(oversized.stderr, /SSR HTML budget exceeded/);
+});
+
 test("an invalid explicit PDF interpreter fails without silently falling back", (t) => {
   const { root, run } = fixture(t, "run-pdf-build.mjs");
   const checked = run(["--check"], { PDF_PYTHON: join(root, "missing-python") });

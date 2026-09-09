@@ -100,5 +100,28 @@ for (const { path, size } of rasters.filter(({ size }) => size > rasterBudget)) 
   failed = true;
 }
 
+// SSR HTML is the first response on every route. Keep unusually verbose pages
+// from quietly becoming the main mobile payload; compression is verified
+// separately against the published Pages response.
+const htmlBudget = 150_000;
+function htmlPages(directory, output = []) {
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    const path = join(directory, entry.name);
+    if (entry.isDirectory()) htmlPages(path, output);
+    else if (entry.name.endsWith(".html")) output.push(path);
+  }
+  return output;
+}
+const pages = htmlPages(join(ROOT, "docs/.vitepress/dist"));
+for (const path of pages) {
+  const size = statSync(path).size;
+  if (size > htmlBudget) {
+    console.error(
+      `SSR HTML budget exceeded: ${path.replace(`${ROOT}/`, "")} ${format(size)} (max ${format(htmlBudget)})`,
+    );
+    failed = true;
+  }
+}
+
 if (failed) process.exit(1);
 console.log("build size budgets passed");
