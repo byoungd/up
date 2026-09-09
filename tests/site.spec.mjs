@@ -1347,11 +1347,12 @@ test("home guide paths are grouped by purpose and keep third-party resources dis
   await expect(zhGroups.nth(1).getByRole("heading", { level: 2, name: "借工具放大能力" })).toBeVisible();
   await expect(zhGroups.nth(2).getByRole("heading", { level: 2, name: "进入真实生活" })).toBeVisible();
   await expect(zhGroups.nth(3).getByRole("heading", { level: 2, name: "第三方资源" })).toBeVisible();
-  await expect(zhGroups.nth(0).locator(".guide-path")).toHaveCount(4);
+  await expect(zhGroups.nth(0).locator(".guide-path")).toHaveCount(5);
   await expect(zhGroups.nth(1).locator(".guide-path")).toHaveCount(2);
   await expect(zhGroups.nth(2).locator(".guide-path")).toHaveCount(4);
   await expect(zhGroups.nth(3).locator(".guide-path")).toHaveCount(2);
   await expect(zhGroups.nth(3)).toHaveClass(/guide-path-group-external/);
+  await expect(zhGroups.nth(0).getByRole("link", { name: /^口语方案：先让意思到达/ })).toHaveAttribute("href", "./threads/part-1/5-speaking");
 
   await page.goto("./en/");
   const enGroups = page.locator("main .guide-path-group");
@@ -1361,6 +1362,7 @@ test("home guide paths are grouped by purpose and keep third-party resources dis
   await expect(enGroups.nth(2).getByRole("heading", { level: 2, name: "Enter Real Life" })).toBeVisible();
   await expect(enGroups.nth(3).getByRole("heading", { level: 2, name: "Third-party Resources" })).toBeVisible();
   await expect(enGroups.nth(3)).toHaveClass(/guide-path-group-external/);
+  await expect(enGroups.nth(0).getByRole("link", { name: /^Speaking Plan: Make Meaning Arrive/ })).toHaveAttribute("href", "./threads/part-1/5-speaking");
 });
 
 test("home pages expose biezou as a bounded external AI reference", async ({ page }) => {

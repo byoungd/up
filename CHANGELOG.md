@@ -9,6 +9,7 @@ All notable project-level changes are documented here. Content pages retain thei
 #### Changed
 
 - Put a bilingual four-line first action at the top of the Toolkit Overview, linking directly to the complete cross-session walkthrough so readers who do not know which worksheet to use can begin without scanning the full routing table.
+- Added a visible bilingual homepage speaking-plan entry, routing readers asking for oral-English practice to an unscripted baseline, listener feedback, interaction repair, and fourteen-day transfer experiment.
 - Regenerated both EPUB and PDF editions after the toolkit entry change and added bilingual browser assertions for the new first-use path.
 
 ### 2026-09-09 learning tools and accessible publication

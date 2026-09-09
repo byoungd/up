@@ -1,7 +1,7 @@
 ---
 title: 人生进阶指南｜AI 时代终身学习
 description: 《人生进阶指南》帮助普通人在 AI 时代持续学习、完成真实项目、穿越人生低谷并留下成长证据。
-updated: 2026-09-02
+updated: 2026-09-10
 ---
 
 # 人生进阶指南
@@ -49,6 +49,7 @@ AI 正在让答案变得前所未有地廉价。几秒钟里，我们可以得�
       <a class="guide-path" href="./docs/threads/part-1/0-cefr.md"><strong>基础能力：英语</strong>用英语连接全球知识、技术文档与国际 AI 工具，以可理解度而不是口音相似度进入跨文化协作。</a>
       <a class="guide-path" href="./docs/threads/part-1/grammar.md"><strong>语法基础与真实表达</strong>不从背完整规则开始，而从时间、责任、条件与确定性是否被听清开始，用一项高影响结构完成十四天复测。</a>
       <a class="guide-path" href="./docs/threads/part-1/6-writing.md"><strong>写作与异步交付</strong>保留无辅助初稿、事实来源和修改理由，让邮件、报告、决定与交接在作者离线后仍然可用。</a>
+      <a class="guide-path" href="./docs/threads/part-1/5-speaking.md"><strong>口语方案：先让意思到达</strong>用无稿独白、陌生追问、听众复述、互动修复和十四天迁移，把“想练口语”变成一项可以开始的真实任务。</a>
     </div>
   </section>
   <section class="guide-path-group" aria-labelledby="guide-amplify">
