@@ -972,6 +972,7 @@ def main() -> None:
             committed_manifest = PUBLIC_OUTPUT / "pdf-manifest.json"
             expected_manifest_text = json.dumps(manifest_for(committed_outputs), ensure_ascii=False, indent=2) + "\n"
             if not committed_manifest.exists() or committed_manifest.read_text() != expected_manifest_text:
+                print("Expected pdf-manifest.json for this build:\n" + expected_manifest_text, file=sys.stderr)
                 raise ValueError(f"{committed_manifest.relative_to(ROOT)} 未与 PDF 产物同步；运行 npm run book:pdf:build")
             if CHECK_EXACT:
                 print("PDF editions are byte-for-byte reproducible on this platform")
