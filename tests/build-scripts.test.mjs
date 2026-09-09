@@ -180,3 +180,21 @@ process.exit(7);
     timezone: "UTC",
   });
 });
+
+test("public reader form preserves the worksheet's delayed evidence and privacy gates", () => {
+  const form = readFileSync(join(ROOT, ".github/ISSUE_TEMPLATE/reader-field-note.yml"), "utf8");
+  for (const id of ["immediate_result", "retest", "transfer", "editorial_feedback"]) {
+    assert.match(form, new RegExp(`id: ${id}[\\s\\S]*?required: true`));
+  }
+  assert.equal((form.match(/^        - label:/gm) || []).length, 6);
+  for (const phrase of [
+    "Passwords, keys, identity documents",
+    "Customer data, company secrets",
+    "Unnecessary third-party names",
+    "Material involving other people",
+    "separated what I observed",
+    "remain public and searchable",
+  ]) {
+    assert.match(form, new RegExp(phrase));
+  }
+});

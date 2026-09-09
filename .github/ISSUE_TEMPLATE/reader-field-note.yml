@@ -39,17 +39,31 @@ body:
     validations:
       required: true
   - type: textarea
-    id: delayed_result
+    id: immediate_result
     attributes:
-      label: Delayed result / 延迟结果
-      description: What remained after several days, what transferred to a new situation, and what disappeared? Write "not retested yet" when applicable.
+      label: Immediate result / 即时结果
+      description: Record what you completed, what remained incomplete, direct feedback, the largest error or resistance, the conclusion you might exaggerate, and the next retest date. Include approximate minutes to the first saved output; write "not recorded" if unknown.
     validations:
       required: true
   - type: textarea
-    id: revision
+    id: retest
     attributes:
-      label: What should change / 哪些内容需要改变
-      description: Name one unclear passage, missing boundary, weak example, unusable tool, or unnecessary section.
+      label: Retest after 3–7 days / 三到七天后复测
+      description: Record the retest interval, prompts removed, related task, independent result, prompts still needed, what remained, and a private evidence location. Write "not retested yet" when applicable; do not include private paths or identifying details.
+    validations:
+      required: true
+  - type: textarea
+    id: transfer
+    attributes:
+      label: Changed condition and transfer / 改变条件与迁移
+      description: Change one condition (topic, audience, time, material, tool permission, or purpose), then record the new task, independent result, where it failed, and the next step. Write "not attempted" when applicable.
+    validations:
+      required: true
+  - type: textarea
+    id: editorial_feedback
+    attributes:
+      label: Editorial feedback / 对书稿的反馈
+      description: Address six items when possible: what most supported action; what remained abstract or unusable; a missing boundary, example, or prerequisite; what could be removed or shortened; what failed when tried; and what question the next edition should answer.
     validations:
       required: true
   - type: checkboxes
@@ -57,7 +71,15 @@ body:
     attributes:
       label: Privacy and claims / 隐私与事实
       options:
-        - label: This note contains no private customer data, credentials, medical records, or unnecessary third-party identity details.
+        - label: Passwords, keys, identity documents, exact addresses, and private contact details have been removed.
+          required: true
+        - label: Customer data, company secrets, medical records, and non-public financial information have been removed.
+          required: true
+        - label: Unnecessary third-party names, photos, relationships, and identifying details have been removed.
+          required: true
+        - label: Material involving other people is authorised or reduced to non-identifying minimum facts.
           required: true
         - label: I have separated what I observed from what I infer or hope.
+          required: true
+        - label: I accept that this record may remain public and searchable for a long time.
           required: true

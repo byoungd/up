@@ -53,6 +53,47 @@ function localImagePath(source: string, pagePath?: string) {
   return resolve(dirname(pagePath), clean);
 }
 
+function localSearchFailurePlugin() {
+  return {
+    name: "reader-local-search-failure",
+    enforce: "pre" as const,
+    transform(source: string, id: string) {
+      const normalizedId = id.split("?", 1)[0].replaceAll("\\", "/");
+      if (!normalizedId.endsWith("/vitepress/dist/client/theme-default/components/VPLocalSearchBox.vue")) {
+        return undefined;
+      }
+
+      const searchStart = "const searchIndex = computedAsync(async () =>";
+      const searchEnd = "\n)\n\nconst disableQueryPersistence";
+      if (!source.includes(searchStart) || !source.includes(searchEnd)) return undefined;
+
+      return source
+        .replace(
+          searchStart,
+          "const searchIndexError = ref(false);\nconst searchIndex = computedAsync(async () =>",
+        )
+        .replace(
+          searchEnd,
+          "\n, undefined, { onError: () => { searchIndexError.value = true } })\n\nconst disableQueryPersistence",
+        )
+        .replace(
+          "const translate = createSearchTranslate(defaultTranslations)",
+          "function searchFailureMessage() { return document.documentElement.lang.startsWith('en') ? 'Search is temporarily unavailable. Reload to try again.' : '搜索索引暂时无法加载，请刷新后重试。' }\nfunction searchFailureRetryLabel() { return document.documentElement.lang.startsWith('en') ? 'Reload search' : '刷新搜索' }\nfunction reloadSearch() { window.location.reload() }\n\nconst translate = createSearchTranslate(defaultTranslations)",
+        )
+        .replace(
+          '<ul\n          ref="resultsEl"',
+          `<p v-if="searchIndexError" class="search-index-error" role="alert">
+          {{ searchFailureMessage() }}
+          <button type="button" @click="reloadSearch">{{ searchFailureRetryLabel() }}</button>
+        </p>
+
+        <ul
+          ref="resultsEl"`,
+        );
+    },
+  };
+}
+
 function absoluteRoute(route: string) {
   return `${origin}${publicRoutePath(route, base)}`;
 }
@@ -170,7 +211,7 @@ export default defineConfig({
       });
     },
   },
-  vite: { plugins: [privateAssetGuard()] },
+  vite: { plugins: [privateAssetGuard(), localSearchFailurePlugin()] },
   rewrites: {
     "README.md": "index.md",
     "en/README.md": "en/index.md",

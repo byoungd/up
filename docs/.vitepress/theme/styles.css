@@ -21,6 +21,31 @@
   max-width: 780px;
 }
 
+.VPLocalSearchBox .search-index-error {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+  margin: 16px 24px;
+  color: var(--vp-c-text-2);
+  line-height: 1.5;
+}
+
+.VPLocalSearchBox .search-index-error button {
+  padding: 4px 10px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-brand-1);
+  font: inherit;
+  cursor: pointer;
+}
+
+.VPLocalSearchBox .search-index-error button:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 2px;
+}
+
 .reading-progress {
   position: fixed;
   top: 0;

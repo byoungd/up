@@ -16,6 +16,8 @@ All notable project-level changes are documented here. Content pages retain thei
 - Added an npm override for `smol-toml@1.8.0`, resolving the high-severity DoS advisory reached through `markdownlint-cli2` while retaining the current Markdown lint tool.
 - Added pinned `pip-audit==2.10.1` checks for the complete Python PDF dependency tree in CI and Pages builds; the current audit reports no known vulnerabilities.
 - Added `READER_RESEARCH.md`, a privacy-first protocol for repeatable first-use, saved-output, return-visit, and accessibility observations; it keeps future reader evidence separate from synthetic examples and automated regression claims.
+- Made the public reader-field-note issue form preserve immediate results, delayed retests, changed-condition transfer, and six privacy checks from the downloadable worksheet; added a contract test so the public route cannot silently drop those fields.
+- Added a localized, accessible recovery message and reload action when the VitePress local search index fails to load, with desktop and mobile regression coverage for both languages.
 
 ### 2026-09-09 learning tools and accessible publication
 

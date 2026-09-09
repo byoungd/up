@@ -94,6 +94,23 @@ test("search restores the keyboard shortcut origin and announces no results", as
   await expect(origin).toBeFocused();
 });
 
+for (const locale of ["zh", "en"]) {
+  test(`${locale} search index failures expose a localized recovery action`, async ({ page }) => {
+    const english = locale === "en";
+    await page.route("**/*localSearchIndex*", (route) => route.abort("failed"));
+    await page.goto(english ? "./en/" : "./");
+    const label = english ? "Search" : "搜索";
+    const trigger = page.getByRole("button", { name: label, exact: true });
+    await trigger.click();
+    const dialog = page.getByRole("dialog", { name: label, exact: true });
+    await expect(dialog.getByRole("alert")).toContainText(
+      english ? "Search is temporarily unavailable" : "搜索索引暂时无法加载",
+    );
+    await expect(dialog.getByRole("button", { name: english ? "Reload search" : "刷新搜索", exact: true })).toBeVisible();
+    await expectAccessible(page);
+  });
+}
+
 test("narrow navigation keeps keyboard focus visible and returns it on Escape", async ({ page }, testInfo) => {
   const widths = testInfo.project.name === "mobile-chromium" ? [375] : [320, 640];
   for (const width of widths) {
