@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { resolve } from "node:path";
 import test from "node:test";
 import { createMarkdownRenderer } from "vitepress";
-import { configureEpubMarkdown, makeXhtml } from "../scripts/epub-rendering.mjs";
+import { configureEpubMarkdown, directionAttribute, makeXhtml } from "../scripts/epub-rendering.mjs";
 
 const markdown = await createMarkdownRenderer(resolve("docs"), { config: configureEpubMarkdown });
 
@@ -36,4 +36,11 @@ test("EPUB preserves chapter link targets while removing heading permalink contr
   assert.match(xhtml, /href="chapter-002.xhtml#practice"/);
   assert.doesNotMatch(xhtml, /header-anchor|tabindex/);
   assert.match(xhtml, /<hr\s*\/>/);
+});
+
+test("EPUB marks RTL languages and leaves existing LTR editions unchanged", () => {
+  assert.equal(directionAttribute("en-US"), "");
+  assert.equal(directionAttribute("ar"), ' dir="rtl"');
+  const xhtml = makeXhtml({ lang: "ar", title: "دليل", body: "<p>نص</p>" });
+  assert.match(xhtml, /lang="ar" xml:lang="ar" dir="rtl"/);
 });

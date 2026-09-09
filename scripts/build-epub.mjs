@@ -20,7 +20,7 @@ import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 import { createMarkdownRenderer } from "vitepress";
 import { enNavigation, publicationSections, zhNavigation } from "../docs/.vitepress/navigation.mjs";
-import { configureEpubMarkdown, escapeXml, makeXhtml } from "./epub-rendering.mjs";
+import { configureEpubMarkdown, directionAttribute, escapeXml, makeXhtml } from "./epub-rendering.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const DOCS = join(ROOT, "docs");
@@ -262,13 +262,14 @@ h1, h2, h3, h4 { line-height: 1.3; page-break-after: avoid; }
 h1 { font-size: 1.8em; margin: 0 0 1.2em; }
 h2 { font-size: 1.35em; margin-top: 2.2em; }
 h3 { font-size: 1.12em; margin-top: 1.8em; }
-p, li { text-align: ${isChinese ? "justify" : "left"}; }
+p, li { text-align: ${isChinese ? "justify" : "start"}; }
 a { color: inherit; text-decoration: underline; text-decoration-thickness: 0.06em; }
-blockquote { border-left: 0.18em solid #737373; margin: 1.4em 0; padding-left: 1em; color: #555; }
+blockquote { border-inline-start: 0.18em solid #737373; margin: 1.4em 0; padding-inline-start: 1em; color: #555; }
 img { display: block; height: auto; margin: 1.6em auto; max-width: 100%; }
 table { border-collapse: collapse; font-size: 0.86em; margin: 1.5em 0; width: 100%; }
 th, td { border: 1px solid #999; padding: 0.45em; vertical-align: top; overflow-wrap: anywhere; }
 pre { background: #f3f3f3; border: 1px solid #ddd; overflow-wrap: anywhere; word-wrap: break-word; padding: 0.8em; white-space: pre-wrap; }
+pre, code { direction: ltr; text-align: left; }
 code { font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.9em; }
 .book-meta, .guide-paths { margin: 1.3em 0; }
 .guide-path { display: block; margin: 0.7em 0; text-decoration: none; }
@@ -412,7 +413,7 @@ async function buildEdition(edition, markdown, tempBase) {
     .join("\n");
   const navXhtml = `<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="${edition.lang}" xml:lang="${edition.lang}">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="${edition.lang}" xml:lang="${edition.lang}"${directionAttribute(edition.lang)}>
 <head><meta charset="utf-8" /><title>${escapeXml(edition.contents)}</title><link rel="stylesheet" type="text/css" href="styles/book.css" /></head>
 <body><nav epub:type="toc" id="toc"><h1>${escapeXml(edition.contents)}</h1><ol>
       <li><a href="text/title.xhtml">${escapeXml(edition.title)}</a></li>

@@ -19,6 +19,10 @@ export function escapeXml(value) {
     .replaceAll("'", "&apos;");
 }
 
+export function directionAttribute(lang) {
+  return /^(?:ar|fa|he|ur)(?:-|$)/i.test(lang) ? ' dir="rtl"' : "";
+}
+
 export function makeXhtml({ lang, title, body, epubType = "chapter" }) {
   const safeBody = body
     .replace(/<a\b[^>]*class="header-anchor"[^>]*>[\s\S]*?<\/a>/gi, "")
@@ -29,7 +33,7 @@ export function makeXhtml({ lang, title, body, epubType = "chapter" }) {
     .replace(/<(img|br|hr)(\b[^>]*?)(?<!\/)\s*>/gi, "<$1$2 />");
   return `<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="${lang}" xml:lang="${lang}">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="${lang}" xml:lang="${lang}"${directionAttribute(lang)}>
 <head>
   <meta charset="utf-8" />
   <title>${escapeXml(title)}</title>

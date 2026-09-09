@@ -19,6 +19,7 @@ All notable project-level changes are documented here. Content pages retain thei
 - Made the public reader-field-note issue form preserve immediate results, delayed retests, changed-condition transfer, and six privacy checks from the downloadable worksheet; added a contract test so the public route cannot silently drop those fields.
 - Added a localized, accessible recovery message and reload action when the VitePress local search index fails to load, with desktop and mobile regression coverage for both languages.
 - Disabled VitePress's automatic offscreen route prefetching after a fresh-page A/B (same Chrome harness, `networkidle` plus 500 ms) showed 20 prefetch links and 31 initial requests with it enabled versus 0 prefetch links and 11 requests when disabled; navigation remains on-demand.
+- Made EPUB XHTML and stylesheet direction-aware for future RTL editions, using logical blockquote properties and preserving LTR code blocks; added a generator regression without changing the current Chinese and English direction output.
 
 ### 2026-09-09 learning tools and accessible publication
 
