@@ -63,6 +63,8 @@
 现在最容易夸大的结论：\
 下一次复测日期：
 
+记录从打开页面到第一次保存输出的大致时间，以及不涉及身份的条件（设备、可用时间、已有熟悉度、是否得到帮助）。不知道时写“未记录”；不要为了获得可比数字提交位置、雇主、健康或私人项目细节。
+
 即时顺利只能说明这一次在当前条件下发生了什么。若使用 AI，请把辅助版和关闭 AI 后的独立版分开保存。
 
 ## 第二次填写：三到七天后
@@ -141,4 +143,4 @@
 
 ---
 
-来源：[人生进阶指南](https://byoungd.github.io/up/templates/reader-field-note) · 稿件更新：2026-09-02。内容许可：[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)。
+来源：[人生进阶指南](https://byoungd.github.io/up/templates/reader-field-note) · 稿件更新：2026-09-10。内容许可：[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)。

@@ -24,6 +24,20 @@ body:
       description: What did you actually do or make after reading? A small or unsuccessful attempt is useful evidence.
     validations:
       required: true
+  - type: input
+    id: time_to_first_action
+    attributes:
+      label: Time to first action / 到第一次行动的时间
+      description: Approximate minutes from opening the page to a first saved output; write "not recorded" if unknown.
+    validations:
+      required: true
+  - type: textarea
+    id: conditions
+    attributes:
+      label: Non-sensitive conditions / 非敏感条件
+      description: Record only useful context such as device type, available time, prior familiarity, or whether help was used. Do not include identity, location, employer, health, or private project details.
+    validations:
+      required: true
   - type: textarea
     id: delayed_result
     attributes:

@@ -63,6 +63,8 @@ Largest error or resistance:\
 The conclusion I am most tempted to exaggerate:\
 Next retest date:
 
+Record the approximate minutes from opening the page to the first saved output, plus non-sensitive conditions such as device, available time, prior familiarity, or whether help was used. Write “not recorded” when unknown; do not submit location, employer, health, or private project details for comparability.
+
 An immediate success shows only what happened under the present conditions. If AI was used, keep the assisted version separate from the independent version completed after closing it.
 
 ## Second Pass: Three to Seven Days Later
@@ -141,4 +143,4 @@ Related entry points: [Case Study: Let the Book Prove Its Method](https://byoung
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/reader-field-note) · Manuscript updated: 2026-09-02. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/reader-field-note) · Manuscript updated: 2026-09-10. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
