@@ -13,6 +13,7 @@ All notable project-level changes are documented here. Content pages retain thei
 - Clarified the bilingual homepage project boundary: this repository publishes an open manuscript and static reading/EPUB/PDF editions; its source code supports corrections, content checks, and builds rather than requiring software installation.
 - Added time-to-first-action and non-sensitive conditions to the reader field-note form and bilingual template, making future reader evidence more comparable without collecting identity or private project data.
 - Regenerated both EPUB and PDF editions after the toolkit entry change and added bilingual browser assertions for the new first-use path.
+- Added an npm override for `smol-toml@1.8.0`, resolving the high-severity DoS advisory reached through `markdownlint-cli2` while retaining the current Markdown lint tool.
 
 ### 2026-09-09 learning tools and accessible publication
 

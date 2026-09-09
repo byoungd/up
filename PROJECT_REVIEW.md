@@ -34,7 +34,7 @@
 | CI 与发布 | CI 重复构建，Pages 上传前没有浏览器测试，生成文件检查遗漏未跟踪输出 | CI 测试同一构建产物；部署前完成 smoke；增加运行超时和未跟踪文件检查 |
 | 定期外链检查 | 前置 curl 失败后其余检查跳过，失败报告文件可能不存在 | 汇总前置失败，继续执行独立检查，为各类失败生成可追踪报告 |
 
-依赖修复依据：[GitHub 官方安全公告 GHSA-rgj7-g3m4-5g8c](https://github.com/advisories/GHSA-rgj7-g3m4-5g8c)。本次未扩大到无关依赖的大版本迁移。
+依赖修复依据：[GitHub 官方安全公告 GHSA-rgj7-g3m4-5g8c](https://github.com/advisories/GHSA-rgj7-g3m4-5g8c)以及 `smol-toml` 的高危 DoS 公告。`sharp` 升级到 0.35.4，并通过 npm override 锁定 `smol-toml` 1.8.0；本次未扩大到无关依赖的大版本迁移。
 
 ## 验证方法
 
