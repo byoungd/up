@@ -183,16 +183,16 @@ test("long-term action moves from a 90-day cycle through a real case into handov
   ]);
 });
 
-test("reader field notes ask for action, delayed evidence, revision, and privacy", () => {
+test("reader field notes preserve immediate, delayed, transfer, editorial, and privacy evidence", () => {
   const template = readFileSync(
     resolve(process.cwd(), ".github/ISSUE_TEMPLATE/reader-field-note.yml"),
     "utf8",
   );
-  for (const field of ["problem", "action", "delayed_result", "revision", "privacy"]) {
+  for (const field of ["problem", "action", "immediate_result", "retest", "transfer", "editorial_feedback", "privacy"]) {
     expect(template).toContain(`id: ${field}`);
   }
   expect(template).toContain("A small or unsuccessful attempt is useful evidence.");
-  expect(template).toContain("no private customer data");
+  expect(template).toContain("Customer data, company secrets");
   expect(template).toContain("separated what I observed from what I infer or hope");
 });
 
