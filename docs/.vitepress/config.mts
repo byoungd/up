@@ -1,9 +1,11 @@
-import { existsSync, readdirSync, rmSync } from "node:fs";
+import { readdirSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import { defineConfig } from "vitepress";
 import { bilingualRoutePairs, enNavigation, toSidebar, zhNavigation } from "./navigation.mjs";
+import { legacyRedirectScript, publicRoutePath } from "./routing.mjs";
+import { privateAssetGuard } from "./private-assets.mjs";
 
 const origin = "https://byoungd.github.io";
 const base = "/up/";
@@ -51,7 +53,7 @@ function localImagePath(source: string, pagePath?: string) {
 }
 
 function absoluteRoute(route: string) {
-  return `${siteUrl}${route}${route ? "/" : ""}`;
+  return `${origin}${publicRoutePath(route, base)}`;
 }
 
 const searchHeadingContent = /(.*?)<a.*? href="#(.*?)".*?>.*?<\/a>/i;
@@ -123,47 +125,6 @@ function routeFromRelativePath(relativePath: string) {
   return clean.replace(/^\/+|\/+$/g, "");
 }
 
-function privateAssetGuard() {
-  let outDir = "";
-  const isPrivateSession = (url = "") => {
-    const pathname = decodeURIComponent(url.split("?")[0]);
-    return pathname === "/assets/session.json" || pathname.endsWith("/assets/session.json");
-  };
-
-  return {
-    name: "private-asset-guard",
-    enforce: "post" as const,
-    configResolved(config: { build: { outDir: string } }) {
-      outDir = config.build.outDir;
-    },
-    configureServer(server: { middlewares: { use: (handler: (req: { url?: string }, res: { statusCode: number; end: (body: string) => void }, next: () => void) => void) => void } }) {
-      server.middlewares.use((req, res, next) => {
-        if (!isPrivateSession(req.url)) {
-          next();
-          return;
-        }
-        res.statusCode = 404;
-        res.end("Not found");
-      });
-    },
-    closeBundle() {
-      if (!outDir) return;
-      const generatedPath = resolve(outDir, "assets/session.json");
-      if (existsSync(generatedPath)) rmSync(generatedPath);
-    },
-  };
-}
-
-const legacyHashRedirect = `
-(function () {
-  var hash = window.location.hash || '';
-  if (!hash.startsWith('#/')) return;
-  var raw = hash.slice(2).split('?id=')[0].split('#')[0];
-  var clean = raw.replace(/^\\/+|\\/+$/g, '').replace(/\\/README(?:\\.md)?$/i, '');
-  var target = '${base}' + (clean ? clean + '/' : '');
-  if (window.location.pathname + window.location.search !== target) window.location.replace(target);
-})();`;
-
 export default defineConfig({
   lang: "zh-CN",
   title: "人生进阶指南｜AI 时代终身学习",
@@ -220,7 +181,7 @@ export default defineConfig({
     ["meta", { name: "author", content: "Han Xiankai / 韩先凯 (Li Pu / 离谱) and contributors" }],
     ["meta", { name: "build-revision", content: buildRevision }],
     ["meta", { name: "twitter:card", content: "summary_large_image" }],
-    ["script", {}, legacyHashRedirect],
+    ["script", {}, legacyRedirectScript(base)],
   ],
   locales: {
     root: {
@@ -381,7 +342,8 @@ export default defineConfig({
   },
   transformHead({ pageData }) {
     const route = routeFromRelativePath(pageData.relativePath);
-    const canonical = `${siteUrl}${route}${route ? "/" : ""}`;
+    if (pageData.isNotFound) return [["meta", { name: "robots", content: "noindex" }]];
+    const canonical = absoluteRoute(route);
     const languagePair = bilingualRouteMap.get(route);
     const isEnglish = route === "en" || route.startsWith("en/");
     const isBookHome = route === "" || route === "en";

@@ -22,7 +22,12 @@ function toRepositoryReadme(source) {
 }
 
 const expected = toRepositoryReadme(readFileSync(sourceFile, "utf8"));
-const actual = readFileSync(targetFile, "utf8");
+let actual;
+try {
+  actual = readFileSync(targetFile, "utf8");
+} catch (error) {
+  if (error.code !== "ENOENT") throw error;
+}
 
 if (actual !== expected) {
   if (checkOnly) {

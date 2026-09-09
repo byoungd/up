@@ -4,6 +4,20 @@ All notable project-level changes are documented here. Content pages retain thei
 
 ## Unreleased
 
+### 2026-09-09 site and maintenance audit
+
+#### Changed
+
+- Updated pinned `sharp` to 0.35.4 to resolve its high-severity libheif advisory.
+- Aligned canonical URLs and language alternates with the sitemap; repaired legacy README/Markdown routes, query and section preservation, and same-page hash changes; excluded missing pages from indexing metadata.
+- Improved dark-theme link contrast, sidebar keyboard and screen-reader controls, tablet navigation, wide-table containment, and printing from dark mode.
+- Replaced regular-expression-only link checks with VitePress parsing for reference links, HTML images, and real heading anchors; added calendar-date and bilingual navigation integrity checks.
+- Blocked private session assets from development requests and conventional JSON, raw, URL, CSS, HTML, and `new URL()` build references, with synthetic real-build regression fixtures.
+- Made missing generated mirrors recoverable without mutating check-only runs, preserved word-list editorial dates, and reported invalid explicit PDF interpreters without a silent fallback.
+- Added fast Node regression tests to the standard check; made CI smoke tests reuse the validated artifact, required browser tests before Pages upload, and completed external-link failure reporting.
+- Documented environment setup, explicit browser and preview selection, and the full audit in `PROJECT_REVIEW.md`.
+- Added weekly grouped Dependabot updates for npm, Actions, and Python, plus source-checked migration criteria for the next Node LTS, stable VitePress 2, and accessibility standards; dependency changes remain subject to review and publication checks.
+
 ### 2026-09-07 link-audit hardening
 
 #### Changed

@@ -26,6 +26,7 @@ function markdownSources(dir, prefix = "", output = []) {
 
 function validateNavigation(groups, locale) {
   const seenLinks = new Set();
+  const seenSources = new Set();
   for (const group of groups) {
     if (!group.text || !Array.isArray(group.items)) {
       throw new Error(`${locale} 导航分组缺少 text 或 items`);
@@ -38,6 +39,10 @@ function validateNavigation(groups, locale) {
         throw new Error(`${locale} 导航存在重复链接: ${item.link}`);
       }
       seenLinks.add(item.link);
+      if (seenSources.has(item.source)) {
+        throw new Error(`${locale} 导航存在重复 source: ${item.source}`);
+      }
+      seenSources.add(item.source);
 
       const source = resolve(DOCS, item.source);
       if (!source.startsWith(`${DOCS}/`) || !existsSync(source)) {
@@ -90,7 +95,12 @@ const outputs = new Map([
 
 let changed = false;
 for (const [file, expected] of outputs) {
-  const actual = readFileSync(file, "utf8");
+  let actual;
+  try {
+    actual = readFileSync(file, "utf8");
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
   if (actual === expected) continue;
   changed = true;
   if (checkOnly) {

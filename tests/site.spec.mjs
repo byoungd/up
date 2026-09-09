@@ -669,25 +669,25 @@ test("page metadata follows the route", async ({ page }) => {
   await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /词汇/);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/threads/part-1/2-vocabulary",
   );
   await expect(page.locator('meta[property="og:url"]')).toHaveAttribute(
     "content",
-    "https://byoungd.github.io/up/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/threads/part-1/2-vocabulary",
   );
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/assets\/feature\.png$/);
   await expect(page.locator('meta[property="og:image:type"]')).toHaveAttribute("content", "image/png");
   await expect(page.locator('link[rel="alternate"][hreflang="zh-CN"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/threads/part-1/2-vocabulary",
   );
   await expect(page.locator('link[rel="alternate"][hreflang="en-US"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/en/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/en/threads/part-1/2-vocabulary",
   );
   await expect(page.locator('link[rel="alternate"][hreflang="x-default"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/threads/part-1/2-vocabulary",
   );
   const chapterData = await structuredDataFromPage(page);
   expect(chapterData).toMatchObject({
@@ -937,7 +937,7 @@ test("AI resource-layer chapter has metadata and navigation", async ({ page }) =
   );
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/threads/part-3/2-ai-development-and-resource-layer/",
+    "https://byoungd.github.io/up/threads/part-3/2-ai-development-and-resource-layer",
   );
   await expect(
     page.getByRole("link", { name: "AI 开发与资源层创业", exact: true }).first(),
@@ -983,7 +983,7 @@ test("legacy English story route redirects to the aligned Part II path", async (
   ).toBeVisible();
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/en/threads/part-2/my-story/",
+    "https://byoungd.github.io/up/en/threads/part-2/my-story",
   );
 });
 

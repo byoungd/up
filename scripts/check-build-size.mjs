@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
@@ -8,6 +8,11 @@ import { gzipSync } from "node:zlib";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const assetsDir = join(ROOT, "docs/.vitepress/dist/assets");
 const chunksDir = join(assetsDir, "chunks");
+
+if (!existsSync(chunksDir)) {
+  console.error("Build output is missing; run npm run docs:build before checking size budgets.");
+  process.exit(1);
+}
 
 const budgets = [
   {
@@ -83,7 +88,11 @@ const rasters = rasterAssets(join(ROOT, "docs/assets"))
   .map((path) => ({ path, size: statSync(path).size }))
   .sort((a, b) => b.size - a.size);
 const largestRaster = rasters[0];
-console.log(`largest source raster: ${largestRaster.path.replace(`${ROOT}/`, "")} ${format(largestRaster.size)}`);
+if (largestRaster) {
+  console.log(`largest source raster: ${largestRaster.path.replace(`${ROOT}/`, "")} ${format(largestRaster.size)}`);
+} else {
+  console.log("no source raster assets");
+}
 for (const { path, size } of rasters.filter(({ size }) => size > rasterBudget)) {
   console.error(
     `source raster budget exceeded: ${path.replace(`${ROOT}/`, "")} ${format(size)} (max ${format(rasterBudget)})`,

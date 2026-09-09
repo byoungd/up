@@ -10,6 +10,8 @@ import {
 import { basename, dirname, extname, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
+import { enNavigation, zhNavigation } from "../docs/.vitepress/navigation.mjs";
+import { contentLinkErrors, createMarkdownInspector, dateErrors, navigationErrors } from "./content-integrity.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const DOCS = join(ROOT, "docs");
@@ -62,50 +64,21 @@ function walk(dir, extensions, output = []) {
   return output;
 }
 
-const isExternal = (target) =>
-  /^(https?:|mailto:|tel:|data:|\/\/)/i.test(target);
+const inspectMarkdown = await createMarkdownInspector(DOCS);
+const inspectedFiles = new Map();
 
-function stripOptionalTitle(target) {
-  return target.replace(/\s+["'].*$/, "").trim();
-}
-
-function routeToFile(route) {
-  const clean = route
-    .replace(/^\/+/, "")
-    .replace(/\/$/, "")
-    .replace(/\/index$/, "")
-    .replace(/\/README$/, "");
-  if (!clean) return join(DOCS, "README.md");
-  return join(DOCS, `${clean}.md`);
-}
-
-function resolveTarget(file, rawTarget) {
-  let target = stripOptionalTitle(rawTarget);
-  if (!target || isExternal(target) || target.startsWith("#")) return null;
-  const pathPart = target.split("#")[0].split("?")[0];
-  if (!pathPart) return null;
-  if (pathPart.startsWith("/")) return routeToFile(pathPart);
-  try {
-    return resolve(dirname(file), decodeURIComponent(pathPart));
-  } catch {
-    return resolve(dirname(file), pathPart);
+function inspectFile(file) {
+  if (!inspectedFiles.has(file)) {
+    try {
+      inspectedFiles.set(file, inspectMarkdown(readFileSync(file, "utf8"), file));
+    } catch (error) {
+      addError(file, 1, `Markdown 无法解析: ${error.message}`);
+      inspectedFiles.set(file, { links: [], images: [], anchors: new Set(), headingShape: [] });
+    }
   }
+  return inspectedFiles.get(file);
 }
 
-function localTargetExists(path) {
-  if (existsSync(path)) return true;
-  if (path.startsWith(`${DOCS}${sep}`)) {
-    const publicPath = join(DOCS, "public", relative(DOCS, path));
-    if (existsSync(publicPath)) return true;
-  }
-  if (!extname(path) && existsSync(`${path}.md`)) return true;
-  if (!extname(path) && existsSync(join(path, "README.md"))) return true;
-  return false;
-}
-
-const MARKDOWN_LINK = /(!?)\[([^\]]*)\]\(([^)]+)\)/g;
-const HTML_HREF = /href\s*=\s*["']([^"']+)["']/gi;
-const HTML_IMAGE = /<img\b([^>]*)>/gi;
 const GENERIC_ALT = new Set(["image", "img", "photo", "picture", "hotel", "图片", "照片", "图"]);
 
 function checkAltText(file, line, alt) {
@@ -122,45 +95,15 @@ function checkAltText(file, line, alt) {
 }
 
 function checkLinksAndAlt(file) {
-  const lines = readFileSync(file, "utf8").split("\n");
-  let inFence = false;
-  lines.forEach((line, index) => {
-    if (/^\s*(```|~~~)/.test(line)) {
-      inFence = !inFence;
-      return;
-    }
-    if (inFence) return;
-
-    const targets = [];
-    MARKDOWN_LINK.lastIndex = 0;
-    let match;
-    while ((match = MARKDOWN_LINK.exec(line))) {
-      if (match[1] === "!") checkAltText(file, index + 1, match[2]);
-      targets.push(match[3]);
-    }
-    HTML_HREF.lastIndex = 0;
-    while ((match = HTML_HREF.exec(line))) targets.push(match[1]);
-    HTML_IMAGE.lastIndex = 0;
-    while ((match = HTML_IMAGE.exec(line))) {
-      const alt = match[1].match(/\balt\s*=\s*["']([^"']*)["']/i)?.[1];
-      checkAltText(file, index + 1, alt);
-    }
-
-    for (const target of targets) {
-      const resolved = resolveTarget(file, target);
-      if (resolved && !localTargetExists(resolved)) {
-        addError(
-          file,
-          index + 1,
-          `链接目标不存在: ${target} -> ${relative(ROOT, resolved)}`,
-        );
-      }
-    }
-  });
+  const content = inspectFile(file);
+  for (const { alt, line } of content.images) checkAltText(file, line, alt);
+  for (const { line, message } of contentLinkErrors(content, file, DOCS, inspectFile)) {
+    addError(file, line, message);
+  }
 }
 
 function parseFrontmatter(file) {
-  const text = readFileSync(file, "utf8");
+  const text = readFileSync(file, "utf8").replace(/\r\n/g, "\n");
   const block = text.match(/^---\n([\s\S]*?)\n---\n/);
   if (!block) return null;
   const values = {};
@@ -191,29 +134,12 @@ function checkFrontmatter(file) {
   for (const key of ["title", "description", "updated"]) {
     if (!frontmatter[key]) addError(file, 1, `frontmatter 缺少 ${key}`);
   }
-  if (/\/(7-ai|1-ai-learning|2-ai-development-and-resource-layer)\.md$/.test(file)) {
-    if (!frontmatter.sources_checked) {
-      addError(file, 1, "AI 页面缺少 sources_checked");
-    } else if (!/^\d{4}-\d{2}-\d{2}$/.test(frontmatter.sources_checked)) {
-      addError(file, 1, "sources_checked 必须使用 YYYY-MM-DD");
-    }
-  }
-  if (frontmatter.updated && !/^\d{4}-\d{2}-\d{2}$/.test(frontmatter.updated)) {
-    addError(file, 1, "updated 必须使用 YYYY-MM-DD");
-  }
-  if (frontmatter.updated && /^\d{4}-\d{2}-\d{2}$/.test(frontmatter.updated)) {
-    if (frontmatter.updated > publicationToday) {
-      addError(file, 1, `updated 不能晚于项目时区 ${PUBLICATION_TIME_ZONE} 的当前日期`);
-    }
+  const requireSourcesChecked = /\/(7-ai|1-ai-learning|2-ai-development-and-resource-layer)\.md$/.test(file);
+  for (const message of dateErrors(frontmatter, { today: publicationToday, requireSourcesChecked })) {
+    addError(file, 1, message);
   }
   if (frontmatter.description && frontmatter.description.length < 24) {
     addError(file, 1, "description 过短，无法区分页面内容");
-  }
-
-  if (/\/(7-ai|1-ai-learning|2-ai-development-and-resource-layer)\.md$/.test(file) && frontmatter.sources_checked) {
-    const age = Date.now() - Date.parse(`${frontmatter.sources_checked}T00:00:00Z`);
-    const maxAge = 120 * 24 * 60 * 60 * 1000;
-    if (age > maxAge) addError(file, 1, "AI 产品资料超过 120 天未核验");
   }
 }
 
@@ -301,18 +227,7 @@ function checkBilingualParity(markdownFiles) {
 }
 
 function headingShape(file) {
-  const shape = [];
-  let inFence = false;
-  for (const line of readFileSync(file, "utf8").split("\n")) {
-    if (/^\s*(```|~~~)/.test(line)) {
-      inFence = !inFence;
-      continue;
-    }
-    if (inFence) continue;
-    const match = line.match(/^(#{1,6})\s+/);
-    if (match) shape.push(match[1].length);
-  }
-  return shape;
+  return inspectFile(file).headingShape;
 }
 
 function checkHeadingParity(markdownFiles) {
@@ -499,6 +414,9 @@ for (const file of markdownFiles.filter((path) => path.startsWith(`${DOCS}/`))) 
 checkBilingualParity(markdownFiles);
 checkHeadingParity(markdownFiles);
 checkUpdatedParity(markdownFiles);
+for (const message of navigationErrors(zhNavigation, enNavigation, DOCS)) {
+  addError(join(DOCS, ".vitepress/navigation.mjs"), 1, message);
+}
 checkStaleStrings(
   markdownFiles.filter(
     (file) =>

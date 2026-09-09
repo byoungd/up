@@ -6,9 +6,13 @@ Thank you for improving this open-content project. Contributions should make a c
 
 1. Use Node 24: `nvm use` or your preferred version manager.
 2. Install exactly from the lock file: `npm ci`.
-3. Create a focused branch and avoid unrelated formatting or media changes.
-4. Run `npm run sync` after changing navigation, the Chinese homepage, or a Chinese word list.
-5. Run `npm run check`, `npm run docs:build`, and `npm run test:smoke`.
+3. Install the browser used by smoke tests: `npx playwright install chromium` (Linux CI uses `--with-deps`).
+4. Use Python 3.12 with `python3 -m pip install -r requirements-pdf.txt` for PDF validation. A virtual environment is recommended; set `PDF_PYTHON=/absolute/path/to/venv/bin/python` to select it explicitly.
+5. Create a focused branch and avoid unrelated formatting or media changes.
+6. Run `npm run sync` after changing navigation, the Chinese homepage, or a Chinese word list.
+7. Run `npm run check`, `npm run docs:build`, and `npm run test:smoke`.
+
+`npm run test:unit` runs fast content, routing, and build-tool regressions without a browser and is included in `npm run check`. Smoke tests build a fresh site and start their own preview by default. After a successful build, use `PLAYWRIGHT_SKIP_BUILD=1 npm run test:smoke` to test that artifact. To reuse a preview you have explicitly refreshed, also set `PLAYWRIGHT_REUSE_SERVER=1`. An installed Google Chrome can be selected with `PLAYWRIGHT_CHANNEL=chrome`; CI uses the Playwright-managed Chromium version.
 
 ## Content Standard
 

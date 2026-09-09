@@ -9,7 +9,7 @@ import sharp from "sharp";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
 const publicDir = join(ROOT, "docs/public/assets");
-mkdirSync(publicDir, { recursive: true });
+if (!checkOnly) mkdirSync(publicDir, { recursive: true });
 const coverSpecs = [
   { source: "feature.svg", target: "feature.png", width: 1200, height: 630 },
   { source: "feature-en.svg", target: "feature-en.png", width: 1200, height: 630 },
@@ -48,6 +48,9 @@ for (const name of ["logo.svg", ...coverSpecs.map(({ source }) => source)]) {
 let existingManifest = {};
 try {
   existingManifest = JSON.parse(readFileSync(join(publicDir, "brand-assets.json"), "utf8"));
+  if (!existingManifest || typeof existingManifest !== "object" || Array.isArray(existingManifest)) {
+    existingManifest = {};
+  }
 } catch {
   existingManifest = {};
 }
