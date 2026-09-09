@@ -16,6 +16,7 @@ All notable project-level changes are documented here. Content pages retain thei
 - Recorded remaining evidence needs in `QUALITY_ROADMAP.md`, including real reader outcomes, assistive technology, device performance, and common EPUB readers.
 - Added an SSR HTML page-size budget of 150,000 bytes (about 146.5 KiB) to catch route-level payload growth before it reaches the compressed Pages response; the current largest page remains below the limit.
 - Updated the pinned Playwright test runtime to 1.63.0 with its Chromium 153 release and refreshed the verified test counts and maintenance evidence.
+- Hardened Linux browser setup by removing the runner's unrelated stale Google Chrome apt source before Playwright installs Chromium; a real CI failure reproduced the source hash mismatch and the fix keeps the required browser dependency path isolated.
 
 ### 2026-09-09 site and maintenance audit
 
