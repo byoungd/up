@@ -6,41 +6,41 @@ body:
   - type: input
     id: url
     attributes:
-      label: URL
+      label: URL / 页面地址
     validations:
       required: true
   - type: dropdown
     id: type
     attributes:
-      label: Problem type
+      label: Problem type / 问题类型
       options:
-        - Route or redirect
-        - Search
-        - Mobile layout
-        - Keyboard or screen reader
-        - Image or media
-        - Build or other
+        - Route or redirect / 路由或跳转
+        - Search / 搜索
+        - Mobile layout / 移动端布局
+        - Keyboard or screen reader / 键盘或读屏
+        - Image or media / 图片或媒体
+        - Build or other / 构建或其他
     validations:
       required: true
   - type: textarea
     id: environment
     attributes:
       label: Environment / 环境
-      description: Browser and version, assistive technology, viewport or zoom, language edition, and device class. Do not include identity or private project details.
+      description: Browser and version, assistive technology, viewport or zoom, language edition, and device class. Do not include identity or private project details. / 请填写浏览器及版本、辅助技术、视口或缩放、语言版本和设备类别；不要填写身份或私人项目细节。
     validations:
       required: true
   - type: textarea
     id: reproduce
     attributes:
       label: Reproduction steps / 复现步骤
-      description: List the smallest steps that trigger the problem.
+      description: List the smallest steps that trigger the problem. / 列出能够触发问题的最小步骤。
     validations:
       required: true
   - type: textarea
     id: observed
     attributes:
       label: Observed and expected behavior / 实际与预期行为
-      description: State what happened and what you expected separately. Include a short error message if useful; do not attach recordings or private data without permission.
+      description: State what happened and what you expected separately. Include a short error message if useful; do not attach recordings or private data without permission. / 分开说明实际发生和预期发生的情况；必要时附简短错误信息，不要在未经授权时附录音或私人资料。
     validations:
       required: true
   - type: checkboxes
@@ -48,7 +48,7 @@ body:
     attributes:
       label: Privacy check / 隐私确认
       options:
-        - label: I removed names, recordings, customer data, health information, credentials, and other private material from this public report.
+        - label: I removed names, recordings, customer data, health information, credentials, and other private material from this public report. / 我已从公开报告中删除姓名、录音、客户资料、健康信息、凭据及其他私人内容。
           required: true
     validations:
       required: true

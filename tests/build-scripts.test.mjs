@@ -205,6 +205,7 @@ test("public site feedback form captures reproducible accessibility conditions s
     assert.match(form, new RegExp(`id: ${id}[\\s\\S]*?required: true`));
   }
   assert.match(form, /assistive technology/);
+  assert.match(form, /键盘或读屏/);
   assert.match(form, /removed names, recordings, customer data/);
 });
 
