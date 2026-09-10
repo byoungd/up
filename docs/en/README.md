@@ -164,6 +164,12 @@ A method reveals its strength only after it enters a life. Relationships end and
 
 Products, company visits, and real-world projects involving Han Xiankai live on [Author Projects and Practice](projects.md). That page states the relationship, purpose, update date, and non-sponsorship status. Commercial relationships do not change the guide's recommendation standard; by default, the site uses no ads, analytics, or trackers.
 
+## Accessibility and Feedback
+
+The site targets WCAG 2.2 AA. Keyboard operation, focus restoration, themes, narrow reflow, table scrolling, the search dialog, and representative pages have automated and browser regression coverage. This is not a full WCAG conformance certification; screen readers, zoom/reflow combinations, low-powered devices, and third-party EPUB readers still need manual review.
+
+If you cannot read, operate, or download something, use the [accessibility feedback issue](https://github.com/byoungd/up/issues/new?template=site.yml). Include only the page path, browser or assistive technology, expected behavior, and observed behavior. Do not paste names, recordings, customer data, health information, or other private material. Use the private process in [SECURITY.md](https://github.com/byoungd/up/blob/master/SECURITY.md) for security or privacy concerns.
+
 ## Project Boundaries
 
 - This is an open-content project, not open-source software in the OSI sense. Text and author-created content use **CC BY-NC 4.0**; site configuration, checks, and build code use **MIT**. See [Licensing](https://github.com/byoungd/up/blob/master/LICENSE.md).
