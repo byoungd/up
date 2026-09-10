@@ -207,3 +207,12 @@ test("public site feedback form captures reproducible accessibility conditions s
   assert.match(form, /assistive technology/);
   assert.match(form, /removed names, recordings, customer data/);
 });
+
+test("bilingual home pages publish accessibility boundaries and a safe feedback route", () => {
+  for (const path of ["docs/README.md", "docs/en/README.md"]) {
+    const page = readFileSync(join(ROOT, path), "utf8");
+    assert.match(page, /WCAG 2\.2 AA/);
+    assert.match(page, /accessibility feedback issue|无障碍反馈 issue/);
+    assert.match(page, /SECURITY\.md/);
+  }
+});
