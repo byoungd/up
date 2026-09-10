@@ -4,13 +4,13 @@
 
 ## 当前已建立的证据
 
-- 56 项 Node 脚本回归和 6 项 PDF 布局回归覆盖内容解析、生成同步、私有资源、路由、EPUB（含未来 RTL 方向契约）、PDF 和公开读者回执契约；内容检查覆盖 177 个 Markdown，格式检查同时覆盖 42 份生成的工作表。
+- 57 项 Node 脚本回归和 6 项 PDF 布局回归覆盖内容解析、生成同步、私有资源、路由、EPUB（含未来 RTL 方向契约）、PDF、公开读者回执和无障碍反馈契约；内容检查覆盖 177 个 Markdown，格式检查同时覆盖 42 份生成的工作表。
 - 代表性桌面和移动页面、双语搜索、模板下载/复制、双主题、键盘操作、离屏预取门禁和 320px 重排都有浏览器回归；上一轮完整站点回归为 554/554，使用 Playwright 1.63.0 与 Chromium 153。
 - 两种 EPUB 通过固定版本 EPUBCheck 5.3.0 的零错误、零警告检查，130 个 XHTML 通过断网小屏阅读检查；PDF 代码边界与受影响页面有实际渲染复核。
 - CI 使用同一构建产物完成 Linux 浏览器测试；依赖、外链、生成文件和发布入口均有自动门禁。
 - Linux CI browser setup removes an unrelated stale runner Google Chrome apt source before installing the pinned Playwright Chromium dependency; this was added after a real runner hash-mismatch failure, not as a speculative workaround.
 - 生产构建现在还限制每个 SSR HTML 页面为 150,000 bytes 原始大小（约 146.5 KiB），防止预渲染页面无意中膨胀；本次最大页面约 114 KiB，低于门禁。
-- npm audit 当前为 0 vulnerabilities；`markdownlint-cli2` 通过 `smol-toml@1.8.0` override 避免了传递依赖的高危 DoS 版本，且 56 项脚本测试与格式检查仍通过。
+- npm audit 当前为 0 vulnerabilities；`markdownlint-cli2` 通过 `smol-toml@1.8.0` override 避免了传递依赖的高危 DoS 版本，且 57 项脚本测试与格式检查仍通过。
 - Python 3.12 的 `pip-audit==2.10.1` 已对完整 `requirements-pdf.txt` 依赖树检查通过（No known vulnerabilities found），并已加入 CI/Pages 门禁。
 
 ## 真实反馈到产品决策

@@ -23,8 +23,32 @@ body:
     validations:
       required: true
   - type: textarea
+    id: environment
+    attributes:
+      label: Environment / 环境
+      description: Browser and version, assistive technology, viewport or zoom, language edition, and device class. Do not include identity or private project details.
+    validations:
+      required: true
+  - type: textarea
     id: reproduce
     attributes:
-      label: Reproduction and expected result
+      label: Reproduction steps / 复现步骤
+      description: List the smallest steps that trigger the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed and expected behavior / 实际与预期行为
+      description: State what happened and what you expected separately. Include a short error message if useful; do not attach recordings or private data without permission.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check / 隐私确认
+      options:
+        - label: I removed names, recordings, customer data, health information, credentials, and other private material from this public report.
+          required: true
     validations:
       required: true

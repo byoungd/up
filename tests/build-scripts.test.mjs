@@ -198,3 +198,12 @@ test("public reader form preserves the worksheet's delayed evidence and privacy 
     assert.match(form, new RegExp(phrase));
   }
 });
+
+test("public site feedback form captures reproducible accessibility conditions safely", () => {
+  const form = readFileSync(join(ROOT, ".github/ISSUE_TEMPLATE/site.yml"), "utf8");
+  for (const id of ["url", "type", "environment", "reproduce", "observed", "privacy"]) {
+    assert.match(form, new RegExp(`id: ${id}[\\s\\S]*?required: true`));
+  }
+  assert.match(form, /assistive technology/);
+  assert.match(form, /removed names, recordings, customer data/);
+});
