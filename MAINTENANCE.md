@@ -22,6 +22,7 @@
 - 首次安装运行 `npm ci`。
 - 浏览器测试首次运行前执行 `npx playwright install chromium`；Linux CI 使用 `npx playwright install --with-deps chromium`。
 - PDF 校验使用 Python 3.12，建议在虚拟环境中安装 `requirements-pdf.txt`。可以设置 `PDF_PYTHON` 指定解释器；显式指定的解释器不可用时会直接报错，避免静默切换环境。
+- 依赖审计工具由 `requirements-audit.txt` 锁定为 `pip-audit==2.10.1`。如果本机包索引无法解析该版本，不要静默降级到旧版本；改用组织批准且能解析锁定版本的索引，或以 GitHub Actions 的 Python 3.12 门禁为权威结果，并记录环境差异。
 - 本地开发运行 `npm run docs:dev`。
 - 快速脚本回归运行 `npm run test:unit`，已包含在完整校验中。
 - 模板下载运行 `npm run sync:worksheets` 生成，`npm run check:worksheets` 检查同步；两者已分别纳入 `sync:content` 和 `check`。

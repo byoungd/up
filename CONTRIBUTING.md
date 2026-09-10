@@ -7,7 +7,7 @@ Thank you for improving this open-content project. Contributions should make a c
 1. Use Node 24: `nvm use` or your preferred version manager.
 2. Install exactly from the lock file: `npm ci`.
 3. Install the browser used by smoke tests: `npx playwright install chromium` (Linux CI uses `--with-deps`).
-4. Use Python 3.12 with `python3 -m pip install -r requirements-pdf.txt` for PDF validation. A virtual environment is recommended; set `PDF_PYTHON=/absolute/path/to/venv/bin/python` to select it explicitly. Install `requirements-audit.txt` and run `python -m pip_audit -r requirements-pdf.txt` when checking the complete publication dependency tree.
+4. Use Python 3.12 with `python3 -m pip install -r requirements-pdf.txt` for PDF validation. A virtual environment is recommended; set `PDF_PYTHON=/absolute/path/to/venv/bin/python` to select it explicitly. Install `requirements-audit.txt` and run `python -m pip_audit -r requirements-pdf.txt` when checking the complete publication dependency tree. Keep `pip-audit==2.10.1` pinned; if your package index cannot resolve it, use an approved index that can or rely on the CI result rather than silently downgrading the audit tool.
 5. Create a focused branch and avoid unrelated formatting or media changes.
 6. Run `npm run sync` after changing navigation, the Chinese homepage, or a Chinese word list.
 7. Run `npm run check`, `npm run docs:build`, and `npm run test:smoke`.
