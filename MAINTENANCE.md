@@ -128,7 +128,7 @@ GitHub Actions 不包含分析脚本、广告或用户追踪器。
 
 运行 `npm run book:validate -- --reports-dir outputs/epubcheck` 可以保存 EPUBCheck JSON 报告。该命令固定并校验官方 EPUBCheck 5.3.0 发布档案；需要 Java 21。CI 和 Pages 发布在上传产物前执行同一门禁。
 
-### 技术演进条件（2026-09-09 核验）
+### 技术演进条件（2026-09-10 核验）
 
 - VitePress npm `latest` 仍为 1.6.4，`next` 为 2.0.0-alpha.20。待 2.x 进入稳定通道后，再单独检查 Vite 配置、主题选择器、原生导航语义、搜索索引、Markdown 锚点和干净路径，满足现有门禁后迁移。判断稳定性同时检查版本号及 [npm dist-tags](https://registry.npmjs.org/-/package/vitepress/dist-tags)，不只依赖 GitHub release 的标志位。
 - [Node.js 官方支持计划](https://github.com/nodejs/Release/blob/main/schedule.json)列出 Node 24 于 2026-10-20 进入维护期、2028-04-30 结束支持；Node 26 计划在 2026-10-28 进入 LTS。维护期继续接收安全维护；新 LTS 可用且依赖兼容后，再同步评估本地版本约束和 CI 环境。

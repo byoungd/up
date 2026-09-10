@@ -1,6 +1,6 @@
 # 项目全面审查与优化记录
 
-审查日期：2026-09-09（Asia/Shanghai）。对象：当前本地工作区，优化位于 `codex/project-audit-20260909` 分支，结果不代表已部署到线上。
+审查日期：2026-09-10（Asia/Shanghai）。对象：当前本地工作区，优化位于 `codex/project-audit-20260909` 分支，结果不代表已部署到线上。
 
 提交前独立复核未发现必须修复的发布阻塞；当前提交已通过 58 项 Node 测试、6 项 PDF 布局测试、177 个 Markdown 检查和工作流门禁。正式托管平台验证以对应提交的 GitHub Actions 结果为准。
 
@@ -77,7 +77,7 @@ git diff --check
 
 ## 最新资料与后续演进
 
-2026-09-09 直接核验官方文档及 API：VitePress 稳定通道仍为 1.6.4，2.0.0-alpha.20 属于下一代预览；Node 24 仍在支持期，Node 26 计划于 2026-10-28 进入 LTS；WCAG 2.2 是正式推荐标准，WCAG 3 仍为草案。对应来源和升级门槛已写入 [技术演进条件](MAINTENANCE.md#技术演进条件-2026-09-09-核验)。
+2026-09-10 直接核验官方文档及 npm API：VitePress 稳定通道仍为 1.6.4，2.0.0-alpha.20 属于下一代预览；Node 24 仍在支持期，Node 26 计划于 2026-10-28 进入 LTS；WCAG 2.2 是正式推荐标准，WCAG 3 仍为草案。对应来源和升级门槛已写入 [技术演进条件](MAINTENANCE.md#技术演进条件-2026-09-10-核验)。
 
 已升级到 [Playwright 1.63.0](https://github.com/microsoft/playwright/releases/tag/v1.63.0) 稳定版本，并在本地脚本、生产构建和完整浏览器回归中验证；它带来 Chromium 153 配套版本。升级后的 Linux CI 会再次验证托管 Chromium，避免测试运行时与浏览器版本漂移。
 
