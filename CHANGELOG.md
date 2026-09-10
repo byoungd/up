@@ -20,6 +20,7 @@ All notable project-level changes are documented here. Content pages retain thei
 - Made the public reader-field-note issue form preserve immediate results, delayed retests, changed-condition transfer, and six privacy checks from the downloadable worksheet; added a contract test so the public route cannot silently drop those fields.
 - Split the public site/accessibility issue form into environment, reproduction, observed-versus-expected behavior, and a required privacy check, so assistive-technology reports can be reproduced without inviting private material.
 - Localized the site/accessibility issue form's labels, options, descriptions, and privacy confirmation in Chinese and English so the public feedback path matches both editions.
+- Reverified the npm release channels for VitePress, Playwright, and sharp on 2026-09-10; no dependency migration is justified before the documented stable-channel or Node LTS gates.
 - Added a bilingual-homepage contract test that keeps the public WCAG boundary and safe accessibility feedback route visible after future content edits.
 - Added a localized, accessible recovery message and reload action when the VitePress local search index fails to load, with desktop and mobile regression coverage for both languages.
 - Disabled VitePress's automatic offscreen route prefetching after a fresh-page A/B (same Chrome harness, `networkidle` plus 500 ms) showed 20 prefetch links and 31 initial requests with it enabled versus 0 prefetch links and 11 requests when disabled; navigation remains on-demand.

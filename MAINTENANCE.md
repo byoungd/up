@@ -130,7 +130,7 @@ GitHub Actions 不包含分析脚本、广告或用户追踪器。
 
 ### 技术演进条件（2026-09-10 核验）
 
-- VitePress npm `latest` 仍为 1.6.4，`next` 为 2.0.0-alpha.20。待 2.x 进入稳定通道后，再单独检查 Vite 配置、主题选择器、原生导航语义、搜索索引、Markdown 锚点和干净路径，满足现有门禁后迁移。判断稳定性同时检查版本号及 [npm dist-tags](https://registry.npmjs.org/-/package/vitepress/dist-tags)，不只依赖 GitHub release 的标志位。
+- 2026-09-10 通过 [npm dist-tags](https://registry.npmjs.org/-/package/vitepress/dist-tags) 核验：VitePress `latest` 仍为 1.6.4，`next` 为 2.0.0-alpha.20；当前锁定的 Playwright 1.63.0 与 sharp 0.35.4 也分别匹配 npm 当前版本。待 VitePress 2.x 进入稳定通道后，再单独检查 Vite 配置、主题选择器、原生导航语义、搜索索引、Markdown 锚点和干净路径，满足现有门禁后迁移。判断稳定性同时检查版本号及官方 dist-tags，不只依赖 GitHub release 的标志位。
 - [Node.js 官方支持计划](https://github.com/nodejs/Release/blob/main/schedule.json)列出 Node 24 于 2026-10-20 进入维护期、2028-04-30 结束支持；Node 26 计划在 2026-10-28 进入 LTS。维护期继续接收安全维护；新 LTS 可用且依赖兼容后，再同步评估本地版本约束和 CI 环境。
 - 无障碍检查以 [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA 为目标，结合自动检查与键盘、读屏、缩放和重排复核。当前通过的回归不等于完整 WCAG 合规认证。[WCAG 3](https://www.w3.org/TR/wcag-3.0/)仍为 Working Draft，跟踪进展，不作为正式合规声明。
 - 保持预渲染 HTML、本地搜索、稳定双语 URL 和离线出版的路线。引入远程搜索、统计或 AI 功能前，应确认读者任务、资源成本和数据需求，遵循 [W3C 数据最小化原则](https://www.w3.org/TR/privacy-principles/#data-minimization)。
