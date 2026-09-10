@@ -20,11 +20,19 @@
 - 使用 Node.js 24，版本约束见 `.nvmrc`、`.node-version` 和 `package.json`。
 - GitHub Actions 使用 Node.js 24 兼容的官方 major 版本；升级 action 前先查对应仓库的 release，升级后运行 CI、Pages 部署和外链检查。
 - 首次安装运行 `npm ci`。
+- 浏览器测试首次运行前执行 `npx playwright install chromium`；Linux CI 使用 `npx playwright install --with-deps chromium`。
+- PDF 校验使用 Python 3.12，建议在虚拟环境中安装 `requirements-pdf.txt`。可以设置 `PDF_PYTHON` 指定解释器；显式指定的解释器不可用时会直接报错，避免静默切换环境。
+- 依赖审计工具由 `requirements-audit.txt` 锁定为 `pip-audit==2.10.1`。如果本机包索引无法解析该版本，不要静默降级到旧版本；改用组织批准且能解析锁定版本的索引，或以 GitHub Actions 的 Python 3.12 门禁为权威结果，并记录环境差异。
 - 本地开发运行 `npm run docs:dev`。
+- 快速脚本回归运行 `npm run test:unit`，已包含在完整校验中。
+- 模板下载运行 `npm run sync:worksheets` 生成，`npm run check:worksheets` 检查同步；两者已分别纳入 `sync:content` 和 `check`。
+- EPUB 独立标准检查运行 `npm run book:validate`，需要 Java 21 或兼容运行时；可用 `EPUBCHECK_JAVA` 指定 Java。命令固定 EPUBCheck 5.3.0 并验证下载 ZIP 的 SHA256，可用 `--reports-dir outputs/epubcheck` 保留 JSON 报告。CI 与 Pages 发布都要求零错误、零警告。
 - 完整校验运行 `npm run check`。
 - 生产构建运行 `npm run docs:build`；构建完成后会自动检查搜索索引、框架和主题脚本的原始与 gzip 体积预算。
 - 本地预览生产产物运行 `npm run docs:preview`。
 - 端到端测试运行 `npm run test:smoke`。
+
+烟测默认使用 Playwright 管理的 Chromium，并重新构建、启动独立预览，避免误测旧服务器。刚完成生产构建后可设置 `PLAYWRIGHT_SKIP_BUILD=1` 复用磁盘产物；明确要连接已更新的本地预览时再设置 `PLAYWRIGHT_REUSE_SERVER=1`。本机也可通过 `PLAYWRIGHT_CHANNEL=chrome` 显式使用 Google Chrome。
 
 ## 导航与生成文件
 
@@ -41,14 +49,17 @@ npm run sync
 - `docs/en/SUMMARY.md`；
 - 根目录 `README.md`；
 - 英文词表镜像；
-- VitePress `public` 分享图。
+- VitePress `public` 分享图；
+- 中英文完整工作表 Markdown 下载。
 
 CI 会再次生成这些文件，并阻止未提交的差异进入主分支。
+
+`docs/public/downloads/worksheets/` 是生成的下载目录，由中英文模板导航和源文决定。不要直接编辑下载文件；生成器保留说明、GFM 表格、复选框和提示词，将填写用 Markdown 代码块展开并保留逐行字段，站内链接转换为可从本地文件使用的在线地址。`toolkit` 和 `toolkit-walkthrough` 是使用说明，不作为空白工作表提供下载。`public/**` 明确排除在网页编译和搜索之外，避免下载副本被重复索引；独立同步检查保证它们未漂移。
 同步脚本还会检查每个导航条目的字段、重复链接和 `source` 文件是否存在；路径写错时会在 `npm run check:navigation` 阶段失败。
 它还会反向检查 `docs/` 下的所有公开 Markdown 是否都被中英文导航收录，避免新页面成为孤岛。
 
 Playwright 的 `test-results/` 和 `playwright-report/` 只保存失败诊断与 HTML 报告，属于生成文件，不是书稿内容；它们已被 Git 和 Markdown lint 忽略。测试失败后可以安全清理，再重新运行 `npm run check`。
-本地会话凭据文件 `docs/assets/session.json` 被精确加入 `.gitignore`，并由 VitePress 开发服务器、构建钩子和浏览器烟测共同拦截；任何本地会话文件都不得进入仓库或站点产物。
+本地会话凭据文件 `docs/assets/session.json` 被精确加入 `.gitignore`，并由 VitePress 开发服务器、文件访问规则、构建导入拦截和浏览器烟测共同保护。`raw`、`url` 等导入方式也会被拒绝，避免凭据以带哈希的文件名进入产物；畸形 URL 返回请求错误。任何本地会话文件都不得进入仓库或站点产物。
 
 本地搜索按读者任务控制索引粒度：第二至第五部保留 H2 级入口；第一部已经按技能拆成独立页面，工具模板、术语、归档和词表使用页面级入口。H3 正文仍会并入所属页面或 H2，因此关键词不会消失。代码块不进入倒排索引，避免复制用工作表和重复示例放大下载体积。调整规则后必须运行 `npm run docs:build`，并确认 `check:bundle` 通过。
 
@@ -63,6 +74,8 @@ Playwright 的 `test-results/` 和 `playwright-report/` 只保存失败诊断与
 - 图片必须有描述场景或用途的替代文本；`image`、`photo`、`hotel` 等占位词会被内容校验拒绝，英文页面的 alt 也不得混入中文字符。图片不得包含 GPS、EXIF、IPTC 或 XMP 元数据。构建会为本地位图自动注入真实宽高以预留版面，外链图片和 SVG 不推测尺寸。
 - 英文正文应优先使用英文表达；语言切换标签、书名/产品的官方原名和无法可靠翻译的专名可以保留原文，并在需要时提供英文解释。
 - 站内链接使用 VitePress 干净路径，不新增 `#/` 路由；旧 hash 链接仅由兼容脚本处理。
+- 规范网址、语言替代网址和站点地图使用同一组公开路由规则：文章无尾斜杠，首页和归档目录保留尾斜杠。历史 `README`、`.md`、查询参数与章节锚点由兼容跳转保留。
+- 站内目标通过 Markdown 解析器检查，覆盖引用式链接、HTML 图片、下载文件和页面锚点；代码示例中的伪链接不会被当成正文链接。日期必须是真实日历日期，`updated` 和 `sources_checked` 均不得晚于项目时区当天。
 - 外部素材必须登记在 `ATTRIBUTIONS.md`，无法确认再分发权限时不进入仓库。
 - `check-content.mjs` 会验证归属表中明确写出的本地路径；删除或移动素材时必须同步更新登记，合法 glob 路径除外。
 - `check-content.mjs` 还会检查 `docs/assets/` 中的图片和 SVG 是否被正文、配置或构建脚本引用；归属表和变更记录不会把文件伪装成正在使用的资产。
@@ -95,6 +108,8 @@ Playwright 的 `test-results/` 和 `playwright-report/` 只保存失败诊断与
 3. 合并到 `master` 后，由 GitHub Pages Actions 工作流部署。
 4. 部署后检查中文首页、英文首页、代表性章节、搜索、语言切换和旧 hash 跳转。
 
+CI 的浏览器测试下载并验证内容校验任务生成的同一份站点产物，避免重复构建造成差异。Pages 工作流也会在上传待发布产物前完成浏览器测试；脚本回归或浏览器测试失败时不会进入发布。生成文件检查同时检查已跟踪差异与未跟踪文件，避免遗漏新生成的输出。
+
 仓库的 Pages 发布源必须保持为 **GitHub Actions**，不要切回 `master:/docs` 的 Legacy 模式；`deploy.yml` 会在发布后请求中文首页、英文首页和代表性章节，并校验每个入口的期望标题与当前提交的 `build-revision`。正文使用 VitePress clean URLs，文章入口按无尾斜杠路径检查；任何公开入口返回非成功状态、错误页面或旧构建标识都会使部署失败。
 
 Pages 发布组启用 `cancel-in-progress`：快速连续提交时，旧的构建或部署会被取消，只允许最新提交继续发布。需要回看旧版本时，应从 Git 历史或 CI 构建产物查看，不要依赖线上页面暂时保留旧内容。
@@ -103,10 +118,23 @@ GitHub Actions 不包含分析脚本、广告或用户追踪器。
 
 ## 定期维护
 
+真实读者观察按 [READER_RESEARCH.md](READER_RESEARCH.md) 执行：先取得自愿同意，记录首次行动和延迟回访，最少收集非敏感条件，按期删除原始材料，并把每项产品改变连接到回归检查。不要把公开 issue、个人故事或一次顺利体验当成独立效果研究。
+
 - 每周定时任务检查外链；Douban、`token.love` 和 `ku0.com` 由浏览器 User-Agent 的独立 `curl` 探针检查，Lychee 负责其余外链。第三方站点短暂失败不会阻塞普通提交，但会留下可追踪的自动 issue。
 - 每月至少检查一次 AI 章节；超过 120 天未更新会被内容校验阻止。
 - 每季度检查依赖、安全公告、素材授权和无障碍回归。
 - 合并图片前先运行 `npm run assets:sanitize`，再执行完整校验。
+
+`.github/dependabot.yml` 在进入默认分支后每周检查 npm、GitHub Actions 和 Python 出版依赖，兼容的 minor/patch 更新按生态合并为 PR，每个生态最多保留 3 个版本更新 PR；主版本更新单独评估。它不自动合并或部署。PDF/字体依赖更新仍须通过出版物语义、文件清单与必要的排版复核，不能只看包版本是否最新。
+
+运行 `npm run book:validate -- --reports-dir outputs/epubcheck` 可以保存 EPUBCheck JSON 报告。该命令固定并校验官方 EPUBCheck 5.3.0 发布档案；需要 Java 21。CI 和 Pages 发布在上传产物前执行同一门禁。
+
+### 技术演进条件（2026-09-10 核验）
+
+- 2026-09-10 通过 [npm dist-tags](https://registry.npmjs.org/-/package/vitepress/dist-tags) 核验：VitePress `latest` 仍为 1.6.4，`next` 为 2.0.0-alpha.20；当前锁定的 Playwright 1.63.0 与 sharp 0.35.4 也分别匹配 npm 当前版本。待 VitePress 2.x 进入稳定通道后，再单独检查 Vite 配置、主题选择器、原生导航语义、搜索索引、Markdown 锚点和干净路径，满足现有门禁后迁移。判断稳定性同时检查版本号及官方 dist-tags，不只依赖 GitHub release 的标志位。
+- [Node.js 官方支持计划](https://github.com/nodejs/Release/blob/main/schedule.json)列出 Node 24 于 2026-10-20 进入维护期、2028-04-30 结束支持；Node 26 计划在 2026-10-28 进入 LTS。维护期继续接收安全维护；新 LTS 可用且依赖兼容后，再同步评估本地版本约束和 CI 环境。
+- 无障碍检查以 [WCAG 2.2](https://www.w3.org/TR/WCAG22/) AA 为目标，结合自动检查与键盘、读屏、缩放和重排复核。当前通过的回归不等于完整 WCAG 合规认证。[WCAG 3](https://www.w3.org/TR/wcag-3.0/)仍为 Working Draft，跟踪进展，不作为正式合规声明。
+- 保持预渲染 HTML、本地搜索、稳定双语 URL 和离线出版的路线。引入远程搜索、统计或 AI 功能前，应确认读者任务、资源成本和数据需求，遵循 [W3C 数据最小化原则](https://www.w3.org/TR/privacy-principles/#data-minimization)。
 
 ## 回滚
 

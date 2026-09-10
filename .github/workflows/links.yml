@@ -12,30 +12,41 @@ permissions:
 jobs:
   links:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
       - name: Verify catalog and project entry points
+        id: catalog
         run: |
           set -euo pipefail
-          {
-            grep -rhoE 'https://(book|movie)\.douban\.com/[^) >]+' docs/threads || true
-            printf '%s\n' https://token.love/ https://ku0.com/
-          } | while IFS= read -r url; do
-              [ -z "$url" ] && continue
-              curl --fail --location --http1.1 --compressed \
+          failed=0
+          mkdir -p lychee
+          while IFS= read -r url; do
+            [ -z "$url" ] && continue
+            if ! curl --fail --location --http1.1 --compressed \
                 --retry 3 --retry-delay 5 --connect-timeout 15 --max-time 45 \
                 -A 'Mozilla/5.0 (compatible; Life-Level-Guide-Link-Check/1.0)' \
-                -o /dev/null "$url"
-              done
+                -o /dev/null "$url"; then
+              printf -- '- Failed catalog or project URL: %s\n' "$url" >> lychee/catalog.md
+              failed=1
+            fi
+          done < <({
+            grep -rhoE --include='*.md' 'https://(book|movie)\.douban\.com/[^) >]+' docs/threads docs/en/threads || true
+            printf '%s\n' https://token.love/ https://ku0.com/
+          } | sort -u)
+          exit "$failed"
       - name: Guard retired failure URLs
+        id: retired
+        if: ${{ !cancelled() }}
         run: |
           set -euo pipefail
-          if grep -REni 'scholarspace\.manoa\.hawaii\.edu|doi\.org/10\.64152/10125/66973|10\.1076/edre\.7\.1\.403\.3989|web\.archive\.org/web/20160424221725' \
+          if grep -REni --include='*.md' 'scholarspace\.manoa\.hawaii\.edu|doi\.org/10\.64152/10125/66973|10\.1076/edre\.7\.1\.403\.3989|web\.archive\.org/web/20160424221725' \
             ATTRIBUTIONS.md docs README.md; then
             echo 'A retired URL from the 193-197 failure series has returned.' >&2
             exit 1
           fi
       - uses: lycheeverse/lychee-action@v2.9.0
+        if: ${{ !cancelled() }}
         with:
           args: >-
             --no-progress
@@ -76,6 +87,22 @@ jobs:
                 gh issue close "$issue" --repo "${{ github.repository }}" \
                   --comment "The latest scheduled link check passed, so this stale automation issue is now closed."
               done
+      - name: Prepare a report for every failure path
+        if: failure()
+        env:
+          RETIRED_RESULT: ${{ steps.retired.outcome }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          mkdir -p lychee
+          touch lychee/out.md
+          if [[ -f lychee/catalog.md ]]; then
+            printf '\n## Catalog and project failures\n\n' >> lychee/out.md
+            cat lychee/catalog.md >> lychee/out.md
+          fi
+          if [[ "$RETIRED_RESULT" == failure ]]; then
+            printf '\nA retired URL has returned. See the workflow log for its location.\n' >> lychee/out.md
+          fi
+          printf '\n[Inspect the failed workflow run](%s).\n' "$RUN_URL" >> lychee/out.md
       - uses: peter-evans/create-issue-from-file@v6
         if: failure()
         with:

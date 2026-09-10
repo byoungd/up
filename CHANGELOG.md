@@ -4,6 +4,56 @@ All notable project-level changes are documented here. Content pages retain thei
 
 ## Unreleased
 
+### 2026-09-10 reader entry refinement
+
+#### Changed
+
+- Put a bilingual four-line first action at the top of the Toolkit Overview, linking directly to the complete cross-session walkthrough so readers who do not know which worksheet to use can begin without scanning the full routing table.
+- Added a visible bilingual homepage speaking-plan entry, routing readers asking for oral-English practice to an unscripted baseline, listener feedback, interaction repair, and fourteen-day transfer experiment.
+- Clarified the bilingual homepage project boundary: this repository publishes an open manuscript and static reading/EPUB/PDF editions; its source code supports corrections, content checks, and builds rather than requiring software installation.
+- Added time-to-first-action and non-sensitive conditions to the reader field-note form and bilingual template, making future reader evidence more comparable without collecting identity or private project data.
+- Regenerated both EPUB and PDF editions after the toolkit entry change and added bilingual browser assertions for the new first-use path.
+- Added an npm override for `smol-toml@1.8.0`, resolving the high-severity DoS advisory reached through `markdownlint-cli2` while retaining the current Markdown lint tool.
+- Added pinned `pip-audit==2.10.1` checks for the complete Python PDF dependency tree in CI and Pages builds; the current audit reports no known vulnerabilities.
+- Added `READER_RESEARCH.md`, a privacy-first protocol for repeatable first-use, saved-output, return-visit, and accessibility observations; it keeps future reader evidence separate from synthetic examples and automated regression claims.
+- Added a plain-language consent opening, sensitive-material stop rule, and neutral closing script to `READER_RESEARCH.md`, so maintainers can run comparable observations without teaching the route or treating silence as consent.
+- Made the public reader-field-note issue form preserve immediate results, delayed retests, changed-condition transfer, and six privacy checks from the downloadable worksheet; added a contract test so the public route cannot silently drop those fields.
+- Split the public site/accessibility issue form into environment, reproduction, observed-versus-expected behavior, and a required privacy check, so assistive-technology reports can be reproduced without inviting private material.
+- Localized the site/accessibility issue form's labels, options, descriptions, and privacy confirmation in Chinese and English so the public feedback path matches both editions.
+- Reverified the npm release channels for VitePress, Playwright, and sharp on 2026-09-10; no dependency migration is justified before the documented stable-channel or Node LTS gates.
+- Added a bilingual-homepage contract test that keeps the public WCAG boundary and safe accessibility feedback route visible after future content edits.
+- Added a localized, accessible recovery message and reload action when the VitePress local search index fails to load, with desktop and mobile regression coverage for both languages.
+- Disabled VitePress's automatic offscreen route prefetching after a fresh-page A/B (same Chrome harness, `networkidle` plus 500 ms) showed 20 prefetch links and 31 initial requests with it enabled versus 0 prefetch links and 11 requests when disabled; navigation remains on-demand.
+- Made EPUB XHTML and stylesheet direction-aware for future RTL editions, using logical blockquote properties and preserving LTR code blocks; added a generator regression without changing the current Chinese and English direction output.
+
+### 2026-09-09 learning tools and accessible publication
+
+#### Changed
+
+- Added 42 complete editable Markdown worksheets with bilingual download/copy controls, portable source links, and generated-file validation. Download copies are excluded from page compilation and search indexing.
+- Corrected the bilingual cross-session walkthrough so its current snapshot preserves the goal, initial baseline, capacity, boundaries, and next task; made evidence access, manual saving, and the three functional acceptance conditions explicit.
+- Repaired mobile focus isolation, closed-sidebar tab stops, named search dialogs and options, result announcements, and focus restoration; added axe and keyboard regressions across languages, themes, and narrow viewports.
+- Removed website-only controls and invalid Vue attributes from EPUB code, preserved literal worksheet content, improved narrow-table reading, and added EPUBCheck 5.3.0 plus complete offline XHTML checks.
+- Fixed PDF preformatted text clipping by wrapping at measured font widths while preserving content, whitespace, and font size; added synthetic and full-publication layout regression checks and rebuilt both publication formats.
+- Recorded remaining evidence needs in `QUALITY_ROADMAP.md`, including real reader outcomes, assistive technology, device performance, and common EPUB readers.
+- Added an SSR HTML page-size budget of 150,000 bytes (about 146.5 KiB) to catch route-level payload growth before it reaches the compressed Pages response; the current largest page remains below the limit.
+- Updated the pinned Playwright test runtime to 1.63.0 with its Chromium 153 release and refreshed the verified test counts and maintenance evidence.
+- Hardened Linux browser setup by removing any runner apt source whose contents target the unrelated Google Chrome repository before Playwright installs Chromium; a real CI failure showed the runner used a `.sources` entry rather than the initial `.list` filename assumption.
+
+### 2026-09-09 site and maintenance audit
+
+#### Changed
+
+- Updated pinned `sharp` to 0.35.4 to resolve its high-severity libheif advisory.
+- Aligned canonical URLs and language alternates with the sitemap; repaired legacy README/Markdown routes, query and section preservation, and same-page hash changes; excluded missing pages from indexing metadata.
+- Improved dark-theme link contrast, sidebar keyboard and screen-reader controls, tablet navigation, wide-table containment, and printing from dark mode.
+- Replaced regular-expression-only link checks with VitePress parsing for reference links, HTML images, and real heading anchors; added calendar-date and bilingual navigation integrity checks.
+- Blocked private session assets from development requests and conventional JSON, raw, URL, CSS, HTML, and `new URL()` build references, with synthetic real-build regression fixtures.
+- Made missing generated mirrors recoverable without mutating check-only runs, preserved word-list editorial dates, and reported invalid explicit PDF interpreters without a silent fallback.
+- Added fast Node regression tests to the standard check; made CI smoke tests reuse the validated artifact, required browser tests before Pages upload, and completed external-link failure reporting.
+- Documented environment setup, explicit browser and preview selection, and the full audit in `PROJECT_REVIEW.md`.
+- Added weekly grouped Dependabot updates for npm, Actions, and Python, plus source-checked migration criteria for the next Node LTS, stable VitePress 2, and accessibility standards; dependency changes remain subject to review and publication checks.
+
 ### 2026-09-07 link-audit hardening
 
 #### Changed

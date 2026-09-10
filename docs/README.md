@@ -1,7 +1,7 @@
 ---
 title: 人生进阶指南｜AI 时代终身学习
 description: 《人生进阶指南》帮助普通人在 AI 时代持续学习、完成真实项目、穿越人生低谷并留下成长证据。
-updated: 2026-09-02
+updated: 2026-09-10
 ---
 
 # 人生进阶指南
@@ -11,6 +11,8 @@ updated: 2026-09-02
 **韩先凯 著（笔名：离谱）**
 
 副标题：**AI 时代终身学习指南**。这是一份持续更新的书稿，从英语这扇具体的门出发，写到 AI 学习、真实项目、创业失败、身体恢复，以及一个普通人怎样把生活一点点交还给自己。
+
+这是一个开放的双语书稿与静态阅读/出版项目，不是需要安装的软件包：网页、EPUB 和 PDF 负责阅读，仓库源码负责勘误、内容校验与构建。
 
 <div class="book-meta" aria-label="书稿信息">
   <span>持续更新书稿</span>
@@ -49,6 +51,7 @@ AI 正在让答案变得前所未有地廉价。几秒钟里，我们可以得�
       <a class="guide-path" href="./threads/part-1/0-cefr"><strong>基础能力：英语</strong>用英语连接全球知识、技术文档与国际 AI 工具，以可理解度而不是口音相似度进入跨文化协作。</a>
       <a class="guide-path" href="./threads/part-1/grammar"><strong>语法基础与真实表达</strong>不从背完整规则开始，而从时间、责任、条件与确定性是否被听清开始，用一项高影响结构完成十四天复测。</a>
       <a class="guide-path" href="./threads/part-1/6-writing"><strong>写作与异步交付</strong>保留无辅助初稿、事实来源和修改理由，让邮件、报告、决定与交接在作者离线后仍然可用。</a>
+      <a class="guide-path" href="./threads/part-1/5-speaking"><strong>口语方案：先让意思到达</strong>用无稿独白、陌生追问、听众复述、互动修复和十四天迁移，把“想练口语”变成一项可以开始的真实任务。</a>
     </div>
   </section>
   <section class="guide-path-group" aria-labelledby="guide-amplify">
@@ -172,6 +175,12 @@ AI 可以降低探索、学习和创造的门槛，却不能替你建立信誉�
 ## 作者项目与透明说明
 
 韩先凯参与的产品、公司参访与现实项目统一放在 [作者项目与现实实践](projects.md)。页面明确作者关联、用途、更新时间和非赞助关系。正文不因商业关系改变推荐标准，站点默认不接入广告、分析脚本或追踪器。
+
+## 无障碍与反馈
+
+网站以 WCAG 2.2 AA 为目标，已对键盘操作、焦点恢复、双主题、窄屏重排、表格滚动、搜索对话框和代表性页面做自动与浏览器回归。它不等于完整的 WCAG 合规认证；读屏软件、放大/重排组合、低速设备和第三方 EPUB 阅读器仍需要人工复核。
+
+如果你遇到无法阅读、操作或下载的地方，可以提交[无障碍反馈 issue](https://github.com/byoungd/up/issues/new?template=site.yml)，请只写页面路径、浏览器或辅助技术、预期行为和实际行为，不要粘贴姓名、录音、客户资料、健康信息或其他私人内容。涉及安全或隐私的内容请使用 [SECURITY.md](https://github.com/byoungd/up/blob/master/SECURITY.md) 的私下流程。
 
 ## 项目边界
 

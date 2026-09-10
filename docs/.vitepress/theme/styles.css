@@ -9,8 +9,41 @@
   --reading-progress-color: #c0523a;
 }
 
+.dark {
+  --vp-c-brand-1: #6dd5b5;
+  --vp-c-brand-2: #99e6ce;
+  --vp-c-brand-soft: rgba(109, 213, 181, 0.14);
+  --vp-c-tip-1: #6dd5b5;
+  --vp-c-tip-soft: rgba(109, 213, 181, 0.12);
+}
+
 .VPDoc .content-container {
   max-width: 780px;
+}
+
+.VPLocalSearchBox .search-index-error {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+  margin: 16px 24px;
+  color: var(--vp-c-text-2);
+  line-height: 1.5;
+}
+
+.VPLocalSearchBox .search-index-error button {
+  padding: 4px 10px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-brand-1);
+  font: inherit;
+  cursor: pointer;
+}
+
+.VPLocalSearchBox .search-index-error button:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 2px;
 }
 
 .reading-progress {
@@ -108,9 +141,25 @@
   object-fit: contain;
 }
 
+.vp-doc [class*="language-"] > span.lang {
+  color: var(--vp-c-text-2);
+}
+
+/* Off-canvas navigation must leave both the keyboard order and accessibility tree. */
+@media (max-width: 959px) {
+  .VPSidebar:not(.open) {
+    visibility: hidden;
+  }
+}
+
+.VPNavScreenTranslations:not(.open) .list {
+  visibility: hidden;
+}
+
 .vp-doc table {
-  display: table;
+  display: block;
   width: 100%;
+  overflow-x: auto;
 }
 
 .vp-doc .guide-paths {
@@ -260,6 +309,23 @@
   text-overflow: ellipsis;
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .VPNavBarSearch {
+    padding-left: 8px;
+  }
+
+  .VPNavBarSearch .DocSearch-Button {
+    justify-content: center;
+    width: 40px;
+    padding: 0;
+  }
+
+  .VPNavBarSearch .DocSearch-Button-Placeholder,
+  .VPNavBarSearch .DocSearch-Button-Keys {
+    display: none;
+  }
+}
+
 @media (max-width: 640px) {
   html,
   body {
@@ -310,11 +376,6 @@
   .vp-doc .latest-updates {
     grid-template-columns: 1fr;
   }
-
-  .vp-doc table {
-    display: block;
-    overflow-x: auto;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -330,6 +391,38 @@
 @media print {
   @page {
     margin: 18mm 16mm;
+  }
+
+  :root,
+  :root.dark {
+    color-scheme: light;
+    --vp-c-bg: #fff;
+    --vp-c-bg-alt: #f6f6f7;
+    --vp-c-bg-elv: #fff;
+    --vp-c-bg-soft: #f6f6f7;
+    --vp-c-text-1: #111;
+    --vp-c-text-2: #444;
+    --vp-c-text-3: #555;
+    --vp-c-divider: #ccc;
+    --vp-c-brand-1: #176f5b;
+    --vp-c-brand-2: #0f5c4a;
+    --vp-c-brand-soft: rgba(23, 111, 91, 0.14);
+    --vp-c-tip-1: #176f5b;
+    --vp-c-tip-soft: rgba(23, 111, 91, 0.12);
+    --vp-c-warning-1: #915930;
+  }
+
+  html,
+  body {
+    overflow: visible;
+    background: #fff;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
   }
 
   .VPNav,
@@ -374,6 +467,24 @@
   .vp-doc blockquote,
   .vp-doc img {
     break-inside: avoid-page;
+  }
+
+  .vp-doc table {
+    display: table;
+    table-layout: fixed;
+    overflow: visible;
+  }
+
+  .vp-doc th,
+  .vp-doc td {
+    overflow-wrap: anywhere;
+  }
+
+  .vp-doc [class*="language-"] pre,
+  .vp-doc [class*="language-"] code,
+  .vp-doc [class*="language-"] code span {
+    color: #111 !important;
+    background: transparent !important;
   }
 
   .vp-doc a {

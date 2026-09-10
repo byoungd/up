@@ -1,9 +1,12 @@
-import { existsSync, readdirSync, rmSync } from "node:fs";
+import { readdirSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import { defineConfig } from "vitepress";
 import { bilingualRoutePairs, enNavigation, toSidebar, zhNavigation } from "./navigation.mjs";
+import { legacyRedirectScript, publicRoutePath } from "./routing.mjs";
+import { privateAssetGuard } from "./private-assets.mjs";
+import { worksheetBySource } from "./worksheets.mjs";
 
 const origin = "https://byoungd.github.io";
 const base = "/up/";
@@ -50,8 +53,49 @@ function localImagePath(source: string, pagePath?: string) {
   return resolve(dirname(pagePath), clean);
 }
 
+function localSearchFailurePlugin() {
+  return {
+    name: "reader-local-search-failure",
+    enforce: "pre" as const,
+    transform(source: string, id: string) {
+      const normalizedId = id.split("?", 1)[0].replaceAll("\\", "/");
+      if (!normalizedId.endsWith("/vitepress/dist/client/theme-default/components/VPLocalSearchBox.vue")) {
+        return undefined;
+      }
+
+      const searchStart = "const searchIndex = computedAsync(async () =>";
+      const searchEnd = "\n)\n\nconst disableQueryPersistence";
+      if (!source.includes(searchStart) || !source.includes(searchEnd)) return undefined;
+
+      return source
+        .replace(
+          searchStart,
+          "const searchIndexError = ref(false);\nconst searchIndex = computedAsync(async () =>",
+        )
+        .replace(
+          searchEnd,
+          "\n, undefined, { onError: () => { searchIndexError.value = true } })\n\nconst disableQueryPersistence",
+        )
+        .replace(
+          "const translate = createSearchTranslate(defaultTranslations)",
+          "function searchFailureMessage() { return document.documentElement.lang.startsWith('en') ? 'Search is temporarily unavailable. Reload to try again.' : '搜索索引暂时无法加载，请刷新后重试。' }\nfunction searchFailureRetryLabel() { return document.documentElement.lang.startsWith('en') ? 'Reload search' : '刷新搜索' }\nfunction reloadSearch() { window.location.reload() }\n\nconst translate = createSearchTranslate(defaultTranslations)",
+        )
+        .replace(
+          '<ul\n          ref="resultsEl"',
+          `<p v-if="searchIndexError" class="search-index-error" role="alert">
+          {{ searchFailureMessage() }}
+          <button type="button" @click="reloadSearch">{{ searchFailureRetryLabel() }}</button>
+        </p>
+
+        <ul
+          ref="resultsEl"`,
+        );
+    },
+  };
+}
+
 function absoluteRoute(route: string) {
-  return `${siteUrl}${route}${route ? "/" : ""}`;
+  return `${origin}${publicRoutePath(route, base)}`;
 }
 
 const searchHeadingContent = /(.*?)<a.*? href="#(.*?)".*?>.*?<\/a>/i;
@@ -123,55 +167,15 @@ function routeFromRelativePath(relativePath: string) {
   return clean.replace(/^\/+|\/+$/g, "");
 }
 
-function privateAssetGuard() {
-  let outDir = "";
-  const isPrivateSession = (url = "") => {
-    const pathname = decodeURIComponent(url.split("?")[0]);
-    return pathname === "/assets/session.json" || pathname.endsWith("/assets/session.json");
-  };
-
-  return {
-    name: "private-asset-guard",
-    enforce: "post" as const,
-    configResolved(config: { build: { outDir: string } }) {
-      outDir = config.build.outDir;
-    },
-    configureServer(server: { middlewares: { use: (handler: (req: { url?: string }, res: { statusCode: number; end: (body: string) => void }, next: () => void) => void) => void } }) {
-      server.middlewares.use((req, res, next) => {
-        if (!isPrivateSession(req.url)) {
-          next();
-          return;
-        }
-        res.statusCode = 404;
-        res.end("Not found");
-      });
-    },
-    closeBundle() {
-      if (!outDir) return;
-      const generatedPath = resolve(outDir, "assets/session.json");
-      if (existsSync(generatedPath)) rmSync(generatedPath);
-    },
-  };
-}
-
-const legacyHashRedirect = `
-(function () {
-  var hash = window.location.hash || '';
-  if (!hash.startsWith('#/')) return;
-  var raw = hash.slice(2).split('?id=')[0].split('#')[0];
-  var clean = raw.replace(/^\\/+|\\/+$/g, '').replace(/\\/README(?:\\.md)?$/i, '');
-  var target = '${base}' + (clean ? clean + '/' : '');
-  if (window.location.pathname + window.location.search !== target) window.location.replace(target);
-})();`;
-
 export default defineConfig({
   lang: "zh-CN",
   title: "人生进阶指南｜AI 时代终身学习",
   description: defaultDescription,
   base,
   cleanUrls: true,
+  router: { prefetchLinks: false },
   lastUpdated: true,
-  srcExclude: ["SUMMARY.md", "en/SUMMARY.md"],
+  srcExclude: ["SUMMARY.md", "en/SUMMARY.md", "public/**"],
   sitemap: {
     hostname: siteUrl,
     transformItems(items) {
@@ -188,6 +192,7 @@ export default defineConfig({
     },
   },
   markdown: {
+    theme: { light: "github-light-high-contrast", dark: "github-dark" },
     config(md) {
       md.core.ruler.after("inline", "defer-content-images", (state) => {
         for (const token of state.tokens) {
@@ -207,7 +212,7 @@ export default defineConfig({
       });
     },
   },
-  vite: { plugins: [privateAssetGuard()] },
+  vite: { plugins: [privateAssetGuard(), localSearchFailurePlugin()] },
   rewrites: {
     "README.md": "index.md",
     "en/README.md": "en/index.md",
@@ -220,7 +225,7 @@ export default defineConfig({
     ["meta", { name: "author", content: "Han Xiankai / 韩先凯 (Li Pu / 离谱) and contributors" }],
     ["meta", { name: "build-revision", content: buildRevision }],
     ["meta", { name: "twitter:card", content: "summary_large_image" }],
-    ["script", {}, legacyHashRedirect],
+    ["script", {}, legacyRedirectScript(base)],
   ],
   locales: {
     root: {
@@ -368,6 +373,10 @@ export default defineConfig({
     },
   },
   transformPageData(pageData) {
+    const worksheet = worksheetBySource.get(pageData.relativePath);
+    if (worksheet) {
+      pageData.frontmatter.worksheetDownload = { url: worksheet.download, name: worksheet.name };
+    }
     const updated = pageData.frontmatter.updated;
     const timestamp =
       updated instanceof Date
@@ -381,7 +390,8 @@ export default defineConfig({
   },
   transformHead({ pageData }) {
     const route = routeFromRelativePath(pageData.relativePath);
-    const canonical = `${siteUrl}${route}${route ? "/" : ""}`;
+    if (pageData.isNotFound) return [["meta", { name: "robots", content: "noindex" }]];
+    const canonical = absoluteRoute(route);
     const languagePair = bilingualRouteMap.get(route);
     const isEnglish = route === "en" || route.startsWith("en/");
     const isBookHome = route === "" || route === "en";

@@ -183,17 +183,22 @@ test("long-term action moves from a 90-day cycle through a real case into handov
   ]);
 });
 
-test("reader field notes ask for action, delayed evidence, revision, and privacy", () => {
+test("reader field notes preserve immediate, delayed, transfer, editorial, and privacy evidence", () => {
   const template = readFileSync(
     resolve(process.cwd(), ".github/ISSUE_TEMPLATE/reader-field-note.yml"),
     "utf8",
   );
-  for (const field of ["problem", "action", "delayed_result", "revision", "privacy"]) {
+  for (const field of ["problem", "action", "immediate_result", "retest", "transfer", "editorial_feedback", "privacy"]) {
     expect(template).toContain(`id: ${field}`);
   }
   expect(template).toContain("A small or unsuccessful attempt is useful evidence.");
-  expect(template).toContain("no private customer data");
+  expect(template).toContain("Customer data, company secrets");
   expect(template).toContain("separated what I observed from what I infer or hope");
+});
+
+test("fresh pages do not prefetch offscreen route chunks before a reader chooses a link", async ({ page }) => {
+  await page.goto("./");
+  await expect(page.locator('link[rel="prefetch"]')).toHaveCount(0);
 });
 
 test("main book chapters leave continuous reading to the authoritative pager", () => {
@@ -669,25 +674,25 @@ test("page metadata follows the route", async ({ page }) => {
   await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /词汇/);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/threads/part-1/2-vocabulary",
   );
   await expect(page.locator('meta[property="og:url"]')).toHaveAttribute(
     "content",
-    "https://byoungd.github.io/up/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/threads/part-1/2-vocabulary",
   );
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/assets\/feature\.png$/);
   await expect(page.locator('meta[property="og:image:type"]')).toHaveAttribute("content", "image/png");
   await expect(page.locator('link[rel="alternate"][hreflang="zh-CN"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/threads/part-1/2-vocabulary",
   );
   await expect(page.locator('link[rel="alternate"][hreflang="en-US"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/en/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/en/threads/part-1/2-vocabulary",
   );
   await expect(page.locator('link[rel="alternate"][hreflang="x-default"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/threads/part-1/2-vocabulary",
   );
   const chapterData = await structuredDataFromPage(page);
   expect(chapterData).toMatchObject({
@@ -703,6 +708,7 @@ test("page metadata follows the route", async ({ page }) => {
 test("home metadata follows the lifelong-learning positioning", async ({ page }) => {
   await page.goto("./");
   await expect(page).toHaveTitle(/人生进阶指南/);
+  await expect(page.locator("main")).toContainText("开放的双语书稿与静态阅读/出版项目");
   await expect(page.locator('meta[name="description"]')).toHaveAttribute(
     "content",
     /AI 时代.*真实项目.*低谷/,
@@ -741,6 +747,7 @@ test("home metadata follows the lifelong-learning positioning", async ({ page })
 
   await page.goto("./en/");
   await expect(page).toHaveTitle(/Life Level-up Guide/);
+  await expect(page.locator("main")).toContainText("open bilingual manuscript and static reading/publication project");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
     "https://byoungd.github.io/up/en/",
@@ -928,7 +935,7 @@ test("brand and social assets load at their declared dimensions", async ({ page,
   expect(sitemap).toContain('hreflang="x-default" href="https://byoungd.github.io/up/threads/part-1/2-vocabulary"');
 });
 
-test("AI resource-layer chapter has metadata and navigation", async ({ page }) => {
+test("AI resource-layer chapter has metadata and navigation", async ({ page }, testInfo) => {
   await page.goto("./threads/part-3/2-ai-development-and-resource-layer");
   await expect(page).toHaveTitle(/AI 学习、项目开发与资源层创业/);
   await expect(page.locator('meta[name="description"]')).toHaveAttribute(
@@ -937,14 +944,16 @@ test("AI resource-layer chapter has metadata and navigation", async ({ page }) =
   );
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/threads/part-3/2-ai-development-and-resource-layer/",
+    "https://byoungd.github.io/up/threads/part-3/2-ai-development-and-resource-layer",
   );
+  if (testInfo.project.name === "mobile-chromium") await page.locator(".VPLocalNav .menu").click();
   await expect(
     page.getByRole("link", { name: "AI 开发与资源层创业", exact: true }).first(),
   ).toBeVisible();
 
   await page.goto("./en/threads/part-3/2-ai-development-and-resource-layer");
   await expect(page).toHaveTitle(/AI Learning, Project Development/);
+  if (testInfo.project.name === "mobile-chromium") await page.locator(".VPLocalNav .menu").click();
   await expect(
     page.getByRole("link", {
       name: "AI Development and Resource-layer Business",
@@ -983,7 +992,7 @@ test("legacy English story route redirects to the aligned Part II path", async (
   ).toBeVisible();
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/en/threads/part-2/my-story/",
+    "https://byoungd.github.io/up/en/threads/part-2/my-story",
   );
 });
 
@@ -997,7 +1006,7 @@ test("local search uses the current language and returns a result", async ({ pag
   await expect(zhSearchBox.locator('button[title="显示详细结果"]')).toHaveCount(1);
   await expect(zhSearchBox.locator('button[title="清除搜索"]')).toHaveCount(1);
   await zhInput.fill("学习状态");
-  await expect(zhSearchBox.getByRole("link", { name: /学习状态/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /学习状态/ }).first()).toBeVisible();
   await expect(zhSearchBox).toContainText("选择");
   await expect(zhSearchBox).toContainText("切换");
   await expect(zhSearchBox).toContainText("关闭");
@@ -1017,7 +1026,7 @@ test("local search uses the current language and returns a result", async ({ pag
   await expect(enInput).toBeVisible();
   await expect(enSearchBox.locator('button[title="Close search"]')).toHaveCount(1);
   await enInput.fill("Learning State");
-  await expect(enSearchBox.getByRole("link", { name: /Learning State/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Learning State/ }).first()).toBeVisible();
 });
 
 test("page-level search keeps nested chapter text discoverable", async ({ page }) => {
@@ -1025,14 +1034,14 @@ test("page-level search keeps nested chapter text discoverable", async ({ page }
   await page.getByRole("button", { name: "搜索", exact: true }).click();
   const zhSearchBox = page.locator(".VPLocalSearchBox");
   await zhSearchBox.locator("input").fill("十四天不是写作速成期限");
-  await expect(zhSearchBox.getByRole("link", { name: /写作篇/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /写作篇/ }).first()).toBeVisible();
 
   await page.keyboard.press("Escape");
   await page.goto("./en/");
   await page.getByRole("button", { name: "Search", exact: true }).click();
   const enSearchBox = page.locator(".VPLocalSearchBox");
   await enSearchBox.locator("input").fill("Fourteen days is not a writing-fluency deadline");
-  await expect(enSearchBox.getByRole("link", { name: /Writing/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Writing/ }).first()).toBeVisible();
 });
 
 test("heading-only search keeps long-form chapters and tools discoverable without indexing their full prose", async ({ page }) => {
@@ -1040,94 +1049,94 @@ test("heading-only search keeps long-form chapters and tools discoverable withou
   await page.getByRole("button", { name: "搜索", exact: true }).click();
   const zhSearchBox = page.locator(".VPLocalSearchBox");
   await zhSearchBox.locator("input").fill("目标必须有到期日与退出门");
-  await expect(zhSearchBox.getByRole("link", { name: /目标必须有到期日与退出门/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /目标必须有到期日与退出门/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("作品也要接受自己的审判");
-  await expect(zhSearchBox.getByRole("link", { name: /作品也要接受自己的审判/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /作品也要接受自己的审判/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("把记忆交给文件，把判断留给自己");
-  await expect(zhSearchBox.getByRole("link", { name: /把记忆交给文件，把判断留给自己/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /把记忆交给文件，把判断留给自己/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("家庭学习篇：把成长还给孩子");
-  await expect(zhSearchBox.getByRole("link", { name: /家庭学习篇：把成长还给孩子/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /家庭学习篇：把成长还给孩子/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("求职英语篇：把能力带进面试与远程协作");
-  await expect(zhSearchBox.getByRole("link", { name: /求职英语篇：把能力带进面试与远程协作/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /求职英语篇：把能力带进面试与远程协作/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("语法篇：让结构服务于意思");
-  await expect(zhSearchBox.getByRole("link", { name: /语法篇：让结构服务于意思/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /语法篇：让结构服务于意思/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("语法证据卡：从规则识别到真实表达");
-  await expect(zhSearchBox.getByRole("link", { name: /语法证据卡：从规则识别到真实表达/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /语法证据卡：从规则识别到真实表达/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("口语篇：让意思清楚到达");
-  await expect(zhSearchBox.getByRole("link", { name: /口语篇：让意思清楚到达/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /口语篇：让意思清楚到达/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("口语证据卡：从口音焦虑到可验证互动");
-  await expect(zhSearchBox.getByRole("link", { name: /口语证据卡：从口音焦虑到可验证互动/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /口语证据卡：从口音焦虑到可验证互动/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("听力篇：从声音辨认到真实理解");
-  await expect(zhSearchBox.getByRole("link", { name: /听力篇：从声音辨认到真实理解/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /听力篇：从声音辨认到真实理解/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("听力证据卡：从播放时长到意义重构");
-  await expect(zhSearchBox.getByRole("link", { name: /听力证据卡：从播放时长到意义重构/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /听力证据卡：从播放时长到意义重构/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("阅读篇：从逐词翻译到观点与证据");
-  await expect(zhSearchBox.getByRole("link", { name: /阅读篇：从逐词翻译到观点与证据/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /阅读篇：从逐词翻译到观点与证据/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("阅读证据卡：从读完摘要到真实交付");
-  await expect(zhSearchBox.getByRole("link", { name: /阅读证据卡：从读完摘要到真实交付/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /阅读证据卡：从读完摘要到真实交付/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("词汇篇：从眼熟到在真实任务中调用");
-  await expect(zhSearchBox.getByRole("link", { name: /词汇篇：从眼熟到在真实任务中调用/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /词汇篇：从眼熟到在真实任务中调用/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("词汇证据卡：从卡片眼熟到情境调用");
-  await expect(zhSearchBox.getByRole("link", { name: /词汇证据卡：从卡片眼熟到情境调用/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /词汇证据卡：从卡片眼熟到情境调用/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("认知篇：把努力变成可验证的学习");
-  await expect(zhSearchBox.getByRole("link", { name: /认知篇：把努力变成可验证的学习/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /认知篇：把努力变成可验证的学习/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("英语能力诊断：四项基线与迁移记录");
-  await expect(zhSearchBox.getByRole("link", { name: /英语能力诊断：四项基线与迁移记录/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /英语能力诊断：四项基线与迁移记录/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("AI 任务简报：从问题到人工验收");
-  await expect(zhSearchBox.getByRole("link", { name: /AI 任务简报：从问题到人工验收/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /AI 任务简报：从问题到人工验收/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("AI 学习记录：从工具协作到独立能力");
-  await expect(zhSearchBox.getByRole("link", { name: /AI 学习记录：从工具协作到独立能力/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /AI 学习记录：从工具协作到独立能力/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("写作篇：从初稿到可验证修订");
-  await expect(zhSearchBox.getByRole("link", { name: /写作篇：从初稿到可验证修订/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /写作篇：从初稿到可验证修订/ }).first()).toBeVisible();
   await zhSearchBox.locator("input").fill("写作证据卡：从工具润色到署名交付");
-  await expect(zhSearchBox.getByRole("link", { name: /写作证据卡：从工具润色到署名交付/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /写作证据卡：从工具润色到署名交付/ }).first()).toBeVisible();
 
   await page.keyboard.press("Escape");
   await page.goto("./en/");
   await page.getByRole("button", { name: "Search", exact: true }).click();
   const enSearchBox = page.locator(".VPLocalSearchBox");
   await enSearchBox.locator("input").fill("Every Goal Needs an Expiry Date");
-  await expect(enSearchBox.getByRole("link", { name: /Every Goal Needs an Expiry Date/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Every Goal Needs an Expiry Date/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Let the Work Face Its Own Judgment");
-  await expect(enSearchBox.getByRole("link", { name: /Let the Work Face Its Own Judgment/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Let the Work Face Its Own Judgment/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Give Memory to the File and Keep Judgment with Yourself");
-  await expect(enSearchBox.getByRole("link", { name: /Give Memory to the File and Keep Judgment with Yourself/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Give Memory to the File and Keep Judgment with Yourself/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Family Learning: Return Ownership of Growth to the Learner");
-  await expect(enSearchBox.getByRole("link", { name: /Family Learning: Return Ownership of Growth to the Learner/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Family Learning: Return Ownership of Growth to the Learner/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Job-search English: Bring Ability into Interviews and Remote Work");
-  await expect(enSearchBox.getByRole("link", { name: /Job-search English: Bring Ability into Interviews and Remote Work/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Job-search English: Bring Ability into Interviews and Remote Work/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Grammar: Let Structure Serve Meaning");
-  await expect(enSearchBox.getByRole("link", { name: /Grammar: Let Structure Serve Meaning/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Grammar: Let Structure Serve Meaning/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Grammar Evidence Card: From Rule Recognition to Real Expression");
-  await expect(enSearchBox.getByRole("link", { name: /Grammar Evidence Card: From Rule Recognition to Real Expression/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Grammar Evidence Card: From Rule Recognition to Real Expression/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Speaking: Make Meaning Arrive");
-  await expect(enSearchBox.getByRole("link", { name: /Speaking: Make Meaning Arrive/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Speaking: Make Meaning Arrive/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Speaking Evidence Card: From Accent Anxiety to Verifiable Interaction");
-  await expect(enSearchBox.getByRole("link", { name: /Speaking Evidence Card: From Accent Anxiety to Verifiable Interaction/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Speaking Evidence Card: From Accent Anxiety to Verifiable Interaction/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Listening: From Sound Recognition to Real Understanding");
-  await expect(enSearchBox.getByRole("link", { name: /Listening: From Sound Recognition to Real Understanding/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Listening: From Sound Recognition to Real Understanding/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Listening Evidence Card: From Playback Time to Meaning Reconstruction");
-  await expect(enSearchBox.getByRole("link", { name: /Listening Evidence Card: From Playback Time to Meaning Reconstruction/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Listening Evidence Card: From Playback Time to Meaning Reconstruction/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Reading: From Word-by-word Translation to Claims and Evidence");
-  await expect(enSearchBox.getByRole("link", { name: /Reading: From Word-by-word Translation to Claims and Evidence/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Reading: From Word-by-word Translation to Claims and Evidence/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Reading Evidence Card: From Finished Summary to Real Delivery");
-  await expect(enSearchBox.getByRole("link", { name: /Reading Evidence Card: From Finished Summary to Real Delivery/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Reading Evidence Card: From Finished Summary to Real Delivery/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Vocabulary: From Familiarity to Retrieval in Real Tasks");
-  await expect(enSearchBox.getByRole("link", { name: /Vocabulary: From Familiarity to Retrieval in Real Tasks/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Vocabulary: From Familiarity to Retrieval in Real Tasks/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Vocabulary Evidence Card: From Card Familiarity to Contextual Retrieval");
-  await expect(enSearchBox.getByRole("link", { name: /Vocabulary Evidence Card: From Card Familiarity to Contextual Retrieval/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Vocabulary Evidence Card: From Card Familiarity to Contextual Retrieval/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Learning Principles: Turn Effort into Verifiable Learning");
-  await expect(enSearchBox.getByRole("link", { name: /Learning Principles: Turn Effort into Verifiable Learning/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Learning Principles: Turn Effort into Verifiable Learning/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("English Diagnostic: Four-skill Baseline and Transfer Record");
-  await expect(enSearchBox.getByRole("link", { name: /English Diagnostic: Four-skill Baseline and Transfer Record/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /English Diagnostic: Four-skill Baseline and Transfer Record/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("AI Task Brief: From Problem to Human Acceptance");
-  await expect(enSearchBox.getByRole("link", { name: /AI Task Brief: From Problem to Human Acceptance/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /AI Task Brief: From Problem to Human Acceptance/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("AI Learning Log: From Tool Collaboration to Independent Ability");
-  await expect(enSearchBox.getByRole("link", { name: /AI Learning Log: From Tool Collaboration to Independent Ability/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /AI Learning Log: From Tool Collaboration to Independent Ability/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Writing: From Draft to Verifiable Revision");
-  await expect(enSearchBox.getByRole("link", { name: /Writing: From Draft to Verifiable Revision/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Writing: From Draft to Verifiable Revision/ }).first()).toBeVisible();
   await enSearchBox.locator("input").fill("Writing Evidence Card: From Tool Polish to Accountable Delivery");
-  await expect(enSearchBox.getByRole("link", { name: /Writing Evidence Card: From Tool Polish to Accountable Delivery/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Writing Evidence Card: From Tool Polish to Accountable Delivery/ }).first()).toBeVisible();
 });
 
 test("Part I literary closings remain discoverable after bibliography pruning", async ({ page }) => {
@@ -1135,14 +1144,14 @@ test("Part I literary closings remain discoverable after bibliography pruning", 
   await page.getByRole("button", { name: "搜索", exact: true }).click();
   const zhSearchBox = page.locator(".VPLocalSearchBox");
   await zhSearchBox.locator("input").fill("听见声音背后的人");
-  await expect(zhSearchBox.getByRole("link", { name: /听力篇/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /听力篇/ }).first()).toBeVisible();
 
   await page.keyboard.press("Escape");
   await page.goto("./en/");
   await page.getByRole("button", { name: "Search", exact: true }).click();
   const enSearchBox = page.locator(".VPLocalSearchBox");
   await enSearchBox.locator("input").fill("Hear the Person Behind the Sound");
-  await expect(enSearchBox.getByRole("link", { name: /Listening/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Listening/ }).first()).toBeVisible();
 });
 
 test("story and AI literary closings remain discoverable", async ({ page }) => {
@@ -1150,14 +1159,14 @@ test("story and AI literary closings remain discoverable", async ({ page }) => {
   await page.getByRole("button", { name: "搜索", exact: true }).click();
   const zhSearchBox = page.locator(".VPLocalSearchBox");
   await zhSearchBox.locator("input").fill("重来不是凯旋");
-  await expect(zhSearchBox.getByRole("link", { name: /我的故事/ }).first()).toBeVisible();
+  await expect(zhSearchBox.getByRole("option", { name: /我的故事/ }).first()).toBeVisible();
 
   await page.keyboard.press("Escape");
   await page.goto("./en/");
   await page.getByRole("button", { name: "Search", exact: true }).click();
   const enSearchBox = page.locator(".VPLocalSearchBox");
   await enSearchBox.locator("input").fill("Keep the Ability with the Person");
-  await expect(enSearchBox.getByRole("link", { name: /Learning Anything with AI/ }).first()).toBeVisible();
+  await expect(enSearchBox.getByRole("option", { name: /Learning Anything with AI/ }).first()).toBeVisible();
 });
 
 test("language navigation and representative image work", async ({ page }) => {
@@ -1345,11 +1354,12 @@ test("home guide paths are grouped by purpose and keep third-party resources dis
   await expect(zhGroups.nth(1).getByRole("heading", { level: 2, name: "借工具放大能力" })).toBeVisible();
   await expect(zhGroups.nth(2).getByRole("heading", { level: 2, name: "进入真实生活" })).toBeVisible();
   await expect(zhGroups.nth(3).getByRole("heading", { level: 2, name: "第三方资源" })).toBeVisible();
-  await expect(zhGroups.nth(0).locator(".guide-path")).toHaveCount(4);
+  await expect(zhGroups.nth(0).locator(".guide-path")).toHaveCount(5);
   await expect(zhGroups.nth(1).locator(".guide-path")).toHaveCount(2);
   await expect(zhGroups.nth(2).locator(".guide-path")).toHaveCount(4);
   await expect(zhGroups.nth(3).locator(".guide-path")).toHaveCount(2);
   await expect(zhGroups.nth(3)).toHaveClass(/guide-path-group-external/);
+  await expect(zhGroups.nth(0).getByRole("link", { name: /^口语方案：先让意思到达/ })).toHaveAttribute("href", "./threads/part-1/5-speaking");
 
   await page.goto("./en/");
   const enGroups = page.locator("main .guide-path-group");
@@ -1359,6 +1369,7 @@ test("home guide paths are grouped by purpose and keep third-party resources dis
   await expect(enGroups.nth(2).getByRole("heading", { level: 2, name: "Enter Real Life" })).toBeVisible();
   await expect(enGroups.nth(3).getByRole("heading", { level: 2, name: "Third-party Resources" })).toBeVisible();
   await expect(enGroups.nth(3)).toHaveClass(/guide-path-group-external/);
+  await expect(enGroups.nth(0).getByRole("link", { name: /^Speaking Plan: Make Meaning Arrive/ })).toHaveAttribute("href", "./threads/part-1/5-speaking");
 });
 
 test("home pages expose biezou as a bounded external AI reference", async ({ page }) => {
@@ -1443,6 +1454,8 @@ test("rhythm chapter bridges the daily system and 90-day plan", async ({ page })
 
 test("toolkit overview routes readers by problem", async ({ page }) => {
   await page.goto("./templates/toolkit");
+  await expect(page.locator("main")).toContainText("第一次使用？先做四行");
+  await expect(page.getByRole("link", { name: "工具箱实战", exact: true }).first()).toBeVisible();
   const zhMain = page.locator("main");
   await expect(zhMain.getByRole("heading", { level: 2, name: "先回答：我现在卡在哪里？" })).toBeVisible();
   await expect(zhMain.getByRole("link", { name: "学习状态", exact: true }).first()).toBeVisible();
@@ -1458,6 +1471,8 @@ test("toolkit overview routes readers by problem", async ({ page }) => {
   await expect(zhMain.getByRole("link", { name: "写作证据卡", exact: true }).first()).toBeVisible();
 
   await page.goto("./en/templates/toolkit");
+  await expect(page.locator("main")).toContainText("First time here? Start with four lines.");
+  await expect(page.getByRole("link", { name: "Toolkit Walkthrough", exact: true }).first()).toBeVisible();
   const enMain = page.locator("main");
   await expect(enMain.getByRole("heading", { level: 2, name: "First Ask: Where Am I Stuck?" })).toBeVisible();
   await expect(enMain.getByRole("link", { name: "Learning State", exact: true }).first()).toBeVisible();
@@ -1673,14 +1688,14 @@ test("toolkit walkthrough keeps learning state outside the AI conversation", asy
   await page.goto("./templates/toolkit-walkthrough");
   const zhMain = page.locator("main");
   await expect(zhMain.getByRole("heading", { level: 2, name: "第一步：把状态放到会话外" })).toBeVisible();
-  await expect(zhMain).toContainText("AI 没有跨会话跟踪学习；状态文件完成了跟踪");
+  await expect(zhMain).toContainText("状态文件保存了跨会话的连续性；AI 只根据本次实际提供的材料继续");
   await expect(zhMain.getByRole("link", { name: "学习状态", exact: true }).first()).toBeVisible();
   await expect(zhMain.getByRole("link", { name: "读者实践回执", exact: true }).first()).toBeVisible();
 
   await page.goto("./en/templates/toolkit-walkthrough");
   const enMain = page.locator("main");
   await expect(enMain.getByRole("heading", { level: 2, name: "Step One: Put State outside the Conversation" })).toBeVisible();
-  await expect(enMain).toContainText("AI did not track learning across sessions. The state file tracked it");
+  await expect(enMain).toContainText("The state file preserved continuity across sessions; AI continues only from the material actually supplied this time");
   await expect(enMain.getByRole("link", { name: "Learning State", exact: true }).first()).toBeVisible();
   await expect(enMain.getByRole("link", { name: "Reader Field Note", exact: true }).first()).toBeVisible();
 });

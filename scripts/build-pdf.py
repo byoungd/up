@@ -22,6 +22,7 @@ from PIL import Image as PILImage
 from pypdf import PdfReader, __version__ as PYPDF_VERSION
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT
+from reportlab.lib.geomutils import normalizeTRBL
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.utils import ImageReader
 from reportlab.lib.units import inch, mm
@@ -279,6 +280,61 @@ def fit_running_header(text: str, font_name: str, font_size: float, max_width: f
     while parts and pdfmetrics.stringWidth("".join(parts) + suffix, font_name, font_size) > max_width:
         parts.pop()
     return ("".join(parts) + suffix) if parts else suffix
+
+
+def wrap_preformatted_text(text: str, font_name: str, font_size: float, max_width: float) -> str:
+    """Insert soft line breaks without discarding source characters or spaces."""
+    if max_width <= 0:
+        raise ValueError("Preformatted text has no available line width")
+    output = []
+    for source_line in text.split("\n"):
+        remaining = source_line
+        while pdfmetrics.stringWidth(remaining, font_name, font_size) > max_width:
+            low, high = 0, len(remaining)
+            while low < high:
+                middle = (low + high + 1) // 2
+                if pdfmetrics.stringWidth(remaining[:middle], font_name, font_size) <= max_width:
+                    low = middle
+                else:
+                    high = middle - 1
+            if not low:
+                raise ValueError(f"Preformatted character cannot fit at {font_size} pt: {remaining[0]!r}")
+            # Prefer word boundaries for English. Keep the separating spaces on
+            # the previous line, and never emit an indentation-only soft line.
+            boundary = remaining.rfind(" ", 0, low) + 1
+            split_at = boundary if remaining[:boundary].strip() else low
+            output.append(remaining[:split_at])
+            remaining = remaining[split_at:]
+        output.append(remaining)
+    return "\n".join(output)
+
+
+class WrappedPreformatted(XPreformatted):
+    def __init__(self, text, style, bulletText=None, frags=None, caseSensitive=1):
+        self.caseSensitive = caseSensitive
+        # XPreformatted normally trims blank lines at both ends. Preserve them,
+        # including when ReportLab creates fragments to split across pages.
+        self._setup(text, style, bulletText, frags, lambda value: value or "")
+        if frags is None and self.frags:
+            # Entity decoding can create several identically styled fragments.
+            # Keep plain code in one fragment: the multi-fragment renderer drops
+            # a final empty line, while the single-fragment path preserves it.
+            self.frags = [self.frags[0].clone(text="".join(fragment.text for fragment in self.frags))]
+
+
+def code_flowable(text: str, style: ParagraphStyle, available_width: float = CONTENT_WIDTH) -> WrappedPreformatted:
+    _, right_padding, _, left_padding = normalizeTRBL(style.borderPadding)
+    # ReportLab paints borderPadding outside the paragraph indents. Move the
+    # text inward so both its background and glyphs remain inside the frame.
+    padded_style = ParagraphStyle(
+        f"{style.name}-Wrapped",
+        parent=style,
+        leftIndent=style.leftIndent + left_padding,
+        rightIndent=style.rightIndent + right_padding,
+    )
+    line_width = available_width - padded_style.leftIndent - padded_style.rightIndent - max(0, style.firstLineIndent)
+    wrapped = wrap_preformatted_text(text, style.fontName, style.fontSize, line_width)
+    return WrappedPreformatted(html.escape(wrapped), padded_style)
 
 
 class InvariantCanvas(canvas.Canvas):
@@ -716,7 +772,7 @@ def convert_children(parent: ET.Element, extracted_root: Path, current_file: str
             flowables.append(Spacer(1, 6))
         elif tag == "pre":
             text = "".join(element.itertext()).replace("\t", "    ")
-            flowables.append(XPreformatted(html.escape(text), styles["code"]))
+            flowables.append(code_flowable(text, styles["code"]))
         elif tag == "img":
             flowables.extend(image_flowables(element, extracted_root, current_file, styles))
         elif tag == "hr":
@@ -916,6 +972,7 @@ def main() -> None:
             committed_manifest = PUBLIC_OUTPUT / "pdf-manifest.json"
             expected_manifest_text = json.dumps(manifest_for(committed_outputs), ensure_ascii=False, indent=2) + "\n"
             if not committed_manifest.exists() or committed_manifest.read_text() != expected_manifest_text:
+                print("Expected pdf-manifest.json for this build:\n" + expected_manifest_text, file=sys.stderr)
                 raise ValueError(f"{committed_manifest.relative_to(ROOT)} 未与 PDF 产物同步；运行 npm run book:pdf:build")
             if CHECK_EXACT:
                 print("PDF editions are byte-for-byte reproducible on this platform")

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
@@ -8,6 +8,11 @@ import { gzipSync } from "node:zlib";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const assetsDir = join(ROOT, "docs/.vitepress/dist/assets");
 const chunksDir = join(assetsDir, "chunks");
+
+if (!existsSync(chunksDir)) {
+  console.error("Build output is missing; run npm run docs:build before checking size budgets.");
+  process.exit(1);
+}
 
 const budgets = [
   {
@@ -83,12 +88,39 @@ const rasters = rasterAssets(join(ROOT, "docs/assets"))
   .map((path) => ({ path, size: statSync(path).size }))
   .sort((a, b) => b.size - a.size);
 const largestRaster = rasters[0];
-console.log(`largest source raster: ${largestRaster.path.replace(`${ROOT}/`, "")} ${format(largestRaster.size)}`);
+if (largestRaster) {
+  console.log(`largest source raster: ${largestRaster.path.replace(`${ROOT}/`, "")} ${format(largestRaster.size)}`);
+} else {
+  console.log("no source raster assets");
+}
 for (const { path, size } of rasters.filter(({ size }) => size > rasterBudget)) {
   console.error(
     `source raster budget exceeded: ${path.replace(`${ROOT}/`, "")} ${format(size)} (max ${format(rasterBudget)})`,
   );
   failed = true;
+}
+
+// SSR HTML is the first response on every route. Keep unusually verbose pages
+// from quietly becoming the main mobile payload; compression is verified
+// separately against the published Pages response.
+const htmlBudget = 150_000;
+function htmlPages(directory, output = []) {
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    const path = join(directory, entry.name);
+    if (entry.isDirectory()) htmlPages(path, output);
+    else if (entry.name.endsWith(".html")) output.push(path);
+  }
+  return output;
+}
+const pages = htmlPages(join(ROOT, "docs/.vitepress/dist"));
+for (const path of pages) {
+  const size = statSync(path).size;
+  if (size > htmlBudget) {
+    console.error(
+      `SSR HTML budget exceeded: ${path.replace(`${ROOT}/`, "")} ${format(size)} (max ${format(htmlBudget)})`,
+    );
+    failed = true;
+  }
 }
 
 if (failed) process.exit(1);

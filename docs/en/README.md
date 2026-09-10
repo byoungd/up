@@ -1,7 +1,7 @@
 ---
 title: "Life Level-up Guide | Lifelong Learning in the AI Era"
 description: Learning continuously in the AI era, Life Level-up Guide helps ordinary people complete real projects, move through difficult seasons, and preserve evidence of growth.
-updated: 2026-09-02
+updated: 2026-09-10
 ---
 
 # Life Level-up Guide
@@ -11,6 +11,8 @@ updated: 2026-09-02
 **By Han Xiankai, pen name “Li Pu”**
 
 Subtitle: **Lifelong Learning Guide for the AI Era**. This living manuscript begins with English and continues into AI learning, real projects, entrepreneurship, recovery, and the work of returning your life to yourself one small act at a time.
+
+This is an open bilingual manuscript and static reading/publication project, not software you need to install: the website, EPUB, and PDF are for reading, while the repository source holds corrections, content checks, and builds.
 
 <div class="book-meta" aria-label="Book information">
   <span>Living manuscript</span>
@@ -47,6 +49,7 @@ It also keeps three kinds of claim separate:
     <a class="guide-path" href="./threads/part-1/0-cefr"><strong>Foundation: English</strong>Use English to reach global knowledge, technical documentation, and international AI tools, entering cross-cultural work through intelligibility rather than accent similarity.</a>
     <a class="guide-path" href="./threads/part-1/grammar"><strong>Grammar for Real Expression</strong>Begin with whether time, responsibility, condition, and certainty are understood, then retest one high-impact structure for fourteen days instead of memorising every rule first.</a>
     <a class="guide-path" href="./threads/part-1/6-writing"><strong>Writing and Asynchronous Delivery</strong>Preserve an unaided draft, fact sources, and revision reasons so email, reports, decisions, and handovers remain usable when the author is offline.</a>
+    <a class="guide-path" href="./threads/part-1/5-speaking"><strong>Speaking Plan: Make Meaning Arrive</strong>Turn “I want to improve speaking” into a real task with an unscripted baseline, unfamiliar follow-ups, listener retelling, interaction repair, and a fourteen-day transfer check.</a>
   </div></section>
   <section class="guide-path-group" aria-labelledby="guide-amplify"><div class="guide-path-group-heading"><span class="guide-path-kicker">02</span><h2 id="guide-amplify">Amplify Ability with Tools</h2><p>Let AI accelerate questions and verification while people keep judgment, testing, and responsibility.</p></div><div class="guide-path-group-items">
     <a class="guide-path" href="./threads/part-3/1-ai-learning"><strong>Learn Anything with AI</strong>Use AI for questions, research, and feedback while keeping fact-checking and final judgment in human hands.</a>
@@ -160,6 +163,12 @@ A method reveals its strength only after it enters a life. Relationships end and
 ## Author Projects and Disclosure
 
 Products, company visits, and real-world projects involving Han Xiankai live on [Author Projects and Practice](projects.md). That page states the relationship, purpose, update date, and non-sponsorship status. Commercial relationships do not change the guide's recommendation standard; by default, the site uses no ads, analytics, or trackers.
+
+## Accessibility and Feedback
+
+The site targets WCAG 2.2 AA. Keyboard operation, focus restoration, themes, narrow reflow, table scrolling, the search dialog, and representative pages have automated and browser regression coverage. This is not a full WCAG conformance certification; screen readers, zoom/reflow combinations, low-powered devices, and third-party EPUB readers still need manual review.
+
+If you cannot read, operate, or download something, use the [accessibility feedback issue](https://github.com/byoungd/up/issues/new?template=site.yml). Include only the page path, browser or assistive technology, expected behavior, and observed behavior. Do not paste names, recordings, customer data, health information, or other private material. Use the private process in [SECURITY.md](https://github.com/byoungd/up/blob/master/SECURITY.md) for security or privacy concerns.
 
 ## Project Boundaries
 
