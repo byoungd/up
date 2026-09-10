@@ -42,7 +42,7 @@
 
 ### 当前 GitHub Pages 生产基线（2026-09-10）
 
-从 `https://byoungd.github.io/up/` 实测的是默认分支当时已发布的 `7478ac2`，不是本审查分支。Pages/varnish 对四个代表性 HTML 入口返回 gzip、`cache-control: max-age=600`、`vary: Accept-Encoding`；压缩传输大小分别约为中文首页 22.1 KiB、英文首页 21.8 KiB、阅读篇 22.5 KiB、学习状态模板 15.2 KiB。静态 CSS 约 20.4 KiB gzip，框架脚本约 43.8 KiB gzip。页面和静态资源均返回成功状态，响应含 `etag` 与 `last-modified`。
+从 `https://byoungd.github.io/up/` 实测的是默认分支当时已发布的 `7478ac2`，不是本审查分支。2026-09-10 重测中文首页、英文首页、代表性章节和学习状态模板，四个入口仍返回 `build-revision=7478ac2b740cba5d423ebf61143f14442b278725`，`last-modified: Mon, 07 Sep 2026 13:43:11 GMT`；因此本 PR 的工作表、无障碍反馈、预取和出版物改动尚未部署。Pages/varnish 对四个代表性 HTML 入口返回 gzip、`cache-control: max-age=600`、`vary: Accept-Encoding`；压缩传输大小分别约为中文首页 22.1 KiB、英文首页 21.8 KiB、阅读篇 22.5 KiB、学习状态模板 15.2 KiB。静态 CSS 约 20.4 KiB gzip，框架脚本约 43.8 KiB gzip。页面和静态资源均返回成功状态，响应含 `etag` 与 `last-modified`。
 
 该生产观测证明 Pages 的压缩和缓存链路正在工作，但由于线上仍是默认分支，不能用它证明本分支的新工作表、无障碍或出版物已部署。合并后应重新核对 `build-revision`、同一路由的 gzip 大小和缓存头，并将真实设备 LCP 与本地基线分开记录。
 
