@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { dirname, join, posix, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { enNavigation, zhNavigation } from "../docs/.vitepress/navigation.mjs";
 
@@ -15,11 +15,11 @@ function markdownSources(dir, prefix = "", output = []) {
     const path = join(dir, name);
     const stat = statSync(path);
     if (stat.isDirectory()) {
-      markdownSources(path, join(prefix, name), output);
+      markdownSources(path, posix.join(prefix, name), output);
       continue;
     }
     if (!name.endsWith(".md") || name === "SUMMARY.md") continue;
-    output.push(join(prefix, name));
+    output.push(posix.join(prefix, name));
   }
   return output;
 }
@@ -40,7 +40,7 @@ function validateNavigation(groups, locale) {
       seenLinks.add(item.link);
 
       const source = resolve(DOCS, item.source);
-      if (!source.startsWith(`${DOCS}/`) || !existsSync(source)) {
+      if (!source.startsWith(`${DOCS}${sep}`) || !existsSync(source)) {
         throw new Error(`${locale} 导航 source 不存在: ${item.source}`);
       }
     }
