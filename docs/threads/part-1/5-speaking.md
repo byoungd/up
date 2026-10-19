@@ -1,7 +1,7 @@
 ---
 title: 口语篇：让意思清楚到达
 description: 从无稿基线、参考变体与真实听众出发，训练可理解度、发音、词块、互动修复和陌生问题迁移，不把消灭口音当成口语目标。
-updated: 2026-09-02
+updated: 2026-10-19
 sources_checked: 2026-09-02
 ---
 
@@ -247,9 +247,9 @@ My recommendation is ..., because ...
 
 ## 来源与边界
 
-- [Derwing & Munro (2005), Second Language Accent and Pronunciation Teaching](https://api.crossref.org/works/10.2307%2F3588486)：研究综述区分口音与沟通结果，并把相互可理解性放在重要位置，同时提醒口音具有社会影响。
-- [Levis (2005), Changing Contexts and Shifting Paradigms in Pronunciation Teaching](https://api.crossref.org/works/10.2307%2F3588485)：文章讨论从减少口音转向可理解度、身份、世界英语与说听双方协商的范式变化。
-- [Saito (2012), Effects of Instruction on L2 Pronunciation Development](https://api.crossref.org/works/10.1002%2Ftesq.67)：对 15 项准实验干预研究进行综合；本章不把群体平均结果写成个人效果保证。
+- [Derwing & Munro (2005), Second Language Accent and Pronunciation Teaching](https://doi.org/10.2307/3588486)：研究综述区分口音与沟通结果，并把相互可理解性放在重要位置，同时提醒口音具有社会影响。
+- [Levis (2005), Changing Contexts and Shifting Paradigms in Pronunciation Teaching](https://doi.org/10.2307/3588485)：文章讨论从减少口音转向可理解度、身份、世界英语与说听双方协商的范式变化。
+- [Saito (2012), Effects of Instruction on L2 Pronunciation Development](https://doi.org/10.1002/tesq.67)：对 15 项准实验干预研究进行综合；本章不把群体平均结果写成个人效果保证。
 - 发音、词汇、语域和可接受性会随地区、社群、任务和听众变化。重要交付应结合当前受众、可靠词典音频、专业反馈与真实任务复测。
 
 相关入口：[听力篇](3-listening.md) ｜ [语法篇](grammar.md) ｜ [用 AI 学英语](7-ai.md) ｜ [口语证据卡](../../templates/speaking-evidence.md) ｜ [证据链模板](../../templates/evidence-chain.md)

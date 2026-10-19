@@ -1,7 +1,7 @@
 ---
 title: "AI Task Brief: From Problem to Human Acceptance"
 description: Before an AI learning or project task, define the real action, data boundary, sources, evaluation set, human ownership, cost, failure handling, and handover.
-updated: 2026-09-20
+updated: 2026-10-16
 ---
 
 # AI Task Brief: From Problem to Human Acceptance
@@ -81,6 +81,20 @@ Read/write scope, authorizer, and revocation method for each tool:
 Prompt, system instruction, or workflow version location:
 ```
 
+For a long-running or tool-using task, also record:
+
+```markdown
+Run/task ID and parent task ID:
+Async or synchronous mode; expected and maximum wall-clock time:
+Checkpoint locations and resume procedure:
+Maximum retries, timeout, and idempotency key:
+Browser pages, screenshots, and external instructions treated as untrusted input:
+Network egress allowlist and credential scope:
+External writes, receipts, and final environment state:
+Human takeover point and emergency stop:
+Supplier policy/version, effective date, region, and high-risk review:
+```
+
 Ask the model to restate goal, input, limits, unknowns, and acceptance before generation. Version prompts, and never treat one chat window as the project's only record.
 
 ## 5. Human Gates
@@ -143,5 +157,6 @@ The next operator should not search chat history to discover what to do. Public 
 - [ ] Critical sources, versions, and expiry conditions are traceable.
 - [ ] Normal, boundary, conflict, and redacted historical cases are in the evaluation set.
 - [ ] AI may/may-not scope is explicit.
+- [ ] Long-running checkpoints, retry/idempotency rules, browser-input boundary, and network egress are recorded when applicable.
 - [ ] Human gates, cost ceiling, stop conditions, and rollback location are named.
 - [ ] Handover, disclosure, and next review date are set.

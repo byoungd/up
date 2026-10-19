@@ -1,8 +1,9 @@
 ---
 title: AI Learning, Project Development, and Resource-layer Entrepreneurship
 description: Han Xiankai's path from learning with AI to building and operating an AI resource layer, with engineering, delivery, operations, and business results kept distinct.
-updated: 2026-09-20
-sources_checked: 2026-09-20
+updated: 2026-10-16
+sources_checked: 2026-10-16
+source_review_interval: 60
 ---
 
 # AI Learning, Project Development, and Resource-layer Entrepreneurship
@@ -116,7 +117,7 @@ Models provide capabilities and applications provide the results users see. Betw
 
 It is more than reselling a model endpoint. It organises models, accounts, compute, data boundaries, and operating processes into a service a team can understand, use, and govern.
 
-As tool use and agent orchestration become common, the resource layer also has to handle interoperability and authorization boundaries. The [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18) defines resources, prompts, and tools as composable connection capabilities, but it does not perform a system's security review. Before connecting an external server, list its data scope, write permissions, user consent, call records, and revocation path. A protocol reduces repeated integration work, not the cost of responsibility. In practice, use the [AI Workflows](../practice/ai-workflows.md) authorization gate and the [AI Evaluation](../practice/ai-evaluation.md) process/outcome record for a small pilot.
+As tool use and agent orchestration become common, the resource layer also has to handle interoperability and authorization boundaries. The [MCP specification (2026-07-28)](https://modelcontextprotocol.io/specification/2026-07-28) defines resources, prompts, and tools as composable connection capabilities and supports optional durable task IDs, but it does not perform a system's security review. Before connecting an external server, list its data scope, write permissions, user consent, call records, and revocation path. A protocol reduces repeated integration work, not the cost of responsibility. In practice, use the [AI Workflows](../practice/ai-workflows.md) authorization gate and the [AI Evaluation](../practice/ai-evaluation.md) process/outcome record for a small pilot.
 
 ### 3.1 Capability map
 
@@ -347,7 +348,7 @@ I still want to make money because revenue is one form of evidence that a value 
 - **Personal experience**: the 2022 failure, 2023 recovery, and 2026 return to AI are documented in [My Story](../part-2/my-story.md) and [Entrepreneurship](../part-2/entrepreneurship.md).
 - **Project affiliations**: China Token Cloud, `token.love`, `ku0.com`, and the WeChat articles are disclosed in [Author Projects and Real-world Practice](../../projects.md); they are not independent reviews.
 - **Commercial claims**: charging models, cost ledgers, and the twelve-week route are methods to test, not proof of revenue, customer count, profit, or investment return.
-- **Official pages checked**: 1 September 2026. The homepage positioning for `token.love` and `ku0.com`, as well as the external article links in this chapter, were reachable; verify exact capability, service scope, region, policy, and contract commitments again in the real project.
+- **Official pages checked**: 16 October 2026. The homepage positioning for `token.love` and `ku0.com`, as well as the external article links in this chapter, were reachable; verify exact capability, service scope, region, policy, and contract commitments again in the real project.
 
 ## Return the Method to Daily Life
 

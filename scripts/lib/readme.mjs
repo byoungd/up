@@ -7,7 +7,7 @@ export function repositoryReadmeFromDocs(source) {
     .replace(/href="\.\/downloads\//g, 'href="./docs/public/downloads/')
     .replace(/href="\.\/book-downloads"/g, 'href="./docs/book-downloads.md"')
     .replace(/\]\((projects|practice)\.md([#?][^)]*)?\)/g, "](docs/$1.md$2)")
-    .replace(/href="\.\/((?:threads|templates)\/[^"#?]+|(?:projects|practice)(?:\.md)?)([?#][^"]*)?"/g, (_match, pathname, suffix = "") => {
+    .replace(/href="\.\/((?:threads|templates|topics)\/[^"#?]+|(?:projects|practice|recent-updates|resources)(?:\.md)?)([?#][^"]*)?"/g, (_match, pathname, suffix = "") => {
       return `href="./docs/${pathname.replace(/\.md$/, "")}.md${suffix}"`;
     });
 }

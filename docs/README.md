@@ -1,7 +1,7 @@
 ---
 title: 人生进阶指南｜AI 时代终身学习
 description: 《人生进阶指南》帮助普通人在 AI 时代持续学习、完成真实项目、穿越人生低谷并留下成长证据。
-updated: 2026-10-12
+updated: 2026-10-19
 ---
 
 # 人生进阶指南
@@ -12,11 +12,25 @@ updated: 2026-10-12
 
 副标题：**AI 时代终身学习指南**。这是一份持续更新的书稿，从英语这扇具体的门出发，写到 AI 学习、真实项目、创业失败、身体恢复，以及一个普通人怎样把生活一点点交还给自己。
 
+<div class="quick-start" aria-labelledby="quick-start-title">
+  <div class="quick-start-heading">
+    <span class="quick-start-kicker">从这里开始</span>
+    <h2 id="quick-start-title">从眼前的问题开始</h2>
+    <p>不用读完整本。选一条路径，先留下目标、样本或今天能完成的一步；英语诊断可从五分钟单项基线开始。</p>
+  </div>
+  <div class="quick-start-actions">
+    <a class="quick-start-action quick-start-action-primary" href="./templates/learning-state">学会一项新能力 <span aria-hidden="true">→</span></a>
+    <a class="quick-start-action quick-start-action-secondary" href="./templates/ai-task-brief">用 AI 完成真实任务</a>
+    <a class="quick-start-action quick-start-action-secondary" href="./threads/part-4/week-1">重新建立行动节奏</a>
+  </div>
+  <p class="quick-start-cycle">保留一份自己的首版 · 完成后记录证据 · 需要时再做延迟复测</p>
+</div>
+
 当您在茫茫书海里翻到这一页，愿这不只是一次阅读的开始，也是一场我们共同照看生活的相遇。我把这些文字写在走过风浪之后：有过意气用事的青春，也有过不得不慢下来的日子；有些答案是在行动里找到的，有些至今仍没有答案。这里留下的不是一条保证成功的捷径，而是我在学习、失去、恢复和重新出发时，愿意交给你的真实记录。
 
 你可以带着一个问题来，也可以只在今天需要的时候读几页。你不必先证明自己足够自律、足够聪明，才配得到帮助；也不必一次读完。若某一段恰好说中了你的疲惫，请把它当作一盏小灯；若它不适合你的处境，也请保留拒绝的自由。希望我们在这些页面里，慢慢学会更诚实地表达、更温柔地倾听，也在每一次回到生活时，找到一点继续向前的力气。
 
-**你会得到：** 一套中英双语开放书稿、可下载的 EPUB/PDF、可复制的工作表，以及一条从五分钟起步、用十四天复测、在九十天后复盘的实践路径。
+**你会得到：** 一套中英双语开放书稿、可下载的 EPUB/PDF、可复制的工作表，以及一条从具体问题出发、用作品和复测记录下一步的实践路径。
 
 <div class="book-meta" aria-label="书稿信息">
   <span>持续更新书稿</span>
@@ -27,22 +41,9 @@ updated: 2026-10-12
   <a href="./downloads/life-level-up-guide-en.pdf" download>Download English PDF</a>
   <a href="https://github.com/byoungd/up">源码与勘误</a>
   <a href="./templates/reader-field-note">读者实践回执</a>
+  <a href="./resources">第三方资源目录</a>
   <a href="https://github.com/byoungd/up/blob/main/CITATION.cff">引用格式</a>
   <a href="https://creativecommons.org/licenses/by-nc/4.0/">正文 CC BY-NC 4.0</a>
-</div>
-
-<div class="quick-start" aria-labelledby="quick-start-title">
-  <div class="quick-start-heading">
-    <span class="quick-start-kicker">从这里开始</span>
-    <h2 id="quick-start-title">先选一个动作，再决定读多远</h2>
-    <p>第一次来不用读完整本。按今天的需要选一个入口，完成一个小动作，结果会告诉你下一页该去哪里：五分钟建立起点，十四天验证一项改变，九十天决定是否留下系统。</p>
-  </div>
-  <div class="quick-start-actions">
-    <a class="quick-start-action" href="./threads/part-0/reader-guide"><strong>5 分钟：我还不知道从哪里开始</strong><span>用阅读指南按问题选择入口，知道何时留下证据、何时回来复查。</span></a>
-    <a class="quick-start-action" href="./templates/learning-state"><strong>今天：我想做成一件事</strong><span>写下真实问题、已有证据、最小动作和边界，再决定是否需要完整记录。</span></a>
-    <a class="quick-start-action" href="./threads/part-1/open-input"><strong>14 天：我想练习一项英语能力</strong><span>选择听、说、读、写中的一条训练线，保存首版，并在新条件下复测。</span></a>
-  </div>
-  <p class="quick-start-cycle">准备一个完整周期？从 <a href="./templates/90-day-cycle">九十日行动总表</a>开始，把一次练习带进真实项目和生活。</p>
 </div>
 
 如果这份指南帮你完成了一个真实动作，欢迎 [Star 本仓库](https://github.com/byoungd/up)，让更多学习者找到它；发现错误、翻译差异或可复现的实践结果，可以通过 [Issue 模板](https://github.com/byoungd/up/issues/new/choose) 分享。
@@ -108,13 +109,6 @@ AI 正在让答案变得前所未有地廉价。几秒钟里，我们可以得�
       <a class="guide-path" href="./threads/part-2/care-and-carry-on"><strong>珍惜身边的人</strong>把关心落到倾听、照料与具体分担中，在双方愿意、能力允许时接受支持，为牵挂保留温度，也为彼此保留边界。</a>
       <a class="guide-path" href="./threads/part-2/my-story"><strong>人生复盘与恢复</strong>承认失败和代价，在失序之后重新建立判断、秩序与行动。</a>
       <a class="guide-path" href="./projects"><strong>作者项目与现实实践</strong>公开关联、用途、更新时间和非赞助关系，让信任不必靠猜。</a>
-    </div>
-  </section>
-  <section class="guide-path-group guide-path-group-external" aria-labelledby="guide-external">
-    <div class="guide-path-group-heading"><span class="guide-path-kicker">04</span><h2 id="guide-external">第三方资源</h2><p>可选的外部入口，不等于本书或作者的安全、质量与合规背书。</p></div>
-    <div class="guide-path-group-items">
-      <a class="guide-path" href="https://biezou.com/" target="_blank" rel="noopener noreferrer"><strong>AI 中转推荐：biezou.com</strong>官网公开定位为统一 AI API 网关与管理面板；这是第三方可选入口，使用前请自行核对服务条款、价格、隐私与可用性。</a>
-      <a class="guide-path" href="https://t.me/OpenHuge_ai" target="_blank" rel="noopener noreferrer"><strong>AI 资源 TG 频道：OpenHuge_ai</strong>一个用于发现 AI 资源的第三方 Telegram 频道推荐；频道内容、外链与可用性会变化，使用前请自行核对来源、隐私、版权与安全风险。</a>
     </div>
   </section>
 </div>

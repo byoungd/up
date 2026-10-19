@@ -12,6 +12,14 @@
 - [Glossary of Terms and Methods](reference/glossary.md)
 - [Toolkit Overview](templates/toolkit.md)
 
+## Topic Hubs
+
+- [Recent Updates](recent-updates.md)
+- [Third-party Resources](resources.md)
+- [English Diagnostic Hub](topics/english-diagnostic.md)
+- [AI Learning Workflow Hub](topics/ai-learning-workflows.md)
+- [Real Projects, Jobs, and Entrepreneurship](topics/real-projects.md)
+
 ## Part I: Open Input
 
 - [Part I Introduction: Open Input](threads/part-1/open-input.md)

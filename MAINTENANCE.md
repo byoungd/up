@@ -21,7 +21,7 @@
 - GitHub Actions 使用 Node.js 24 兼容的官方 major 版本；升级 action 前先查对应仓库的 release，升级后运行 CI、Pages 部署和外链检查。
 - 首次安装运行 `npm ci`。
 - 本地开发运行 `npm run docs:dev`。
-- 完整校验运行 `npm run check`。
+- 完整校验运行 `npm run check`。正式出版前在 Java 21 环境另运行 `npm run book:validate`，用仓库固定并校验 SHA-256 的 EPUBCheck 5.3.0 检查两份 EPUB。
 - 内容检查器的回归测试运行 `npm run test:content`；完整校验会先执行它，不需要启动浏览器。
 - 修改 PDF 排版后，在已安装 `requirements-pdf.txt` 的 Python 环境中运行 `python3 tests/pdf_layout_test.py`；CI 会检查中文标题换行、代码块宽度及字符保全，再校验生成书稿。
 - 生产构建运行 `npm run docs:build`；构建完成后会自动检查搜索索引、框架和主题脚本的原始与 gzip 体积预算。
@@ -43,9 +43,11 @@ npm run sync
 - `docs/en/SUMMARY.md`；
 - 根目录 `README.md`；
 - 英文词表镜像；
-- VitePress `public` 分享图。
+- Recent Updates pages, Atom feed, worksheets, and book downloads/manifests.
 
-CI 会再次生成这些文件，并阻止未提交的差异进入主分支。
+社交分享图是静态 PNG：修改模板后显式运行 `npm run social:build`，再分别检查中英文图像的文字和排版。`npm run social:check` 只验证文件可读且尺寸为 1200 × 630；它不做跨平台像素比较，因为系统字体替代可能改变栅格结果。站点构建不会重写分享图。
+
+CI 会再次生成同步清单中的文件，并阻止未提交的差异进入主分支。
 同步脚本还会检查每个导航条目的字段、重复链接和 `source` 文件是否存在；路径写错时会在 `npm run check:navigation` 阶段失败。
 它还会反向检查 `docs/` 下的所有公开 Markdown 是否都被中英文导航收录，避免新页面成为孤岛。
 内容校验补充检查导航路由与源文件是否对应、中英文分组和阅读顺序是否一致。README 的路径转换由 `scripts/lib/readme.mjs` 共用，避免生成器和校验器各自维护不同规则。
@@ -56,7 +58,7 @@ Playwright 的 `test-results/` 和 `playwright-report/` 只保存失败诊断与
 重新构建后应重启已有 `docs:preview` 服务再做烟测。预览服务会缓存启动时的静态文件列表和响应长度；沿用旧进程可能让新脚本返回 404，或让更新后的电子书下载响应长度错误。未启动预览时，`test:smoke` 会自行构建并启动服务。
 本地会话凭据文件 `docs/assets/session.json` 被精确加入 `.gitignore`，并由 VitePress 开发服务器、构建钩子和浏览器烟测共同拦截；任何本地会话文件都不得进入仓库或站点产物。
 
-本地搜索按读者任务控制索引粒度：第二至第五部保留 H2 级入口；第一部已经按技能拆成独立页面，工具模板、术语、归档和词表使用页面级入口。H3 正文仍会并入所属页面或 H2，因此关键词不会消失。代码块不进入倒排索引，避免复制用工作表和重复示例放大下载体积。调整规则后必须运行 `npm run docs:build`，并确认 `check:bundle` 通过。
+本地搜索按读者任务控制索引粒度：恢复、决定、家庭、项目和高意图章节保留 H2 级入口；第一部已经按技能拆成独立页面，工具模板、术语、归档、词表及低意图叙事归档使用页面级入口。H3 正文仍会并入所属页面或 H2，因此关键方法词不会消失。代码块不进入倒排索引，避免复制用工作表和重复示例放大下载体积。调整规则后必须运行 `npm run docs:build`，并确认 `check:bundle` 通过。
 新增 `practice` 路线图与实操章节仅索引 H1/H2 标题；创业实验卡、持续行动计划、AI 评测记录三张新模板仅索引 H1 标题，以维持搜索下载体积预算。
 
 ## 内容规则
@@ -94,8 +96,8 @@ Playwright 的 `test-results/` 和 `playwright-report/` 只保存失败诊断与
 - 外链是任务入口，不是永久承诺；优先使用官方、稳定、可公开访问的页面，避免短链和带会话签名的地址。
 - 链接失效时，保留原任务和难度，替换为同一来源的当前页面或明确标注“历史归档”；不要为了保留数量而堆入新链接。
 - 平台返回 403、需要登录或依赖一次性签名的旧链接，不作为主要证据入口；保留事实背景时，改用稳定的本地章节或明确标注不可复查范围。
-- AI 产品资料的 `sources_checked` 必须在 120 天内；功能、地区和套餐变化时，重新检查页面和正文措辞。
-- `threads/` 下文件名以 `ai-` 或数字加 `-ai` 开头的 AI 章节，双语均必须声明 `sources_checked`；新增章节会自动纳入检查。其他页面一旦声明该字段，同样检查日期及 120 天时效；纯工作表无须为了通过检查而虚构核验日期。
+- AI 来源按变化速度分级复核：使用政策、安全公告、产品功能、地区和套餐用 30 天；协议规范、实现指南和快速变化的工作流用 60 天；稳定概念或研究背景用 120 天。AI 页面用 `source_review_interval: 30|60|120` 声明时效；没有该字段时默认 120 天。
+- `threads/` 下文件名以 `ai-` 或数字加 `-ai` 开头的 AI 章节，双语均必须声明 `sources_checked`；新增章节会自动纳入检查。其他页面一旦声明该字段，同样按照页面的 `source_review_interval` 检查日期；纯工作表无须为了通过检查而虚构核验日期。
 - `updated` 表示稿件文字被修改，`sources_checked` 表示外部资料被核验，两者不能互相替代。
 - 公开文章、截图和个人故事只提供线索，不自动成为独立测评、客户案例或收益证明。
 
@@ -111,7 +113,7 @@ Playwright 的 `test-results/` 和 `playwright-report/` 只保存失败诊断与
 
 ## 发布流程
 
-1. 运行 `npm ci`、`npm run check`、`npm run docs:build` 和 `npm run test:smoke`。
+1. 运行 `npm ci`、`npm run check`、`npm run book:validate`、`npm run docs:build` 和 `npm run test:smoke`。PDF 命令使用安装了 `requirements-pdf.txt` 的 Python；需要选择特定解释器时设置 `PDF_PYTHON`。
 2. 在拉取请求的 `site-preview` 构建产物中检查待发布站点。
 3. 合并到 `main` 后，由 GitHub Pages Actions 工作流部署。
 4. 部署后检查中文首页、英文首页、代表性章节、搜索、语言切换和旧 hash 跳转。
@@ -126,9 +128,35 @@ GitHub Actions 不包含分析脚本、广告或用户追踪器。
 
 - 每周定时任务检查外链；Douban、`token.love` 和 `ku0.com` 由浏览器 User-Agent 的独立 `curl` 探针检查，Lychee 负责其余外链。第三方站点短暂失败不会阻塞普通提交，但会留下可追踪的自动 issue。
 - 外链检查先提取 Markdown 中的 HTTP/HTTPS 地址，避免把站内路由作为文件路径；本站 GitHub Pages 由部署检查负责。403/418/429 表示自动探测受限，不能据此确认页面内容有效；404 等失败仍会创建 issue。
-- 每月至少检查一次 AI 章节；超过 120 天未更新会被内容校验阻止。
+- 每月至少检查一次 AI 章节；复核日期超过页面声明的 `source_review_interval` 会被内容校验阻止。
 - 每季度检查依赖、安全公告、素材授权和无障碍回归。
 - 合并图片前先运行 `npm run assets:sanitize`，再执行完整校验。
+
+## 搜索数据与发布节奏
+
+双语专题、查询意图、支持页面和复核日期维护在 [增长内容地图](GROWTH_CONTENT_MAP.md)；新增或改造页面先更新地图，再进入 Search Console 查询缺口复核。
+
+验证和查询 Search Console 数据均由站点所有者本人执行。当前仓库未记录验证成功状态。所有者应添加以下 URL-prefix 属性：
+
+`byoungd.github.io/up/`
+
+只有控制台显示验证成功后才能写为已验证；不要向仓库提交验证令牌或账号凭据。
+
+验证后先确认公开 sitemap 可访问，再从 Search Console 的 Sitemaps 报告提交以下地址：
+
+`byoungd.github.io/up/sitemap.xml`
+
+记录提交日期、报告状态、最后读取时间、发现的 URL 数和错误数。当前地址来自 VitePress 的 sitemap 配置与构建产物；站点 base 或域名变更时，先核对实际部署地址。
+
+建立首个搜索基线时，在 Search Console 的“效果 / 搜索结果”报告选择 Web 搜索，并选取最近一个已完整处理的连续 28 天作为基线，记录起止日期。保存总点击、总展示、平均点击率、平均排名，并导出查询和页面维度数据；同时记下属性 URL、搜索类型、导出日期、数据来源和当期发布/改版日期。之后每月以相邻的完整 28 天区间比较，并保留原始导出；不要把点击或排名变化直接归因于单次文案改动，也不要把 Search Console 搜索数据描述为站内行为分析。所有者尚未完成验证前，把基线状态记为“待验证”，不要填造数据。
+
+`main` 合并后继续按现有 GitHub Pages 工作流持续部署；正式书稿 Release 按季度整理一次，或在季度之间出现重要双语内容更新时提前发布。创建 Release 前，确认 EPUB/PDF 与 manifest 同步，并通过 `npm run check`、`npm run book:validate`、`npm run docs:build` 和 `npm run test:smoke`；Release 说明写明版本日期、主要变化和出版范围，附件使用该次构建的 EPUB/PDF，附上对应 manifest 或 SHA-256。未完成整套校验时不发布正式书稿 Release。
+
+每季度首周记录一次仓库公开指标，并把带日期的表格追加到 [项目复核记录](PROJECT_REVIEW.md)，作为独立快照，不覆盖旧值。记录仓库页面显示的 Stars、Forks、Watchers、公开 Release 数，以及开放 Issue 和 Pull Request 数；同时记下采集日期（含时区）和来源页面：仓库首页 `github.com/byoungd/up`、Releases `github.com/byoungd/up/releases`、开放 Issues `github.com/byoungd/up/issues?q=is%3Aissue%20is%3Aopen`、开放 Pull Requests `github.com/byoungd/up/pulls?q=is%3Apr%20is%3Aopen`。累计指标与当日开放项口径不同，需分别比较；单季变化只用于观察，不作为改版带来增长的因果证明。每次追加一行，沿用以下字段：
+
+| 季度 | 采集时间（Asia/Shanghai） | Stars | Forks | Watchers | 开放 Issues | 开放 PR | Release（累计 / 本季度） | 来源 |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| YYYY-Qn | YYYY-MM-DD HH:mm |  |  |  |  |  |  | 仓库首页、Releases、Issues、Pull Requests |
 
 ## 回滚
 

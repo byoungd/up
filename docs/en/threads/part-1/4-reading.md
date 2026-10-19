@@ -1,7 +1,7 @@
 ---
 title: "Reading: From Word-by-word Translation to Claims and Evidence"
 description: Begin with a real reading task and first-pass baseline, then separate language, structure, background, layout, and attention barriers while training technical documentation, source comparison, evidence checks, and delivery.
-updated: 2026-09-02
+updated: 2026-10-19
 sources_checked: 2026-09-02
 ---
 
@@ -244,9 +244,9 @@ Real speed is not escaping the page faster. It is spending less time in the wron
 
 ## Sources and Boundaries
 
-- [Jeon & Yamashita (2014), L2 Reading Comprehension and Its Correlates](https://api.crossref.org/works/10.1111%2Flang.12034): the meta-analysis synthesises relationships between passage-level L2 reading comprehension and ten component variables; vocabulary, grammar, and decoding results are correlational evidence, not a causal guarantee for one exercise.
-- [Jeon (2022), L2 Reading Comprehension and Its Correlates](https://api.crossref.org/works/10.1075%2Fbpa.13.03jeo): the update distinguishes language-knowledge variables from broader cognitive variables and notes that age, language distance, measurement, and proficiency affect interpretation.
-- [Akkakoson (2013), The Relationship between Strategic Reading Instruction and L2 Reading Achievement](https://api.crossref.org/works/10.1111%2Fjrir.12004): a 16-week comparison with Thai university science and technology students; the chapter preserves its sample, course, and pre/post-test boundaries.
+- [Jeon & Yamashita (2014), L2 Reading Comprehension and Its Correlates](https://doi.org/10.1111/lang.12034): the meta-analysis synthesises relationships between passage-level L2 reading comprehension and ten component variables; vocabulary, grammar, and decoding results are correlational evidence, not a causal guarantee for one exercise.
+- [Jeon (2022), L2 Reading Comprehension and Its Correlates](https://doi.org/10.1075/bpa.13.03jeo): the update distinguishes language-knowledge variables from broader cognitive variables and notes that age, language distance, measurement, and proficiency affect interpretation.
+- [Akkakoson (2013), The Relationship between Strategic Reading Instruction and L2 Reading Achievement](https://doi.org/10.1111/jrir.12004): a 16-week comparison with Thai university science and technology students; the chapter preserves its sample, course, and pre/post-test boundaries.
 - Reading-source versions, permissions, author positions, web availability, and technical facts change. Important work should return to the current source, primary evidence, professional feedback, and real-task acceptance.
 
 Related entry points: [Vocabulary](2-vocabulary.md) | [Grammar](grammar.md) | [Listening](3-listening.md) | [Speaking](5-speaking.md) | [Learning English with AI](7-ai.md) | [Reading Evidence Card](../../templates/reading-evidence.md) | [Evidence Chain Template](../../templates/evidence-chain.md)

@@ -1,8 +1,9 @@
 ---
 title: "Learning Anything with AI: From Real Problems to Verifiable Delivery"
 description: Based on Han Xiankai's product failure, recovery, and return to AI practice, this chapter builds a practical loop of problems, baselines, practice, delivery, verification, and review.
-updated: 2026-10-03
-sources_checked: 2026-10-03
+updated: 2026-10-15
+sources_checked: 2026-10-15
+source_review_interval: 60
 ---
 
 # Learning Anything with AI: From Real Problems to Verifiable Delivery
@@ -100,7 +101,7 @@ Learning with AI and learning to build AI applications can support each other, b
 
 Retrieval-augmented generation (RAG) typically supplies retrieved material before an answer; fine-tuning changes model parameters through training. They address different problems. For stale information, missing sources, or the wrong search scope, investigate materials and retrieval first. Fine-tuning does not automatically provide current facts, authentic citations, or permission to act. Locate the failure before choosing a technique.
 
-See [IBM's explanation of RAG and fine-tuning](https://www.ibm.com/think/topics/rag-vs-fine-tuning) for the conceptual distinction (published 14 August 2024; checked 3 October 2026). The exercises and troubleshooting sequence above are this guide's teaching choices, not a learning-outcome guarantee from that source.
+See [IBM's explanation of RAG and fine-tuning](https://www.ibm.com/think/topics/rag-vs-fine-tuning) for the conceptual distinction (published 14 August 2024; checked 15 October 2026). The exercises and troubleshooting sequence above are this guide's teaching choices, not a learning-outcome guarantee from that source.
 
 Readers who do not code can still complete these exercises: manage materials in folders, record comparisons in a table, and ask a real reader to check the result. When moving into development, learn APIs, structured outputs, tool calls, and tests one at a time, attaching each concept to a problem you have already encountered.
 
@@ -268,7 +269,7 @@ Put the three comparisons and cycle result into the [90-Day Cycle Map](../../tem
 - **Personal experience**: mainly [My Story](../part-2/my-story.md), [Entrepreneurship](../part-2/entrepreneurship.md), and [Author Projects and Practice](../../projects.md). These are personal records, not universal rules.
 - **Product information**: official help pages listed in [Learning English with AI](../part-1/7-ai.md); features, regions, and plans change.
 - **Project status**: China Token Cloud, `token.love`, public articles, and physical-industry plans carry affiliations or unverified scope; none is an independent review or proof of revenue.
-- **Last checked**: 3 October 2026. Recheck product features and project status before actual use; the new AI concept sources are linked in the chapter and attribution register.
+- **Last checked**: 15 October 2026. Recheck product features and project status before actual use; the new AI concept sources are linked in the chapter and attribution register.
 
 ## Closing: Keep the Ability with the Person
 

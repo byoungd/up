@@ -1,7 +1,7 @@
 ---
 title: AI Evaluation Record
 description: Record scope, held-out cases, versions, mandatory checks, failures, and complete process costs to decide whether to adopt, repair, or withdraw an AI workflow.
-updated: 2026-10-03
+updated: 2026-10-16
 ---
 
 # AI Evaluation Record
@@ -30,6 +30,9 @@ Use with [AI Evaluation and Reliability](../threads/practice/ai-evaluation.md). 
 - Quality comparisons and human scoring rubric:
 - Reviewers / disagreement process:
 - Relevant failures: absent sources / prompt injection / unauthorized actions / unbounded retries or duplicate side effects / transcription or image errors:
+- Long-running fields: task/run IDs, checkpoints, wall-clock time, timeout, retry limit, idempotency key, and human takeover point:
+- Isolation fields: clean environment, network egress allowlist, credential scope, and untrusted browser/page-input note:
+- Policy fields: provider policy name, version, effective date, region, and high-risk human review:
 
 ## Case records (copy this section separately for each version)
 - Version for this section:
@@ -41,6 +44,8 @@ Use with [AI Evaluation and Reliability](../threads/practice/ai-evaluation.md). 
 - Supporting passage / audio or video timestamp / image region:
 - Actual behavior / artifact location:
 - Transcript / tool calls / authorization record location:
+- Checkpoint / recovery ID / retry and idempotency record:
+- Network egress, page or screenshot evidence, and credential scope:
 - Final environment outcome (file, database, or user-visible state):
 - First-pass acceptance / mandatory failures:
 - Human revision minutes / changes:

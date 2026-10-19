@@ -1,7 +1,7 @@
 ---
 title: "Writing: From Draft to Verifiable Revision"
 description: Begin with a real audience and unaided draft, then train intention, facts, structure, register, feedback uptake, translation boundaries, AI collaboration, asynchronous handover, and authorship responsibility.
-updated: 2026-09-02
+updated: 2026-10-19
 sources_checked: 2026-09-02
 ---
 
@@ -233,9 +233,9 @@ Writing improvement sometimes means not more beautiful sentences but less guessi
 
 ## Sources and Boundaries
 
-- [Kang & Han (2015), The Efficacy of Written Corrective Feedback in Improving L2 Written Accuracy](https://api.crossref.org/works/10.1111%2Fmodl.12189): the meta-analysis synthesises 21 studies and reports that written corrective feedback may improve L2 grammatical accuracy, with proficiency, setting, and genre among the mediating variables.
-- [Vuogan & Li (2022), Examining the Effectiveness of Peer Feedback in Second Language Writing](https://api.crossref.org/works/10.1002%2Ftesq.3178): the meta-analysis aggregates 26 studies and reports an overall positive effect, while source comparisons and some moderator conclusions remain limited by the primary-study count.
-- [Zhai & Ma (2022), The Effectiveness of Automated Writing Evaluation on Writing Quality](https://api.crossref.org/works/10.1177%2F07356331221127300): the meta-analysis covers 26 studies and 2,468 participants, reporting average effects and differences by education level, language background, and genre; it does not make every tool output reliable.
+- [Kang & Han (2015), The Efficacy of Written Corrective Feedback in Improving L2 Written Accuracy](https://doi.org/10.1111/modl.12189): the meta-analysis synthesises 21 studies and reports that written corrective feedback may improve L2 grammatical accuracy, with proficiency, setting, and genre among the mediating variables.
+- [Vuogan & Li (2022), Examining the Effectiveness of Peer Feedback in Second Language Writing](https://doi.org/10.1002/tesq.3178): the meta-analysis aggregates 26 studies and reports an overall positive effect, while source comparisons and some moderator conclusions remain limited by the primary-study count.
+- [Zhai & Ma (2022), The Effectiveness of Automated Writing Evaluation on Writing Quality](https://doi.org/10.1177/07356331221127300): the meta-analysis covers 26 studies and 2,468 participants, reporting average effects and differences by education level, language background, and genre; it does not make every tool output reliable.
 - Writing task, genre, audience, institutional rules, copyright, and acceptable AI use change. Important text should return to current facts, primary sources, real readers, and a named accountable owner.
 
 Related entry points: [Grammar](grammar.md) | [Reading](4-reading.md) | [Speaking](5-speaking.md) | [Learning English with AI](7-ai.md) | [Job-search English](8-job-search-english.md) | [Writing Evidence Card](../../templates/writing-evidence.md) | [Artifacts](../part-3/4-artifacts-and-delivery.md)

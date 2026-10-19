@@ -1,7 +1,7 @@
 ---
 title: "AI Learning Log: From Tool Collaboration to Independent Ability"
 description: Record a real learning task, unaided baseline, tool scope, source checks, active production, delayed retest, transfer, and the next cycle decision.
-updated: 2026-10-03
+updated: 2026-10-16
 ---
 
 # AI Learning Log: From Tool Collaboration to Independent Ability
@@ -40,6 +40,9 @@ Do not ask AI to write an answer first and call that the starting point. If the 
 Model / version / date:
 Input mode: text / audio / image / video / mixed
 Context, retrieved material, and memory settings actually supplied:
+Task/run IDs, trace, and checkpoint locations:
+Whether browser pages, screenshots, and external links were treated as untrusted input:
+Network egress, tool authorization, and external-write receipt:
 Mode: diagnosis / follow-up / explanation / counterexample / transcript / candidate / other
 AI may:
 AI may not:
@@ -116,6 +119,7 @@ Days 3-7: what changed and what happened:
 Day 14: can I explain and use it after closing the old chat:
 Day 30: did the real task require less guessing or rework:
 State-file location:
+Last run/recovery ID and final environment state:
 Can I resume in a new conversation or another tool using only this state file:
 Handover owner, date, and access:
 Stop or rollback condition:

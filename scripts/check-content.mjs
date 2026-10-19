@@ -13,6 +13,7 @@ import sharp from "sharp";
 import { enNavigation, zhNavigation } from "../docs/.vitepress/navigation.mjs";
 import {
   frontmatterProblems,
+  bilingualMetadataProblems,
   linkProblems,
   navigationProblems,
   parseFrontmatter as parseFrontmatterText,
@@ -32,6 +33,7 @@ const IGNORE_DIRS = new Set([
   "outputs",
   "playwright-report",
   "test-results",
+  ".vitepress",
 ]);
 const PUBLIC_IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 const PUBLIC_ASSET_EXTENSIONS = new Set([...PUBLIC_IMAGE_EXTENSIONS, ".svg"]);
@@ -218,13 +220,18 @@ function checkUpdatedParity(markdownFiles) {
   for (const [file, expected] of pairs) {
     if (!existsSync(file) || !existsSync(expected)) continue;
     const chinese = parseFrontmatter(file)?.updated;
-    const english = parseFrontmatter(expected)?.updated;
+    const chineseFrontmatter = parseFrontmatter(file);
+    const englishFrontmatter = parseFrontmatter(expected);
+    const english = englishFrontmatter?.updated;
     if (chinese && english && chinese !== english) {
       addError(
         file,
         1,
         `中英文稿件 updated 日期不一致: ${chinese} vs ${english}`,
       );
+    }
+    for (const problem of bilingualMetadataProblems(readFileSync(file, "utf8"), readFileSync(expected, "utf8"))) {
+      addError(file, 1, problem);
     }
   }
 }

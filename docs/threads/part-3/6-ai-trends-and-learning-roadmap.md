@@ -1,15 +1,16 @@
 ---
 title: AI 趋势与学习路线：把变化变成能力
 description: 用一手信号、可复现实验和独立迁移判断 AI 的新能力是否值得学习，覆盖智能体、多模态、上下文、本地模型、评测与来源追踪。
-updated: 2026-10-03
-sources_checked: 2026-10-03
+updated: 2026-10-16
+sources_checked: 2026-10-16
+source_review_interval: 30
 ---
 
 # AI 趋势与学习路线：把变化变成能力
 
 AI 的变化很快，学习时间却不会因此变多。一个产品演示可以让你想象很多可能，却不能告诉你它是否适合你的材料、预算、权限和责任。趋势学习的目标不是预测哪家公司会赢，而是让你能在新能力出现时提出更好的问题，做一个小而可回退的实验，并留下足够证据。
 
-本章把资料分成三层：**观察**是来源明确写出的能力或限制；**条件判断**是“如果这个能力在你的任务上成立，可能带来的变化”；**预测**是还没有证据的未来假设。只有第一层可以直接复述，后两层必须用实验验证。日期、地区、账号、模型版本和服务条款都会改变结果，以下资料均于 2026-10-03 核验。
+本章把资料分成三层：**观察**是来源明确写出的能力或限制；**条件判断**是“如果这个能力在你的任务上成立，可能带来的变化”；**预测**是还没有证据的未来假设。只有第一层可以直接复述，后两层必须用实验验证。日期、地区、账号、模型版本和服务条款都会改变结果，以下资料均于 2026-10-16 核验。
 
 ## 先建立趋势雷达
 
@@ -25,6 +26,17 @@ AI 的变化很快，学习时间却不会因此变多。一个产品演示可�
 | 来源与内容凭证 | 凭证可以记录来源、修改历史或处理链 | 凭证是否来自可信发布者，内容是否仍需事实核验 | 有凭证不证明真实，无凭证也不证明虚假 |
 
 这张表是选择练习的地图，不是能力排行榜。趋势信号只能说明“值得观察”，不能替代任务结果。
+
+## 2026-10-16 新增核验信号
+
+这次复核把“最新 AI 趋势”收敛成四个可以迁移到不同工具的工程问题：
+
+- **长时任务要有恢复协议**：MCP 2026-07-28 规范把 Tasks 作为可选扩展，支持异步执行、轮询、中途输入和持久任务编号；这说明任务状态、超时、重试、重复安全和人工接管应成为记录字段，而不是隐藏在聊天窗口里。
+- **工具安全要看系统边界**：MCP 安全实践明确讨论 token passthrough、SSRF、重定向、混淆代理和本地服务器风险。浏览器页面、截图、工具描述和外部链接都先作为不可信输入，网络出口、文件权限和授权范围要单独核验。
+- **评测要能被独立复查**：Anthropic 2026 年 10 月关于独立评测者的说明把专业性、独立性、足够访问权限和发表观察的自由放在一起。个人项目不需要复制其安排，但应保留干净环境、原始轨迹、最终状态和人工校准记录。
+- **政策版本是任务输入**：供应商政策会有发布日期、生效日期、地区和高风险领域差异。使用 AI 前记录政策名称、版本、生效日和适用范围；页面上的政策说明不等于法律意见，也不替代本地规则。
+
+**最小实验**：选一个无外部副作用的长时任务，给每次运行生成唯一编号，设置网络域名白名单和最大重试次数，在每个阶段保存检查点；把一段间接指令放进网页或文档中，观察系统是否把它当作材料而不是授权；最后由未参与提示词修改的人按原始轨迹和环境状态复核结果。
 
 ## 六个方向，六个最小实验
 
@@ -101,7 +113,11 @@ Anthropic 对工作流与智能体的区分，以及 MCP 安全实践，都提�
 - [Anthropic：Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)（页面标注 2024-12-19 发布，2026-08-10 更新）：用于工作流与智能体的架构区别；文章页面提示工具生态会变化。
 - [Anthropic：Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)（2025-09-29）：用于上下文整理、检索、压缩和结构化笔记的设计原则。
 - [Anthropic：Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)（2026-01-09）：用于多次试验、过程记录和环境结果的评测概念。
-- [MCP 安全最佳实践](https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices)（规范版本 2025-11-25）：用于最小权限、渐进授权和同意边界。
+- [MCP 规范（2026-07-28）](https://modelcontextprotocol.io/specification/2026-07-28)（页面标注 latest）：用于资源、提示、工具和可选 Tasks 的互操作边界。
+- [MCP 安全最佳实践](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices)（安全教程版本 2026-07-28）：用于最小权限、token passthrough、SSRF、重定向和同意边界。
+- [Anthropic：Measuring AI agent autonomy in practice](https://www.anthropic.com/research/measuring-agent-autonomy)（2026-02-18 发布，2026-09-09 更新）：用于区分模型能力、用户授权、产品设计与实际自主运行时长；数据来自 Anthropic 自家使用样本，不是普遍基准。
+- [Anthropic：An update on independent evaluators](https://www.anthropic.com/news/an-update-on-independent-evaluators)（2026-10-15）：用于独立评测的专业性、访问权限、可审计证据和发表自由；不构成行业标准或监管要求。
+- [Anthropic：2026 Usage Policy update](https://www.anthropic.com/news/2026-usage-policy-update)（2026-10-08 发布，2026-11-12 生效）：用于记录供应商政策版本、生效日期和高风险人工复核；不构成法律意见，也不代表所有地区或服务均适用。
 - [Google：Image understanding](https://ai.google.dev/gemini-api/docs/image-understanding)（页面更新 2026-09-23）：用于图像理解能力和需要人工评估的限制。
 - [Google：Gemma overview](https://ai.google.dev/gemma/docs/core) 与 [Ollama integration](https://ai.google.dev/gemma/docs/integrations/ollama)（持续更新页面，无单独发布日期）：用于开放权重、本地运行和资源权衡的示例。
 - [C2PA 2.2 Explainer](https://c2pa.org/specifications/specifications/2.2/explainer/Explainer.html)（规范版本 2.2）：用于内容凭证不能单独证明事实真假的边界。

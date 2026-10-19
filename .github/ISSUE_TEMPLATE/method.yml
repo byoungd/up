@@ -1,7 +1,7 @@
 name: Learning-method proposal
 description: Propose an evidence-aware change to a learning workflow.
 title: "[Method]: "
-labels: [learning-method]
+labels: [enhancement]
 body:
   - type: textarea
     id: problem

@@ -1,7 +1,7 @@
 ---
 title: 写作篇：从初稿到可验证修订
 description: 从真实受众与无辅助初稿出发，训练意图、事实、结构、语域、反馈吸收、翻译边界、AI 协作、异步交接和署名责任。
-updated: 2026-09-02
+updated: 2026-10-19
 sources_checked: 2026-09-02
 ---
 
@@ -235,9 +235,9 @@ AI 适合做：模拟不同读者、定位可能缺失的背景、分类问题�
 
 ## 来源与边界
 
-- [Kang & Han (2015), The Efficacy of Written Corrective Feedback in Improving L2 Written Accuracy](https://api.crossref.org/works/10.1111%2Fmodl.12189)：元分析综合 21 项研究，显示书面纠错可能改善二语写作语法准确性，同时效果受到熟练度、环境和体裁等变量影响。
-- [Vuogan & Li (2022), Examining the Effectiveness of Peer Feedback in Second Language Writing](https://api.crossref.org/works/10.1002%2Ftesq.3178)：元分析汇总 26 项研究，报告同伴反馈的总体正向效果；来源间比较和部分调节结论受原始研究数量限制。
-- [Zhai & Ma (2022), The Effectiveness of Automated Writing Evaluation on Writing Quality](https://api.crossref.org/works/10.1177%2F07356331221127300)：元分析综合 26 项研究与 2468 名参与者，报告自动写作评价的平均效果及教育阶段、语言背景和体裁差异；不等于任何工具输出都可靠。
+- [Kang & Han (2015), The Efficacy of Written Corrective Feedback in Improving L2 Written Accuracy](https://doi.org/10.1111/modl.12189)：元分析综合 21 项研究，显示书面纠错可能改善二语写作语法准确性，同时效果受到熟练度、环境和体裁等变量影响。
+- [Vuogan & Li (2022), Examining the Effectiveness of Peer Feedback in Second Language Writing](https://doi.org/10.1002/tesq.3178)：元分析汇总 26 项研究，报告同伴反馈的总体正向效果；来源间比较和部分调节结论受原始研究数量限制。
+- [Zhai & Ma (2022), The Effectiveness of Automated Writing Evaluation on Writing Quality](https://doi.org/10.1177/07356331221127300)：元分析综合 26 项研究与 2468 名参与者，报告自动写作评价的平均效果及教育阶段、语言背景和体裁差异；不等于任何工具输出都可靠。
 - 写作任务、体裁、受众、机构规则、版权和可接受 AI 使用会变化。重要文本应回到当前事实、一手来源、真实读者和明确责任人验收。
 
 相关入口：[语法篇](grammar.md) ｜ [阅读篇](4-reading.md) ｜ [口语篇](5-speaking.md) ｜ [用 AI 学英语](7-ai.md) ｜ [求职英语篇](8-job-search-english.md) ｜ [写作证据卡](../../templates/writing-evidence.md) ｜ [作品篇](../part-3/4-artifacts-and-delivery.md)

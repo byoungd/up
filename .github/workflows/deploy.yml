@@ -26,10 +26,15 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
       - uses: actions/configure-pages@v6
       - run: npm ci
       - run: python -m pip install -r requirements-pdf.txt
       - run: npm run check
+      - run: npm run book:validate
       - run: npm run docs:build
       - uses: actions/upload-pages-artifact@v5
         with:
@@ -40,7 +45,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs: [build, smoke]
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
@@ -70,6 +75,7 @@ jobs:
               exit 1
             fi
           done
+
           downloads=(
             $'/downloads/life-level-up-guide-zh.epub|application/epub+zip|0-3|504b0304'
             $'/downloads/life-level-up-guide-en.epub|application/epub+zip|0-3|504b0304'
@@ -90,3 +96,30 @@ jobs:
               exit 1
             fi
           done
+
+  smoke:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run docs:build
+      - name: Start a fresh preview
+        run: |
+          npm run docs:preview -- --host 127.0.0.1 --port 4173 > /tmp/life-level-up-preview.log 2>&1 &
+          for attempt in {1..60}; do
+            if curl --fail --silent http://127.0.0.1:4173/up/ > /dev/null; then
+              break
+            fi
+            sleep 2
+          done
+          curl --fail --silent http://127.0.0.1:4173/up/ > /dev/null
+      - name: Run browser smoke tests
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:4173/up/
+        run: npm run test:smoke

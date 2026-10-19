@@ -1,7 +1,7 @@
 ---
 title: "Grammar: Let Structure Serve Meaning"
 description: Begin from a real task and an unpolished sample, treat grammar as choices about time, participants, certainty, logic, and information focus, then build usable structure through contrast, output, feedback, delayed retest, and transfer.
-updated: 2026-09-02
+updated: 2026-10-19
 sources_checked: 2026-09-02
 ---
 
@@ -310,8 +310,8 @@ Accuracy can increase without waiting for zero errors before communication. The 
 
 ## Sources and Boundaries
 
-- [Norris & Ortega (2000), Effectiveness of L2 Instruction](https://api.crossref.org/works/10.1111%2F0023-8333.00136): the meta-analysis supports focused L2 instruction and explicit treatments while describing limits in constructs, measures, and generalisability.
-- [Spada & Tomita (2010), Interactions Between Type of Instruction and Type of Language Feature](https://api.crossref.org/works/10.1111%2Fj.1467-9922.2010.00562.x): the meta-analysis compares explicit and implicit treatment across grammatical features; average findings are not an individual guarantee.
+- [Norris & Ortega (2000), Effectiveness of L2 Instruction](https://doi.org/10.1111/0023-8333.00136): the meta-analysis supports focused L2 instruction and explicit treatments while describing limits in constructs, measures, and generalisability.
+- [Spada & Tomita (2010), Interactions Between Type of Instruction and Type of Language Feature](https://doi.org/10.1111/j.1467-9922.2010.00562.x): the meta-analysis compares explicit and implicit treatment across grammatical features; average findings are not an individual guarantee.
 - Grammatical variation, register, and acceptability change across region, genre, community, and task. Important delivery should be checked against the current audience, reliable dictionaries/corpora, and professional feedback.
 
 Related entry points: [Learning Principles](1-understanding.md) | [Vocabulary](2-vocabulary.md) | [Listening](3-listening.md) | [Grammar Evidence Card](../../templates/grammar-evidence.md)

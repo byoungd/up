@@ -1,7 +1,7 @@
 ---
 title: 阅读篇：从逐词翻译到观点与证据
 description: 从真实阅读任务和首读基线出发，拆分语言、结构、背景与注意力障碍，训练技术文档、多来源比较、证据核验与真实交付。
-updated: 2026-09-02
+updated: 2026-10-19
 sources_checked: 2026-09-02
 ---
 
@@ -244,9 +244,9 @@ sources_checked: 2026-09-02
 
 ## 来源与边界
 
-- [Jeon & Yamashita (2014), L2 Reading Comprehension and Its Correlates](https://api.crossref.org/works/10.1111%2Flang.12034)：元分析汇总段落层面的二语阅读理解与十类成分的关系；词汇、语法和解码等结果是相关证据，不应直接写成单一训练的因果保证。
-- [Jeon (2022), L2 Reading Comprehension and Its Correlates](https://api.crossref.org/works/10.1075%2Fbpa.13.03jeo)：更新了相关研究并区分语言知识变量与更一般的认知变量；不同年龄、语言距离、测量和熟练度会改变解释。
-- [Akkakoson (2013), The Relationship between Strategic Reading Instruction and L2 Reading Achievement](https://api.crossref.org/works/10.1111%2Fjrir.12004)：以泰国科技大学生为对象的 16 周研究比较策略教学与传统教学；本章保留其特定样本、课程和前后测边界。
+- [Jeon & Yamashita (2014), L2 Reading Comprehension and Its Correlates](https://doi.org/10.1111/lang.12034)：元分析汇总段落层面的二语阅读理解与十类成分的关系；词汇、语法和解码等结果是相关证据，不应直接写成单一训练的因果保证。
+- [Jeon (2022), L2 Reading Comprehension and Its Correlates](https://doi.org/10.1075/bpa.13.03jeo)：更新了相关研究并区分语言知识变量与更一般的认知变量；不同年龄、语言距离、测量和熟练度会改变解释。
+- [Akkakoson (2013), The Relationship between Strategic Reading Instruction and L2 Reading Achievement](https://doi.org/10.1111/jrir.12004)：以泰国科技大学生为对象的 16 周研究比较策略教学与传统教学；本章保留其特定样本、课程和前后测边界。
 - 阅读材料的版本、权限、作者立场、网页可用性和技术事实会变化。重要工作应回到当前原文、一手来源、专业反馈和真实任务验收。
 
 相关入口：[词汇篇](2-vocabulary.md) ｜ [语法篇](grammar.md) ｜ [听力篇](3-listening.md) ｜ [口语篇](5-speaking.md) ｜ [用 AI 学英语](7-ai.md) ｜ [阅读证据卡](../../templates/reading-evidence.md) ｜ [证据链模板](../../templates/evidence-chain.md)

@@ -1,7 +1,7 @@
 name: Reader field note / 读者现场回执
 description: Share a privacy-safe reading attempt, action, delayed result, or point of confusion.
 title: "[Reader]: "
-labels: [content]
+labels: [enhancement]
 body:
   - type: input
     id: chapter

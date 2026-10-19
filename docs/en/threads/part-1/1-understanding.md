@@ -1,7 +1,7 @@
 ---
 title: "Learning Principles: Turn Effort into Verifiable Learning"
 description: Use real tasks, first-version baselines, retrieval, feedback, spacing, recovery, and cross-session state so effort becomes comparable and transferable evidence.
-updated: 2026-09-02
+updated: 2026-10-19
 sources_checked: 2026-09-02
 ---
 
@@ -225,12 +225,12 @@ Do not average four scores into a personality judgment. Someone with B2 reading 
 
 ## Sources and Boundaries
 
-- [Dunlosky et al. (2013), Improving Students' Learning With Effective Learning Techniques](https://api.crossref.org/works/10.1177%2F1529100612453266): reviews ten techniques and their generalisability across learning conditions, learners, materials, and criterion tasks; practice testing and distributed practice receive high-utility assessments, while rereading and highlighting are more conditional.
-- [Roediger & Karpicke (2006), Test-Enhanced Learning](https://api.crossref.org/works/10.1111%2Fj.1467-9280.2006.01693.x): compares testing with repeated study using prose materials and reports delayed-retention differences; sample, material, and measure do not guarantee every task.
-- [Cepeda et al. (2006), Distributed Practice in Verbal Recall Tasks](https://api.crossref.org/works/10.1037%2F0033-2909.132.3.354): reviews and quantitatively synthesises distributed practice in verbal recall; the useful interval depends on retention goal, material, and task.
-- [Hattie & Timperley (2007), The Power of Feedback](https://api.crossref.org/works/10.3102%2F003465430298487): analyses differences in feedback type, timing, and delivery; “feedback works” is not a reason to add undirected comments.
-- [Rasch & Born (2013), About Sleep's Role in Memory](https://api.crossref.org/works/10.1152%2Fphysrev.00032.2012): reviews sleep and memory-consolidation research; individual needs, health, and real schedules still require separate judgment.
-- [Pashler et al. (2008), Learning Styles](https://api.crossref.org/works/10.1111%2Fj.1539-6053.2009.01038.x): finds no adequate evidence for matching instruction to fixed visual/auditory labels while cautioning that untested variants cannot all be declared false.
+- [Dunlosky et al. (2013), Improving Students' Learning With Effective Learning Techniques](https://doi.org/10.1177/1529100612453266): reviews ten techniques and their generalisability across learning conditions, learners, materials, and criterion tasks; practice testing and distributed practice receive high-utility assessments, while rereading and highlighting are more conditional.
+- [Roediger & Karpicke (2006), Test-Enhanced Learning](https://doi.org/10.1111/j.1467-9280.2006.01693.x): compares testing with repeated study using prose materials and reports delayed-retention differences; sample, material, and measure do not guarantee every task.
+- [Cepeda et al. (2006), Distributed Practice in Verbal Recall Tasks](https://doi.org/10.1037/0033-2909.132.3.354): reviews and quantitatively synthesises distributed practice in verbal recall; the useful interval depends on retention goal, material, and task.
+- [Hattie & Timperley (2007), The Power of Feedback](https://doi.org/10.3102/003465430298487): analyses differences in feedback type, timing, and delivery; “feedback works” is not a reason to add undirected comments.
+- [Rasch & Born (2013), About Sleep's Role in Memory](https://doi.org/10.1152/physrev.00032.2012): reviews sleep and memory-consolidation research; individual needs, health, and real schedules still require separate judgment.
+- [Pashler et al. (2008), Learning Styles](https://doi.org/10.1111/j.1539-6053.2009.01038.x): finds no adequate evidence for matching instruction to fixed visual/auditory labels while cautioning that untested variants cannot all be declared false.
 - Research differs in sample, material, measure, and delay. Important work should return to current facts, primary sources, real audiences, and named accountable owners.
 
 Related entry points: [CEFR Goals and Self-check](0-cefr.md) | [Vocabulary](2-vocabulary.md) | [Grammar](grammar.md) | [Listening](3-listening.md) | [Reading](4-reading.md) | [Speaking](5-speaking.md) | [Writing](6-writing.md) | [English Diagnostic](../../templates/english-diagnostic.md) | [Evidence Chain](../../templates/evidence-chain.md)

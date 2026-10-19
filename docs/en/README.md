@@ -1,7 +1,7 @@
 ---
 title: "Life Level-up Guide | Lifelong Learning in the AI Era"
 description: Learning continuously in the AI era, Life Level-up Guide helps ordinary people complete real projects, move through difficult seasons, and preserve evidence of growth.
-updated: 2026-10-12
+updated: 2026-10-19
 ---
 
 # Life Level-up Guide
@@ -12,11 +12,25 @@ updated: 2026-10-12
 
 Subtitle: **Lifelong Learning Guide for the AI Era**. This living manuscript begins with English and continues into AI learning, real projects, entrepreneurship, recovery, and the work of returning your life to yourself one small act at a time.
 
+<div class="quick-start" aria-labelledby="quick-start-title">
+  <div class="quick-start-heading">
+    <span class="quick-start-kicker">START HERE</span>
+    <h2 id="quick-start-title">Start with the problem in front of you</h2>
+    <p>You do not need to read the whole guide. Choose one path and keep a goal, a sample, or a small action for today. An English baseline can start with one five-minute skill check.</p>
+  </div>
+  <div class="quick-start-actions">
+    <a class="quick-start-action quick-start-action-primary" href="./templates/learning-state">Learn one new skill <span aria-hidden="true">→</span></a>
+    <a class="quick-start-action quick-start-action-secondary" href="./templates/ai-task-brief">Use AI on a real task</a>
+    <a class="quick-start-action quick-start-action-secondary" href="./threads/part-4/week-1">Rebuild an action rhythm</a>
+  </div>
+  <p class="quick-start-cycle">Keep your own first version · record evidence after acting · retest later when it helps</p>
+</div>
+
 When you find this page among the many books in the world, I hope it feels like more than the start of a reading session. I hope it feels like an encounter in which we can look after life together. I wrote these pages after weathering difficult seasons: an impetuous youth, times when I had to slow down, answers found through action, and questions that still have no answer. This is not a shortcut that guarantees success. It is a truthful record of learning, loss, recovery, and beginning again that I am willing to place in your hands.
 
 Bring one question, or read only a few pages because that is what you need today. You do not have to prove that you are disciplined or clever enough to deserve help, and you do not have to finish the book in one sitting. If a passage happens to speak to your tiredness, let it be a small light. If it does not fit your situation, keep the freedom to refuse it. I hope these pages help us practise more honest expression and gentler listening, then find a little strength each time we return to life.
 
-**What you get:** a bilingual open manuscript, downloadable EPUB/PDF editions, reusable worksheets, and a practice path that starts in five minutes, retests a change after fourteen days, and reviews the system after ninety days.
+**What you get:** a bilingual open manuscript, downloadable EPUB/PDF editions, reusable worksheets, and a practice path that starts with a real problem and uses work and retests to choose what comes next.
 
 <div class="book-meta" aria-label="Book information">
   <span>Living manuscript</span>
@@ -27,22 +41,9 @@ Bring one question, or read only a few pages because that is what you need today
   <a href="../downloads/life-level-up-guide-zh.pdf" download>下载中文 PDF</a>
   <a href="https://github.com/byoungd/up">Source and corrections</a>
   <a href="./templates/reader-field-note">Reader Field Note</a>
+  <a href="./resources">Third-party Resources</a>
   <a href="https://github.com/byoungd/up/blob/main/CITATION.cff">Citation</a>
   <a href="https://creativecommons.org/licenses/by-nc/4.0/">Text CC BY-NC 4.0</a>
-</div>
-
-<div class="quick-start" aria-labelledby="quick-start-title">
-  <div class="quick-start-heading">
-    <span class="quick-start-kicker">START HERE</span>
-    <h2 id="quick-start-title">Choose one action before choosing how much to read</h2>
-    <p>You do not need to read the whole book on your first visit. Choose one entry for today, complete a small action, and let the result point to the next page: five minutes to set a starting point, fourteen days to test one change, and ninety days to decide whether a system should remain.</p>
-  </div>
-  <div class="quick-start-actions">
-    <a class="quick-start-action" href="./threads/part-0/reader-guide"><strong>5 minutes: I do not know where to begin</strong><span>Use the Reader's Guide to choose by problem and see when to preserve evidence or return for a review.</span></a>
-    <a class="quick-start-action" href="./templates/learning-state"><strong>Today: I want to finish one thing</strong><span>Write the real problem, current evidence, smallest action, and boundary before deciding whether you need the full record.</span></a>
-    <a class="quick-start-action" href="./threads/part-1/open-input"><strong>14 days: I want to practice one English skill</strong><span>Choose listening, speaking, reading, or writing; keep a first sample and retest under new conditions.</span></a>
-  </div>
-  <p class="quick-start-cycle">Ready for a full cycle? Start with the <a href="./templates/90-day-cycle">90-Day Cycle Map</a> and carry one experiment into real work and life.</p>
 </div>
 
 If this guide helps you complete one real action, please [star the repository](https://github.com/byoungd/up) so more learners can find it. For an error, translation gap, or reproducible practice result, use the [issue templates](https://github.com/byoungd/up/issues/new/choose).
@@ -100,10 +101,6 @@ It also keeps three kinds of claim separate:
     <a class="guide-path" href="./threads/part-2/care-and-carry-on"><strong>Care for the People Nearby</strong>Turn care into listening, practical help, and shared tasks. Accept support when both people are willing and able, keeping warmth and boundaries together.</a>
     <a class="guide-path" href="./threads/part-2/my-story"><strong>Life Review and Recovery</strong>Acknowledge failure and cost, then rebuild judgment, order, and action after disruption.</a>
     <a class="guide-path" href="./projects"><strong>Author Projects and Practice</strong>Make affiliations, purpose, update dates, and non-sponsorship visible so trust does not depend on guesswork.</a>
-  </div></section>
-  <section class="guide-path-group guide-path-group-external" aria-labelledby="guide-external"><div class="guide-path-group-heading"><span class="guide-path-kicker">04</span><h2 id="guide-external">Third-party Resources</h2><p>Optional external entry points, not safety, quality, or compliance endorsements by this book or its author.</p></div><div class="guide-path-group-items">
-    <a class="guide-path" href="https://biezou.com/" target="_blank" rel="noopener noreferrer"><strong>AI Relay Recommendation: biezou.com</strong>The official site describes a unified AI API gateway and admin dashboard. Treat it as an optional third-party entry point and verify terms, pricing, privacy, and availability before use.</a>
-    <a class="guide-path" href="https://t.me/OpenHuge_ai" target="_blank" rel="noopener noreferrer"><strong>AI Resources on Telegram: OpenHuge_ai</strong>A third-party Telegram channel for discovering AI resources. Channel posts, outbound links, and availability can change; verify sources, privacy, copyright, and security risks before use.</a>
   </div></section>
 </div>
 

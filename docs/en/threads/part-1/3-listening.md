@@ -1,7 +1,7 @@
 ---
 title: "Listening: From Sound Recognition to Real Understanding"
 description: Begin with one uninterrupted first pass, locate language, segmentation, structure, background, and attention barriers, then use minimum transcript support, meaning reconstruction, output, and delayed transfer.
-updated: 2026-09-02
+updated: 2026-10-19
 sources_checked: 2026-09-02
 ---
 
@@ -243,9 +243,9 @@ Listening improvement is sometimes not "hearing more words". It is knowing how t
 
 ## Sources and Boundaries
 
-- [Vandergrift & Tafaghodtari (2010), Teaching L2 Learners How to Listen Does Make a Difference](https://api.crossref.org/works/10.1111%2Fj.1467-9922.2009.00559.x): in a semester study of 106 French L2 learners, the process-based metacognitive group outperformed the control group on the final comprehension measure; one language and classroom condition is not a personal guarantee.
-- [Chang & Millett (2016), Developing L2 Listening Fluency through Extended Listening-focused Activities](https://api.crossref.org/works/10.1177%2F0033688216631175): the study compared graded-reader listening with different amounts of post-listening activity and found outcomes related to activity volume and cross-input transfer; it does not establish one universal repetition count.
-- [Tauroza & Luk (1997), Accent and Second Language Listening Comprehension](https://api.crossref.org/works/10.1177%2F003368829702800104): the review and experiment foreground accent familiarity and do not support treating similarity to the listener's accent as the only advantage.
+- [Vandergrift & Tafaghodtari (2010), Teaching L2 Learners How to Listen Does Make a Difference](https://doi.org/10.1111/j.1467-9922.2009.00559.x): in a semester study of 106 French L2 learners, the process-based metacognitive group outperformed the control group on the final comprehension measure; one language and classroom condition is not a personal guarantee.
+- [Chang & Millett (2016), Developing L2 Listening Fluency through Extended Listening-focused Activities](https://doi.org/10.1177/0033688216631175): the study compared graded-reader listening with different amounts of post-listening activity and found outcomes related to activity volume and cross-input transfer; it does not establish one universal repetition count.
+- [Tauroza & Luk (1997), Accent and Second Language Listening Comprehension](https://doi.org/10.1177/003368829702800104): the review and experiment foreground accent familiarity and do not support treating similarity to the listener's accent as the only advantage.
 - Automatic captions, platform functions, content availability, and copyright rules change. Important learning and work should return to reliable transcripts, original sources, current permission, and real-task verification.
 
 Related entry points: [Vocabulary](2-vocabulary.md) | [Grammar](grammar.md) | [Speaking](5-speaking.md) | [Learning English with AI](7-ai.md) | [Listening Evidence Card](../../templates/listening-audit.md) | [Evidence Chain Template](../../templates/evidence-chain.md)

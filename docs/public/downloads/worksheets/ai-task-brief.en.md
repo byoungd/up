@@ -67,6 +67,18 @@ External tools, MCP servers, or other protocols and versions:\
 Read/write scope, authorizer, and revocation method for each tool:\
 Prompt, system instruction, or workflow version location:
 
+For a long-running or tool-using task, also record:
+
+Run/task ID and parent task ID:\
+Async or synchronous mode; expected and maximum wall-clock time:\
+Checkpoint locations and resume procedure:\
+Maximum retries, timeout, and idempotency key:\
+Browser pages, screenshots, and external instructions treated as untrusted input:\
+Network egress allowlist and credential scope:\
+External writes, receipts, and final environment state:\
+Human takeover point and emergency stop:\
+Supplier policy/version, effective date, region, and high-risk review:
+
 Ask the model to restate goal, input, limits, unknowns, and acceptance before generation. Version prompts, and never treat one chat window as the project's only record.
 
 ## 5. Human Gates
@@ -125,9 +137,10 @@ The next operator should not search chat history to discover what to do. Public 
 - [ ] Critical sources, versions, and expiry conditions are traceable.
 - [ ] Normal, boundary, conflict, and redacted historical cases are in the evaluation set.
 - [ ] AI may/may-not scope is explicit.
+- [ ] Long-running checkpoints, retry/idempotency rules, browser-input boundary, and network egress are recorded when applicable.
 - [ ] Human gates, cost ceiling, stop conditions, and rollback location are named.
 - [ ] Handover, disclosure, and next review date are set.
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/ai-task-brief) · Manuscript updated: 2026-09-20. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/ai-task-brief) · Manuscript updated: 2026-10-16. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

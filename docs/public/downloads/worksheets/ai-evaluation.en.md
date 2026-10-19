@@ -25,6 +25,9 @@ Use with [AI Evaluation and Reliability](https://byoungd.github.io/up/en/threads
 - Quality comparisons and human scoring rubric:
 - Reviewers / disagreement process:
 - Relevant failures: absent sources / prompt injection / unauthorized actions / unbounded retries or duplicate side effects / transcription or image errors:
+- Long-running fields: task/run IDs, checkpoints, wall-clock time, timeout, retry limit, idempotency key, and human takeover point:
+- Isolation fields: clean environment, network egress allowlist, credential scope, and untrusted browser/page-input note:
+- Policy fields: provider policy name, version, effective date, region, and high-risk human review:
 
 #### Case records (copy this section separately for each version)
 
@@ -39,6 +42,8 @@ Use with [AI Evaluation and Reliability](https://byoungd.github.io/up/en/threads
 - Supporting passage / audio or video timestamp / image region:
 - Actual behavior / artifact location:
 - Transcript / tool calls / authorization record location:
+- Checkpoint / recovery ID / retry and idempotency record:
+- Network egress, page or screenshot evidence, and credential scope:
 - Final environment outcome (file, database, or user-visible state):
 - First-pass acceptance / mandatory failures:
 - Human revision minutes / changes:
@@ -89,4 +94,4 @@ Fix one main error pattern per round and check for regressions. If the process r
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/ai-evaluation) · Manuscript updated: 2026-10-03. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/ai-evaluation) · Manuscript updated: 2026-10-16. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

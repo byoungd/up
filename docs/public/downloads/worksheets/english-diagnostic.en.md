@@ -1,6 +1,6 @@
 # English Diagnostic: Four-skill Baseline and Transfer Record
 
-This is not an exam that pins a person to A1-C2. It is an evidence page for choosing the next action. Choose one real topic, complete listening, reading, speaking, and writing first versions under comparable time and explicit limits, then retest a parallel task after seven days and one real delivery after thirty days.
+This is the full four-skill diagnostic worksheet, not the five-minute starting task or an exam that pins a person to A1-C2. To begin with one small action, use the [English Diagnostic hub](https://byoungd.github.io/up/en/topics/english-diagnostic) for a five-minute baseline in one skill. For a full diagnostic, choose one real topic and complete listening, reading, speaking, and writing first versions under comparable time and explicit limits, then retest a parallel task after seven days and one real delivery after thirty days.
 
 Copy this card into a private note. Do not include passwords, customer records, identity documents, medical privacy, unauthorised third-party material, or exam content that may not be recorded.
 
@@ -149,4 +149,4 @@ Related entry points: [Learning Principles: Turn Effort into Verifiable Learning
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/english-diagnostic) · Manuscript updated: 2026-10-06. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/english-diagnostic) · Manuscript updated: 2026-10-19. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

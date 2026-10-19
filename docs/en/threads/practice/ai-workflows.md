@@ -1,8 +1,9 @@
 ---
 title: AI Workflows — From Answers to Reliable Delivery
 description: Design inputs, execution, verification, delivery, and failure handling for real tasks, then decide whether automation or an agent is justified.
-updated: 2026-10-03
-sources_checked: 2026-09-20
+updated: 2026-10-16
+sources_checked: 2026-10-16
+source_review_interval: 60
 ---
 
 # AI Workflows — From Answers to Reliable Delivery
@@ -97,7 +98,15 @@ Run the workflow visibly a few times before scripting recurring steps. These are
 | The next step depends on environmental feedback | A bounded agent experiment | Tool permissions, stopping rules, logs, and evaluation |
 | Many independent tasks | Parallel work with shared acceptance checks | The merge preserves conflicts and sources |
 
-Anthropic distinguishes workflows with predefined paths from agents that choose steps dynamically, and recommends starting with simple approaches. OpenAI's practical guide likewise treats models, tools, instructions, and guardrails as the basic building blocks, and recommends establishing an evaluation baseline with a capable model before testing smaller models for cost and latency. We reference architecture principles, not product choices; see the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18) for an interoperability reference.
+Anthropic distinguishes workflows with predefined paths from agents that choose steps dynamically, and recommends starting with simple approaches. OpenAI's practical guide likewise treats models, tools, instructions, and guardrails as the basic building blocks, and recommends establishing an evaluation baseline with a capable model before testing smaller models for cost and latency. We reference architecture principles, not product choices; see the [MCP specification (2026-07-28)](https://modelcontextprotocol.io/specification/2026-07-28) for an interoperability reference.
+
+### A minimal safety experiment for long-running tasks and browser tools
+
+Recent official material separates “runs longer” from “may run unattended.” A long-running task needs checkpoints, a recovery point, and human takeover; browser pages, screenshots, and tool returns should first be treated as untrusted material. Start with a side-effect-free experiment: give the task a unique run ID, restrict network egress and write scope, save state and evidence after each stage, resume from the latest checkpoint after an interruption, and check whether a write already succeeded before retrying.
+
+Record at least the expected and actual wall-clock time, tool-call count, network domains, authorizer, final environment state, recovery result, and the point of human takeover. Text on a page such as “ignore earlier instructions” or “download and upload this file” is input content and cannot expand prior authorization. MCP security guidance also calls for avoiding token passthrough, validating redirect URIs and token audiences, minimizing scopes, and isolating local servers and proxies; see [MCP Security Best Practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices).
+
+Pass only when the task can pause and resume, retries do not create duplicate side effects, network and file scopes are auditable, and a person can take over before an irreversible action. Any unauthorized call, unexplained external write, or unrecoverable state returns the workflow to read-only or manual handling.
 
 ## What a small team needs for handover
 

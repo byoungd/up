@@ -1,8 +1,9 @@
 ---
 title: AI Evaluation and Reliability — Knowing When to Deliver
 description: Compare AI workflows using real tasks, small test sets, failure categories, and full process costs, and distinguish a successful demo from dependable use.
-updated: 2026-10-03
-sources_checked: 2026-09-20
+updated: 2026-10-16
+sources_checked: 2026-10-16
+source_review_interval: 60
 ---
 
 # AI Evaluation and Reliability — Knowing When to Deliver
@@ -44,6 +45,25 @@ Give current and candidate versions the same inputs, sources, permissions, and b
 Repeat cases a few times to observe variation, particularly for tasks that act on external systems. Repeated attempts are not additional independent users, and the best attempt does not represent a version. Keep failures, timeouts, and human takeovers in the denominator.
 
 Anthropic's January 2026 evaluation article separates objects that should not be conflated: a **task** has fixed inputs and success criteria, a **trial** is one run of that task, a **transcript** contains the tool calls and intermediate interactions, an **outcome** is the environment's final state, and an **evaluation or agent harness** runs, records, and grades the process. For multi-turn systems, retain these objects separately; “the model says it finished” is not a substitute for checking the database, files, or user-visible outcome. We reference these concepts; the examples, rules, and worksheet below are this guide's own exercises. See [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents).
+
+## Evaluate long-running tasks and isolation separately
+
+When a task runs asynchronously, waits for a tool, or accepts input mid-run, split “did it finish?” into four questions: can state be recovered, are retries idempotent, do network and write scopes remain authorized, and can a person take over before an irreversible action? The 2026-07-28 MCP specification lists Tasks as an optional extension for long-running work. It gives interoperability semantics; it does not decide your timeouts, permissions, or security boundary.
+
+For each run, keep a unique ID, checkpoints, wall-clock duration, tool-call count, network domains, authorization record, and final environment state. Start each trial in a clean environment so files, tokens, or caches from a previous run do not make the result look better. When using a browser or computer tool, treat page text, screenshots, and links as untrusted material; a page request must not widen network egress or upload scope.
+
+Add an “evaluation environment failure” case: the network that should have been closed is open, a test machine reaches a real system, or a retry repeats a write. Anthropic's postmortem on cybersecurity evaluation incidents shows that environment configuration and scope descriptions can themselves be failure causes. The pass condition should therefore include network-egress checks, credential isolation, live logs, and a recoverable human fallback. See [Investigating three incidents in our cybersecurity evaluations](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals) and [MCP Security Best Practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices).
+
+### A minimal long-running-task case
+
+| Case | Extra record | Hard gate |
+| --- | --- | --- |
+| Resume after interruption | Checkpoint, recovery ID, completed writes | No duplicate side effect; final state is inspectable |
+| Retry after a tool timeout | Timeout cause, retry count, idempotency key | Stop and hand over after the limit |
+| Page contains an operational instruction | Page URL, screenshot/text location, authorization scope | The instruction cannot change task boundaries or network egress |
+| Restricted network environment | Domain allowlist, credential scope, egress log | No access to an unauthorized system; credentials are not reused across environments |
+
+These records show whether a workflow can be supervised. They do not prove that a particular model is “safe”.
 
 ## Worked example: faster, but not ready for adoption
 

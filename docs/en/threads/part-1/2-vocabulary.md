@@ -1,7 +1,7 @@
 ---
 title: "Vocabulary: From Familiarity to Retrieval in Real Tasks"
 description: Begin with a first-encounter baseline and lookup decisions, verify sense and collocation, then build usable vocabulary through unaided retrieval, error repair, and delayed transfer.
-updated: 2026-09-02
+updated: 2026-10-19
 sources_checked: 2026-09-02
 ---
 
@@ -272,11 +272,11 @@ Vocabulary growth does not always make a list longer. Sometimes it means knowing
 
 ## Sources and Boundaries
 
-- [Nation (2006), How Large a Vocabulary Is Needed for Reading and Listening?](https://api.crossref.org/works/10.3138%2Fcmlr.63.1.59): uses British National Corpus word-family lists and a 98% coverage assumption to estimate unassisted comprehension needs; counting unit, corpus, proper-noun treatment, and comprehension criterion limit transfer.
-- [Schmitt, Jiang & Grabe (2011), The Percentage of Words Known in a Text and Reading Comprehension](https://api.crossref.org/works/10.1111%2Fj.1540-4781.2011.01146.x): a 661-participant, eight-country study found a relatively linear coverage-comprehension relationship without a clear sudden threshold; it does not guarantee individual or cross-genre outcomes.
-- [Webb (2008), Receptive and Productive Vocabulary Sizes of L2 Learners](https://api.crossref.org/works/10.1017%2FS0272263108080042): compares receptive/productive knowledge through matched translation tests; direction, scoring, frequency bands, and participant conditions limit interpretation.
-- [Webb, Yanagisawa & Uchihara (2020), How Effective Are Intentional Vocabulary-Learning Activities?](https://api.crossref.org/works/10.1111%2Fmodl.12671): a meta-analysis of 100 effect sizes from 22 studies reports substantial immediate/delayed and between-activity variation; averages do not guarantee a fixed schedule or individual result.
-- [Pashler et al. (2008), Learning Styles](https://api.crossref.org/works/10.1111%2Fj.1539-6053.2009.01038.x): the review found no adequate evidence base for matching instruction to visual/auditory learner labels while cautioning that untested variants cannot all be declared false.
+- [Nation (2006), How Large a Vocabulary Is Needed for Reading and Listening?](https://doi.org/10.3138/cmlr.63.1.59): uses British National Corpus word-family lists and a 98% coverage assumption to estimate unassisted comprehension needs; counting unit, corpus, proper-noun treatment, and comprehension criterion limit transfer.
+- [Schmitt, Jiang & Grabe (2011), The Percentage of Words Known in a Text and Reading Comprehension](https://doi.org/10.1111/j.1540-4781.2011.01146.x): a 661-participant, eight-country study found a relatively linear coverage-comprehension relationship without a clear sudden threshold; it does not guarantee individual or cross-genre outcomes.
+- [Webb (2008), Receptive and Productive Vocabulary Sizes of L2 Learners](https://doi.org/10.1017/S0272263108080042): compares receptive/productive knowledge through matched translation tests; direction, scoring, frequency bands, and participant conditions limit interpretation.
+- [Webb, Yanagisawa & Uchihara (2020), How Effective Are Intentional Vocabulary-Learning Activities?](https://doi.org/10.1111/modl.12671): a meta-analysis of 100 effect sizes from 22 studies reports substantial immediate/delayed and between-activity variation; averages do not guarantee a fixed schedule or individual result.
+- [Pashler et al. (2008), Learning Styles](https://doi.org/10.1111/j.1539-6053.2009.01038.x): the review found no adequate evidence base for matching instruction to visual/auditory learner labels while cautioning that untested variants cannot all be declared false.
 - Senses, technical terms, corpus frequencies, products, and dictionaries change. Important tasks should return to current versions, primary sources, real audiences, and named accountable owners.
 
 Related entry points: [Grammar](grammar.md) | [Listening](3-listening.md) | [Reading](4-reading.md) | [Speaking](5-speaking.md) | [Writing](6-writing.md) | [Learning English with AI](7-ai.md) | [Vocabulary Evidence Card](../../templates/vocabulary-audit.md) | [Evidence Chain Template](../../templates/evidence-chain.md)

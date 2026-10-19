@@ -1,7 +1,7 @@
 ---
 title: 听力篇：从声音辨认到真实理解
 description: 从一次不暂停的首听开始，定位词汇、切分、结构、背景与注意力障碍，用最小字幕支架、意义重构、输出和延迟迁移把一段材料练成可用理解。
-updated: 2026-09-02
+updated: 2026-10-19
 sources_checked: 2026-09-02
 ---
 
@@ -243,9 +243,9 @@ sources_checked: 2026-09-02
 
 ## 来源与边界
 
-- [Vandergrift & Tafaghodtari (2010), Teaching L2 Learners How to Listen Does Make a Difference](https://api.crossref.org/works/10.1111%2Fj.1467-9922.2009.00559.x)：在 106 名法语二语学习者的学期研究中，过程型元认知引导组在最终理解测量上优于对照组；本章不把单一语言与课堂条件写成个人保证。
-- [Chang & Millett (2016), Developing L2 Listening Fluency through Extended Listening-focused Activities](https://api.crossref.org/works/10.1177%2F0033688216631175)：研究比较分级读物听读与不同数量的听后活动，结果提示活动量与跨输入类型迁移有关；不等于固定次数适用于所有学习者。
-- [Tauroza & Luk (1997), Accent and Second Language Listening Comprehension](https://api.crossref.org/works/10.1177%2F003368829702800104)：研究综述与实验强调口音熟悉度的重要性，并不支持把“与听者口音相似”当作唯一优势。
+- [Vandergrift & Tafaghodtari (2010), Teaching L2 Learners How to Listen Does Make a Difference](https://doi.org/10.1111/j.1467-9922.2009.00559.x)：在 106 名法语二语学习者的学期研究中，过程型元认知引导组在最终理解测量上优于对照组；本章不把单一语言与课堂条件写成个人保证。
+- [Chang & Millett (2016), Developing L2 Listening Fluency through Extended Listening-focused Activities](https://doi.org/10.1177/0033688216631175)：研究比较分级读物听读与不同数量的听后活动，结果提示活动量与跨输入类型迁移有关；不等于固定次数适用于所有学习者。
+- [Tauroza & Luk (1997), Accent and Second Language Listening Comprehension](https://doi.org/10.1177/003368829702800104)：研究综述与实验强调口音熟悉度的重要性，并不支持把“与听者口音相似”当作唯一优势。
 - 自动字幕、平台功能、内容可用性和版权规则会变化。重要学习与工作应回到可靠转写、原始来源、当前许可和真实任务核验。
 
 相关入口：[词汇篇](2-vocabulary.md) ｜ [语法篇](grammar.md) ｜ [口语篇](5-speaking.md) ｜ [用 AI 学英语](7-ai.md) ｜ [听力证据卡](../../templates/listening-audit.md) ｜ [证据链模板](../../templates/evidence-chain.md)

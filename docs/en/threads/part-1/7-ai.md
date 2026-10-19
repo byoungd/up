@@ -1,8 +1,9 @@
 ---
 title: "Learning English with AI: From Practice to Real Delivery"
 description: Use English baselines, authentic material, guided practice, four-skill feedback, and delayed retesting instead of outsourcing English ability to one AI product.
-updated: 2026-10-03
-sources_checked: 2026-08-24
+updated: 2026-10-15
+sources_checked: 2026-10-15
+source_review_interval: 30
 ---
 
 # Learning English with AI: From Practice to Real Delivery
@@ -206,7 +207,7 @@ Do not upload customer, colleague, student, child, medical, identity, or unpubli
 - Perplexity: [Help Center](https://www.perplexity.ai/help-center/)
 - DeepL: [DeepL Write](https://www.deepl.com/write)
 
-These pages document product functions, not rankings or outcome guarantees. Last checked: 24 August 2026; verify features, regions, and plans again before use.
+These pages are product entry points to recheck, not a current feature list, ranking, or outcome guarantee. The last concentrated product-entry check was 24 August 2026; verify features, regions, and plans again before use.
 
 ## Closing: After the Tool Leaves
 

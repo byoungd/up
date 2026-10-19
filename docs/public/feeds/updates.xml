@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
+  <title>人生进阶指南 / Life Level-up Guide</title>
+  <subtitle>英语、AI 学习、真实项目与长期改变的近期更新</subtitle>
+  <id>https://byoungd.github.io/up/feeds/updates.xml</id>
+  <link href="https://byoungd.github.io/up/feeds/updates.xml" rel="self" />
+  <link href="https://byoungd.github.io/up/" />
+  <updated>2026-10-19T00:00:00+08:00</updated>
+  <entry>
+    <title xml:lang="zh-CN">人生进阶指南｜AI 时代终身学习</title>
+    <id>https://byoungd.github.io/up/</id>
+    <link href="https://byoungd.github.io/up/" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">《人生进阶指南》帮助普通人在 AI 时代持续学习、完成真实项目、穿越人生低谷并留下成长证据。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">Life Level-up Guide | Lifelong Learning in the AI Era</title>
+    <id>https://byoungd.github.io/up/en</id>
+    <link href="https://byoungd.github.io/up/en" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Learning continuously in the AI era, Life Level-up Guide helps ordinary people complete real projects, move through difficult seasons, and preserve evidence of growth.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">Third-party Resources | Verify Before Use</title>
+    <id>https://byoungd.github.io/up/en/resources</id>
+    <link href="https://byoungd.github.io/up/en/resources" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Optional AI learning and tool links with review dates, public positioning, and a clear non-sponsorship boundary. Independently verify terms, privacy, pricing, copyright, and service status before use.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">English Diagnostic: Four-skill Baseline and Transfer Record</title>
+    <id>https://byoungd.github.io/up/en/templates/english-diagnostic</id>
+    <link href="https://byoungd.github.io/up/en/templates/english-diagnostic" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Preserve listening, reading, speaking, and writing first versions, conditions, errors, feedback, delayed retests, and CEFR direction without replacing ability evidence with averages or polished work.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">Learning Principles: Turn Effort into Verifiable Learning</title>
+    <id>https://byoungd.github.io/up/en/threads/part-1/1-understanding</id>
+    <link href="https://byoungd.github.io/up/en/threads/part-1/1-understanding" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Use real tasks, first-version baselines, retrieval, feedback, spacing, recovery, and cross-session state so effort becomes comparable and transferable evidence.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">Vocabulary: From Familiarity to Retrieval in Real Tasks</title>
+    <id>https://byoungd.github.io/up/en/threads/part-1/2-vocabulary</id>
+    <link href="https://byoungd.github.io/up/en/threads/part-1/2-vocabulary" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Begin with a first-encounter baseline and lookup decisions, verify sense and collocation, then build usable vocabulary through unaided retrieval, error repair, and delayed transfer.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">Listening: From Sound Recognition to Real Understanding</title>
+    <id>https://byoungd.github.io/up/en/threads/part-1/3-listening</id>
+    <link href="https://byoungd.github.io/up/en/threads/part-1/3-listening" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Begin with one uninterrupted first pass, locate language, segmentation, structure, background, and attention barriers, then use minimum transcript support, meaning reconstruction, output, and delayed transfer.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">Reading: From Word-by-word Translation to Claims and Evidence</title>
+    <id>https://byoungd.github.io/up/en/threads/part-1/4-reading</id>
+    <link href="https://byoungd.github.io/up/en/threads/part-1/4-reading" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Begin with a real reading task and first-pass baseline, then separate language, structure, background, layout, and attention barriers while training technical documentation, source comparison, evidence checks, and delivery.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">Speaking: Make Meaning Arrive</title>
+    <id>https://byoungd.github.io/up/en/threads/part-1/5-speaking</id>
+    <link href="https://byoungd.github.io/up/en/threads/part-1/5-speaking" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Begin with unscripted baselines, a reference variety, and real listeners to train comprehensibility, pronunciation, chunks, interaction repair, and transfer without treating accent removal as the goal.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">Writing: From Draft to Verifiable Revision</title>
+    <id>https://byoungd.github.io/up/en/threads/part-1/6-writing</id>
+    <link href="https://byoungd.github.io/up/en/threads/part-1/6-writing" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Begin with a real audience and unaided draft, then train intention, facts, structure, register, feedback uptake, translation boundaries, AI collaboration, asynchronous handover, and authorship responsibility.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">Grammar: Let Structure Serve Meaning</title>
+    <id>https://byoungd.github.io/up/en/threads/part-1/grammar</id>
+    <link href="https://byoungd.github.io/up/en/threads/part-1/grammar" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Begin from a real task and an unpolished sample, treat grammar as choices about time, participants, certainty, logic, and information focus, then build usable structure through contrast, output, feedback, delayed retest, and transfer.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">English Diagnostic | Find a Retestable Baseline</title>
+    <id>https://byoungd.github.io/up/en/topics/english-diagnostic</id>
+    <link href="https://byoungd.github.io/up/en/topics/english-diagnostic" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Start with one five-minute English baseline, then complete a four-skill diagnostic and fourteen-day retest when your goal calls for it.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">第三方资源目录｜使用前独立核验</title>
+    <id>https://byoungd.github.io/up/resources</id>
+    <link href="https://byoungd.github.io/up/resources" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">汇总可选的 AI 学习与工具入口，记录链接复核时间、公开定位和非赞助边界；使用前请独立检查条款、隐私、价格、版权与服务状态。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">英语能力诊断：四项基线与迁移记录</title>
+    <id>https://byoungd.github.io/up/templates/english-diagnostic</id>
+    <link href="https://byoungd.github.io/up/templates/english-diagnostic" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">在同一真实主题下保存听说读写首版、条件、错误、反馈、延迟复测与 CEFR 方向，避免用平均分或润色成品代替能力证据。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">认知篇：把努力变成可验证的学习</title>
+    <id>https://byoungd.github.io/up/threads/part-1/1-understanding</id>
+    <link href="https://byoungd.github.io/up/threads/part-1/1-understanding" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">用真实任务、首版基线、主动回忆、反馈、间隔、恢复和跨会话状态，把努力变成可比较、可迁移的学习证据。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">词汇篇：从眼熟到在真实任务中调用</title>
+    <id>https://byoungd.github.io/up/threads/part-1/2-vocabulary</id>
+    <link href="https://byoungd.github.io/up/threads/part-1/2-vocabulary" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">从首遇基线、查词决策、义项与搭配核验出发，用无提示调用、误用修复和延迟迁移建立真正可用的词汇系统。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">听力篇：从声音辨认到真实理解</title>
+    <id>https://byoungd.github.io/up/threads/part-1/3-listening</id>
+    <link href="https://byoungd.github.io/up/threads/part-1/3-listening" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">从一次不暂停的首听开始，定位词汇、切分、结构、背景与注意力障碍，用最小字幕支架、意义重构、输出和延迟迁移把一段材料练成可用理解。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">阅读篇：从逐词翻译到观点与证据</title>
+    <id>https://byoungd.github.io/up/threads/part-1/4-reading</id>
+    <link href="https://byoungd.github.io/up/threads/part-1/4-reading" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">从真实阅读任务和首读基线出发，拆分语言、结构、背景与注意力障碍，训练技术文档、多来源比较、证据核验与真实交付。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">口语篇：让意思清楚到达</title>
+    <id>https://byoungd.github.io/up/threads/part-1/5-speaking</id>
+    <link href="https://byoungd.github.io/up/threads/part-1/5-speaking" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">从无稿基线、参考变体与真实听众出发，训练可理解度、发音、词块、互动修复和陌生问题迁移，不把消灭口音当成口语目标。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">写作篇：从初稿到可验证修订</title>
+    <id>https://byoungd.github.io/up/threads/part-1/6-writing</id>
+    <link href="https://byoungd.github.io/up/threads/part-1/6-writing" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">从真实受众与无辅助初稿出发，训练意图、事实、结构、语域、反馈吸收、翻译边界、AI 协作、异步交接和署名责任。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">语法篇：让结构服务于意思</title>
+    <id>https://byoungd.github.io/up/threads/part-1/grammar</id>
+    <link href="https://byoungd.github.io/up/threads/part-1/grammar" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">从真实任务与未经修饰的样本出发，把语法还原成时间、参与者、确定性、因果与信息重点的选择，并用对比、输出、反馈、延迟复测和迁移建立可用结构。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">英语能力诊断｜找到可复测的起点</title>
+    <id>https://byoungd.github.io/up/topics/english-diagnostic</id>
+    <link href="https://byoungd.github.io/up/topics/english-diagnostic" />
+    <updated>2026-10-19T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">面向想提升工作与日常英语的自学者，先用五分钟保存一项英语基线，再按需完成听说读写完整诊断，记录障碍并安排十四天后的平行任务复测。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">Entrepreneurship: From Ambition to Purpose</title>
+    <id>https://byoungd.github.io/up/en/threads/part-2/entrepreneurship</id>
+    <link href="https://byoungd.github.io/up/en/threads/part-2/entrepreneurship" />
+    <updated>2026-10-18T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">A personal review of products, cash flow, technical debt, failure, recovery, and starting again, without offering a success formula or investment advice.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">My Story: Failure, Recovery, and Starting Again</title>
+    <id>https://byoungd.github.io/up/en/threads/part-2/my-story</id>
+    <link href="https://byoungd.github.io/up/en/threads/part-2/my-story" />
+    <updated>2026-10-18T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">A personal account of business setbacks, entrepreneurial losses, disrupted health and life, and finding the courage to act again after returning home.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">创业篇：从野心到使命</title>
+    <id>https://byoungd.github.io/up/threads/part-2/entrepreneurship</id>
+    <link href="https://byoungd.github.io/up/threads/part-2/entrepreneurship" />
+    <updated>2026-10-18T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">一份关于产品、现金流、技术债、失败、恢复与再次创业的个人复盘，不提供成功学结论或投资建议。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">我的故事：失败、恢复与重新出发</title>
+    <id>https://byoungd.github.io/up/threads/part-2/my-story</id>
+    <link href="https://byoungd.github.io/up/threads/part-2/my-story" />
+    <updated>2026-10-18T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">一段关于事业起落、创业失利、身体与生活失序，以及回家恢复后重新找回行动勇气的个人记录。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">AI Evaluation Record</title>
+    <id>https://byoungd.github.io/up/en/templates/ai-evaluation</id>
+    <link href="https://byoungd.github.io/up/en/templates/ai-evaluation" />
+    <updated>2026-10-16T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Record scope, held-out cases, versions, mandatory checks, failures, and complete process costs to decide whether to adopt, repair, or withdraw an AI workflow.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">AI Learning Log: From Tool Collaboration to Independent Ability</title>
+    <id>https://byoungd.github.io/up/en/templates/ai-learning-log</id>
+    <link href="https://byoungd.github.io/up/en/templates/ai-learning-log" />
+    <updated>2026-10-16T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Record a real learning task, unaided baseline, tool scope, source checks, active production, delayed retest, transfer, and the next cycle decision.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">AI Task Brief: From Problem to Human Acceptance</title>
+    <id>https://byoungd.github.io/up/en/templates/ai-task-brief</id>
+    <link href="https://byoungd.github.io/up/en/templates/ai-task-brief" />
+    <updated>2026-10-16T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Before an AI learning or project task, define the real action, data boundary, sources, evaluation set, human ownership, cost, failure handling, and handover.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">AI Trend Experiment: From Signal to Decision</title>
+    <id>https://byoungd.github.io/up/en/templates/ai-trend-radar</id>
+    <link href="https://byoungd.github.io/up/en/templates/ai-trend-radar" />
+    <updated>2026-10-16T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Record a primary source, task hypothesis, manual baseline, held-out set, permissions, full cost, independent transfer, and exit conditions for one new AI capability.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">AI Learning, Project Development, and Resource-layer Entrepreneurship</title>
+    <id>https://byoungd.github.io/up/en/threads/part-3/2-ai-development-and-resource-layer</id>
+    <link href="https://byoungd.github.io/up/en/threads/part-3/2-ai-development-and-resource-layer" />
+    <updated>2026-10-16T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Han Xiankai&apos;s path from learning with AI to building and operating an AI resource layer, with engineering, delivery, operations, and business results kept distinct.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">AI Trends and a Learning Roadmap: Turn Change into Ability</title>
+    <id>https://byoungd.github.io/up/en/threads/part-3/6-ai-trends-and-learning-roadmap</id>
+    <link href="https://byoungd.github.io/up/en/threads/part-3/6-ai-trends-and-learning-roadmap" />
+    <updated>2026-10-16T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Use primary signals, reproducible experiments, and independent transfer to decide which AI capabilities are worth learning, covering agents, multimodal inputs, context, local models, evaluation, and provenance.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">AI Evaluation and Reliability — Knowing When to Deliver</title>
+    <id>https://byoungd.github.io/up/en/threads/practice/ai-evaluation</id>
+    <link href="https://byoungd.github.io/up/en/threads/practice/ai-evaluation" />
+    <updated>2026-10-16T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Compare AI workflows using real tasks, small test sets, failure categories, and full process costs, and distinguish a successful demo from dependable use.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">AI 评测记录模板</title>
+    <id>https://byoungd.github.io/up/templates/ai-evaluation</id>
+    <link href="https://byoungd.github.io/up/templates/ai-evaluation" />
+    <updated>2026-10-16T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">记录任务范围、保留样本、版本、硬性条件、失败与完整成本，支持采用、修复或撤回 AI 工作流的决定。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">AI 学习记录：从工具协作到独立能力</title>
+    <id>https://byoungd.github.io/up/templates/ai-learning-log</id>
+    <link href="https://byoungd.github.io/up/templates/ai-learning-log" />
+    <updated>2026-10-16T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">记录 AI 学习切片的真实任务、无 AI 基线、工具范围、来源核验、主动产出、延迟复测、迁移和下一周期决定。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">AI 任务简报：从问题到人工验收</title>
+    <id>https://byoungd.github.io/up/templates/ai-task-brief</id>
+    <link href="https://byoungd.github.io/up/templates/ai-task-brief" />
+    <updated>2026-10-16T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">在 AI 学习或项目开始前写清真实任务、数据边界、来源、评估集、人工责任、成本、失败处理和交接条件。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">AI 趋势实验卡：从信号到决定</title>
+    <id>https://byoungd.github.io/up/templates/ai-trend-radar</id>
+    <link href="https://byoungd.github.io/up/templates/ai-trend-radar" />
+    <updated>2026-10-16T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">记录一个 AI 新能力的一手来源、任务假设、人工基线、保留集、权限、完整成本、独立迁移和退出条件。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">AI 学习、项目开发与资源层创业</title>
+    <id>https://byoungd.github.io/up/threads/part-3/2-ai-development-and-resource-layer</id>
+    <link href="https://byoungd.github.io/up/threads/part-3/2-ai-development-and-resource-layer" />
+    <updated>2026-10-16T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">记录韩先凯从 AI 学习、AI 辅助开发到 AI 资源层创业的工程、交付、运营与商业验证路径，区分事实、实践和未知结果。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">AI 趋势与学习路线：把变化变成能力</title>
+    <id>https://byoungd.github.io/up/threads/part-3/6-ai-trends-and-learning-roadmap</id>
+    <link href="https://byoungd.github.io/up/threads/part-3/6-ai-trends-and-learning-roadmap" />
+    <updated>2026-10-16T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">用一手信号、可复现实验和独立迁移判断 AI 的新能力是否值得学习，覆盖智能体、多模态、上下文、本地模型、评测与来源追踪。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">AI 评测与可靠性：知道什么时候可以交付</title>
+    <id>https://byoungd.github.io/up/threads/practice/ai-evaluation</id>
+    <link href="https://byoungd.github.io/up/threads/practice/ai-evaluation" />
+    <updated>2026-10-16T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">用真实任务、小型测试集、失败分类和完整成本比较 AI 工作流，识别一次成功与稳定可用之间的差别。</summary>
+  </entry>
+</feed>

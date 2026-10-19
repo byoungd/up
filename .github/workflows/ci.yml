@@ -20,11 +20,16 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
       - run: npm ci
       - run: python -m pip install -r requirements-pdf.txt
       - run: python tests/pdf_layout_test.py
       - run: npm audit --audit-level=high
       - run: npm run check
+      - run: npm run book:validate
       - run: npm run docs:build
       - uses: actions/upload-artifact@v7
         with:

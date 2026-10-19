@@ -1,7 +1,7 @@
 ---
 title: "Speaking: Make Meaning Arrive"
 description: Begin with unscripted baselines, a reference variety, and real listeners to train comprehensibility, pronunciation, chunks, interaction repair, and transfer without treating accent removal as the goal.
-updated: 2026-09-02
+updated: 2026-10-19
 sources_checked: 2026-09-02
 ---
 
@@ -247,9 +247,9 @@ Fluency is not packing more words into each minute or editing out every pause. I
 
 ## Sources and Boundaries
 
-- [Derwing & Munro (2005), Second Language Accent and Pronunciation Teaching](https://api.crossref.org/works/10.2307%2F3588486): the review separates accent from communication outcomes, foregrounds mutual intelligibility, and notes the social consequences of accent.
-- [Levis (2005), Changing Contexts and Shifting Paradigms in Pronunciation Teaching](https://api.crossref.org/works/10.2307%2F3588485): the article discusses a shift from accent reduction toward intelligibility, identity, World Englishes, and negotiation between speaker and listener.
-- [Saito (2012), Effects of Instruction on L2 Pronunciation Development](https://api.crossref.org/works/10.1002%2Ftesq.67): a synthesis of fifteen quasi-experimental intervention studies; this chapter does not turn group averages into a personal outcome guarantee.
+- [Derwing & Munro (2005), Second Language Accent and Pronunciation Teaching](https://doi.org/10.2307/3588486): the review separates accent from communication outcomes, foregrounds mutual intelligibility, and notes the social consequences of accent.
+- [Levis (2005), Changing Contexts and Shifting Paradigms in Pronunciation Teaching](https://doi.org/10.2307/3588485): the article discusses a shift from accent reduction toward intelligibility, identity, World Englishes, and negotiation between speaker and listener.
+- [Saito (2012), Effects of Instruction on L2 Pronunciation Development](https://doi.org/10.1002/tesq.67): a synthesis of fifteen quasi-experimental intervention studies; this chapter does not turn group averages into a personal outcome guarantee.
 - Pronunciation, vocabulary, register, and acceptability change across region, community, task, and listener. Important delivery should be checked against the current audience, reliable dictionary audio, professional feedback, and real-task retesting.
 
 Related entry points: [Listening](3-listening.md) | [Grammar](grammar.md) | [Learning English with AI](7-ai.md) | [Speaking Evidence Card](../../templates/speaking-evidence.md) | [Evidence Chain Template](../../templates/evidence-chain.md)

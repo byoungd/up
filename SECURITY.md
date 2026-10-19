@@ -2,7 +2,7 @@
 
 ## Supported Version
 
-The current `master` branch and the deployed GitHub Pages site are supported. Historical commits and third-party mirrors are not maintained.
+The current `main` branch and the deployed GitHub Pages site are supported. Historical commits and third-party mirrors are not maintained.
 
 ## Report Privately
 

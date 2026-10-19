@@ -21,6 +21,16 @@ export const zhNavigation = [
     ],
   },
   {
+    text: "专题入口",
+    items: [
+      page("最近更新", "/recent-updates"),
+      page("第三方资源目录", "/resources"),
+      page("英语能力诊断入口", "/topics/english-diagnostic"),
+      page("AI 学习工作流入口", "/topics/ai-learning-workflows"),
+      page("真实项目、求职与创业入口", "/topics/real-projects"),
+    ],
+  },
+  {
     text: "第一部：打开输入",
     publication: "body",
     items: [
@@ -185,6 +195,16 @@ export const enNavigation = [
       page("Prologue: Do Not Rush to Change Your Life", "/en/threads/part-0/prologue"),
       page("Glossary of Terms and Methods", "/en/reference/glossary"),
       page("Toolkit Overview", "/en/templates/toolkit"),
+    ],
+  },
+  {
+    text: "Topic Hubs",
+    items: [
+      page("Recent Updates", "/en/recent-updates"),
+      page("Third-party Resources", "/en/resources"),
+      page("English Diagnostic Hub", "/en/topics/english-diagnostic"),
+      page("AI Learning Workflow Hub", "/en/topics/ai-learning-workflows"),
+      page("Real Projects, Jobs, and Entrepreneurship", "/en/topics/real-projects"),
     ],
   },
   {
@@ -375,7 +395,7 @@ export const bilingualRoutePairs = zhRoutes.map((zh) => {
   return { zh, en };
 });
 
-const collapsedGroups = new Set(["工具箱", "创业、自律与 AI 实操", "旧文归档", "词表", "Toolkit", "Business, Discipline, and AI Practice", "Archive", "Word Lists"]);
+const collapsedGroups = new Set(["专题入口", "工具箱", "创业、自律与 AI 实操", "旧文归档", "词表", "Topic Hubs", "Toolkit", "Business, Discipline, and AI Practice", "Archive", "Word Lists"]);
 
 export function toSidebar(groups) {
   return groups.map(({ text, items }) => ({

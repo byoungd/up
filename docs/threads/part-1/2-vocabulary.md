@@ -1,7 +1,7 @@
 ---
 title: 词汇篇：从眼熟到在真实任务中调用
 description: 从首遇基线、查词决策、义项与搭配核验出发，用无提示调用、误用修复和延迟迁移建立真正可用的词汇系统。
-updated: 2026-09-02
+updated: 2026-10-19
 sources_checked: 2026-09-02
 ---
 
@@ -272,11 +272,11 @@ AI 适合：按情境生成填空、比较近义表达、模拟不同受众、�
 
 ## 来源与边界
 
-- [Nation (2006), How Large a Vocabulary Is Needed for Reading and Listening?](https://api.crossref.org/works/10.3138%2Fcmlr.63.1.59)：基于英国国家语料库的词族列表与 98% 覆盖假设估算无辅助理解所需规模；计数单位、语料、专名处理和理解标准限制外推。
-- [Schmitt, Jiang & Grabe (2011), The Percentage of Words Known in a Text and Reading Comprehension](https://api.crossref.org/works/10.1111%2Fj.1540-4781.2011.01146.x)：661 名、8 国样本显示覆盖率与阅读理解大致呈线性关系，未发现清晰突变阈值；它不构成个人或其他体裁的保证。
-- [Webb (2008), Receptive and Productive Vocabulary Sizes of L2 Learners](https://api.crossref.org/works/10.1017%2FS0272263108080042)：以对应翻译测试比较接受与产出知识；结果受到测试方向、评分、词频和样本条件限制。
-- [Webb, Yanagisawa & Uchihara (2020), How Effective Are Intentional Vocabulary-Learning Activities?](https://api.crossref.org/works/10.1111%2Fmodl.12671)：元分析汇总 22 项研究、100 个效应量，显示即时与延迟回忆及不同活动间存在明显差异；平均结果不是固定间隔或个人学习保证。
-- [Pashler et al. (2008), Learning Styles](https://api.crossref.org/works/10.1111%2Fj.1539-6053.2009.01038.x)：综述未发现足够证据支持按所谓视觉型/听觉型匹配教学，同时明确未测试的所有版本不能被一概否定。
+- [Nation (2006), How Large a Vocabulary Is Needed for Reading and Listening?](https://doi.org/10.3138/cmlr.63.1.59)：基于英国国家语料库的词族列表与 98% 覆盖假设估算无辅助理解所需规模；计数单位、语料、专名处理和理解标准限制外推。
+- [Schmitt, Jiang & Grabe (2011), The Percentage of Words Known in a Text and Reading Comprehension](https://doi.org/10.1111/j.1540-4781.2011.01146.x)：661 名、8 国样本显示覆盖率与阅读理解大致呈线性关系，未发现清晰突变阈值；它不构成个人或其他体裁的保证。
+- [Webb (2008), Receptive and Productive Vocabulary Sizes of L2 Learners](https://doi.org/10.1017/S0272263108080042)：以对应翻译测试比较接受与产出知识；结果受到测试方向、评分、词频和样本条件限制。
+- [Webb, Yanagisawa & Uchihara (2020), How Effective Are Intentional Vocabulary-Learning Activities?](https://doi.org/10.1111/modl.12671)：元分析汇总 22 项研究、100 个效应量，显示即时与延迟回忆及不同活动间存在明显差异；平均结果不是固定间隔或个人学习保证。
+- [Pashler et al. (2008), Learning Styles](https://doi.org/10.1111/j.1539-6053.2009.01038.x)：综述未发现足够证据支持按所谓视觉型/听觉型匹配教学，同时明确未测试的所有版本不能被一概否定。
 - 词义、技术术语、语料频率、产品与词典会更新。重要任务应回到当前版本、一手来源、真实受众和具名责任人验收。
 
 相关入口：[语法篇](grammar.md) ｜ [听力篇](3-listening.md) ｜ [阅读篇](4-reading.md) ｜ [口语篇](5-speaking.md) ｜ [写作篇](6-writing.md) ｜ [用 AI 学英语](7-ai.md) ｜ [词汇证据卡](../../templates/vocabulary-audit.md) ｜ [证据链模板](../../templates/evidence-chain.md)

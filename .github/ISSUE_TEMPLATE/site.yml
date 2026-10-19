@@ -1,7 +1,7 @@
 name: Site or accessibility problem
 description: Report build, route, search, responsive, keyboard, or accessibility issues.
 title: "[Site]: "
-labels: [site]
+labels: [bug]
 body:
   - type: input
     id: url

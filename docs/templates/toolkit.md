@@ -1,5 +1,7 @@
 ---
 title: 工具箱总览：先选问题，再选工具
+socialImage: /assets/social/templates-zh.png
+socialImageAlt: 从基线、练习、复测到下一步的实践模板
 description: 按起点、能力训练、AI 协作、作品交付、复盘与恢复分流全部模板，帮助读者用最少记录建立一次完整行动闭环。
 updated: 2026-10-04
 ---

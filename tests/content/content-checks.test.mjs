@@ -5,6 +5,7 @@ import { dirname, join } from "node:path";
 import test from "node:test";
 import {
   calendarDate,
+  bilingualMetadataProblems,
   frontmatterProblems,
   linkProblems,
   navigationProblems,
@@ -65,6 +66,22 @@ test("any declared source review is checked, with an inclusive 120-day boundary"
   assert.ok(frontmatterProblems(metadata(`sources_checked: ${tooOld}\n`), "projects.md", NOW).some((message) => message.includes("120 天")));
 });
 
+test("source review interval supports faster checks for volatile AI information", () => {
+  const old = new Date(Date.parse("2026-09-19") - 31 * 86400000).toISOString().slice(0, 10);
+  const text = metadata(`sources_checked: ${old}\nsource_review_interval: 30\n`);
+  assert.ok(frontmatterProblems(text, "projects.md", NOW).some((message) => message.includes("30 天")));
+  assert.ok(frontmatterProblems(metadata("source_review_interval: 45\n"), "projects.md", NOW).some((message) => message.includes("30、60 或 120")));
+});
+
+test("bilingual AI metadata keeps source dates and review intervals aligned", () => {
+  const chinese = metadata("sources_checked: 2026-09-19\nsource_review_interval: 30\n");
+  const english = metadata("sources_checked: 2026-09-19\nsource_review_interval: 60\n");
+  assert.deepEqual(bilingualMetadataProblems(chinese, english), [
+    "中英文稿件 source_review_interval 不一致: 30 vs 60",
+  ]);
+  assert.ok(bilingualMetadataProblems(chinese, metadata()).some((message) => message.includes("sources_checked 不一致")));
+});
+
 test("updated and sources_checked reject impossible and future dates", () => {
   for (const key of ["updated", "sources_checked"]) {
     for (const value of ["2026-02-31", "2026-09-20"]) {
@@ -73,6 +90,14 @@ test("updated and sources_checked reject impossible and future dates", () => {
       assert.ok(problems.some((message) => message.startsWith(key)), `${key}: ${value}`);
     }
   }
+});
+
+test("topic metadata requires controlled schema, intent, sharing alt, and localized description length", () => {
+  const zh = metadata(`topic: english-learning\nintent: diagnostic\nschema: HowTo\nsocialImage: assets/feature.png\nsocialImageAlt: English learning guide cover\n`);
+  const en = metadata(`topic: english-learning\nintent: diagnostic\nschema: HowTo\nsocialImage: assets/feature-en.png\nsocialImageAlt: English learning guide cover\n`);
+  assert.ok(frontmatterProblems(zh, "topics/english.md", NOW).some((message) => message.includes("60-100")));
+  assert.ok(frontmatterProblems(en, "en/topics/english.md", NOW).some((message) => message.includes("120-155")));
+  assert.ok(frontmatterProblems(metadata(`topic: english-learning\nintent: diagnostic\nschema: Invalid\n`), "topics/english.md", NOW).some((message) => message.includes("schema 必须")));
 });
 
 test("clean routes, rewritten indexes and public assets resolve correctly", (t) => {

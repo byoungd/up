@@ -1,7 +1,7 @@
 name: Translation issue
 description: Report missing meaning, divergence, or unnatural language between editions.
 title: "[Translation]: "
-labels: [translation]
+labels: [bug]
 body:
   - type: input
     id: pages

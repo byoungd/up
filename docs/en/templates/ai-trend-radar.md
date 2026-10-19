@@ -1,7 +1,7 @@
 ---
 title: "AI Trend Experiment: From Signal to Decision"
 description: Record a primary source, task hypothesis, manual baseline, held-out set, permissions, full cost, independent transfer, and exit conditions for one new AI capability.
-updated: 2026-10-03
+updated: 2026-10-16
 ---
 
 # AI Trend Experiment: From Signal to Decision
@@ -37,6 +37,8 @@ Development set / held-out set not used for tuning:
 
 ## 4. Evidence and Cost
 AI sample location:
+Task/run IDs, trace, and checkpoint locations:
+Clean environment, network egress allowlist, credential scope, and untrusted page/link-input note:
 Tool calls, authorization, and final environment outcome:
 Independent sample after closing AI:
 Parallel task (changed topic/audience/mode/tool):
@@ -51,6 +53,8 @@ Continue / downgrade / stop:
 Permitted scope and human takeover conditions:
 Retest trigger after model, material, tool, or memory changes:
 Restorable version, disconnected-tool path, or manual fallback:
+Supplier policy/version, effective date, region, and high-risk human review:
+Independent reviewer, review method, and inspectable evidence location:
 Can work continue after switching providers or sessions:
 Owner and thirty-day review date:
 ```

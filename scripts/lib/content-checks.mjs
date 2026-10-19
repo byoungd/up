@@ -2,6 +2,8 @@ import { existsSync, statSync } from "node:fs";
 import { dirname, extname, join, relative, resolve, sep } from "node:path";
 
 const DAY = 24 * 60 * 60 * 1000;
+const DEFAULT_SOURCE_REVIEW_DAYS = 120;
+const SOURCE_REVIEW_INTERVALS = new Set([30, 60, 120]);
 const PUBLICATION_TIME_ZONE = "Asia/Shanghai";
 const GENERIC_ALT = new Set(["image", "img", "photo", "picture", "hotel", "图片", "照片", "图"]);
 
@@ -51,6 +53,15 @@ export function frontmatterProblems(text, source, now = Date.now()) {
   if (requiresSourceReview(source) && !values.sources_checked) {
     problems.push("AI 页面缺少 sources_checked");
   }
+  let sourceReviewDays = DEFAULT_SOURCE_REVIEW_DAYS;
+  if (values.source_review_interval !== undefined) {
+    const parsed = Number(values.source_review_interval);
+    if (!Number.isInteger(parsed) || !SOURCE_REVIEW_INTERVALS.has(parsed)) {
+      problems.push("source_review_interval 必须是 30、60 或 120 天");
+    } else {
+      sourceReviewDays = parsed;
+    }
+  }
   const today = calendarDate(publicationDate(now));
   for (const key of ["updated", "sources_checked"]) {
     if (!(key in values) || (key === "updated" && !values[key])) continue;
@@ -59,12 +70,39 @@ export function frontmatterProblems(text, source, now = Date.now()) {
       problems.push(`${key} 必须使用真实日历日期 YYYY-MM-DD`);
     } else if (date > today) {
       problems.push(`${key} 不能晚于项目时区 ${PUBLICATION_TIME_ZONE} 的当前日期`);
-    } else if (key === "sources_checked" && today - date > 120 * DAY) {
-      problems.push("AI 产品资料超过 120 天未核验");
+    } else if (key === "sources_checked" && today - date > sourceReviewDays * DAY) {
+      problems.push(`AI 产品资料超过 ${sourceReviewDays} 天未核验`);
     }
   }
   if (values.description && values.description.length < 24) {
     problems.push("description 过短，无法区分页面内容");
+  }
+  if (values.topic) {
+    const isEnglish = source.startsWith("en/");
+    const minLength = isEnglish ? 120 : 60;
+    const maxLength = isEnglish ? 155 : 100;
+    if (values.description?.length < minLength || values.description?.length > maxLength) {
+      problems.push(`专题页 description 长度应为 ${minLength}-${maxLength} 字符`);
+    }
+    if (!values.intent) problems.push("专题页 frontmatter 缺少 intent");
+    if (!values.schema) problems.push("专题页 frontmatter 缺少 schema");
+    if (values.socialImage && !values.socialImageAlt) problems.push("专题分享图必须提供 socialImageAlt");
+  }
+  if (values.schema && !["Article", "Book", "Chapter", "HowTo", "WebPage"].includes(values.schema)) {
+    problems.push("schema 必须是 Article、Book、Chapter、HowTo 或 WebPage");
+  }
+  return problems;
+}
+
+export function bilingualMetadataProblems(chineseText, englishText) {
+  const chinese = parseFrontmatter(chineseText);
+  const english = parseFrontmatter(englishText);
+  if (!chinese || !english) return [];
+  const problems = [];
+  for (const key of ["sources_checked", "source_review_interval"]) {
+    if (chinese[key] !== english[key] && (chinese[key] || english[key])) {
+      problems.push(`中英文稿件 ${key} 不一致: ${chinese[key] || "缺少"} vs ${english[key] || "缺少"}`);
+    }
   }
   return problems;
 }

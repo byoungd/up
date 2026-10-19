@@ -1,15 +1,16 @@
 ---
 title: "AI Trends and a Learning Roadmap: Turn Change into Ability"
 description: Use primary signals, reproducible experiments, and independent transfer to decide which AI capabilities are worth learning, covering agents, multimodal inputs, context, local models, evaluation, and provenance.
-updated: 2026-10-03
-sources_checked: 2026-10-03
+updated: 2026-10-16
+sources_checked: 2026-10-16
+source_review_interval: 30
 ---
 
 # AI Trends and a Learning Roadmap: Turn Change into Ability
 
 AI changes quickly, but your learning time does not. A product demo can suggest many possibilities without showing whether a capability fits your materials, budget, permissions, or responsibilities. Trend learning is not a prediction contest. It is a way to ask better questions when a capability appears, run a small experiment that can be reversed, and retain enough evidence to decide.
 
-This chapter separates three levels: an **observation** is a capability or limit stated by a source; a **conditional judgment** says what may change if it works on your task; a **prediction** is an unproven future claim. Only the first can be repeated as a fact. The other two need experiments. Dates, regions, accounts, model versions, and terms change results; the sources below were checked on 3 October 2026.
+This chapter separates three levels: an **observation** is a capability or limit stated by a source; a **conditional judgment** says what may change if it works on your task; a **prediction** is an unproven future claim. Only the first can be repeated as a fact. The other two need experiments. Dates, regions, accounts, model versions, and terms change results; the sources below were checked on 16 October 2026.
 
 ## Build a Trend Radar First
 
@@ -25,6 +26,17 @@ Fill an [AI Trend Experiment](../../templates/ai-trend-radar.md) before spending
 | Provenance and content credentials | Credentials can record origin, edits, or a processing chain | Whether a credential comes from a trusted issuer and content still needs fact checks | A credential does not prove truth; its absence does not prove falsehood |
 
 This table is a map for choosing practice, not a capability leaderboard. A signal means “observe it”, not “adopt it”.
+
+## New Signals Verified on 16 October 2026
+
+This review turns the current AI conversation into four engineering questions that transfer across tools:
+
+- **Long-running tasks need a recovery protocol:** The 2026-07-28 MCP specification lists Tasks as an optional extension for asynchronous execution, polling, mid-flight input, and durable handles. Task state, timeouts, retries, idempotency, and human takeover therefore belong in the record instead of remaining hidden in a chat window.
+- **Tool safety is a system boundary:** MCP security guidance covers token passthrough, SSRF, redirects, confused-deputy risks, and compromised local servers. Treat browser pages, screenshots, tool descriptions, and external links as untrusted input until checked; audit network egress, file permissions, and authorization separately.
+- **Evaluation should be independently inspectable:** Anthropic's October 2026 note on independent evaluators puts expertise, independence, sufficient access, and freedom to publish observations together. A personal project need not copy that arrangement, but it should preserve a clean environment, raw traces, final state, and human calibration.
+- **Policy versions are task inputs:** Provider policies have publication dates, effective dates, regional scope, and high-risk differences. Record the policy name, version, effective date, and scope before using AI; a policy page is not legal advice and does not replace local rules.
+
+**Smallest experiment:** choose a long-running task without external side effects, generate a unique run ID, allowlist network domains, and cap retries. Save a checkpoint at each stage; place an indirect instruction in a webpage or document and observe whether the system treats it as material rather than authorization; then ask someone who did not tune the prompt to review the raw trace and environment outcome.
 
 ## Six Directions, Six Small Experiments
 
@@ -101,7 +113,11 @@ More products, protocols, and models will appear over the next twelve to twenty-
 - [Anthropic: Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) (page lists 19 December 2024 publication and 10 August 2026 update) for the workflow and agent distinction; it notes that the tooling ecosystem changes.
 - [Anthropic: Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (29 September 2025) for curation, retrieval, compaction, and structured notes.
 - [Anthropic: Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (9 January 2026) for trials, traces, and environment outcomes.
-- [MCP Security Best Practices](https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices) (specification version 2025-11-25) for least privilege, progressive authorization, and consent.
+- [MCP specification (2026-07-28)](https://modelcontextprotocol.io/specification/2026-07-28) (marked latest) for interoperability boundaries around resources, prompts, tools, and optional Tasks.
+- [MCP Security Best Practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices) (security tutorial version 2026-07-28) for least privilege, token passthrough, SSRF, redirects, and consent.
+- [Anthropic: Measuring AI agent autonomy in practice](https://www.anthropic.com/research/measuring-agent-autonomy) (published 18 February 2026, updated 9 September 2026) for separating model capability, user authorization, product design, and observed autonomy; the data is Anthropic's own usage sample, not a universal benchmark.
+- [Anthropic: An update on independent evaluators](https://www.anthropic.com/news/an-update-on-independent-evaluators) (15 October 2026) for evaluator expertise, access, auditable evidence, and freedom to publish observations; it is not an industry standard or regulatory requirement.
+- [Anthropic: 2026 Usage Policy update](https://www.anthropic.com/news/2026-usage-policy-update) (published 8 October 2026, effective 12 November 2026) for recording provider policy versions, effective dates, and high-risk human review; it is not legal advice and may not apply to every region or service.
 - [Google: Image understanding](https://ai.google.dev/gemini-api/docs/image-understanding) (page updated 23 September 2026) for image capability and the need for human evaluation.
 - [Google: Gemma overview](https://ai.google.dev/gemma/docs/core) and [Ollama integration](https://ai.google.dev/gemma/docs/integrations/ollama) (living pages without a separate publication date) for examples of open weights, local execution, and resource tradeoffs.
 - [C2PA 2.2 Explainer](https://c2pa.org/specifications/specifications/2.2/explainer/Explainer.html) (specification version 2.2) for the limits of content credentials as evidence of truth.

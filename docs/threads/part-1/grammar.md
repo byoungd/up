@@ -1,7 +1,7 @@
 ---
 title: 语法篇：让结构服务于意思
 description: 从真实任务与未经修饰的样本出发，把语法还原成时间、参与者、确定性、因果与信息重点的选择，并用对比、输出、反馈、延迟复测和迁移建立可用结构。
-updated: 2026-09-02
+updated: 2026-10-19
 sources_checked: 2026-09-02
 ---
 
@@ -310,8 +310,8 @@ AI 也可能把可接受变体改成单一风格，把语域偏好说成绝对�
 
 ## 来源与边界
 
-- [Norris & Ortega (2000), Effectiveness of L2 Instruction](https://api.crossref.org/works/10.1111%2F0023-8333.00136)：元分析支持针对性二语教学与明确教学的作用，同时作者指出研究构念、测量和可推广性限制。
-- [Spada & Tomita (2010), Interactions Between Type of Instruction and Type of Language Feature](https://api.crossref.org/works/10.1111%2Fj.1467-9922.2010.00562.x)：元分析比较明确与隐性教学在不同语法特征上的效果；本章不把平均结果写成个人保证。
+- [Norris & Ortega (2000), Effectiveness of L2 Instruction](https://doi.org/10.1111/0023-8333.00136)：元分析支持针对性二语教学与明确教学的作用，同时作者指出研究构念、测量和可推广性限制。
+- [Spada & Tomita (2010), Interactions Between Type of Instruction and Type of Language Feature](https://doi.org/10.1111/j.1467-9922.2010.00562.x)：元分析比较明确与隐性教学在不同语法特征上的效果；本章不把平均结果写成个人保证。
 - 语法变体、语域和可接受性会随地区、体裁、社群与任务变化。重要交付应结合当前受众、可靠词典/语料和专业反馈。
 
 相关入口：[认知与训练原则](1-understanding.md) ｜ [词汇篇](2-vocabulary.md) ｜ [听力篇](3-listening.md) ｜ [语法证据卡](../../templates/grammar-evidence.md)

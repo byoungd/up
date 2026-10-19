@@ -1,5 +1,7 @@
 ---
 title: "Toolkit Overview: Choose the Problem Before the Tool"
+socialImage: /assets/social/templates-en.png
+socialImageAlt: Practice templates from baseline and practice to retest and next step
 description: "Route every template by starting point, skill practice, AI collaboration, artifact delivery, review, and recovery so a reader can build one complete action loop with minimal record-keeping."
 updated: 2026-10-04
 ---

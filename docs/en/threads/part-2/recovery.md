@@ -3,6 +3,8 @@ title: "Recovery: Catch Yourself Before You Push Forward"
 description: After failure, insomnia, broken relationships, or prolonged disorder, distinguish safety and capacity, rebuild support and agency, then return to work through explicit gates.
 updated: 2026-09-07
 sources_checked: 2026-09-07
+socialImage: /assets/social/recovery-en.png
+socialImageAlt: Recovery rhythm, safety boundaries, and gradual next steps
 ---
 
 # Recovery: Catch Yourself Before You Push Forward

@@ -12,6 +12,14 @@
 - [术语与方法索引](docs/reference/glossary.md)
 - [工具箱总览](docs/templates/toolkit.md)
 
+## 专题入口
+
+- [最近更新](docs/recent-updates.md)
+- [第三方资源目录](docs/resources.md)
+- [英语能力诊断入口](docs/topics/english-diagnostic.md)
+- [AI 学习工作流入口](docs/topics/ai-learning-workflows.md)
+- [真实项目、求职与创业入口](docs/topics/real-projects.md)
+
 ## 第一部：打开输入
 
 - [第一部导语：打开输入](docs/threads/part-1/open-input.md)

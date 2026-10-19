@@ -1,7 +1,7 @@
 ---
 title: 认知篇：把努力变成可验证的学习
 description: 用真实任务、首版基线、主动回忆、反馈、间隔、恢复和跨会话状态，把努力变成可比较、可迁移的学习证据。
-updated: 2026-09-02
+updated: 2026-10-19
 sources_checked: 2026-09-02
 ---
 
@@ -225,12 +225,12 @@ AI 可以提问、解释、分类错误、生成反例、模拟读者、提供�
 
 ## 来源与边界
 
-- [Dunlosky et al. (2013), Improving Students' Learning With Effective Learning Techniques](https://api.crossref.org/works/10.1177%2F1529100612453266)：综述十种学习技术，并以学习条件、学习者、材料和测量任务讨论可推广性；对练习测试和分散练习评价较高，对复读和高亮等活动的效果更有条件。
-- [Roediger & Karpicke (2006), Test-Enhanced Learning](https://api.crossref.org/works/10.1111%2Fj.1467-9280.2006.01693.x)：在散文材料的研究中比较测试与重复学习，报告延迟保持上的差异；样本、材料和测量不能直接推出所有任务的相同效果。
-- [Cepeda et al. (2006), Distributed Practice in Verbal Recall Tasks](https://api.crossref.org/works/10.1037%2F0033-2909.132.3.354)：对言语回忆任务的分散练习进行综述与量化综合；最佳间隔取决于保持目标、材料和任务。
-- [Hattie & Timperley (2007), The Power of Feedback](https://api.crossref.org/works/10.3102%2F003465430298487)：分析反馈类型、时机和给法的差异；“反馈有效”不是不加区分地增加批注。
-- [Rasch & Born (2013), About Sleep's Role in Memory](https://api.crossref.org/works/10.1152%2Fphysrev.00032.2012)：综述睡眠与记忆巩固的研究；个体需求、健康状况和现实作息仍需分别判断。
-- [Pashler et al. (2008), Learning Styles](https://api.crossref.org/works/10.1111%2Fj.1539-6053.2009.01038.x)：综述未发现足够证据支持按固定视觉/听觉标签匹配教学，同时提醒未测试的变体不能被一概否定。
+- [Dunlosky et al. (2013), Improving Students' Learning With Effective Learning Techniques](https://doi.org/10.1177/1529100612453266)：综述十种学习技术，并以学习条件、学习者、材料和测量任务讨论可推广性；对练习测试和分散练习评价较高，对复读和高亮等活动的效果更有条件。
+- [Roediger & Karpicke (2006), Test-Enhanced Learning](https://doi.org/10.1111/j.1467-9280.2006.01693.x)：在散文材料的研究中比较测试与重复学习，报告延迟保持上的差异；样本、材料和测量不能直接推出所有任务的相同效果。
+- [Cepeda et al. (2006), Distributed Practice in Verbal Recall Tasks](https://doi.org/10.1037/0033-2909.132.3.354)：对言语回忆任务的分散练习进行综述与量化综合；最佳间隔取决于保持目标、材料和任务。
+- [Hattie & Timperley (2007), The Power of Feedback](https://doi.org/10.3102/003465430298487)：分析反馈类型、时机和给法的差异；“反馈有效”不是不加区分地增加批注。
+- [Rasch & Born (2013), About Sleep's Role in Memory](https://doi.org/10.1152/physrev.00032.2012)：综述睡眠与记忆巩固的研究；个体需求、健康状况和现实作息仍需分别判断。
+- [Pashler et al. (2008), Learning Styles](https://doi.org/10.1111/j.1539-6053.2009.01038.x)：综述未发现足够证据支持按固定视觉/听觉标签匹配教学，同时提醒未测试的变体不能被一概否定。
 - 研究结论的样本、材料、测量和延迟时间各不相同。重要任务应回到当前事实、一手来源、真实受众和具名责任人验收。
 
 相关入口：[CEFR 目标与自测](0-cefr.md) ｜ [词汇篇](2-vocabulary.md) ｜ [语法篇](grammar.md) ｜ [听力篇](3-listening.md) ｜ [阅读篇](4-reading.md) ｜ [口语篇](5-speaking.md) ｜ [写作篇](6-writing.md) ｜ [英语能力诊断](../../templates/english-diagnostic.md) ｜ [证据链模板](../../templates/evidence-chain.md)

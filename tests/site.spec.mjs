@@ -140,9 +140,11 @@ test("reference collections follow the book and stay collapsed by default", () =
   const enReferenceIndex = enNavigation.findIndex(({ text }) => text === "Toolkit");
   expect(zhNavigation.slice(zhReferenceIndex).map(({ text }) => text)).toEqual(["工具箱", "创业、自律与 AI 实操", "旧文归档", "词表"]);
   expect(enNavigation.slice(enReferenceIndex).map(({ text }) => text)).toEqual(["Toolkit", "Business, Discipline, and AI Practice", "Archive", "Word Lists"]);
-  expect(toSidebar(zhNavigation).slice(0, zhReferenceIndex).every(({ collapsed }) => collapsed === false)).toBe(true);
+  expect(toSidebar(zhNavigation).find(({ text }) => text === "专题入口")?.collapsed).toBe(true);
+  expect(toSidebar(zhNavigation).slice(0, zhReferenceIndex).filter(({ text }) => text !== "专题入口").every(({ collapsed }) => collapsed === false)).toBe(true);
   expect(toSidebar(zhNavigation).slice(zhReferenceIndex).every(({ collapsed }) => collapsed === true)).toBe(true);
-  expect(toSidebar(enNavigation).slice(0, enReferenceIndex).every(({ collapsed }) => collapsed === false)).toBe(true);
+  expect(toSidebar(enNavigation).find(({ text }) => text === "Topic Hubs")?.collapsed).toBe(true);
+  expect(toSidebar(enNavigation).slice(0, enReferenceIndex).filter(({ text }) => text !== "Topic Hubs").every(({ collapsed }) => collapsed === false)).toBe(true);
   expect(toSidebar(enNavigation).slice(enReferenceIndex).every(({ collapsed }) => collapsed === true)).toBe(true);
 });
 
@@ -329,7 +331,7 @@ test("grammar turns rules into meaning decisions and delayed evidence", () => {
     const cardText = readFileSync(resolve(process.cwd(), "docs", card), "utf8");
     for (const term of chapterTerms) expect(chapterText, chapter).toContain(term);
     for (const term of cardTerms) expect(cardText, card).toContain(term);
-    expect(chapterText).toContain("api.crossref.org/works/10.1111%2F0023-8333.00136");
+    expect(chapterText).toContain("https://doi.org/10.1111/0023-8333.00136");
     expect(chapterText).toContain("grammar-evidence.md");
     expect(cardText).toContain("part-1/grammar.md");
   }
@@ -356,7 +358,7 @@ test("speaking prioritises intelligibility, variation, repair, and transfer", ()
     const cardText = readFileSync(resolve(process.cwd(), "docs", card), "utf8");
     for (const term of chapterTerms) expect(chapterText, chapter).toContain(term);
     for (const term of cardTerms) expect(cardText, card).toContain(term);
-    expect(chapterText).toContain("api.crossref.org/works/10.2307%2F3588486");
+    expect(chapterText).toContain("https://doi.org/10.2307/3588486");
     expect(chapterText).toContain("speaking-evidence.md");
     expect(cardText).toContain("part-1/5-speaking.md");
     expect(chapterText).not.toContain("cop /ɑ/");
@@ -384,7 +386,7 @@ test("listening turns repeated playback into diagnosis, reconstruction, and tran
     const cardText = readFileSync(resolve(process.cwd(), "docs", card), "utf8");
     for (const term of chapterTerms) expect(chapterText, chapter).toContain(term);
     for (const term of cardTerms) expect(cardText, card).toContain(term);
-    expect(chapterText).toContain("api.crossref.org/works/10.1111%2Fj.1467-9922.2009.00559.x");
+    expect(chapterText).toContain("https://doi.org/10.1111/j.1467-9922.2009.00559.x");
     expect(chapterText).toContain("listening-audit.md");
     expect(cardText).toContain("part-1/3-listening.md");
     expect((chapterText.match(/https?:\/\//g) || []).length, chapter).toBeLessThanOrEqual(4);
@@ -413,7 +415,7 @@ test("reading turns word-by-word translation into verification and delivery", ()
     const cardText = readFileSync(resolve(process.cwd(), "docs", card), "utf8");
     for (const term of chapterTerms) expect(chapterText, chapter).toContain(term);
     for (const term of cardTerms) expect(cardText, card).toContain(term);
-    expect(chapterText).toContain("api.crossref.org/works/10.1111%2Flang.12034");
+    expect(chapterText).toContain("https://doi.org/10.1111/lang.12034");
     expect(chapterText).toContain("reading-evidence.md");
     expect(cardText).toContain("part-1/4-reading.md");
     expect((chapterText.match(/https?:\/\//g) || []).length, chapter).toBeLessThanOrEqual(4);
@@ -443,7 +445,7 @@ test("vocabulary turns card familiarity into contextual retrieval", () => {
     const cardText = readFileSync(resolve(process.cwd(), "docs", card), "utf8");
     for (const term of chapterTerms) expect(chapterText, chapter).toContain(term);
     for (const term of cardTerms) expect(cardText, card).toContain(term);
-    expect(chapterText).toContain("api.crossref.org/works/10.3138%2Fcmlr.63.1.59");
+    expect(chapterText).toContain("https://doi.org/10.3138/cmlr.63.1.59");
     expect(chapterText).toContain("vocabulary-audit.md");
     expect(cardText).toContain("part-1/2-vocabulary.md");
     expect((chapterText.match(/https?:\/\//g) || []).length, chapter).toBeLessThanOrEqual(8);
@@ -471,7 +473,7 @@ test("learning principles turn effort into a complete evidence loop", () => {
     const diagnosticText = readFileSync(resolve(process.cwd(), "docs", diagnostic), "utf8");
     for (const term of chapterTerms) expect(chapterText, chapter).toContain(term);
     for (const term of diagnosticTerms) expect(diagnosticText, diagnostic).toContain(term);
-    expect(chapterText).toContain("api.crossref.org/works/10.1177%2F1529100612453266");
+    expect(chapterText).toContain("https://doi.org/10.1177/1529100612453266");
     expect(chapterText).toContain("english-diagnostic.md");
     expect(diagnosticText).toContain("evidence-chain.md");
     expect((chapterText.match(/https?:\/\//g) || []).length, chapter).toBeLessThanOrEqual(8);
@@ -526,7 +528,7 @@ test("writing turns tool polish into accountable revision and delivery", () => {
     const cardText = readFileSync(resolve(process.cwd(), "docs", card), "utf8");
     for (const term of chapterTerms) expect(chapterText, chapter).toContain(term);
     for (const term of cardTerms) expect(cardText, card).toContain(term);
-    expect(chapterText).toContain("api.crossref.org/works/10.1111%2Fmodl.12189");
+    expect(chapterText).toContain("https://doi.org/10.1111/modl.12189");
     expect(chapterText).toContain("writing-evidence.md");
     expect(cardText).toContain("part-1/6-writing.md");
     expect((chapterText.match(/https?:\/\//g) || []).length, chapter).toBeLessThanOrEqual(3);
@@ -732,25 +734,25 @@ test("page metadata follows the route", async ({ page }) => {
   );
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/threads/part-1/2-vocabulary",
   );
   await expect(page.locator('meta[property="og:url"]')).toHaveAttribute(
     "content",
-    "https://byoungd.github.io/up/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/threads/part-1/2-vocabulary",
   );
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/assets\/feature\.png$/);
   await expect(page.locator('meta[property="og:image:type"]')).toHaveAttribute("content", "image/png");
   await expect(page.locator('link[rel="alternate"][hreflang="zh-CN"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/threads/part-1/2-vocabulary",
   );
   await expect(page.locator('link[rel="alternate"][hreflang="en-US"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/en/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/en/threads/part-1/2-vocabulary",
   );
   await expect(page.locator('link[rel="alternate"][hreflang="x-default"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/threads/part-1/2-vocabulary/",
+    "https://byoungd.github.io/up/threads/part-1/2-vocabulary",
   );
   const chapterData = await structuredDataFromPage(page);
   expect(chapterData).toMatchObject({
@@ -760,7 +762,8 @@ test("page metadata follows the route", async ({ page }) => {
     author: { "@type": "Person", name: "韩先凯" },
     isPartOf: { "@type": "Book", name: "人生进阶指南", url: "https://byoungd.github.io/up/" },
   });
-  expect(chapterData.dateModified).toBe("2026-09-02");
+  expect(chapterData.dateModified).toBe("2026-10-19");
+  expect(chapterData.datePublished).toBeUndefined();
 });
 
 test("home metadata follows the lifelong-learning positioning", async ({ page }) => {
@@ -825,6 +828,66 @@ test("home metadata follows the lifelong-learning positioning", async ({ page })
       { "@type": "MediaObject", encodingFormat: "application/pdf" },
     ],
   });
+});
+
+test("topic frontmatter drives Article, social, and discovery metadata", async ({ page }) => {
+  await page.goto("./topics/english-diagnostic");
+  await expect(page.locator('meta[name="keywords"]')).toHaveAttribute("content", "english-learning");
+  await expect(page.locator('meta[name="intent"]')).toHaveAttribute("content", "diagnostic");
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+    "content",
+    "https://byoungd.github.io/up/assets/social/english-zh.png",
+  );
+  await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute(
+    "content",
+    "英语能力诊断与复测入口分享图",
+  );
+  const data = await structuredDataFromPage(page);
+  expect(data).toMatchObject({
+    "@type": "Article",
+    about: [{ "@type": "Thing", name: "english-learning" }],
+    articleSection: ["english-learning"],
+    keywords: ["english-learning", "diagnostic"],
+    educationalUse: ["diagnostic"],
+  });
+  expect(data.step).toBeUndefined();
+  expect(data.datePublished).toBeUndefined();
+});
+
+test("AI topic hubs expose bilingual workflow metadata, FAQs, and downloadable worksheets", async ({ page }) => {
+  const cases = [
+    {
+      route: "./topics/ai-learning-workflows",
+      keywords: "ai-learning",
+      intent: "workflow",
+      image: "https://byoungd.github.io/up/assets/social/ai-zh.png",
+      alt: "AI 学习工作流与可靠交付分享图",
+      faq: "常见问题",
+      worksheet: "AI 任务简报（Markdown）",
+    },
+    {
+      route: "./en/topics/ai-learning-workflows",
+      keywords: "ai-learning",
+      intent: "workflow",
+      image: "https://byoungd.github.io/up/assets/social/ai-en.png",
+      alt: "AI learning workflow and reliable delivery sharing image",
+      faq: "Frequently Asked Questions",
+      worksheet: "AI Task Brief (Markdown)",
+    },
+  ];
+
+  for (const item of cases) {
+    await page.goto(item.route);
+    await expect(page.locator('meta[name="keywords"]')).toHaveAttribute("content", item.keywords);
+    await expect(page.locator('meta[name="intent"]')).toHaveAttribute("content", item.intent);
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", item.image);
+    await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute("content", item.alt);
+    await expect(page.locator("h2").filter({ hasText: item.faq })).toBeVisible();
+    await expect(page.getByRole("link", { name: item.worksheet, exact: true })).toBeVisible();
+    const data = await structuredDataFromPage(page);
+    expect(data).toMatchObject({ "@type": "Article", about: [{ "@type": "Thing", name: "ai-learning" }] });
+    expect(data.step).toBeUndefined();
+  }
 });
 
 test("home pages expose deterministic bilingual EPUB editions", async ({ page, request }) => {
@@ -1000,6 +1063,21 @@ test("brand and social assets load at their declared dimensions", async ({ page,
   const sitemapResponse = await request.get("sitemap.xml");
   expect(sitemapResponse.status()).toBe(200);
   const sitemap = await sitemapResponse.text();
+  for (const route of [
+    "topics/english-diagnostic",
+    "topics/ai-learning-workflows",
+    "topics/real-projects",
+    "en/topics/english-diagnostic",
+    "en/topics/ai-learning-workflows",
+    "en/topics/real-projects",
+    "resources",
+    "recent-updates",
+  ]) {
+    expect(sitemap).toContain(`/up/${route}</loc>`);
+  }
+  expect(sitemap).not.toContain("topics/english-diagnostic/</loc>");
+  expect(sitemap).toContain("<loc>https://byoungd.github.io/up/</loc>");
+  expect(sitemap).toContain("<loc>https://byoungd.github.io/up/en/</loc>");
   expect(sitemap).toContain('hreflang="zh-CN" href="https://byoungd.github.io/up/threads/part-1/2-vocabulary"');
   expect(sitemap).toContain('hreflang="en-US" href="https://byoungd.github.io/up/en/threads/part-1/2-vocabulary"');
   expect(sitemap).toContain('hreflang="x-default" href="https://byoungd.github.io/up/threads/part-1/2-vocabulary"');
@@ -1014,7 +1092,7 @@ test("AI resource-layer chapter has metadata and navigation", async ({ page }) =
   );
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/threads/part-3/2-ai-development-and-resource-layer/",
+    "https://byoungd.github.io/up/threads/part-3/2-ai-development-and-resource-layer",
   );
   await expect(
     page.locator(
@@ -1061,7 +1139,7 @@ test("legacy English story route redirects to the aligned Part II path", async (
   ).toBeVisible();
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "https://byoungd.github.io/up/en/threads/part-2/my-story/",
+    "https://byoungd.github.io/up/en/threads/part-2/my-story",
   );
 });
 
@@ -1444,50 +1522,65 @@ test("home pages link to the reader guide", async ({ page }) => {
   );
 });
 
-test("home pages offer a focused first action before the longer reading paths", async ({ page }) => {
-  await page.goto("./");
-  const zhQuickStart = page.locator(".quick-start");
-  await expect(zhQuickStart.getByRole("heading", { level: 2, name: "先选一个动作，再决定读多远" })).toBeVisible();
-  await expect(zhQuickStart.locator(".quick-start-action")).toHaveCount(3);
-  await expect(zhQuickStart.getByRole("link", { name: /我还不知道从哪里开始/ })).toHaveAttribute(
-    "href",
-    "./threads/part-0/reader-guide",
-  );
-  await expect(zhQuickStart.getByRole("link", { name: /我想做成一件事/ })).toHaveAttribute(
-    "href",
-    "./templates/learning-state",
-  );
-  await expect(zhQuickStart.getByRole("link", { name: /我想练习一项英语能力/ })).toHaveAttribute(
-    "href",
-    "./threads/part-1/open-input",
-  );
-
-  await page.goto("./en/");
-  const enQuickStart = page.locator(".quick-start");
-  await expect(enQuickStart.getByRole("heading", { level: 2, name: "Choose one action before choosing how much to read" })).toBeVisible();
-  await expect(enQuickStart.locator(".quick-start-action")).toHaveCount(3);
-  await expect(enQuickStart.getByRole("link", { name: /I do not know where to begin/ })).toHaveAttribute(
-    "href",
-    "./threads/part-0/reader-guide",
-  );
-  await expect(enQuickStart.getByRole("link", { name: /I want to finish one thing/ })).toHaveAttribute(
-    "href",
-    "./templates/learning-state",
-  );
-  await expect(enQuickStart.getByRole("link", { name: /I want to practice one English skill/ })).toHaveAttribute(
-    "href",
-    "./threads/part-1/open-input",
-  );
+test("home pages put three problem-based entry paths in the first viewport", async ({ page }) => {
+  for (const [width, route, language] of [
+    [375, "./", "zh"],
+    [1280, "./", "zh"],
+    [375, "./en/", "en"],
+    [1280, "./en/", "en"],
+  ]) {
+    await page.setViewportSize({ width, height: 800 });
+    await page.goto(route);
+    const quickStart = page.locator(".quick-start");
+    const heading = language === "zh" ? "从眼前的问题开始" : "Start with the problem in front of you";
+    const skillsName = language === "zh" ? "学会一项新能力" : "Learn one new skill";
+    const aiName = language === "zh" ? "用 AI 完成真实任务" : "Use AI on a real task";
+    const rhythmName = language === "zh" ? "重新建立行动节奏" : "Rebuild an action rhythm";
+    await expect(quickStart.getByRole("heading", { level: 2, name: heading })).toBeVisible();
+    await expect(quickStart.locator(".quick-start-action")).toHaveCount(3);
+    const destinations = [
+      [skillsName, "./templates/learning-state"],
+      [aiName, "./templates/ai-task-brief"],
+      [rhythmName, "./threads/part-4/week-1"],
+    ];
+    for (const [index, [name, href]] of destinations.entries()) {
+      const action = quickStart.getByRole("link", { name: new RegExp(name) });
+      await expect(action).toHaveAttribute("href", href);
+      const bounds = await action.boundingBox();
+      expect(bounds).not.toBeNull();
+      if (index === 0) expect(bounds.y + bounds.height).toBeLessThanOrEqual(800);
+    }
+  }
 });
 
-test("home guide paths are grouped by purpose and keep third-party resources distinct", async ({ page }) => {
+test("English diagnostic hubs distinguish a five-minute sample from a full four-skill assessment", async ({ page }) => {
+  for (const [route, language, fullDiagnostic] of [
+    ["./topics/english-diagnostic", "zh", "完整诊断"],
+    ["./en/topics/english-diagnostic", "en", "Full Diagnostic"],
+  ]) {
+    await page.goto(route);
+    const main = page.locator("main");
+    if (language === "zh") {
+      await expect(main.getByRole("heading", { level: 2, name: "五分钟先留一项基线" })).toBeVisible();
+      await expect(main.getByRole("heading", { level: 2, name: fullDiagnostic })).toBeVisible();
+      await expect(main.getByText(/不等于 CEFR 定级，也不等于完整的听说读写诊断/)).toBeVisible();
+      await expect(main.getByText(/20 分钟完成写作/)).toBeVisible();
+    } else {
+      await expect(main.getByRole("heading", { level: 2, name: "Keep One Baseline in Five Minutes" })).toBeVisible();
+      await expect(main.getByRole("heading", { level: 2, name: fullDiagnostic })).toBeVisible();
+      await expect(main.getByText(/It is not a CEFR placement or a full listening, speaking, reading, and writing diagnostic/)).toBeVisible();
+      await expect(main.getByText(/20-minute writing task/)).toBeVisible();
+    }
+  }
+});
+
+test("home guide paths are grouped by purpose and third-party resources have a separate destination", async ({ page }) => {
   await page.goto("./");
   const zhGroups = page.locator("main .guide-path-group");
-  await expect(zhGroups).toHaveCount(4);
+  await expect(zhGroups).toHaveCount(3);
   await expect(zhGroups.nth(0).getByRole("heading", { level: 2, name: "建立基础" })).toBeVisible();
   await expect(zhGroups.nth(1).getByRole("heading", { level: 2, name: "借工具放大能力" })).toBeVisible();
   await expect(zhGroups.nth(2).getByRole("heading", { level: 2, name: "进入真实生活" })).toBeVisible();
-  await expect(zhGroups.nth(3).getByRole("heading", { level: 2, name: "第三方资源" })).toBeVisible();
   await expect(zhGroups.nth(0).locator(".guide-path")).toHaveCount(4);
   await expect(zhGroups.nth(1).locator(".guide-path")).toHaveCount(2);
   await expect(zhGroups.nth(2).locator(".guide-path")).toHaveCount(6);
@@ -1495,12 +1588,13 @@ test("home guide paths are grouped by purpose and keep third-party resources dis
     "href",
     "./threads/part-2/care-and-carry-on",
   );
-  await expect(zhGroups.nth(3).locator(".guide-path")).toHaveCount(2);
-  await expect(zhGroups.nth(3)).toHaveClass(/guide-path-group-external/);
+  await expect(page.locator('main a[href="biezou.com/"]')).toHaveCount(0);
+  await expect(page.locator('main a[href="t.me/OpenHuge_ai"]')).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "第三方资源目录" })).toHaveAttribute("href", "./resources");
 
   await page.goto("./en/");
   const enGroups = page.locator("main .guide-path-group");
-  await expect(enGroups).toHaveCount(4);
+  await expect(enGroups).toHaveCount(3);
   await expect(enGroups.nth(0).getByRole("heading", { level: 2, name: "Build the Foundation" })).toBeVisible();
   await expect(enGroups.nth(1).getByRole("heading", { level: 2, name: "Amplify Ability with Tools" })).toBeVisible();
   await expect(enGroups.nth(2).getByRole("heading", { level: 2, name: "Enter Real Life" })).toBeVisible();
@@ -1509,44 +1603,69 @@ test("home guide paths are grouped by purpose and keep third-party resources dis
     "href",
     "./threads/part-2/care-and-carry-on",
   );
-  await expect(enGroups.nth(3).getByRole("heading", { level: 2, name: "Third-party Resources" })).toBeVisible();
-  await expect(enGroups.nth(3)).toHaveClass(/guide-path-group-external/);
+  await expect(page.locator('main a[href="biezou.com/"]')).toHaveCount(0);
+  await expect(page.locator('main a[href="t.me/OpenHuge_ai"]')).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "Third-party Resources" })).toHaveAttribute("href", "./resources");
 });
 
-test("home pages expose biezou as a bounded external AI reference", async ({ page }) => {
-  await page.goto("./");
+test("resource pages expose bounded third-party references with review dates", async ({ page }) => {
+  await page.goto("./resources");
   const zhBiezou = page.locator('a[href="https://biezou.com/"]').first();
   await expect(zhBiezou).toBeVisible();
-  await expect(zhBiezou).toContainText("AI 中转推荐：biezou.com");
-  await expect(zhBiezou).toContainText("第三方可选入口");
+  await expect(zhBiezou).toContainText("Biezou");
   await expect(zhBiezou).toHaveAttribute("target", "_blank");
-  await expect(zhBiezou).toHaveAttribute("rel", /noopener/);
+  await expect(zhBiezou).toHaveAttribute("rel", /noreferrer/);
 
-  await page.goto("./en/");
+  await expect(page.getByText(/来源台账最近记录：2026-09-02。/)).toBeVisible();
+  await page.goto("./en/resources");
   const enBiezou = page.locator('a[href="https://biezou.com/"]').first();
   await expect(enBiezou).toBeVisible();
-  await expect(enBiezou).toContainText("AI Relay Recommendation: biezou.com");
-  await expect(enBiezou).toContainText("optional third-party entry point");
+  await expect(enBiezou).toContainText("Biezou");
   await expect(enBiezou).toHaveAttribute("target", "_blank");
-  await expect(enBiezou).toHaveAttribute("rel", /noopener/);
+  await expect(enBiezou).toHaveAttribute("rel", /noreferrer/);
 });
 
-test("home pages expose OpenHuge_ai as a bounded Telegram resource reference", async ({ page }) => {
-  await page.goto("./");
+test("resource pages expose OpenHuge_ai as a bounded Telegram reference", async ({ page }) => {
+  await page.goto("./resources");
   const zhOpenHuge = page.locator('a[href="https://t.me/OpenHuge_ai"]').first();
   await expect(zhOpenHuge).toBeVisible();
-  await expect(zhOpenHuge).toContainText("AI 资源 TG 频道：OpenHuge_ai");
-  await expect(zhOpenHuge).toContainText("第三方 Telegram 频道推荐");
+  await expect(zhOpenHuge).toContainText("OpenHuge_ai Telegram 频道");
   await expect(zhOpenHuge).toHaveAttribute("target", "_blank");
-  await expect(zhOpenHuge).toHaveAttribute("rel", /noopener/);
+  await expect(zhOpenHuge).toHaveAttribute("rel", /noreferrer/);
 
-  await page.goto("./en/");
+  await expect(page.getByText(/来源台账最近记录：2026-09-02。/)).toBeVisible();
+  await page.goto("./en/resources");
   const enOpenHuge = page.locator('a[href="https://t.me/OpenHuge_ai"]').first();
   await expect(enOpenHuge).toBeVisible();
-  await expect(enOpenHuge).toContainText("AI Resources on Telegram: OpenHuge_ai");
-  await expect(enOpenHuge).toContainText("third-party Telegram channel");
+  await expect(enOpenHuge).toContainText("OpenHuge_ai on Telegram");
   await expect(enOpenHuge).toHaveAttribute("target", "_blank");
-  await expect(enOpenHuge).toHaveAttribute("rel", /noopener/);
+  await expect(enOpenHuge).toHaveAttribute("rel", /noreferrer/);
+  await expect(page.getByText(/Latest source-register entry: 2026-09-02./)).toBeVisible();
+});
+
+test("recent update pages link to the Atom feed", async ({ page }) => {
+  await page.goto("./recent-updates");
+  await expect(page.getByRole("link", { name: "Atom feed" })).toHaveAttribute("href", /feeds\/updates\.xml$/);
+
+  await page.goto("./en/recent-updates");
+  await expect(page.getByRole("link", { name: "Atom feed" })).toHaveAttribute("href", /feeds\/updates\.xml$/);
+});
+
+test("topic hubs expose localized metadata and social images", async ({ page }) => {
+  for (const route of [
+    "./topics/english-diagnostic",
+    "./topics/ai-learning-workflows",
+    "./topics/real-projects",
+    "./en/topics/english-diagnostic",
+    "./en/topics/ai-learning-workflows",
+    "./en/topics/real-projects",
+  ]) {
+    await page.goto(route);
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/assets\/social\//);
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /.+/);
+    const structuredData = await page.locator('script[type="application/ld+json"]').textContent();
+    expect(structuredData).toContain('"@type":"Article"');
+  }
 });
 
 test("home pages explain per-entry product verification dates", async ({ page }) => {

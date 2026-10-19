@@ -3,6 +3,8 @@ title: 恢复篇：先把自己接住
 description: 在失败、失眠、关系变化或长期失序之后，先分辨安全与容量，恢复身体、支持、边界与可行动性，再用明确门槛逐步复工。
 updated: 2026-09-07
 sources_checked: 2026-09-07
+socialImage: /assets/social/recovery-zh.png
+socialImageAlt: 恢复阶段的节律、安全边界与行动台阶
 ---
 
 # 恢复篇：先把自己接住

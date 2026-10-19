@@ -11,14 +11,14 @@
     "zh-CN": {
       "file": "life-level-up-guide-zh.pdf",
       "language": "zh-CN",
-      "pages": 429,
+      "pages": 434,
       "chapters": 81,
-      "bytes": 5095030,
-      "sha256": "21f1e1be03cdc2cbcbe9f4b8c700bd766a899d240646e32637f911dcd6938abf",
-      "sourceEpubSha256": "e01d4b0d48213697582160652c5c7fcbaefec5135e25d2bcf5733d983975fd1a",
-      "semanticSha256": "e9cffd4604b7b424ab97bea0f85e05b66d0a4290ab745a26efb9ecec96251e90",
-      "outlineEntries": 970,
-      "linkAnnotations": 970,
+      "bytes": 5111215,
+      "sha256": "2451f4c2e85f1d4852e36911aab53e7a6ed8be2d470324b451e6f1d1befeb251",
+      "sourceEpubSha256": "e8446b2244ba029ab36418b12b758938253d4f7aa0e06a8c7208591ffa8b5c48",
+      "semanticSha256": "606efcde2cdc3e976b2ec92e21d32018770f313b824b6b00c4e7e91f03aa675e",
+      "outlineEntries": 974,
+      "linkAnnotations": 980,
       "images": 21,
       "fonts": [
         {
@@ -46,14 +46,14 @@
     "en-US": {
       "file": "life-level-up-guide-en.pdf",
       "language": "en-US",
-      "pages": 489,
+      "pages": 493,
       "chapters": 81,
-      "bytes": 4216931,
-      "sha256": "ee3446eedca663f3abe9f1e94158f2f211c93b92d2438b9e92661d95d38faa47",
-      "sourceEpubSha256": "7910993a50348140765229599d71e9a8674b875af7ae745a1da0230f58f101e4",
-      "semanticSha256": "62999f4dc7ce1418fec052c97f39abb4b03a8cb0250e99f767f660ab997a6fc2",
-      "outlineEntries": 970,
-      "linkAnnotations": 1002,
+      "bytes": 4228820,
+      "sha256": "4401a8d3370c2ca2b2e009b360e514ab6be48a5b0bd857efb545003791b93c9d",
+      "sourceEpubSha256": "882a1f99f3bd46c3bed6276d7d10c013933922d0340b1f484189313d049be3a7",
+      "semanticSha256": "95da0ecfd136ede157afc55e7213c721c830ed8559203584e3515b4524d843e9",
+      "outlineEntries": 974,
+      "linkAnnotations": 1011,
       "images": 21,
       "fonts": [
         {

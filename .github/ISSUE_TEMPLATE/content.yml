@@ -1,7 +1,7 @@
 name: Content error
 description: Report an inaccurate, unsupported, or outdated statement.
 title: "[Content]: "
-labels: [content]
+labels: [bug]
 body:
   - type: input
     id: page

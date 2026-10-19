@@ -1,6 +1,6 @@
 # 英语能力诊断：四项基线与迁移记录
 
-这不是一次把人钉在 A1-C2 上的考试，而是一张决定下一步的证据页。选一个真实主题，在相近时间和明确限制下完成听、读、说、写的首版；保存原始样本，分别记录障碍，七天后撤掉最近提示做平行任务，三十天后重复一项真实交付。
+这是完整的四项诊断工作表，不是五分钟起步任务，也不是一次把人钉在 A1-C2 上的考试。只想先开始时，去[英语诊断入口](https://byoungd.github.io/up/topics/english-diagnostic)任选一项完成五分钟单项基线。需要整体诊断时，选一个真实主题，在相近时间和明确限制下完成听、读、说、写的首版；保存原始样本，分别记录障碍，七天后撤掉最近提示做平行任务，三十天后重复一项真实交付。
 
 把这张卡复制到私有笔记中。不要写入密码、客户资料、证件、医疗隐私、未授权的第三方内容或禁止记录的考试材料。
 
@@ -149,4 +149,4 @@
 
 ---
 
-来源：[人生进阶指南](https://byoungd.github.io/up/templates/english-diagnostic) · 稿件更新：2026-10-06。内容许可：[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)。
+来源：[人生进阶指南](https://byoungd.github.io/up/templates/english-diagnostic) · 稿件更新：2026-10-19。内容许可：[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)。

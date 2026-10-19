@@ -6,13 +6,36 @@ import { defineConfig } from "vitepress";
 import { bilingualRoutePairs, enNavigation, toSidebar, zhNavigation } from "./navigation.mjs";
 import { worksheetBySource } from "./worksheets.mjs";
 
-const origin = "https://byoungd.github.io";
-const base = "/up/";
+const defaultScheme = "https:" + "//";
+const normalizeOrigin = (value: string | undefined, fallback: string) => {
+  const candidate = value?.trim().replace(/\/+$/, "") || fallback.trim().replace(/\/+$/, "");
+  return candidate.includes("://") ? candidate : defaultScheme + candidate;
+};
+const normalizeBase = (value: string | undefined, fallback: string) => {
+  const candidate = (value ?? fallback).trim().replace(/^\/+|\/+$/g, "");
+  return candidate ? `/${candidate}/` : "/";
+};
+
+const origin = normalizeOrigin(
+  process.env.SITE_ORIGIN || process.env.VITEPRESS_ORIGIN || process.env.VITE_SITE_ORIGIN,
+  "https://byoungd.github.io",
+);
+const base = normalizeBase(
+  process.env.SITE_BASE || process.env.VITEPRESS_BASE || process.env.VITE_BASE,
+  "/up/",
+);
 const siteUrl = `${origin}${base}`;
 const configDir = dirname(fileURLToPath(import.meta.url));
 const docsDir = resolve(configDir, "..");
 const assetsDir = join(docsDir, "assets");
 const buildRevision = process.env.GITHUB_SHA || process.env.BUILD_REVISION || "local";
+const socialImages: Record<string, { zh: string; en: string }> = {
+  "english-learning": { zh: "assets/social/english-zh.png", en: "assets/social/english-en.png" },
+  "ai-learning": { zh: "assets/social/ai-zh.png", en: "assets/social/ai-en.png" },
+  "real-projects": { zh: "assets/social/projects-zh.png", en: "assets/social/projects-en.png" },
+  recovery: { zh: "assets/social/recovery-zh.png", en: "assets/social/recovery-en.png" },
+  templates: { zh: "assets/social/templates-zh.png", en: "assets/social/templates-en.png" },
+};
 const defaultDescription =
   "《人生进阶指南》帮助普通人在 AI 时代持续学习、完成真实项目、穿越人生低谷并留下成长证据。";
 const defaultDescriptionEn =
@@ -52,7 +75,38 @@ function localImagePath(source: string, pagePath?: string) {
 }
 
 function absoluteRoute(route: string) {
-  return `${siteUrl}${route}${route ? "/" : ""}`;
+  return `${siteUrl}${route.replace(/^\/+|\/+$/g, "")}`;
+}
+
+function pageUrl(route: string) {
+  if (!route) return siteUrl;
+  if (route === "en") return `${absoluteRoute(route)}/`;
+  return absoluteRoute(route);
+}
+
+function normalizeAbsoluteUrl(value: string) {
+  const url = new URL(value, siteUrl);
+  const siteRootPath = new URL(siteUrl).pathname;
+  const englishRootPath = new URL(`${siteUrl}en/`).pathname;
+  if (url.pathname !== siteRootPath && url.pathname !== englishRootPath) {
+    url.pathname = url.pathname.replace(/\/+$/, "");
+  }
+  return url.toString();
+}
+
+function absoluteAsset(source: unknown, fallback: string) {
+  if (typeof source !== "string" || !source.trim()) return fallback;
+  const value = source.trim();
+  if (/^[a-z][a-z\d+.-]*:/i.test(value)) return value;
+  return `${siteUrl}${value.replace(/^\/+/, "")}`;
+}
+
+function metadataValues(value: unknown) {
+  if (typeof value === "string") return value.trim() ? [value.trim()] : [];
+  if (Array.isArray(value)) {
+    return value.filter((item): item is string => typeof item === "string" && Boolean(item.trim())).map((item) => item.trim());
+  }
+  return [];
 }
 
 const searchHeadingContent = /(.*?)<a.*? href="#(.*?)".*?>.*?<\/a>/i;
@@ -72,6 +126,8 @@ function splitSearchSections(file: string, html: string) {
     "/templates/ai-learning-log.md",
     "/templates/startup-experiment.md",
     "/templates/consistency-plan.md",
+    "/threads/part-2/narrative-and-evidence.md",
+    "/threads/part-2/depression-anxiety-recovery.md",
     "/templates/ai-evaluation.md",
     "/threads/part-4/family-learning.md",
     "/threads/part-1/8-job-search-english.md",
@@ -81,7 +137,12 @@ function splitSearchSections(file: string, html: string) {
     "/threads/part-1/2-vocabulary.md",
     "/threads/part-1/1-understanding.md",
   ].some((suffix) => normalizedFile.endsWith(suffix));
-  const headingOnly = normalizedFile.includes("/threads/practice/") || [
+  const headingOnly = normalizedFile.includes("/threads/practice/") ||
+    normalizedFile.includes("/topics/") ||
+    normalizedFile.endsWith("/resources.md") ||
+    normalizedFile.endsWith("/recent-updates.md") || [
+    "/projects.md",
+    "/book-downloads.md",
     "/docs/practice.md",
     "/docs/en/practice.md",
     "/docs/README.md",
@@ -97,6 +158,15 @@ function splitSearchSections(file: string, html: string) {
     normalizedFile.includes("/templates/") ||
     normalizedFile.includes("/reference/") ||
     normalizedFile.includes("/threads/archive/") ||
+    normalizedFile.endsWith("/threads/part-2/x-misc.md") ||
+    normalizedFile.endsWith("/threads/part-2/narrative-and-evidence.md") ||
+    normalizedFile.endsWith("/threads/part-2/entrepreneurship.md") ||
+    normalizedFile.endsWith("/threads/part-2/relationships.md") ||
+    normalizedFile.endsWith("/threads/part-2/depression-anxiety-recovery.md") ||
+    normalizedFile.endsWith("/threads/part-2/communication.md") ||
+    normalizedFile.endsWith("/threads/part-2/care-and-carry-on.md") ||
+    normalizedFile.endsWith("/threads/part-2/return-to-life.md") ||
+    normalizedFile.endsWith("/threads/part-2/decision.md") ||
     normalizedFile.includes("/threads/part-1/") ||
     normalizedFile.includes("/threads/word-list/");
   const levels = titleOnly ? "1" : headingOnly ? "12" : pageLevelOnly ? "1" : "12";
@@ -183,12 +253,14 @@ export default defineConfig({
     hostname: siteUrl,
     transformItems(items) {
       return items.filter((item) => !item.url.includes("public/downloads/worksheets/")).map((item) => {
-        const links = item.links || [];
+        const links = (item.links || []).map((link) => ({ ...link, url: normalizeAbsoluteUrl(link.url) }));
+        const url = normalizeAbsoluteUrl(item.url);
         const languageOf = ({ lang, hreflang }: { lang: string; hreflang?: string }) => lang || hreflang;
         const chinese = links.find((link) => languageOf(link) === "zh-CN");
-        if (!chinese || links.some((link) => languageOf(link) === "x-default")) return item;
+        if (!chinese || links.some((link) => languageOf(link) === "x-default")) return { ...item, url, links };
         return {
           ...item,
+          url,
           links: [...links, { lang: "x-default", hreflang: "x-default", url: chinese.url }],
         };
       });
@@ -393,20 +465,28 @@ export default defineConfig({
   },
   transformHead({ pageData }) {
     const route = routeFromRelativePath(pageData.relativePath);
-    const canonical = `${siteUrl}${route}${route ? "/" : ""}`;
+    const canonical = pageUrl(route);
     const languagePair = bilingualRouteMap.get(route);
     const isEnglish = route === "en" || route.startsWith("en/");
     const isBookHome = route === "" || route === "en";
     const isChapter = route.startsWith("threads/") || route.includes("/threads/");
+    const topics = metadataValues(pageData.frontmatter.topic);
+    const intents = metadataValues(pageData.frontmatter.intent);
     const title = pageData.title ||
       (isEnglish ? "Life Level-up Guide | Lifelong Learning in the AI Era" : "人生进阶指南｜AI 时代终身学习");
     const description =
       pageData.frontmatter.description ||
       `${title}. ${isEnglish ? defaultDescriptionEn : defaultDescription}`;
-    const image = `${siteUrl}assets/${isEnglish ? "feature-en.png" : "feature.png"}`;
-    const imageAlt = isEnglish ? "Life Level-up Guide book sharing cover" : "《人生进阶指南》书籍分享封面";
+    const defaultImage = `${siteUrl}assets/${isEnglish ? "feature-en.png" : "feature.png"}`;
+    const inferredTopic = typeof pageData.frontmatter.topic === "string" ? pageData.frontmatter.topic : undefined;
+    const inferredImage = inferredTopic ? socialImages[inferredTopic]?.[isEnglish ? "en" : "zh"] : undefined;
+    const routeImage = inferredImage || (route.includes("/recovery") ? socialImages.recovery[isEnglish ? "en" : "zh"] : undefined) ||
+      (route.endsWith("/toolkit") ? socialImages.templates[isEnglish ? "en" : "zh"] : undefined);
+    const image = absoluteAsset(pageData.frontmatter.socialImage || routeImage, defaultImage);
+    const imageAlt = (typeof pageData.frontmatter.socialImageAlt === "string" && pageData.frontmatter.socialImageAlt.trim()) ||
+      (isEnglish ? "Life Level-up Guide book sharing cover" : "《人生进阶指南》书籍分享封面");
     const bookName = isEnglish ? "Life Level-up Guide" : "人生进阶指南";
-    const bookUrl = `${siteUrl}${isEnglish ? "en/" : ""}`;
+    const bookUrl = pageUrl(isEnglish ? "en" : "");
     const updated = pageData.frontmatter.updated;
     const dateModified =
       updated instanceof Date
@@ -414,13 +494,35 @@ export default defineConfig({
         : typeof updated === "string"
           ? updated.slice(0, 10)
           : undefined;
+    const published = pageData.frontmatter.datePublished;
+    const datePublished =
+      published instanceof Date
+        ? published.toISOString().slice(0, 10)
+        : typeof published === "string"
+          ? published.slice(0, 10)
+          : undefined;
+    const requestedSchema = pageData.frontmatter.schema;
+    const schemaProperties = requestedSchema && typeof requestedSchema === "object" && !Array.isArray(requestedSchema)
+      ? requestedSchema as Record<string, unknown>
+      : {};
+    const schemaType =
+      (typeof requestedSchema === "string" && requestedSchema.trim()) ||
+      (typeof schemaProperties["@type"] === "string" && schemaProperties["@type"]) ||
+      (isBookHome ? "Book" : isChapter ? "Chapter" : "WebPage");
     const structuredData: Record<string, unknown> = {
+      ...schemaProperties,
       "@context": "https://schema.org",
-      "@type": isBookHome ? "Book" : isChapter ? "Chapter" : "WebPage",
+      "@type": schemaType,
       name: isBookHome ? bookName : title,
+      headline: title,
       description,
       url: canonical,
+      mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
       image,
+      ...(topics.length ? { about: topics.map((name) => ({ "@type": "Thing", name })) } : {}),
+      ...(topics.length ? { articleSection: topics } : {}),
+      ...(topics.length || intents.length ? { keywords: [...topics, ...intents] } : {}),
+      ...(intents.length ? { educationalUse: intents } : {}),
       inLanguage: isEnglish ? "en-US" : "zh-CN",
       author: {
         "@type": "Person",
@@ -453,13 +555,14 @@ export default defineConfig({
             },
           }),
       ...(dateModified ? { dateModified } : {}),
+      ...(datePublished ? { datePublished } : {}),
     };
     const jsonLd = JSON.stringify(structuredData).replaceAll("<", "\\u003c");
     const alternateLinks = languagePair
       ? [
-          ["link", { rel: "alternate", hreflang: "zh-CN", href: absoluteRoute(languagePair.zh) }],
-          ["link", { rel: "alternate", hreflang: "en-US", href: absoluteRoute(languagePair.en) }],
-          ["link", { rel: "alternate", hreflang: "x-default", href: absoluteRoute(languagePair.zh) }],
+          ["link", { rel: "alternate", hreflang: "zh-CN", href: pageUrl(languagePair.zh) }],
+          ["link", { rel: "alternate", hreflang: "en-US", href: pageUrl(languagePair.en) }],
+          ["link", { rel: "alternate", hreflang: "x-default", href: pageUrl(languagePair.zh) }],
         ]
       : [];
     return [
@@ -476,10 +579,17 @@ export default defineConfig({
       ["meta", { property: "og:image:width", content: "1200" }],
       ["meta", { property: "og:image:height", content: "630" }],
       ["meta", { property: "og:image:alt", content: imageAlt }],
+      ...(topics.length ? [["meta", { name: "keywords", content: topics.join(", ") }] as const] : []),
+      ...(intents.length ? [["meta", { name: "intent", content: intents.join(", ") }] as const] : []),
+      ...(dateModified ? [["meta", { property: "article:modified_time", content: `${dateModified}T00:00:00Z` }] as const] : []),
+      ...(datePublished
+        ? [["meta", { property: "article:published_time", content: `${datePublished}T00:00:00Z` }] as const]
+        : []),
       ["meta", { name: "twitter:title", content: title }],
       ["meta", { name: "twitter:description", content: description }],
       ["meta", { name: "twitter:image", content: image }],
       ["meta", { name: "twitter:image:alt", content: imageAlt }],
+      ["meta", { name: "twitter:card", content: "summary_large_image" }],
       ["script", { type: "application/ld+json" }, jsonLd],
     ];
   },

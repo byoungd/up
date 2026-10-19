@@ -1,8 +1,9 @@
 ---
 title: 用 AI 学英语：从练习到真实交付
 description: 用英语基线、真实材料、引导练习、四项能力反馈和延迟复测学习，而不是把英语能力外包给一个 AI 产品。
-updated: 2026-10-03
-sources_checked: 2026-08-24
+updated: 2026-10-15
+sources_checked: 2026-10-15
+source_review_interval: 30
 ---
 
 # 用 AI 学英语：从练习到真实交付
@@ -213,7 +214,7 @@ AI 可以生成填空、改错和替换练习，但释义、搭配和例句要�
 - Perplexity：[Help Center](https://www.perplexity.ai/help-center/)
 - DeepL：[DeepL Write](https://www.deepl.com/write)
 
-这些页面只用于核对产品功能，不构成工具排名或效果保证。上次核验日期：2026-08-24；使用前请重新核验功能、地区和套餐。
+这些页面只是可重新核验的产品入口，不是当前功能清单，也不构成工具排名或效果保证。产品入口的上次集中核验日期为 2026-08-24；使用前请重新核验功能、地区和套餐。
 
 ## 结语：工具离场以后
 
