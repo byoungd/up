@@ -10,8 +10,8 @@ This list combines dated project changes from the changelog with the latest revi
 
 ## Latest 20 updates
 
-- **2026-10-21** · [Entrepreneurship: From Ambition to Purpose](./threads/part-2/entrepreneurship) — A personal review of products, cash flow, technical debt, failure, recovery, and starting again, without offering a success formula or investment advice.
-- **2026-10-21** · [My Story: Failure, Recovery, and Starting Again](./threads/part-2/my-story) — A personal account of business setbacks, entrepreneurial losses, disrupted health and life, and finding the courage to act again after returning home.
+- **2026-10-21** · [Entrepreneurship: From Ambition to Purpose](../assets/entrepreneurship/2023-recovery.webp) — A personal review of products, cash flow, technical debt, failure, recovery, and starting again, without offering a success formula or investment advice.
+- **2026-10-21** · [My Story: Failure, Recovery, and Starting Again](../public/en/threads/part-4/my-story/index.html) — A personal account of business setbacks, entrepreneurial losses, disrupted health and life, and finding the courage to act again after returning home.
 - **2026-10-20** · [Life Level-up Guide | Lifelong Learning in the AI Era](./) — Learning continuously in the AI era, Life Level-up Guide helps ordinary people complete real projects, move through difficult seasons, and preserve evidence of growth.
 - **2026-10-19** · [Third-party Resources | Verify Before Use](./resources) — Optional AI learning and tool links with review dates, public positioning, and a clear non-sponsorship boundary. Independently verify terms, privacy, pricing, copyright, and service status before use.
 - **2026-10-19** · [English Diagnostic: Four-skill Baseline and Transfer Record](./templates/english-diagnostic) — Preserve listening, reading, speaking, and writing first versions, conditions, errors, feedback, delayed retests, and CEFR direction without replacing ability evidence with averages or polished work.

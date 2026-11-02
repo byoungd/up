@@ -52,4 +52,4 @@ Download the book for offline reading or printing. PDF keeps a fixed print layou
 - [中文在线版](../)
 - [English online edition](./)
 
-See [`pdf-manifest.json`](../downloads/pdf-manifest.json) and [`epub-manifest.json`](../downloads/epub-manifest.json) for the complete publication records.
+See [`pdf-manifest.json`](../public/downloads/pdf-manifest.json) and [`epub-manifest.json`](../public/downloads/epub-manifest.json) for the complete publication records.
