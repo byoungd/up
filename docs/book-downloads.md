@@ -52,4 +52,4 @@ updated: 2026-10-02
 - [中文在线版](./)
 - [English online edition](./en/)
 
-文件范围、构建信息和完整出版清单见 [`pdf-manifest.json`](./downloads/pdf-manifest.json) 与 [`epub-manifest.json`](./downloads/epub-manifest.json)。
+文件范围、构建信息和完整出版清单见 [`pdf-manifest.json`](public/downloads/pdf-manifest.json) 与 [`epub-manifest.json`](public/downloads/epub-manifest.json)。
