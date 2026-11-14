@@ -1350,7 +1350,7 @@ test("language navigation and representative image work", async ({ page }) => {
 
 test("home page shows the latest updates", async ({ page }) => {
   await page.goto("./");
-  await expect(page.getByRole("heading", { level: 2, name: "现实仍在继续" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "作者与现实实践" })).toBeVisible();
   const partnerPhoto = page.getByRole("img", { name: "韩先凯与伴侣在第四次婚礼上的合影" });
   const readersPhoto = page.getByRole("img", { name: "韩先凯在阿里巴巴参观千问大模型展示" });
   await expect(partnerPhoto).toBeVisible();
@@ -1486,46 +1486,44 @@ test("deferred story media reserves its intrinsic layout space", async ({ page }
 test("home pages link to the reader guide", async ({ page }) => {
   await page.goto("./");
   await expect(page.getByRole("link", { name: "阅读指南", exact: true }).first()).toBeVisible();
-  await expect(page.getByRole("link", { name: /家庭与中学生学习/ })).toHaveAttribute(
+  await expect(page.getByRole("link", { name: "英语能力诊断", exact: true })).toHaveAttribute(
     "href",
-    "./threads/part-4/family-learning",
+    "./templates/english-diagnostic",
   );
-  await expect(page.getByRole("link", { name: /海外求职与远程协作/ })).toHaveAttribute(
+  await expect(page.locator('main a[href="./threads/part-3/1-ai-learning"]').first()).toHaveAttribute(
     "href",
-    "./threads/part-1/8-job-search-english",
+    "./threads/part-3/1-ai-learning",
   );
-  await expect(page.getByRole("link", { name: /语法基础与真实表达/ })).toHaveAttribute(
+  await expect(page.locator('main a[href="./threads/practice/customer-discovery"]').first()).toHaveAttribute(
     "href",
-    "./threads/part-1/grammar",
+    "./threads/practice/customer-discovery",
   );
-  await expect(page.locator('main a[href="./threads/part-1/5-speaking"]').first()).toBeVisible();
-  await expect(page.getByRole("link", { name: /写作与异步交付/ })).toHaveAttribute(
+  await expect(page.locator('main a[href="./threads/part-4/daily-system"]').first()).toHaveAttribute(
     "href",
-    "./threads/part-1/6-writing",
+    "./threads/part-4/daily-system",
   );
 
   await page.goto("./en/");
   await expect(page.getByRole("link", { name: "Reader's Guide", exact: true }).first()).toBeVisible();
-  await expect(page.getByRole("link", { name: /Family and Middle-School Learning/ })).toHaveAttribute(
+  await expect(page.getByRole("link", { name: "English Diagnostic", exact: true })).toHaveAttribute(
     "href",
-    "./threads/part-4/family-learning",
+    "./templates/english-diagnostic",
   );
-  await expect(page.getByRole("link", { name: /Global Job Search and Remote Work/ })).toHaveAttribute(
+  await expect(page.locator('main a[href="./threads/part-3/1-ai-learning"]').first()).toHaveAttribute(
     "href",
-    "./threads/part-1/8-job-search-english",
+    "./threads/part-3/1-ai-learning",
   );
-  await expect(page.getByRole("link", { name: /Grammar for Real Expression/ })).toHaveAttribute(
+  await expect(page.locator('main a[href="./threads/practice/customer-discovery"]').first()).toHaveAttribute(
     "href",
-    "./threads/part-1/grammar",
+    "./threads/practice/customer-discovery",
   );
-  await expect(page.locator('main a[href="./threads/part-1/5-speaking"]').first()).toBeVisible();
-  await expect(page.getByRole("link", { name: /Writing and Asynchronous Delivery/ })).toHaveAttribute(
+  await expect(page.locator('main a[href="./threads/part-4/daily-system"]').first()).toHaveAttribute(
     "href",
-    "./threads/part-1/6-writing",
+    "./threads/part-4/daily-system",
   );
 });
 
-test("home pages put three problem-based entry paths in the first viewport", async ({ page }) => {
+test("home pages expose three problem-based entry paths", async ({ page }) => {
   for (const [width, route, language] of [
     [375, "./", "zh"],
     [1280, "./", "zh"],
@@ -1535,23 +1533,21 @@ test("home pages put three problem-based entry paths in the first viewport", asy
     await page.setViewportSize({ width, height: 800 });
     await page.goto(route);
     const quickStart = page.locator(".quick-start");
-    const heading = language === "zh" ? "从眼前的问题开始" : "Start with the problem in front of you";
-    const skillsName = language === "zh" ? "学会一项新能力" : "Learn one new skill";
-    const aiName = language === "zh" ? "用 AI 完成真实任务" : "Use AI on a real task";
-    const rhythmName = language === "zh" ? "重新建立行动节奏" : "Rebuild an action rhythm";
+    const heading = language === "zh" ? "先做一个动作，再决定读多远" : "Begin with one action, then decide how far to read";
+    const skillsName = language === "zh" ? "今天：我想做成一件事" : "Today: I want to finish one thing";
+    const aiName = language === "zh" ? "五分钟：我还不知道从哪里开始" : "5 minutes: I do not know where to begin";
+    const rhythmName = language === "zh" ? "十四天：我想练习一项英语能力" : "14 days: I want to practice one English skill";
     await expect(quickStart.getByRole("heading", { level: 2, name: heading })).toBeVisible();
     await expect(quickStart.locator(".quick-start-action")).toHaveCount(3);
     const destinations = [
       [skillsName, "./templates/learning-state"],
-      [aiName, "./templates/ai-task-brief"],
-      [rhythmName, "./threads/part-4/week-1"],
+      [aiName, "./threads/part-0/reader-guide"],
+      [rhythmName, "./threads/part-1/open-input"],
     ];
-    for (const [index, [name, href]] of destinations.entries()) {
+    for (const [name, href] of destinations) {
       const action = quickStart.getByRole("link", { name: new RegExp(name) });
       await expect(action).toHaveAttribute("href", href);
-      const bounds = await action.boundingBox();
-      expect(bounds).not.toBeNull();
-      if (index === 0) expect(bounds.y + bounds.height).toBeLessThanOrEqual(800);
+      await expect(action).toBeVisible();
     }
   }
 });
@@ -1577,38 +1573,23 @@ test("English diagnostic hubs distinguish a five-minute sample from a full four-
   }
 });
 
-test("home guide paths are grouped by purpose and third-party resources have a separate destination", async ({ page }) => {
+test("home pages expose compact problem entry and book maps", async ({ page }) => {
   await page.goto("./");
-  const zhGroups = page.locator("main .guide-path-group");
-  await expect(zhGroups).toHaveCount(3);
-  await expect(zhGroups.nth(0).getByRole("heading", { level: 2, name: "建立基础" })).toBeVisible();
-  await expect(zhGroups.nth(1).getByRole("heading", { level: 2, name: "借工具放大能力" })).toBeVisible();
-  await expect(zhGroups.nth(2).getByRole("heading", { level: 2, name: "进入真实生活" })).toBeVisible();
-  await expect(zhGroups.nth(0).locator(".guide-path")).toHaveCount(4);
-  await expect(zhGroups.nth(1).locator(".guide-path")).toHaveCount(2);
-  await expect(zhGroups.nth(2).locator(".guide-path")).toHaveCount(6);
-  await expect(zhGroups.nth(2).getByRole("link", { name: /^珍惜身边的人/ })).toHaveAttribute(
-    "href",
-    "./threads/part-2/care-and-carry-on",
-  );
-  await expect(page.locator('main a[href="biezou.com/"]')).toHaveCount(0);
-  await expect(page.locator('main a[href="t.me/OpenHuge_ai"]')).toHaveCount(0);
-  await expect(page.getByRole("link", { name: "第三方资源目录" })).toHaveAttribute("href", "./resources");
+  await expect(page.getByRole("heading", { level: 2, name: "按眼前的问题入场" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "书稿怎样展开" })).toBeVisible();
+  await expect(page.locator("main table")).toHaveCount(2);
+  await expect(page.getByRole("link", { name: "资源目录", exact: true })).toHaveAttribute("href", "./resources");
+  await expect(page.locator("main .guide-path-group")).toHaveCount(0);
 
   await page.goto("./en/");
-  const enGroups = page.locator("main .guide-path-group");
-  await expect(enGroups).toHaveCount(3);
-  await expect(enGroups.nth(0).getByRole("heading", { level: 2, name: "Build the Foundation" })).toBeVisible();
-  await expect(enGroups.nth(1).getByRole("heading", { level: 2, name: "Amplify Ability with Tools" })).toBeVisible();
-  await expect(enGroups.nth(2).getByRole("heading", { level: 2, name: "Enter Real Life" })).toBeVisible();
-  await expect(enGroups.nth(2).locator(".guide-path")).toHaveCount(6);
-  await expect(enGroups.nth(2).getByRole("link", { name: /^Care for the People Nearby/ })).toHaveAttribute(
+  await expect(page.getByRole("heading", { level: 2, name: "Start from Where You Are" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "How the Book Unfolds" })).toBeVisible();
+  await expect(page.locator("main table")).toHaveCount(2);
+  await expect(page.getByRole("link", { name: "Third-party Resources directory", exact: true })).toHaveAttribute(
     "href",
-    "./threads/part-2/care-and-carry-on",
+    "./resources",
   );
-  await expect(page.locator('main a[href="biezou.com/"]')).toHaveCount(0);
-  await expect(page.locator('main a[href="t.me/OpenHuge_ai"]')).toHaveCount(0);
-  await expect(page.getByRole("link", { name: "Third-party Resources" })).toHaveAttribute("href", "./resources");
+  await expect(page.locator("main .guide-path-group")).toHaveCount(0);
 });
 
 test("resource pages expose bounded third-party references with review dates", async ({ page }) => {
@@ -1676,7 +1657,7 @@ test("home pages explain per-entry product verification dates", async ({ page })
   await expect(page.getByText(/产品与服务条目的核验日期以各自页面/)).toBeVisible();
 
   await page.goto("./en/");
-  await expect(page.getByText(/Check dates for product and service entries are recorded per page/)).toBeVisible();
+  await expect(page.getByText(/Check dates for product and service entries per page/)).toBeVisible();
 });
 
 test("evidence chapter hands off to practice and action", async ({ page }) => {

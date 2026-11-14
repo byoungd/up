@@ -1,7 +1,7 @@
 ---
 title: "Reader's Guide: Put the Book Back into Life"
 description: "A choose-your-own reading map for Life Level-up Guide: enter through a real problem, practice with evidence, review by cycle, and keep boundaries around AI and difficult seasons."
-updated: 2026-10-06
+updated: 2026-11-14
 prev:
   text: "Life Level-up Guide"
   link: /en/
@@ -20,17 +20,26 @@ If this is your first visit, do not begin by asking how much you should finish. 
 
 ### I only want to begin again
 
-Read the [Prologue: Do Not Rush to Change Your Life](prologue.md), then open the [Learning State](../../templates/learning-state.md). If you only have five minutes, use its minimum version first: write the real problem, evidence you already have, one smallest action, and the boundary you must keep. Decide whether you need the full 25–45 minute record after the action. Do not design a three-year plan first.
+Read the [Prologue: Do Not Rush to Change Your Life](prologue.md), then open [Learning State](../../templates/learning-state.md). If you have five minutes, write only the real problem, the clues you already have, one smallest action, and the boundary you must keep. You do not need to design a three-year plan first.
 
-### I want to improve one concrete skill
+### I want to improve one concrete English skill
 
-If a first encounter is overwhelmed by unknown words and you do not know what to skip or check, read [Vocabulary: From Familiarity to Retrieval in Real Tasks](../part-1/2-vocabulary.md) and use the [Vocabulary Evidence Card](../../templates/vocabulary-audit.md) to preserve decisions, eight-dimensional verification, unaided retrieval, and delayed transfer.
+Use [CEFR Goals and Self-check](../part-1/0-cefr.md) to name the context and starting point, then choose one line below. Keep a first sample and the relevant [evidence card](../../reference/glossary.md#tools-and-delivery). Do not let the wish to learn everything postpone the first attempt.
 
-Use [CEFR Goals and Self-check](../part-1/0-cefr.md) to name the context and baseline, then enter grammar, listening, reading, speaking, or writing. When familiar rules still change time, responsibility, condition, or certainty in real expression, read [Grammar: Let Structure Serve Meaning](../part-1/grammar.md), then track one high-impact structure with the [Grammar Evidence Card](../../templates/grammar-evidence.md). When audio collections grow but understanding still depends on captions, or each replay has no distinct job, enter [Listening: From Sound Recognition to Real Understanding](../part-1/3-listening.md) and use the [Listening Evidence Card](../../templates/listening-audit.md) to preserve the first pass, error map, minimum scaffold, meaning reconstruction, and parallel transfer. When documentation feels slow because you translate word by word, lack domain background, or cannot deliver after reading, enter [Reading: From Word-by-word Translation to Claims and Evidence](../part-1/4-reading.md) and use the [Reading Evidence Card](../../templates/reading-evidence.md) to preserve version, barrier map, claims, technical facts, and output. When fluency exists only inside a memorised script, accent difference creates fear, or an unfamiliar follow-up ends participation, enter [Speaking: Make Meaning Arrive](../part-1/5-speaking.md) and use the [Speaking Evidence Card](../../templates/speaking-evidence.md) to preserve reference variety, listener retelling, interaction repair, and follow-up transfer. When you cannot leave your own draft, depend on sentence translation, or only have AI-polished prose, enter [Writing: From Draft to Verifiable Revision](../part-1/6-writing.md) and use the [Writing Evidence Card](../../templates/writing-evidence.md) to preserve sources, translation meaning changes, feedback uptake, asynchronous handover, and the decision to sign. Choose one main line at a time and use the relevant [evidence cards](../../reference/glossary.md#tools-and-delivery) to preserve a first sample, feedback, and a retest. More study is not necessarily deeper study; completing the action in a new situation is where ability starts to show.
+| The barrier in front of you | Enter here | First trace to leave |
+| --- | --- | --- |
+| Too many unknown words and no sense of what to check | [Vocabulary: From Familiarity to Retrieval in Real Tasks](../part-1/2-vocabulary.md) · [Vocabulary Evidence Card](../../templates/vocabulary-audit.md) | A decision record and an unaided retrieval sample |
+| The rules seem familiar, but expression changes time, responsibility, or certainty | [Grammar: Let Structure Serve Meaning](../part-1/grammar.md) · [Grammar Evidence Card](../../templates/grammar-evidence.md) | A before-and-after sample using one high-impact structure |
+| You collect audio but still need captions to understand | [Listening: From Sound Recognition to Real Understanding](../part-1/3-listening.md) · [Listening Evidence Card](../../templates/listening-audit.md) | A first pass, error map, and parallel transfer |
+| Documentation is slow, and reading does not become delivery | [Reading: From Word-by-word Translation to Claims and Evidence](../part-1/4-reading.md) · [Reading Evidence Card](../../templates/reading-evidence.md) | A list of claims, evidence, and minimum technical facts |
+| Fluency lives only inside a script, and follow-up questions end the exchange | [Speaking: Make Meaning Arrive](../part-1/5-speaking.md) · [Speaking Evidence Card](../../templates/speaking-evidence.md) | A listener retelling, repair, or response to an unfamiliar question |
+| You cannot leave your own draft and only have AI-polished prose | [Writing: From Draft to Verifiable Revision](../part-1/6-writing.md) · [Writing Evidence Card](../../templates/writing-evidence.md) | An unaided draft, its sources, and the reasons for revision |
+
+More study is not necessarily deeper study. Ability begins to show when the action survives a new situation.
 
 ### I am preparing for a global role or remote interview
 
-Read [Job-search English: Bring Ability into Interviews and Remote Work](../part-1/8-job-search-english.md) before using one CEFR label to decide whether you are “good enough”. Choose one real role and use the [Job-search English Evidence Card](../../templates/interview-evidence.md) for an unscripted project explanation, unfamiliar follow-up, asynchronous update, and repair. After fourteen days, decide whether to apply while practising, repair one high-risk gap, or defer this role.
+Read [Job-search English: Bring Ability into Interviews and Remote Work](../part-1/8-job-search-english.md) before using one CEFR label to decide whether you are “good enough”. Choose one real role and use the [Job-search English Evidence Card](../../templates/interview-evidence.md) for an unscripted project explanation, unfamiliar follow-up, asynchronous update, and repair. Then decide whether to apply, repair one high-risk gap, or defer this role.
 
 ### I have many resources but no artifact
 
@@ -38,19 +47,15 @@ Read [Learning Anything with AI](../part-3/1-ai-learning.md), then record the pr
 
 ### I have many records but cannot tell whether I really changed
 
-Open the [Evidence Chain Template](../../templates/evidence-chain.md). Put baseline, immediate performance, delayed retention, and transfer on one page, then return to [Evidence: How Change Becomes Visible](../part-3/5-evidence-and-transfer.md) to separate conclusions supported by evidence from interpretations that still need testing. Do not replace one independent retest with a longer table.
-
-### I do not know which worksheet to choose
-
-For a first use, read the [Toolkit Walkthrough](../../templates/toolkit-walkthrough.md) and follow an explicitly synthetic 90-day Python example through Learning State, one AI task, an unaided baseline, a retest, and handover to a new conversation. Then open the [Toolkit Overview](../../templates/toolkit.md), choose an entry by the block in front of you, leave the overview, and complete one real action.
+Open the [Evidence Chain Template](../../templates/evidence-chain.md). Put baseline, immediate performance, delayed retention, and transfer on one page, then return to [Evidence: How Change Becomes Visible](../part-3/5-evidence-and-transfer.md) to separate conclusions supported by evidence from interpretations that still need testing. If you do not know which worksheet to choose, follow the [Toolkit Walkthrough](../../templates/toolkit-walkthrough.md) once, then return to the [Toolkit Overview](../../templates/toolkit.md) and choose by the obstacle in front of you.
 
 ### I am supporting a middle-school-age learner
 
-Read [Family Learning: Return Ownership of Growth to the Learner](../part-4/family-learning.md) before applying adult assumptions about time management, career projects, and AI accounts. Use the [Family Learning Agreement](../../templates/family-learning-agreement.md) to record learner voice, adult concern, school requirements, data boundaries, and a fourteen-day review separately. The learner speaks first; adults protect safety and environment without substituted work or all-day surveillance.
+Read [Family Learning: Return Ownership of Growth to the Learner](../part-4/family-learning.md) before applying adult assumptions about time management, career projects, and AI accounts. Use the [Family Learning Agreement](../../templates/family-learning-agreement.md) to record learner voice, adult concern, school requirements, data boundaries, and a review date. The learner speaks first; adults protect safety and environment without substituted work or all-day surveillance.
 
 ### I am in a difficult season and my capacity is small
 
-Read [Recovery: Catch Yourself Before You Push Forward](../part-2/recovery.md) and [Daily System](../part-4/daily-system.md). Reduce the target to safety, food, sleep, asking for help, and one minimum output. If low mood, sleeplessness, hopelessness, or thoughts of harm persist, contact someone you trust and seek qualified local medical or mental-health support. This book is not care.
+Read [Recovery: Catch Yourself Before You Push Forward](../part-2/recovery.md) and [Daily System](../part-4/daily-system.md). Today's target may be safety, food, sleep, asking for help, and pausing. These are worthy of care without being turned into a performance record. If low mood, sleeplessness, hopelessness, or thoughts of harm persist, contact someone you trust and seek qualified local medical or mental-health support. This book is not care.
 
 ## Two Reading Modes, Used in Turn
 
@@ -71,7 +76,7 @@ Follow [the Prologue](prologue.md) → [Part I: Open Input](../part-1/open-input
 
 ### Read like a studio
 
-Jump from the [Toolkit Overview](../../templates/toolkit.md), table of contents, or glossary to the obstacle in front of you. Pause after a section and write one judgment, do one exercise, or preserve a first sample. A week later, use the [Evidence Chain Template](../../templates/evidence-chain.md) and [Weekly Review](../../templates/weekly-review.md) to check whether it transferred to a new task. You do not need to remember the whole book. You need the next action to become clearer.
+Jump from the [Toolkit Overview](../../templates/toolkit.md), table of contents, or glossary to the obstacle in front of you. Pause after a section and write one judgment, do one exercise, or preserve a first sample. Later, use the [Evidence Chain Template](../../templates/evidence-chain.md) and [Weekly Review](../../templates/weekly-review.md) to check whether it transferred to a new task. You do not need to remember the whole book. You need the next action to become clearer.
 
 These modes support one another. A complete read explains why the method is arranged this way; an on-demand read lets it do useful work today.
 
@@ -96,7 +101,7 @@ You may challenge any judgment here. First identify whether it is a research fin
 
 ## When the Plan Is Interrupted, Return Here
 
-Interruption is not an exception to this method. It is the reality the method must survive. Open the [Learning State](../../templates/learning-state.md) and mark what is complete, unconfirmed, costly, and next. If capacity has changed, return to [the minimum viable day](../part-4/daily-system.md) or the [Rhythm Ledger](../../templates/rhythm-ledger.md) instead of adding shame to the plan.
+Interruption is not an exception to this method. It is the reality the method must survive. Open [Learning State](../../templates/learning-state.md) and mark what is complete, unconfirmed, costly, and next. If capacity has changed, return to [the minimum viable day](../part-4/daily-system.md) or the [Rhythm Ledger](../../templates/rhythm-ledger.md) instead of adding shame to the plan.
 
 Add weight only after a repeatable rhythm returns. A reliable system is not one that never breaks. It is one that still knows how to come home after a break.
 
