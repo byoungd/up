@@ -5,7 +5,35 @@
   <id>https://byoungd.github.io/up/feeds/updates.xml</id>
   <link href="https://byoungd.github.io/up/feeds/updates.xml" rel="self" />
   <link href="https://byoungd.github.io/up/" />
-  <updated>2026-10-21T00:00:00+08:00</updated>
+  <updated>2026-11-14T00:00:00+08:00</updated>
+  <entry>
+    <title xml:lang="zh-CN">人生进阶指南｜AI 时代终身学习</title>
+    <id>https://byoungd.github.io/up/</id>
+    <link href="https://byoungd.github.io/up/" />
+    <updated>2026-11-14T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">《人生进阶指南》帮助普通人在 AI 时代持续学习、完成真实项目、穿越人生低谷并留下成长证据。</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">Life Level-up Guide | Lifelong Learning in the AI Era</title>
+    <id>https://byoungd.github.io/up/en</id>
+    <link href="https://byoungd.github.io/up/en" />
+    <updated>2026-11-14T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Learning continuously in the AI era, Life Level-up Guide helps ordinary people complete real projects, move through difficult seasons, and preserve evidence of growth.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">Reader&apos;s Guide: Put the Book Back into Life</title>
+    <id>https://byoungd.github.io/up/en/threads/part-0/reader-guide</id>
+    <link href="https://byoungd.github.io/up/en/threads/part-0/reader-guide" />
+    <updated>2026-11-14T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">A choose-your-own reading map for Life Level-up Guide: enter through a real problem, practice with evidence, review by cycle, and keep boundaries around AI and difficult seasons.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="zh-CN">阅读指南：把书放回生活</title>
+    <id>https://byoungd.github.io/up/threads/part-0/reader-guide</id>
+    <link href="https://byoungd.github.io/up/threads/part-0/reader-guide" />
+    <updated>2026-11-14T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">给第一次打开《人生进阶指南》的读者一张可选择的阅读地图：按问题入场、按证据实践、按周期复盘，并在 AI 与低谷中保留边界。</summary>
+  </entry>
   <entry>
     <title xml:lang="en-US">Entrepreneurship: From Ambition to Purpose</title>
     <id>https://byoungd.github.io/up/en/threads/part-2/entrepreneurship</id>
@@ -33,20 +61,6 @@
     <link href="https://byoungd.github.io/up/threads/part-2/my-story" />
     <updated>2026-10-21T00:00:00+08:00</updated>
     <summary xml:lang="zh-CN">一段关于事业起落、创业失利、身体与生活失序，以及回家恢复后重新找回行动勇气的个人记录。</summary>
-  </entry>
-  <entry>
-    <title xml:lang="zh-CN">人生进阶指南｜AI 时代终身学习</title>
-    <id>https://byoungd.github.io/up/</id>
-    <link href="https://byoungd.github.io/up/" />
-    <updated>2026-10-20T00:00:00+08:00</updated>
-    <summary xml:lang="zh-CN">《人生进阶指南》帮助普通人在 AI 时代持续学习、完成真实项目、穿越人生低谷并留下成长证据。</summary>
-  </entry>
-  <entry>
-    <title xml:lang="en-US">Life Level-up Guide | Lifelong Learning in the AI Era</title>
-    <id>https://byoungd.github.io/up/en</id>
-    <link href="https://byoungd.github.io/up/en" />
-    <updated>2026-10-20T00:00:00+08:00</updated>
-    <summary xml:lang="en-US">Learning continuously in the AI era, Life Level-up Guide helps ordinary people complete real projects, move through difficult seasons, and preserve evidence of growth.</summary>
   </entry>
   <entry>
     <title xml:lang="en-US">Third-party Resources | Verify Before Use</title>
@@ -231,13 +245,6 @@
     <summary xml:lang="en-US">Use primary signals, reproducible experiments, and independent transfer to decide which AI capabilities are worth learning, covering agents, multimodal inputs, context, local models, evaluation, and provenance.</summary>
   </entry>
   <entry>
-    <title xml:lang="en-US">AI Evaluation and Reliability — Knowing When to Deliver</title>
-    <id>https://byoungd.github.io/up/en/threads/practice/ai-evaluation</id>
-    <link href="https://byoungd.github.io/up/en/threads/practice/ai-evaluation" />
-    <updated>2026-10-16T00:00:00+08:00</updated>
-    <summary xml:lang="en-US">Compare AI workflows using real tasks, small test sets, failure categories, and full process costs, and distinguish a successful demo from dependable use.</summary>
-  </entry>
-  <entry>
     <title xml:lang="zh-CN">AI 评测记录模板</title>
     <id>https://byoungd.github.io/up/templates/ai-evaluation</id>
     <link href="https://byoungd.github.io/up/templates/ai-evaluation" />
@@ -278,12 +285,5 @@
     <link href="https://byoungd.github.io/up/threads/part-3/6-ai-trends-and-learning-roadmap" />
     <updated>2026-10-16T00:00:00+08:00</updated>
     <summary xml:lang="zh-CN">用一手信号、可复现实验和独立迁移判断 AI 的新能力是否值得学习，覆盖智能体、多模态、上下文、本地模型、评测与来源追踪。</summary>
-  </entry>
-  <entry>
-    <title xml:lang="zh-CN">AI 评测与可靠性：知道什么时候可以交付</title>
-    <id>https://byoungd.github.io/up/threads/practice/ai-evaluation</id>
-    <link href="https://byoungd.github.io/up/threads/practice/ai-evaluation" />
-    <updated>2026-10-16T00:00:00+08:00</updated>
-    <summary xml:lang="zh-CN">用真实任务、小型测试集、失败分类和完整成本比较 AI 工作流，识别一次成功与稳定可用之间的差别。</summary>
   </entry>
 </feed>

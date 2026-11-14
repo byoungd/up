@@ -1,7 +1,7 @@
 ---
 title: Recent Updates | Life Level-up Guide
 description: Recent changes from the Life Level-up Guide changelog and page review dates, with links to bilingual topic hubs and practice pages.
-updated: 2026-10-21
+updated: 2026-11-14
 ---
 
 # Recent Updates
@@ -10,9 +10,10 @@ This list combines dated project changes from the changelog with the latest revi
 
 ## Latest 20 updates
 
+- **2026-11-14** · [Life Level-up Guide | Lifelong Learning in the AI Era](./) — Learning continuously in the AI era, Life Level-up Guide helps ordinary people complete real projects, move through difficult seasons, and preserve evidence of growth.
+- **2026-11-14** · [Reader's Guide: Put the Book Back into Life](./threads/part-0/reader-guide) — A choose-your-own reading map for Life Level-up Guide: enter through a real problem, practice with evidence, review by cycle, and keep boundaries around AI and difficult seasons.
 - **2026-10-21** · [Entrepreneurship: From Ambition to Purpose](./threads/part-2/entrepreneurship) — A personal review of products, cash flow, technical debt, failure, recovery, and starting again, without offering a success formula or investment advice.
 - **2026-10-21** · [My Story: Failure, Recovery, and Starting Again](./threads/part-2/my-story) — A personal account of business setbacks, entrepreneurial losses, disrupted health and life, and finding the courage to act again after returning home.
-- **2026-10-20** · [Life Level-up Guide | Lifelong Learning in the AI Era](./) — Learning continuously in the AI era, Life Level-up Guide helps ordinary people complete real projects, move through difficult seasons, and preserve evidence of growth.
 - **2026-10-19** · [Third-party Resources | Verify Before Use](./resources) — Optional AI learning and tool links with review dates, public positioning, and a clear non-sponsorship boundary. Independently verify terms, privacy, pricing, copyright, and service status before use.
 - **2026-10-19** · [English Diagnostic: Four-skill Baseline and Transfer Record](./templates/english-diagnostic) — Preserve listening, reading, speaking, and writing first versions, conditions, errors, feedback, delayed retests, and CEFR direction without replacing ability evidence with averages or polished work.
 - **2026-10-19** · [Learning Principles: Turn Effort into Verifiable Learning](./threads/part-1/1-understanding) — Use real tasks, first-version baselines, retrieval, feedback, spacing, recovery, and cross-session state so effort becomes comparable and transferable evidence.
@@ -29,7 +30,6 @@ This list combines dated project changes from the changelog with the latest revi
 - **2026-10-16** · [AI Trend Experiment: From Signal to Decision](./templates/ai-trend-radar) — Record a primary source, task hypothesis, manual baseline, held-out set, permissions, full cost, independent transfer, and exit conditions for one new AI capability.
 - **2026-10-16** · [AI Learning, Project Development, and Resource-layer Entrepreneurship](./threads/part-3/2-ai-development-and-resource-layer) — Han Xiankai's path from learning with AI to building and operating an AI resource layer, with engineering, delivery, operations, and business results kept distinct.
 - **2026-10-16** · [AI Trends and a Learning Roadmap: Turn Change into Ability](./threads/part-3/6-ai-trends-and-learning-roadmap) — Use primary signals, reproducible experiments, and independent transfer to decide which AI capabilities are worth learning, covering agents, multimodal inputs, context, local models, evaluation, and provenance.
-- **2026-10-16** · [AI Evaluation and Reliability — Knowing When to Deliver](./threads/practice/ai-evaluation) — Compare AI workflows using real tasks, small test sets, failure categories, and full process costs, and distinguish a successful demo from dependable use.
 
 ## Continue
 

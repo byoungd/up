@@ -223,9 +223,9 @@ test("navigation catches bilingual reordering, group mismatch and duplicates", (
   assert.ok(navigationProblems(duplicated, reordered, docs).some((message) => message.includes("导航页面重复")));
 });
 
-test("the README mirror transforms practice and preserves suffixes without duplicate extensions", () => {
-  const source = '中文 | [English](en/)\n[Start](practice.md#today) [Projects](projects.md)\n<a href="./practice.md#today">Start</a>\n<a href="./threads/chapter.md?lang=zh#practice">Read</a>';
-  const expected = '中文 | [English](docs/en/README.md)\n[Start](docs/practice.md#today) [Projects](docs/projects.md)\n<a href="./docs/practice.md#today">Start</a>\n<a href="./docs/threads/chapter.md?lang=zh#practice">Read</a>';
+test("the README mirror transforms local entry pages and preserves suffixes without duplicate extensions", () => {
+  const source = '中文 | [English](en/)\n[Start](practice.md#today) [Projects](projects.md) [Resources](resources.md)\n<a href="./practice.md#today">Start</a>\n<a href="./threads/chapter.md?lang=zh#practice">Read</a>';
+  const expected = '中文 | [English](docs/en/README.md)\n[Start](docs/practice.md#today) [Projects](docs/projects.md) [Resources](docs/resources.md)\n<a href="./docs/practice.md#today">Start</a>\n<a href="./docs/threads/chapter.md?lang=zh#practice">Read</a>';
   assert.equal(repositoryReadmeFromDocs(source), expected);
 });
 
