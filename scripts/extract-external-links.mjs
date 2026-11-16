@@ -54,14 +54,18 @@ function extract(file) {
     }
     if (inFence) return;
 
+    // Inline code spans are examples, not links, just like fenced blocks above.
+    // Without this the closing backtick is swallowed into a bare URL (".../up`").
+    const scanned = line.replace(/`+[^`]*`+/g, " ");
+
     const lineNumber = index + 1;
-    const markdownTargets = line.matchAll(/\]\((https?:\/\/[^)\s]+)(?:\s+["'][^)]*)?\)/gi);
+    const markdownTargets = scanned.matchAll(/\]\((https?:\/\/[^)\s]+)(?:\s+["'][^)]*)?\)/gi);
     for (const match of markdownTargets) addLink(match[1], file, lineNumber);
 
-    const htmlTargets = line.matchAll(/\b(?:href|src)=(["'])(https?:\/\/[^"']+)\1/gi);
+    const htmlTargets = scanned.matchAll(/\b(?:href|src)=(["'])(https?:\/\/[^"']+)\1/gi);
     for (const match of htmlTargets) addLink(match[2], file, lineNumber);
 
-    const bareTargets = line.matchAll(/https?:\/\/[^\s<>"'()]+/gi);
+    const bareTargets = scanned.matchAll(/https?:\/\/[^\s<>"'()`]+/gi);
     for (const match of bareTargets) addLink(match[0], file, lineNumber);
   });
 }
