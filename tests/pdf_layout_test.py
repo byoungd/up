@@ -26,6 +26,9 @@ class PdfLayoutTests(unittest.TestCase):
             ("NotoSerifSC-LifeLevelUp", BUILDER.ZH_REGULAR_FONT),
             ("NotoSerifSC-LifeLevelUp-Bold", BUILDER.ZH_BOLD_FONT),
             ("NotoSans-LifeLevelUp-IPA", BUILDER.ZH_IPA_FONT),
+            # The English edition embeds the same OFL subsets under its own names.
+            ("StillHereSerif", BUILDER.ZH_REGULAR_FONT),
+            ("StillHereSerif-Bold", BUILDER.ZH_BOLD_FONT),
         ]:
             pdfmetrics.registerFont(TTFont(name, str(path)))
 
