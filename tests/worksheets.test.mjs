@@ -52,7 +52,7 @@ test("English downloads have localized provenance and stable repeated output", (
   const source = '# State\n\n[Review](weekly-review.md)\n';
   const en = { source: "en/templates/learning-state.md", locale: "en" };
   const result = worksheetMarkdown(source, en);
-  assert.match(result, /Source: \[Life Level-up Guide\]/);
+  assert.match(result, /Source: \[Still Here\]/);
   assert.match(result, /https:\/\/byoungd.github.io\/up\/en\/templates\/weekly-review/);
   assert.equal(worksheetMarkdown(source, en), result);
 });

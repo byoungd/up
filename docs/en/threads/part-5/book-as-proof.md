@@ -1,13 +1,7 @@
 ---
 title: "Case Study: Let the Book Prove Its Method"
 description: Use Life Level-up Guide itself as an end-to-end case, showing how a long-running content project can move from an unclear wish into structure, artifacts, evidence, publication, reader feedback, and maintainable handover.
-updated: 2026-09-02
-prev:
-  text: "90-Day Action Plan: Return Your Life to Yourself"
-  link: /en/threads/part-5/90-day-plan
-next:
-  text: "After Ninety Days: Let Change Remain in Life"
-  link: /en/threads/part-5/after-90-days
+updated: 2026-11-23
 ---
 
 # Case Study: Let the Book Prove Its Method

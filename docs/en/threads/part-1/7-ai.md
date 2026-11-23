@@ -1,8 +1,8 @@
 ---
 title: "Learning English with AI: From Practice to Real Delivery"
 description: Use English baselines, authentic material, guided practice, four-skill feedback, and delayed retesting instead of outsourcing English ability to one AI product.
-updated: 2026-10-15
-sources_checked: 2026-10-15
+updated: 2026-11-23
+sources_checked: 2026-11-23
 source_review_interval: 30
 ---
 
@@ -19,7 +19,7 @@ The site-wide loop of problem, baseline, practice, delivery, verification, and r
 - use AI for questions, hints, and parallel exercises without outsourcing retrieval or expression;
 - write the result into the [AI Learning Log](../../templates/ai-learning-log.md) and [90-Day Cycle Map](../../templates/90-day-cycle.md).
 
-> Product features were last checked on **24 August 2026**. Study, project, voice, and writing features vary by region, language, device, account, and plan; reopen the official pages and verify before use.
+> Product features were last checked on **23 November 2026**. Study, project, voice, and writing features vary by region, language, device, account, and plan; reopen the official pages and verify before use.
 
 ## Define “Can Use English”
 
@@ -202,12 +202,12 @@ Do not upload customer, colleague, student, child, medical, identity, or unpubli
 
 - OpenAI: [Study Mode](https://openai.com/zh-Hans-CN/index/chatgpt-study-mode/); [Projects in ChatGPT](https://help.openai.com/en/articles/10169521-projects)
 - Google: [Learning tools in Gemini](https://support.google.com/gemini/answer/16448384); [Quizzes and flashcards](https://support.google.com/gemini/answer/16275879); [Gemini Live](https://support.google.com/gemini/answer/15274899)
-- Anthropic: [What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
+- Anthropic: [What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects) (free accounts can create up to five projects; enhanced knowledge retrieval requires a paid plan)
 - Google: [NotebookLM](https://notebooklm.google/)
 - Perplexity: [Help Center](https://www.perplexity.ai/help-center/)
 - DeepL: [DeepL Write](https://www.deepl.com/write)
 
-These pages are product entry points to recheck, not a current feature list, ranking, or outcome guarantee. The last concentrated product-entry check was 24 August 2026; verify features, regions, and plans again before use.
+These pages are product entry points to recheck, not a current feature list, ranking, or outcome guarantee. The last concentrated product-entry check was 23 November 2026; verify features, regions, and plans again before use.
 
 ## Closing: After the Tool Leaves
 

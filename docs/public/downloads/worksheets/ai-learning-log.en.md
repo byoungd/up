@@ -119,4 +119,4 @@ Related entry points: [Learning Principles: Turn Effort into Verifiable Learning
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/ai-learning-log) · Manuscript updated: 2026-10-16. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Still Here](https://byoungd.github.io/up/en/templates/ai-learning-log) · Manuscript updated: 2026-10-16. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

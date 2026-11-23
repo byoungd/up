@@ -1,7 +1,7 @@
 ---
 title: "My Story: Failure, Recovery, and Starting Again"
 description: A personal account of business setbacks, entrepreneurial losses, disrupted health and life, and finding the courage to act again after returning home.
-updated: 2026-10-21
+updated: 2026-11-23
 ---
 
 # My Story: Failure, Recovery, and Starting Again
@@ -16,7 +16,7 @@ If you want to treat this memory as learning material, read [Narrative and Evide
 
 ## What Failure Cost Me
 
-Hi, I’m Li Pu. This is the story of one particularly absurd chapter of my life in the internet industry.
+Hi, I’m Han Xiankai. This is the story of one particularly absurd chapter of my life in the internet industry.
 
 On April 1, 2017, I joined a tech company in Nanjing as a regular front-end developer. We were building software for lawyers and law firms. The first version had been outsourced. The code had no comments, no project management, and no real structure. To make things worse, there was no product manager. Most product ideas came directly from the boss’s intuition.
 
@@ -240,15 +240,15 @@ I learned to focus on getting through today, doing one small thing when I had th
 
 If you are facing a setback now, remember that life is a long road, and one loss cannot decide the whole story. Resilience does not have to mean pushing until you break. Caring for your health, admitting you need help, and choosing the next step are also ways of moving forward. If all you can manage today is a short stretch, you have still travelled that stretch.
 
-## 2026-04-22 Update
+## Still Here, Still Learning
 
 A lot of people have asked how I am doing now. I’m still here, and I’m doing well.
 
 One more thing: this article mainly records my conflict with my partner Mr. Gong (a pseudonym) during the company’s final period, so it can make him look like a single opposing figure. That is my perspective, not a complete judgment of him; he has many admirable qualities. Public writing should leave other people room not to be defined entirely by my version.
 
-## 2026-06-16 Update
+## Back at the Desk
 
-On June 16, 2026, as Chairman of China Ciyuan Cloud Computing Co., Ltd., I was invited by Alibaba in Hangzhou to visit and study at Alibaba Cloud's Hangzhou headquarters.
+Later, as Chairman of China Ciyuan Cloud Computing Co., Ltd., I was invited by Alibaba in Hangzhou to visit and study at Alibaba Cloud's Hangzhou headquarters.
 
 ![Visiting Alibaba Cloud Hangzhou headquarters](../../../assets/aliyun-hangzhou-2026-06-16-1.webp)
 

@@ -157,4 +157,4 @@ Related chapters: [Job-search English: Bring Ability into Interviews and Remote 
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/interview-evidence) · Manuscript updated: 2026-09-02. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Still Here](https://byoungd.github.io/up/en/templates/interview-evidence) · Manuscript updated: 2026-09-02. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

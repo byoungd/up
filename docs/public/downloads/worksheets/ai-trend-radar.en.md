@@ -66,4 +66,4 @@ Check sources and permissions first, then facts and task outcomes, and only then
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/ai-trend-radar) · Manuscript updated: 2026-10-16. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Still Here](https://byoungd.github.io/up/en/templates/ai-trend-radar) · Manuscript updated: 2026-10-16. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

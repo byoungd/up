@@ -1,5 +1,5 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description">
-  <title id="title">Life Level-up Guide book sharing cover</title>
+  <title id="title">Still Here book sharing cover</title>
   <desc id="description">By Han Xiankai. Five rising stages represent input, life, tools, practice, and action.</desc>
   <rect width="1200" height="630" fill="#f5f7f3"/>
   <rect width="14" height="630" fill="#176f5b"/>
@@ -11,14 +11,14 @@
   </g>
 
   <g font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
-    <text x="70" y="76" fill="#176f5b" font-size="21" font-weight="700">A LIFELONG LEARNING GUIDE FOR THE AI ERA</text>
+    <text x="70" y="76" fill="#176f5b" font-size="21" font-weight="700">A FIELD GUIDE TO BEGINNING AGAIN</text>
     <text x="70" y="196" fill="#1d2926" font-size="70" font-weight="800">LIFE LEVEL-UP</text>
     <text x="70" y="270" fill="#1d2926" font-size="70" font-weight="800">GUIDE</text>
     <text x="72" y="335" fill="#485652" font-size="25">Begin with language. Move through life, AI, practice,</text>
     <text x="72" y="374" fill="#485652" font-size="25">and the work of changing over time.</text>
     <text x="72" y="446" fill="#1d2926" font-size="20" font-weight="700">Question → Learn → Work with AI → Deliver → Review → Transfer</text>
     <text x="72" y="535" fill="#1d2926" font-size="24" font-weight="700">Han Xiankai</text>
-    <text x="222" y="535" fill="#6b7773" font-size="19">pen name: Li Pu</text>
+    <text x="206" y="535" fill="#6b7773" font-size="20">One ordinary person's recovery and relearning</text>
     <text x="72" y="605" fill="#6b7773" font-size="17">byoungd.github.io/up/en</text>
   </g>
 

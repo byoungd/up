@@ -8,7 +8,7 @@ source_review_interval: 60
 
 # Learning Anything with AI: From Real Problems to Verifiable Delivery
 
-My name is Han Xiankai, also known online as Li Pu. Many readers first met me through English learning, then through stories about software, restaurants, a failed company, disrupted health, and a return to technology and AI. I now treat AI as learning infrastructure, not a button that thinks on my behalf.
+My name is Han Xiankai. Many readers first met me through English learning, then through stories about software, restaurants, a failed company, disrupted health, and a return to technology and AI. I now treat AI as learning infrastructure, not a button that thinks on my behalf.
 
 The method comes from an uncomfortable fact: an answer can be complete while a product has no users; code can run while its data and security have no foundation; a person can sound clever in a chat and still be unable to perform alone after the chat closes. A real learning result survives without AI: you can explain, judge, perform, transfer, and leave evidence another person can inspect.
 
@@ -264,7 +264,7 @@ Deleting a file does not delete history, shared links, exports, caches, or backu
 
 Put the three comparisons and cycle result into the [90-Day Cycle Map](../../templates/90-day-cycle.md), changing one variable in the next cycle.
 
-## Sources and Verification
+## Sources and Boundaries
 
 - **Personal experience**: mainly [My Story](../part-2/my-story.md), [Entrepreneurship](../part-2/entrepreneurship.md), and [Author Projects and Practice](../../projects.md). These are personal records, not universal rules.
 - **Product information**: official help pages listed in [Learning English with AI](../part-1/7-ai.md); features, regions, and plans change.

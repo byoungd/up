@@ -13,10 +13,16 @@ import {
 const DOCS = join(dirname(fileURLToPath(import.meta.url)), "../../docs");
 const sources = (sections) => sections.flatMap(({ items }) => items.map(({ source }) => source));
 const unprefixed = (source) => source.replace(/^en\//, "");
-const opening = ["threads/part-0/reader-guide.md", "threads/part-0/prologue.md"];
+const opening = [
+  "threads/part-0/copyright.md",
+  "threads/part-0/prologue.md",
+  "threads/part-0/reader-guide.md",
+  "threads/part-0/for-whom.md",
+  "threads/part-0/roadmap.md",
+];
 const introductions = [
-  "threads/part-1/open-input.md",
   "threads/part-2/return-to-life.md",
+  "threads/part-1/open-input.md",
   "threads/part-3/amplify-ability.md",
   "threads/part-4/practice-and-recovery.md",
   "threads/part-5/long-term-action.md",
@@ -61,10 +67,10 @@ for (const [language, navigation, labels] of [
     assert.equal(bodySections.length, 7);
     assert.deepEqual(bodySections.slice(0, 5).map(({ items }) => unprefixed(items[0].source)), introductions);
     assert.deepEqual(bodySections.slice(0, 5).map(({ text }) => text), language === "zh" ? [
-      "第一部：打开输入", "第二部：把自己放回生活", "第三部：借工具放大能力",
+      "第一部：把自己放回生活", "第二部：重新学习，打开输入", "第三部：借工具放大能力",
       "第四部：实践与恢复", "第五部：行动与长期改变",
     ] : [
-      "Part I: Open Input", "Part II: Return to Life", "Part III: Amplify Ability",
+      "Part I: Return to Life", "Part II: Learning Again, Opening Input", "Part III: Amplify Ability",
       "Part IV: Practice and Recovery", "Part V: Long-Term Action",
     ]);
     const partSix = bodySections.at(-2);
@@ -78,11 +84,29 @@ for (const [language, navigation, labels] of [
     assert.deepEqual(sources([bodySections.at(-1)]).map(unprefixed), ["threads/part-6/afterword.md"]);
     const appendixSources = sources([sections.at(-1)]).map(unprefixed);
     assert.deepEqual(appendixSources.slice(0, 3), [
-      "reference/glossary.md", "templates/toolkit.md", "templates/toolkit-walkthrough.md",
+      "reference/glossary.md", "reference/sources-and-citation.md", "reference/bibliography.md",
     ]);
     assert.deepEqual(appendixSources.slice(-6), [
+      "threads/practice/ai-evaluation.md", "threads/part-5/book-as-proof.md", "projects.md",
+      "threads/part-3/2-ai-development-and-resource-layer.md", "threads/practice/resource-layer-business.md",
+      "reference/reading-map.md",
+    ]);
+    assert.deepEqual(appendixSources, [
+      "reference/glossary.md", "reference/sources-and-citation.md", "reference/bibliography.md",
+      "templates/toolkit.md", "templates/toolkit-walkthrough.md", "templates/evidence-chain.md",
+      "templates/reader-field-note.md", "templates/family-learning-agreement.md", "templates/learning-state.md",
+      "templates/rhythm-ledger.md", "templates/weekly-review.md", "templates/english-diagnostic.md",
+      "templates/interview-evidence.md", "templates/grammar-evidence.md", "templates/vocabulary-audit.md",
+      "templates/listening-audit.md", "templates/reading-evidence.md", "templates/speaking-evidence.md",
+      "templates/writing-evidence.md", "templates/90-day-cycle.md", "templates/artifact-brief.md",
+      "templates/ai-task-brief.md", "templates/ai-trend-radar.md", "templates/ai-learning-log.md",
+      "templates/ai-case-review.md", "templates/ai-project-scorecard.md", "templates/startup-experiment.md",
+      "templates/consistency-plan.md", "templates/ai-evaluation.md", "templates/life-practice-toolkit.md",
       "practice.md", "threads/practice/customer-discovery.md", "threads/practice/sustainable-business.md",
-      "threads/practice/discipline-and-consistency.md", "threads/practice/ai-workflows.md", "threads/practice/ai-evaluation.md",
+      "threads/practice/discipline-and-consistency.md", "threads/practice/ai-workflows.md",
+      "threads/practice/ai-evaluation.md", "threads/part-5/book-as-proof.md", "projects.md",
+      "threads/part-3/2-ai-development-and-resource-layer.md", "threads/practice/resource-layer-business.md",
+      "reference/reading-map.md",
     ]);
   });
 

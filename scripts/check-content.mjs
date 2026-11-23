@@ -127,6 +127,57 @@ function checkKeyLiteraryClosing(file) {
   }
 }
 
+const BODY_OR_APPENDIX = /^(?:en\/)?threads\/part-[0-6]\//;
+const IDENTITY_EXEMPT = new Set([
+  "threads/part-0/prologue.md",
+  "en/threads/part-0/prologue.md",
+  "threads/part-0/copyright.md",
+  "en/threads/part-0/copyright.md",
+  "threads/part-5/book-as-proof.md",
+  "en/threads/part-5/book-as-proof.md",
+]);
+
+// A book chapter may cite a date in prose, but a dated heading reads as version
+// control inside the narrative. Keep dates out of headings.
+function checkDatedHeadings(file) {
+  const source = relative(DOCS, file).split(sep).join("/");
+  if (!BODY_OR_APPENDIX.test(source)) return;
+  readFileSync(file, "utf8").split("\n").forEach((line, index) => {
+    if (/^#{2,6}\s+.*\b20\d{2}-\d{2}-\d{2}\b/.test(line)) {
+      addError(file, index + 1, "书稿正文不得使用日期型标题；把日期写进段落，标题承担主题");
+    }
+  });
+}
+
+// One name per role. “离谱” is a historical pen name and “法海” a platform
+// account name; neither belongs in a byline or a chapter's self-introduction.
+function checkAuthorIdentity(file) {
+  const source = relative(DOCS, file).split(sep).join("/");
+  if (!BODY_OR_APPENDIX.test(source) || IDENTITY_EXEMPT.has(source)) return;
+  readFileSync(file, "utf8").split("\n").forEach((line, index) => {
+    if (/法海/.test(line)) {
+      addError(file, index + 1, "书稿正文统一署名韩先凯；“法海”只用于作者平台账号说明");
+    }
+    if (/\bLi Pu\b/.test(line)) {
+      addError(file, index + 1, "英文版统一使用 Han Xiankai；不再音译笔名“离谱”");
+    }
+  });
+}
+
+// A source section has one name, so readers and checkers can find it.
+function checkSourceSectionName(file) {
+  const source = relative(DOCS, file).split(sep).join("/");
+  if (!BODY_OR_APPENDIX.test(source)) return;
+  readFileSync(file, "utf8").split("\n").forEach((line, index) => {
+    if (/^## 来源/.test(line) && line.trim() !== "## 来源与边界") {
+      addError(file, index + 1, "来源小节统一命名为“## 来源与边界”");
+    }
+    if (/^## Sources/.test(line) && line.trim() !== "## Sources and Boundaries") {
+      addError(file, index + 1, "English source sections must be named “## Sources and Boundaries”");
+    }
+  });
+}
+
 function checkEntrepreneurshipStyle(file) {
   const source = relative(DOCS, file).split(sep).join("/");
   if (source !== "threads/part-2/entrepreneurship.md") return;
@@ -356,6 +407,9 @@ for (const file of markdownFiles.filter((path) => path.startsWith(`${DOCS}${sep}
   checkPartOneClosing(file);
   checkKeyLiteraryClosing(file);
   checkEntrepreneurshipStyle(file);
+  checkDatedHeadings(file);
+  checkAuthorIdentity(file);
+  checkSourceSectionName(file);
 }
 checkBilingualParity(markdownFiles);
 checkHeadingParity(markdownFiles);

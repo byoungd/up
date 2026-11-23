@@ -177,4 +177,4 @@ Related chapter: [Family Learning: Return Ownership of Growth to the Learner](ht
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/family-learning-agreement) · Manuscript updated: 2026-09-02. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Still Here](https://byoungd.github.io/up/en/templates/family-learning-agreement) · Manuscript updated: 2026-09-02. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

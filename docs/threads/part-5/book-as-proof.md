@@ -1,13 +1,7 @@
 ---
 title: "案例篇：让这本书证明它的方法"
 description: 以《人生进阶指南》自身为贯穿案例，展示一个长期内容项目如何从模糊愿望走向结构、作品、证据、出版、读者反馈与可交接维护。
-updated: 2026-09-02
-prev:
-  text: "行动篇：九十天，把生活交还给自己"
-  link: /threads/part-5/90-day-plan
-next:
-  text: "九十天以后：把改变留在生活里"
-  link: /threads/part-5/after-90-days
+updated: 2026-11-23
 ---
 
 # 案例篇：让这本书证明它的方法

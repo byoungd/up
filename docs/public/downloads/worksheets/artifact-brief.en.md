@@ -77,4 +77,4 @@ Related chapters: [Artifacts: Turn Learning into Something Made](https://byoungd
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/artifact-brief) · Manuscript updated: 2026-08-31. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Still Here](https://byoungd.github.io/up/en/templates/artifact-brief) · Manuscript updated: 2026-08-31. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

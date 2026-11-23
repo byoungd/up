@@ -52,7 +52,7 @@ for (const locale of ["zh", "en"]) {
     const activeOption = page.locator(`[id="${activeId}"]`);
     await expect(activeOption).toHaveAttribute("role", "option");
     await expect(activeOption).toHaveAttribute("aria-selected", "true");
-    await expect(activeOption).toHaveAttribute("href", /\/threads\/part-1\//);
+    await expect(activeOption).toHaveAttribute("href", /\/up\/(?:en\/)?(?:threads|reference|templates)\//);
     await expect(input).toBeFocused();
     const destination = await activeOption.getAttribute("href");
     await input.press("Enter");

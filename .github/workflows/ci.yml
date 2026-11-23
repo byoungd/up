@@ -27,7 +27,8 @@ jobs:
       - run: npm ci
       - run: python -m pip install -r requirements-pdf.txt
       - run: python tests/pdf_layout_test.py
-      - run: npm audit --audit-level=high
+      - run: npm audit --omit=dev --audit-level=high
+      - run: npm run check:audit
       - run: npm run check
       - run: npm run book:validate
       - run: npm run docs:build

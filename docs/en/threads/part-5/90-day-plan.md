@@ -1,13 +1,7 @@
 ---
 title: "90-Day Action Plan: Return Your Life to Yourself"
 description: A repeatable 90-day system for turning goals, baselines, output, feedback, artifacts, and health boundaries into visible change.
-updated: 2026-09-02
-prev:
-  text: "Part V: Long-Term Action"
-  link: /en/threads/part-5/long-term-action
-next:
-  text: "Case Study: Let the Book Prove Its Method"
-  link: /en/threads/part-5/book-as-proof
+updated: 2026-11-23
 ---
 
 # 90-Day Action Plan: Return Your Life to Yourself
@@ -16,7 +10,7 @@ Many people finish one piece of advice and immediately save another. Saving feel
 
 Progress depends less on a burst of excitement than on a stretch of time that can be inspected. This 90-day plan does not ask you to become a different person. It asks you to collect evidence that, three months from now, you can understand more, express more, and finish more. If you have not yet found a daily rhythm that can survive interruption, read [Rhythm: Let Small Things Travel Through Time](../part-4/rhythm-and-compounding.md) first, then give one returnable action to these 90 days.
 
-## 0. Define “Better”
+## Define “Better”
 
 Do not write “improve my English”, “learn AI”, or “become disciplined”. These wishes are fine, but they cannot guide today’s choice.
 

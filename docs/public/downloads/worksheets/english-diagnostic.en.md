@@ -149,4 +149,4 @@ Related entry points: [Learning Principles: Turn Effort into Verifiable Learning
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/english-diagnostic) · Manuscript updated: 2026-10-19. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Still Here](https://byoungd.github.io/up/en/templates/english-diagnostic) · Manuscript updated: 2026-10-19. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

@@ -1,13 +1,7 @@
 ---
 title: 后记：人生最大的进阶，是找到真正的自己
 description: 从最初的英语问题回到失败、身体、关系、AI 与日常行动，回答人生最大的进阶为何是找到真正的自己。
-updated: 2026-09-01
-prev:
-  text: "与自己做终身朋友：在变化中持续相处"
-  link: /threads/part-6/5-being-your-own-lifelong-friend
-next:
-  text: "返回首页"
-  link: /
+updated: 2026-11-23
 ---
 
 # 后记：人生最大的进阶，是找到真正的自己

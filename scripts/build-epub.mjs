@@ -39,7 +39,10 @@ const editions = [
     navigation: zhNavigation,
     lang: "zh-CN",
     title: "人生进阶指南",
-    subtitle: "AI 时代终身学习指南",
+    subtitle: "一个普通人的失败、恢复与重新学习",
+    edition: "1.1.0",
+    publisher: "人生进阶指南开放书稿项目",
+    subjects: ["自我成长", "心理恢复", "英语学习", "AI 素养", "终身学习"],
     creator: "韩先凯",
     frontMatter: "开卷",
     appendices: "附录与工具箱",
@@ -48,8 +51,8 @@ const editions = [
     coverLabel: "封面",
     startLabel: "开始阅读",
     accessibilitySummary: "本书采用可调整字号的流式排版，提供目录、标题结构、表格列标题和图片替代文字。部分插图中的细节没有完整的文字描述；外部参考链接需要联网。",
-    coverAlt: "《人生进阶指南》封面",
-    description: "从英语、AI、真实项目与人生低谷出发，建立能够复测、迁移、恢复并承担责任的终身学习系统。",
+    coverAlt: "《人生进阶指南》封面：一个普通人的失败、恢复与重新学习",
+    description: "公司倒闭、身体垮掉、关系受损之后，先学会不再继续坠落，再重新学习英语、使用 AI、做出作品，并把改变交给九十天和时间。",
     coverSource: join(PUBLIC, "assets/cover-portrait.png"),
   },
   {
@@ -57,8 +60,11 @@ const editions = [
     file: "life-level-up-guide-en.epub",
     navigation: enNavigation,
     lang: "en-US",
-    title: "Life Level-up Guide",
-    subtitle: "Lifelong Learning Guide for the AI Era",
+    title: "Still Here",
+    subtitle: "A Field Guide to Beginning Again",
+    edition: "1.1.0",
+    publisher: "Life Level-up Guide open manuscript project",
+    subjects: ["Recovery", "Depression", "English learning", "AI literacy", "Lifelong learning", "Memoir"],
     creator: "Han Xiankai",
     frontMatter: "Front Matter",
     appendices: "Appendices and Toolkit",
@@ -67,8 +73,8 @@ const editions = [
     coverLabel: "Cover",
     startLabel: "Start reading",
     accessibilitySummary: "Reflowable text supports font resizing, a table of contents, structured headings, table column headers, and image alternatives. Some illustrations do not have complete text descriptions of their details. External reference links require an internet connection.",
-    coverAlt: "Life Level-up Guide cover",
-    description: "A lifelong-learning system for English, AI, real projects, difficult seasons, evidence, transfer, recovery, and responsibility.",
+    coverAlt: "Still Here: A Field Guide to Beginning Again cover",
+    description: "After failure, a way back. One ordinary person's account of recovery, relearning English, using AI with judgment, making real work, and letting change answer to time.",
     coverSource: join(PUBLIC, "assets/cover-portrait-en.png"),
   },
 ];
@@ -394,8 +400,9 @@ async function buildEdition(edition, markdown, tempBase) {
   <p class="subtitle">${escapeXml(edition.subtitle)}</p>
   <p class="author">${escapeXml(edition.creator)}</p>
   <p>${escapeXml(edition.description)}</p>
+  <p>${escapeXml(edition.publisher)}</p>
   <p><a href="${ONLINE_ROOT}">${ONLINE_ROOT}</a></p>
-  <p>CC BY-NC 4.0 · ${latestUpdated}</p>
+  <p>${escapeXml(edition.edition)} · ${latestUpdated} · CC BY-NC 4.0</p>
 </section>`;
   writeFileSync(
     join(textDir, "title.xhtml"),
@@ -436,14 +443,28 @@ ${navSections}
   );
   const spine = chapterRecords.map(({ id }) => `    <itemref idref="${id}" />`);
   const identifier = `${ONLINE_ROOT}downloads/${edition.file}`;
+  // The OPF unique identifier and the legacy NCX uid must agree; EPUBCheck treats
+  // a mismatch as a fatal package error.
+  const publicationIdentifier = `urn:uuid:${edition.key === "zh" ? "0d6e2f4a-7c1b-5e39-9a8e-2f6b3c1d4e70" : "b7c1d2e3-4f5a-5b6c-8d9e-0f1a2b3c4d5e"}`;
   const opf = `<?xml version="1.0" encoding="UTF-8"?>
 <package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="pub-id" xml:lang="${edition.lang}">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <dc:identifier id="pub-id">${escapeXml(identifier)}</dc:identifier>
-    <dc:title>${escapeXml(edition.title)}</dc:title>
+    <dc:identifier id="pub-id">${escapeXml(publicationIdentifier)}</dc:identifier>
+    <dc:identifier>${escapeXml(identifier)}</dc:identifier>
+    <dc:title id="main-title">${escapeXml(edition.title)}</dc:title>
+    <meta refines="#main-title" property="title-type">main</meta>
+    <dc:title id="subtitle">${escapeXml(edition.subtitle)}</dc:title>
+    <meta refines="#subtitle" property="title-type">subtitle</meta>
     <dc:language>${edition.lang}</dc:language>
     <dc:creator>${escapeXml(edition.creator)}</dc:creator>
     <dc:description>${escapeXml(edition.description)}</dc:description>
+    <dc:publisher>${escapeXml(edition.publisher)}</dc:publisher>
+    <dc:date>${latestUpdated}</dc:date>
+${edition.subjects.map((subject) => `    <dc:subject>${escapeXml(subject)}</dc:subject>`).join("\n")}
+    <meta property="schema:version">${escapeXml(edition.edition)}</meta>
+    <meta property="belongs-to-collection" id="collection">人生进阶指南 / Still Here</meta>
+    <meta refines="#collection" property="collection-type">series</meta>
+    <meta refines="#collection" property="group-position">1</meta>
     <dc:rights>CC BY-NC 4.0</dc:rights>
     <dc:source>${ONLINE_ROOT}</dc:source>
     <meta property="dcterms:modified">${latestUpdated}T00:00:00Z</meta>
@@ -483,7 +504,7 @@ ${spine.join("\n")}
   ];
   const ncx = `<?xml version="1.0" encoding="UTF-8"?>
 <ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="${edition.lang}">
-  <head><meta name="dtb:uid" content="${escapeXml(identifier)}" /></head>
+  <head><meta name="dtb:uid" content="${escapeXml(publicationIdentifier)}" /></head>
   <docTitle><text>${escapeXml(edition.title)}</text></docTitle>
   <navMap>
 ${navPoints.map(({ id, title, href }, index) => `    <navPoint id="${id}" playOrder="${index + 1}"><navLabel><text>${escapeXml(title)}</text></navLabel><content src="${href}" /></navPoint>`).join("\n")}

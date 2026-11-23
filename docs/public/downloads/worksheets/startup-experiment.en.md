@@ -98,4 +98,4 @@ For a shorter English update:
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/startup-experiment) · Manuscript updated: 2026-09-19. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Still Here](https://byoungd.github.io/up/en/templates/startup-experiment) · Manuscript updated: 2026-09-19. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

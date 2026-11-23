@@ -96,11 +96,11 @@ EDITIONS = [
         epub_file="life-level-up-guide-zh.epub",
         pdf_file="life-level-up-guide-zh.pdf",
         title="人生进阶指南",
-        subtitle="AI 时代终身学习指南",
+        subtitle="一个普通人的失败、恢复与重新学习",
         author="韩先凯",
         contents="目录",
         cover=ROOT / "docs/public/assets/cover-portrait.png",
-        description="从英语、AI、真实项目与人生低谷出发，建立能够复测、迁移、恢复并承担责任的终身学习系统。",
+        description="公司倒闭、身体垮掉、关系受损之后，先学会不再继续坠落，再重新学习英语、使用 AI、做出作品，并把改变交给九十天和时间。",
         body_font="NotoSerifSC-LifeLevelUp",
         bold_font="NotoSerifSC-LifeLevelUp-Bold",
         italic_font="NotoSerifSC-LifeLevelUp",
@@ -111,16 +111,16 @@ EDITIONS = [
         language="en-US",
         epub_file="life-level-up-guide-en.epub",
         pdf_file="life-level-up-guide-en.pdf",
-        title="Life Level-up Guide",
-        subtitle="Lifelong Learning Guide for the AI Era",
+        title="Still Here",
+        subtitle="A Field Guide to Beginning Again",
         author="Han Xiankai",
         contents="Contents",
         cover=ROOT / "docs/public/assets/cover-portrait-en.png",
-        description="A lifelong-learning system for English, AI, real projects, difficult seasons, evidence, transfer, recovery, and responsibility.",
-        body_font="Times-Roman",
-        bold_font="Times-Bold",
-        italic_font="Times-Italic",
-        mono_font="Courier",
+        description="After failure, a way back. One ordinary person's account of recovery, relearning English, using AI with judgment, making real work, and letting change answer to time.",
+        body_font="StillHereSerif",
+        bold_font="StillHereSerif-Bold",
+        italic_font="StillHereSerif",
+        mono_font="StillHereSerif",
     ),
 ]
 
@@ -240,7 +240,7 @@ def pdf_semantics(reader: PdfReader) -> dict:
 
 def formatted_text(value: str | None, edition: Edition) -> str:
     text = clean_text(value)
-    if edition.key != "zh" or not any(character in IPA_FALLBACK_CHARACTERS for character in text):
+    if not any(character in IPA_FALLBACK_CHARACTERS for character in text):
         return html.escape(text)
     parts = []
     buffer = []
@@ -789,12 +789,19 @@ def inspect_pdf(edition: Edition, target: Path, source_epub_sha256: str, chapter
     if len(final_bytes) > 8_000_000:
         raise ValueError(f"{edition.pdf_file}: PDF exceeds 8MB budget")
     semantics = pdf_semantics(reader)
-    if edition.key == "zh":
-        embedded_fonts = {font["name"] for font in semantics["fonts"] if font["embedded"]}
-        required_fonts = {"NotoSerifSC-Regular", "NotoSerifSC-Bold", "NotoSans-Regular"}
-        missing_fonts = sorted(required_fonts - embedded_fonts)
-        if missing_fonts:
-            raise ValueError(f"{edition.pdf_file}: missing embedded fonts: {', '.join(missing_fonts)}")
+    # ReportLab's bullet glyphs fall back to base-14 Helvetica, which never carries
+    # manuscript text. Every manuscript font, including the English edition's Noto
+    # subsets and the IPA fallback, must be embedded so no glyph becomes a box.
+    TEXT_FONT_PREFIXES = ("Noto", "StillHereSerif")
+    unembedded = sorted(
+        {
+            font["name"]
+            for font in semantics["fonts"]
+            if not font["embedded"] and font["name"].startswith(TEXT_FONT_PREFIXES)
+        }
+    )
+    if unembedded:
+        raise ValueError(f"{edition.pdf_file}: text fonts are not embedded: {', '.join(unembedded)}")
     return {
         "file": edition.pdf_file,
         "language": edition.language,
@@ -836,27 +843,28 @@ def build_pdf(edition: Edition, target: Path, temp_root: Path) -> dict:
         raw_id = h1.attrib.get("id", h1.text or file) if h1 is not None else file
         h1_anchors[file] = heading_anchor(file, raw_id)
 
-    if edition.key == "zh":
-        glyphs = pdfmetrics.getFont(edition.body_font).face.charToGlyph
-        fallback_glyphs = pdfmetrics.getFont("NotoSans-LifeLevelUp-IPA").face.charToGlyph
-        used_characters = set(edition.title + edition.subtitle + edition.author + edition.contents + edition.description)
-        for root in parsed.values():
-            for text in root.itertext():
-                used_characters.update(clean_text(text))
-        missing = sorted(
-            character
-            for character in used_characters
-            if (
-                (character.isprintable() and not character.isspace())
-                or character in REQUIRED_SPACING_CHARACTERS
-            )
-            and ord(character) not in glyphs
-            and ord(character) not in fallback_glyphs
+    glyphs = set(pdfmetrics.getFont(edition.body_font).face.charToGlyph)
+    glyphs |= set(pdfmetrics.getFont(edition.bold_font).face.charToGlyph)
+    fallback_glyphs = set(pdfmetrics.getFont("NotoSans-LifeLevelUp-IPA").face.charToGlyph)
+    fallback_glyphs |= set(pdfmetrics.getFont(edition.mono_font).face.charToGlyph)
+    used_characters = set(edition.title + edition.subtitle + edition.author + edition.contents + edition.description)
+    for root in parsed.values():
+        for text in root.itertext():
+            used_characters.update(clean_text(text))
+    missing = sorted(
+        character
+        for character in used_characters
+        if (
+            (character.isprintable() and not character.isspace())
+            or character in REQUIRED_SPACING_CHARACTERS
         )
-        if missing:
-            raise ValueError(
-                f"{edition.pdf_file}: embedded font misses {len(missing)} characters: {''.join(missing[:40])}"
-            )
+        and ord(character) not in glyphs
+        and ord(character) not in fallback_glyphs
+    )
+    if missing:
+        raise ValueError(
+            f"{edition.pdf_file}: embedded font misses {len(missing)} characters: {''.join(missing[:40])}"
+        )
 
     styles = style_sheet(edition)
     story = [NextPageTemplate("body"), PageBreak()]
@@ -985,4 +993,6 @@ if __name__ == "__main__":
     pdfmetrics.registerFont(TTFont("NotoSerifSC-LifeLevelUp", str(ZH_REGULAR_FONT)))
     pdfmetrics.registerFont(TTFont("NotoSerifSC-LifeLevelUp-Bold", str(ZH_BOLD_FONT)))
     pdfmetrics.registerFont(TTFont("NotoSans-LifeLevelUp-IPA", str(ZH_IPA_FONT)))
+    pdfmetrics.registerFont(TTFont("StillHereSerif", str(ZH_REGULAR_FONT)))
+    pdfmetrics.registerFont(TTFont("StillHereSerif-Bold", str(ZH_BOLD_FONT)))
     main()

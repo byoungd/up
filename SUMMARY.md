@@ -7,10 +7,11 @@
 ## 开始
 
 - [人生进阶指南](docs/README.md)
-- [阅读指南：把书放回生活](docs/threads/part-0/reader-guide.md)
+- [版权、版本与引用](docs/threads/part-0/copyright.md)
 - [序章：先不要急着改变人生](docs/threads/part-0/prologue.md)
-- [术语与方法索引](docs/reference/glossary.md)
-- [工具箱总览](docs/templates/toolkit.md)
+- [如何读这本书](docs/threads/part-0/reader-guide.md)
+- [这本书适合谁，不适合谁](docs/threads/part-0/for-whom.md)
+- [本书路线图](docs/threads/part-0/roadmap.md)
 
 ## 专题入口
 
@@ -20,9 +21,23 @@
 - [AI 学习工作流入口](docs/topics/ai-learning-workflows.md)
 - [真实项目、求职与创业入口](docs/topics/real-projects.md)
 
-## 第一部：打开输入
+## 第一部：把自己放回生活
 
-- [第一部导语：打开输入](docs/threads/part-1/open-input.md)
+- [第一部导语：把自己放回生活](docs/threads/part-2/return-to-life.md)
+- [我的故事](docs/threads/part-2/my-story.md)
+- [我还在这里：从抑郁焦虑的黑暗中走出来](docs/threads/part-2/depression-anxiety-recovery.md)
+- [恢复篇：先把自己接住](docs/threads/part-2/recovery.md)
+- [叙事与证据篇：不把经历写成命运](docs/threads/part-2/narrative-and-evidence.md)
+- [回声篇：不要把逃避写成浪漫](docs/threads/part-2/x-misc.md)
+- [选择篇：在不确定中做决定](docs/threads/part-2/decision.md)
+- [沟通篇：让彼此被听见](docs/threads/part-2/communication.md)
+- [关系篇：在关系中成为成年人](docs/threads/part-2/relationships.md)
+- [珍惜篇：从爱与牵挂中获得力量](docs/threads/part-2/care-and-carry-on.md)
+- [创业篇：从野心到使命](docs/threads/part-2/entrepreneurship.md)
+
+## 第二部：重新学习，打开输入
+
+- [第二部导语：重新学习，打开输入](docs/threads/part-1/open-input.md)
 - [CEFR 目标与自测](docs/threads/part-1/0-cefr.md)
 - [1. 认知与训练原则](docs/threads/part-1/1-understanding.md)
 - [2. 词汇系统](docs/threads/part-1/2-vocabulary.md)
@@ -34,20 +49,6 @@
 - [7. 用 AI 学英语](docs/threads/part-1/7-ai.md)
 - [8. 求职英语与远程协作](docs/threads/part-1/8-job-search-english.md)
 
-## 第二部：把自己放回生活
-
-- [第二部导语：把自己放回生活](docs/threads/part-2/return-to-life.md)
-- [我的故事](docs/threads/part-2/my-story.md)
-- [我还在这里：从抑郁焦虑的黑暗中走出来](docs/threads/part-2/depression-anxiety-recovery.md)
-- [叙事与证据篇：不把经历写成命运](docs/threads/part-2/narrative-and-evidence.md)
-- [回声篇：不要把逃避写成浪漫](docs/threads/part-2/x-misc.md)
-- [恢复篇：先把自己接住](docs/threads/part-2/recovery.md)
-- [选择篇：在不确定中做决定](docs/threads/part-2/decision.md)
-- [沟通篇：让彼此被听见](docs/threads/part-2/communication.md)
-- [关系篇：在关系中成为成年人](docs/threads/part-2/relationships.md)
-- [珍惜篇：从爱与牵挂中获得力量](docs/threads/part-2/care-and-carry-on.md)
-- [创业篇：从野心到使命](docs/threads/part-2/entrepreneurship.md)
-
 ## 第三部：借工具放大能力
 
 - [第三部导语：借工具放大能力](docs/threads/part-3/amplify-ability.md)
@@ -56,8 +57,6 @@
 - [注意力篇：把注意力还给自己](docs/threads/part-3/3-attention-and-judgment.md)
 - [作品篇：把学会变成做出](docs/threads/part-3/4-artifacts-and-delivery.md)
 - [证据篇：变化要如何被看见](docs/threads/part-3/5-evidence-and-transfer.md)
-- [AI 开发与资源层创业](docs/threads/part-3/2-ai-development-and-resource-layer.md)
-- [作者项目与现实实践](docs/projects.md)
 
 ## 第四部：实践与恢复
 
@@ -71,7 +70,6 @@
 
 - [第五部导语：行动与长期改变](docs/threads/part-5/long-term-action.md)
 - [行动篇：九十天，把生活交还给自己](docs/threads/part-5/90-day-plan.md)
-- [案例篇：让这本书证明它的方法](docs/threads/part-5/book-as-proof.md)
 - [九十天以后：把改变留在生活里](docs/threads/part-5/after-90-days.md)
 
 ## 第六部：与自己做终身朋友
@@ -86,8 +84,15 @@
 
 - [人生最大的进阶，是找到真正的自己](docs/threads/part-6/afterword.md)
 
-## 工具箱
+## 术语与参考资料
 
+- [术语与方法索引](docs/reference/glossary.md)
+- [资料、引用与核验说明](docs/reference/sources-and-citation.md)
+- [参考文献](docs/reference/bibliography.md)
+
+## 工具箱与模板
+
+- [工具箱总览](docs/templates/toolkit.md)
 - [工具箱实战：AI 跨会话学习](docs/templates/toolkit-walkthrough.md)
 - [证据链模板](docs/templates/evidence-chain.md)
 - [读者实践回执](docs/templates/reader-field-note.md)
@@ -123,6 +128,17 @@
 - [自律与坚持实操](docs/threads/practice/discipline-and-consistency.md)
 - [AI 工作流](docs/threads/practice/ai-workflows.md)
 - [AI 评测与可靠性](docs/threads/practice/ai-evaluation.md)
+
+## 案例与作者实践
+
+- [这本书是怎样做成的：一次出版案例](docs/threads/part-5/book-as-proof.md)
+- [作者项目与现实实践](docs/projects.md)
+- [AI 开发与资源层案例](docs/threads/part-3/2-ai-development-and-resource-layer.md)
+- [资源层与企业服务：一份实践说明](docs/threads/practice/resource-layer-business.md)
+
+## 阅读地图
+
+- [阅读地图：按问题进入](docs/reference/reading-map.md)
 
 ## 旧文归档
 

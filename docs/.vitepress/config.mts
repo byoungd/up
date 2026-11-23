@@ -37,9 +37,9 @@ const socialImages: Record<string, { zh: string; en: string }> = {
   templates: { zh: "assets/social/templates-zh.png", en: "assets/social/templates-en.png" },
 };
 const defaultDescription =
-  "《人生进阶指南》帮助普通人在 AI 时代持续学习、完成真实项目、穿越人生低谷并留下成长证据。";
+  "《人生进阶指南》以低谷与恢复为主线，帮助普通人在失败之后先把自己接住，再重新学习英语、使用 AI、完成真实项目，并留下可以复测的成长证据。";
 const defaultDescriptionEn =
-  "Life Level-up Guide helps ordinary people learn continuously, complete real projects, move through difficult seasons, and preserve evidence of growth in the AI era.";
+  "Still Here: A Field Guide to Beginning Again helps ordinary people catch themselves after failure, relearn English, use AI with judgment, complete real projects, and keep evidence that can be retested.";
 const editLinkPattern = "https://github.com/byoungd/up/edit/main/docs/:path";
 const bilingualRouteMap = new Map(
   bilingualRoutePairs.flatMap(({ zh, en }) => [
@@ -195,6 +195,8 @@ function splitSearchSections(file: string, html: string) {
 function routeFromRelativePath(relativePath: string) {
   const clean = relativePath
     .replace(/(^|\/)(README|index)\.md$/, "$1")
+    .replace(/^\.\.\//, "")
+    .replace(/^\.\//, "")
     .replace(/\.md$/, "")
     .replace(/^index$/, "");
   return clean.replace(/^\/+|\/+$/g, "");
@@ -243,7 +245,7 @@ const legacyHashRedirect = `
 
 export default defineConfig({
   lang: "zh-CN",
-  title: "人生进阶指南｜AI 时代终身学习",
+  title: "人生进阶指南｜一个普通人的失败、恢复与重新学习",
   description: defaultDescription,
   base,
   cleanUrls: true,
@@ -296,7 +298,7 @@ export default defineConfig({
   head: [
     ["link", { rel: "icon", type: "image/svg+xml", href: `${base}assets/logo.svg` }],
     ["meta", { name: "theme-color", content: "#1f6f5c" }],
-    ["meta", { name: "author", content: "Han Xiankai / 韩先凯 (Li Pu / 离谱) and contributors" }],
+    ["meta", { name: "author", content: "Han Xiankai / 韩先凯 and contributors" }],
     ["meta", { name: "build-revision", content: buildRevision }],
     ["meta", { name: "twitter:card", content: "summary_large_image" }],
     ["script", {}, legacyHashRedirect],
@@ -305,7 +307,7 @@ export default defineConfig({
     root: {
       label: "简体中文",
       lang: "zh-CN",
-      title: "人生进阶指南｜AI 时代终身学习",
+      title: "人生进阶指南｜一个普通人的失败、恢复与重新学习",
       description: defaultDescription,
       themeConfig: {
         siteTitle: "人生进阶指南",
@@ -339,10 +341,10 @@ export default defineConfig({
       label: "English",
       lang: "en-US",
       link: "/en/",
-      title: "Life Level-up Guide | Lifelong Learning in the AI Era",
+      title: "Still Here: A Field Guide to Beginning Again",
       description: defaultDescriptionEn,
       themeConfig: {
-        siteTitle: "Life Level-up Guide",
+        siteTitle: "Still Here",
         nav: [
           { text: "Lifelong Learning", link: "/en/templates/learning-state" },
           { text: "AI Learning", link: "/en/threads/part-3/1-ai-learning" },
@@ -364,7 +366,7 @@ export default defineConfig({
         notFound: {
           title: "PAGE NOT FOUND",
           quote: "Sometimes the road remains after a page has moved. Return to the guide and continue from there.",
-          linkLabel: "Return to the Life Level-up Guide home page",
+          linkLabel: "Return to the Still Here home page",
           linkText: "Return home",
         },
         footer: {
@@ -473,7 +475,7 @@ export default defineConfig({
     const topics = metadataValues(pageData.frontmatter.topic);
     const intents = metadataValues(pageData.frontmatter.intent);
     const title = pageData.title ||
-      (isEnglish ? "Life Level-up Guide | Lifelong Learning in the AI Era" : "人生进阶指南｜AI 时代终身学习");
+      (isEnglish ? "Still Here: A Field Guide to Beginning Again" : "人生进阶指南｜一个普通人的失败、恢复与重新学习");
     const description =
       pageData.frontmatter.description ||
       `${title}. ${isEnglish ? defaultDescriptionEn : defaultDescription}`;
@@ -484,8 +486,8 @@ export default defineConfig({
       (route.endsWith("/toolkit") ? socialImages.templates[isEnglish ? "en" : "zh"] : undefined);
     const image = absoluteAsset(pageData.frontmatter.socialImage || routeImage, defaultImage);
     const imageAlt = (typeof pageData.frontmatter.socialImageAlt === "string" && pageData.frontmatter.socialImageAlt.trim()) ||
-      (isEnglish ? "Life Level-up Guide book sharing cover" : "《人生进阶指南》书籍分享封面");
-    const bookName = isEnglish ? "Life Level-up Guide" : "人生进阶指南";
+      (isEnglish ? "Still Here book sharing cover" : "《人生进阶指南》书籍分享封面");
+    const bookName = isEnglish ? "Still Here" : "人生进阶指南";
     const bookUrl = pageUrl(isEnglish ? "en" : "");
     const updated = pageData.frontmatter.updated;
     const dateModified =
@@ -532,7 +534,7 @@ export default defineConfig({
       license: "https://creativecommons.org/licenses/by-nc/4.0/",
       ...(isBookHome
         ? {
-            alternateName: isEnglish ? "人生进阶指南" : "Life Level-up Guide",
+        alternateName: isEnglish ? ["人生进阶指南", "Life Level-up Guide"] : ["Life Level-up Guide", "Still Here"],
             bookFormat: "https://schema.org/EBook",
             encoding: [
               {
