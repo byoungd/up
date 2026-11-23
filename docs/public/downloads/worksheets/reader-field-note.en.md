@@ -141,4 +141,4 @@ Related entry points: [Case Study: Let the Book Prove Its Method](https://byoung
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/reader-field-note) · Manuscript updated: 2026-09-02. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Still Here](https://byoungd.github.io/up/en/templates/reader-field-note) · Manuscript updated: 2026-09-02. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

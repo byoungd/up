@@ -1,61 +1,55 @@
 ---
-title: "Part I: Open Input"
-description: Begin from observable English ability, build a channel toward knowledge and other people, then move understanding into independent expression and completed work.
-updated: 2026-09-02
-prev:
-  text: "Prologue: Do Not Rush to Change Your Life"
-  link: /en/threads/part-0/prologue
-next:
-  text: "CEFR Goals and Self-check"
-  link: /en/threads/part-1/0-cefr
+title: "Part II: Learning Again, Opening Input"
+description: "After catching yourself, begin again from English as one concrete training ground: build a real baseline, and let input pass through recall, expression, and feedback until it works in a new situation."
+updated: 2026-11-23
 ---
 
-# Part I: Open Input
+# Part II: Learning Again, Opening Input
 
-What matters about a door is not how impressive it looks. What matters is where it allows you to go.
+After recovery, the second task is learning again.
 
-English first appeared to me as a wall. On one side were tests, vocabulary lists, and repeated doubt. On the other were technical documents, courses, research, products, and people I had not yet met. I thought the wall would fall if I collected enough words. It took much longer to understand that a language is not stored knowledge. It is an ability built through use in real situations.
+There is an order here that is easy to miss: restore capacity before adding load. Someone whose sleep is broken and who can concentrate for twenty minutes does not need the hardest textbook. Someone who has just been knocked down by failure does not need a new regime of discipline that recreates the old pace. Learning can start very small: one page today, ten minutes of listening tomorrow, three sentences in English the day after.
 
-This part begins with English without using English to rank a person. It asks a practical question: when information no longer arrives already arranged in your familiar language, can you hear the main point, follow an argument, ask a question, explain a judgment, and complete work with another person?
+Why put English first among the training grounds? Because it is honest. English tells you immediately what you did not hear, what you cannot say, and what you only recognise. It also has a clear external standard: one real piece of material, one real listener, one real email. You cannot get by on “I roughly understand”, and one failure does not disprove all your ability.
 
-Opening input does not mean letting more information flood your life. It means choosing what deserves to enter, learning how to understand and answer it, and keeping something of your own after the material closes.
+This part treats English as a reproducible learning sample. Any new capability can take the same path: define a real task, keep an unedited first version, do focused input and recall, take concrete feedback, wait until the hints can be removed, and do it again under a different condition.
 
 ## Questions for This Part
 
-- What can I currently complete in listening, speaking, reading, and writing, rather than what is my average “level”?
-- How does a word, sound, or text move from something I have seen to something I can use under a new condition?
-- How does input pass through recall, expression, and feedback until it becomes independent ability?
-- When a rule is already familiar, why can structure still change time, responsibility, condition, or certainty in a real message?
-- Where can AI support practice, and where must it leave so that I complete the work myself?
-- When English enters job search, interviews, and remote collaboration, how do level directions become role tasks and evidence?
+- What can I actually do in listening, reading, speaking, and writing now, rather than “roughly what level am I”?
+- How does a word, a stretch of sound, or an article move from “seen” to “usable in a new situation”?
+- How does input pass through recall, expression, and feedback to become ability that does not depend on the original material?
+- Once the rules are familiar, why does structure still change time, responsibility, condition, or certainty in real expression?
+- Where can AI help the practice, and where must it leave so that I complete the work independently?
+- When English enters a job search, an interview, and remote collaboration, how do I rewrite a level into job tasks and evidence?
 
-Do not let the weakest skill deny everything you can do, and do not let the strongest skill hide a real gap. A baseline is not a verdict. It is a map that gives the next action a direction.
+Do not let the weakest skill cancel every ability, and do not let the strongest hide a real gap. A starting point is not a verdict. It is a map that gives the next step a direction.
 
 ## Reading Path
 
-| Path | Chapters | What to leave behind |
+| Path | Chapters | What to keep |
 | --- | --- | --- |
-| Locate the starting point | [CEFR Goals and Self-check](0-cefr.md) | One unpolished baseline for each of listening, speaking, reading, and writing |
-| Build the method | [Learning Principles](1-understanding.md) · [Vocabulary](2-vocabulary.md) · [Grammar](grammar.md) | One real context, reusable chunks, one high-impact structure, and a retest date |
-| Open understanding | [Listening](3-listening.md) · [Reading](4-reading.md) | A reconstruction of the main idea, difficulty categories, and source record |
-| Enter expression | [Speaking](5-speaking.md) · [Writing](6-writing.md) | First version, feedback, revision, and expression under a new condition |
-| Use the tool | [Learning English with AI](7-ai.md) | AI boundaries, an independent retest, and feedback from a real audience |
-| Enter the role | [Job-search English](8-job-search-english.md) | Role language map, unfamiliar follow-up, asynchronous writing, and fourteen-day evidence |
+| Confirm the start | [CEFR Goals and Self-check](../part-1/0-cefr.md) | One unedited baseline for each of listening, speaking, reading, and writing |
+| Build the method | [Learning Principles](../part-1/1-understanding.md) · [Vocabulary](../part-1/2-vocabulary.md) · [Grammar](../part-1/grammar.md) | One real situation, one set of reusable chunks, one high-impact structure, and a retest date |
+| Open understanding | [Listening](../part-1/3-listening.md) · [Reading](../part-1/4-reading.md) | Reconstructed main points, a difficulty map, and a source record |
+| Enter expression | [Speaking](../part-1/5-speaking.md) · [Writing](../part-1/6-writing.md) | A first version, feedback, a revision, and expression under a new condition |
+| Use tools | [Learning English with AI](../part-1/7-ai.md) | Where AI enters and leaves, an independent retest, and feedback from a real audience |
+| Enter the job | [Job-search English](../part-1/8-job-search-english.md) | A job language map, an unfamiliar follow-up question, asynchronous writing, and fourteen days of evidence |
 
-Do not advance every chapter at once. Choose one task that will occur in life: a meeting, email, document, explanation, or conversation. Open the abilities required by that task and let the other chapters remain quiet for now.
+Do not push every chapter at once. Choose one task that will happen in reality: a meeting, an email, a document, an explanation, or a conversation. Open the abilities that task needs and let the other chapters stay quiet.
 
-## What to Carry Forward
+## What to Keep
 
-At the end of this part, leave at least three things:
+By the end of this part, leave at least three things:
 
-1. A baseline sample you can repeat thirty days later, including its unpolished structural choices;
-2. One English output a real audience can understand, answer, or use; when the goal is employment, include an unfamiliar follow-up or asynchronous handover;
-3. An [Evidence Chain](../../templates/evidence-chain.md) with time, conditions, and the next variable.
+1. A starting sample you can redo in thirty days, including the unedited structural choices;
+2. One English output that a real audience can understand, answer, or use; for a job search, include at least one unfamiliar follow-up question or an asynchronous handover;
+3. An [evidence chain](../../templates/evidence-chain.md) that names the time, the condition, and the next variable.
 
-If you have only saved links, playback time, and the feeling of having studied, this part is not complete. Close the material, change the task slightly, and try again alone. Ability is what remains when the prompt leaves.
+If all you have is saved material, listening hours, and the feeling of “I learned a lot”, this part is not finished. Close the material, switch to a similar task, and do it once on your own. Ability is what remains after the hints are gone.
 
-## Enter the Work
+## Into the Chapters
 
-Do not begin by deciding whether you are “good at English”. Begin with a sheet of paper and preserve what you can do today.
+Let us not begin by asking whether we are “good at English”. Take out a sheet of paper and keep the version you can finish today.
 
-The door does not wait for perfect preparation. Often you push first, and only then does light enter through the opening.
+A door does not open only after you are fully prepared. Often you reach out first, and the light comes through the gap.

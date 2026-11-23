@@ -1,13 +1,7 @@
 ---
 title: "Part V: Long-Term Action"
 description: Give one real problem ninety days, using phase gates, evidence, rhythm, and stopping conditions so long-term change can face life and time.
-updated: 2026-09-02
-prev:
-  text: "Rhythm: Let Small Things Travel Through Time"
-  link: /en/threads/part-4/rhythm-and-compounding
-next:
-  text: "90-Day Action Plan: Return Your Life to Yourself"
-  link: /en/threads/part-5/90-day-plan
+updated: 2026-11-23
 ---
 
 # Part V: Long-Term Action

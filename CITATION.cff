@@ -1,21 +1,26 @@
 cff-version: 1.2.0
 message: "If this guide informs your work, please cite the repository and include the commit or access date you used."
-title: "人生进阶指南 / Life Level-up Guide"
+title: "人生进阶指南：一个普通人的失败、恢复与重新学习 / Still Here: A Field Guide to Beginning Again"
 abstract: >-
-  An evolving bilingual open-content guide that connects English learning,
-  AI-assisted practice, real projects, recovery, and evidence-based reflection.
-  The guide text is licensed CC BY-NC 4.0; site configuration, checks, and
-  build scripts are licensed MIT.
+  A bilingual, recovery-centred field guide to failure, depression, beginning
+  again, English learning, AI-assisted practice, real work, and evidence-based
+  reflection. The Chinese text is the primary edition; the English edition is an
+  adapted rewrite, not a literal translation. Text: CC BY-NC 4.0. Code: MIT.
+version: "1.1.0"
+date-released: 2026-11-23
 authors:
   - family-names: "韩"
     given-names: "先凯"
-    name-suffix: "（笔名：离谱）"
+    name-suffix: "（笔名：离谱 / Li Pu）"
 url: "https://byoungd.github.io/up/"
 repository-code: "https://github.com/byoungd/up"
 license: "CC-BY-NC-4.0"
 keywords:
-  - lifelong learning
+  - failure
+  - recovery
+  - beginning again
+  - resilience
   - English learning
   - AI literacy
-  - Chinese
-  - self-directed learning
+  - lifelong learning
+  - bilingual

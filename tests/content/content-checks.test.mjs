@@ -234,6 +234,14 @@ test("the README mirror preserves upstream reference and download handling", () 
   assert.equal(repositoryReadmeFromDocs(source), '[Glossary](docs/reference/glossary.md) <a href="./docs/public/downloads/guide.epub">Download</a>');
 });
 
+test("the README mirror rewrites docs-relative links used on the homepage", () => {
+  const source = '[Reading map](./reference/reading-map) <a href="./threads/part-0/prologue">Prologue</a> <a href="./public/downloads/guide.epub">EPUB</a>';
+  assert.equal(
+    repositoryReadmeFromDocs(source),
+    '[Reading map](docs/reference/reading-map) <a href="./docs/threads/part-0/prologue.md">Prologue</a> <a href="./docs/public/downloads/guide.epub">EPUB</a>',
+  );
+});
+
 test("the repository README omits VitePress frontmatter", () => {
   const source = '---\ntitle: Guide\nupdated: 2026-10-20\n---\n\n# Guide';
   assert.equal(repositoryReadmeFromDocs(source), "# Guide");

@@ -1,0 +1,54 @@
+{
+  "note": "High/critical advisories accepted for the build-only toolchain. The shipped site and book artifacts have no runtime Node dependencies; `npm audit --omit=dev` is the release gate. Each entry needs a review date and cannot be extended silently.",
+  "entries": [
+    {
+      "package": "markdown-it",
+      "advisory": "GHSA-vfgh-jcmw-g37q",
+      "title": "Quadratic-time denial of service in inline HTML parsing with html enabled",
+      "reason": "Only reachable from the markdownlint-cli build tool; not used to render the public site or the book. Upstream fix lands with the next markdownlint-cli bump.",
+      "reviewBy": "2027-02-28"
+    },
+    {
+      "package": "markdown-it",
+      "advisory": "GHSA-gfr2-rv44-r23c",
+      "title": "Quadratic-time rendering of a single multi-line link reference definition",
+      "reason": "Build-tool only, no untrusted Markdown is rendered. Track the next markdownlint-cli release.",
+      "reviewBy": "2027-02-28"
+    },
+    {
+      "package": "vite",
+      "advisory": "GHSA-9jrq-w75r-8gcw",
+      "title": "Cross origin script execution through Vite custom middleware",
+      "reason": "Vite 6 is pinned by VitePress 1.6.4 and there is no patched release yet. The dev server binds locally only; the deployed site is static.",
+      "reviewBy": "2027-02-28"
+    },
+    {
+      "package": "vite",
+      "advisory": "GHSA-rq7h-c2jc-7f22",
+      "title": "Files outside server.fs.allow could be served when project paths match system paths",
+      "reason": "Same pinned Vite 6.4.3; dev-server only. Revisit with a VitePress upgrade.",
+      "reviewBy": "2027-02-28"
+    },
+    {
+      "package": "vite",
+      "advisory": "GHSA-698v-4r3x-3vcv",
+      "title": "launch-editor escapeCmdArgs() omits % escaping on Windows",
+      "reason": "launch-editor is only invoked from a local dev server on the developer's own machine.",
+      "reviewBy": "2027-02-28"
+    },
+    {
+      "package": "vite",
+      "advisory": "GHSA-r825-w8mm-5pxw",
+      "title": "launch-editor editor CLI flag misinterpretation",
+      "reason": "Local dev-server only; no untrusted editor configuration is used here.",
+      "reviewBy": "2027-02-28"
+    },
+    {
+      "package": "vite",
+      "advisory": "GHSA-587h-7wmj-h5pm",
+      "title": "launch-editor existsSync() existence check can be bypassed on Windows",
+      "reason": "Windows-specific local dev-server risk; CI runs on Linux and the published site is static.",
+      "reviewBy": "2027-02-28"
+    }
+  ]
+}

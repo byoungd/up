@@ -6,11 +6,12 @@
 
 ## Start Here
 
-- [Life Level-up Guide](README.md)
-- [Reader's Guide: Put the Book Back into Life](threads/part-0/reader-guide.md)
+- [Still Here](README.md)
+- [Copyright, Edition, and Citation](threads/part-0/copyright.md)
 - [Prologue: Do Not Rush to Change Your Life](threads/part-0/prologue.md)
-- [Glossary of Terms and Methods](reference/glossary.md)
-- [Toolkit Overview](templates/toolkit.md)
+- [How to Read This Book](threads/part-0/reader-guide.md)
+- [Who This Book Is For — and Not For](threads/part-0/for-whom.md)
+- [Book Roadmap](threads/part-0/roadmap.md)
 
 ## Topic Hubs
 
@@ -20,9 +21,23 @@
 - [AI Learning Workflow Hub](topics/ai-learning-workflows.md)
 - [Real Projects, Jobs, and Entrepreneurship](topics/real-projects.md)
 
-## Part I: Open Input
+## Part I: Return to Life
 
-- [Part I Introduction: Open Input](threads/part-1/open-input.md)
+- [Part I Introduction: Return to Life](threads/part-2/return-to-life.md)
+- [My Story](threads/part-2/my-story.md)
+- [I Am Still Here: Coming Through Depression, Anxiety, and the Dark](threads/part-2/depression-anxiety-recovery.md)
+- [Recovery: Catch Yourself Before You Push Forward](threads/part-2/recovery.md)
+- [Narrative and Evidence: Do Not Turn Experience into Fate](threads/part-2/narrative-and-evidence.md)
+- [Echoes: Do Not Romanticise Avoidance](threads/part-2/x-misc.md)
+- [Decision-Making: Choosing Under Uncertainty](threads/part-2/decision.md)
+- [Communication: Let Each Other Be Heard](threads/part-2/communication.md)
+- [Relationships: Becoming an Adult in Connection](threads/part-2/relationships.md)
+- [Care: Finding Strength in the People We Love](threads/part-2/care-and-carry-on.md)
+- [Entrepreneurship: From Ambition to Purpose](threads/part-2/entrepreneurship.md)
+
+## Part II: Learning Again, Opening Input
+
+- [Part II Introduction: Learning Again, Opening Input](threads/part-1/open-input.md)
 - [CEFR Goals and Self-check](threads/part-1/0-cefr.md)
 - [1. Learning Principles](threads/part-1/1-understanding.md)
 - [2. Vocabulary](threads/part-1/2-vocabulary.md)
@@ -34,20 +49,6 @@
 - [7. Learning English with AI](threads/part-1/7-ai.md)
 - [8. Job-search English and Remote Work](threads/part-1/8-job-search-english.md)
 
-## Part II: Return to Life
-
-- [Part II Introduction: Return to Life](threads/part-2/return-to-life.md)
-- [My Story](threads/part-2/my-story.md)
-- [I Am Still Here: Coming Through Depression, Anxiety, and the Dark](threads/part-2/depression-anxiety-recovery.md)
-- [Narrative and Evidence: Do Not Turn Experience into Fate](threads/part-2/narrative-and-evidence.md)
-- [Echoes: Do Not Romanticise Avoidance](threads/part-2/x-misc.md)
-- [Recovery: Catch Yourself Before You Push Forward](threads/part-2/recovery.md)
-- [Decision-Making: Choosing Under Uncertainty](threads/part-2/decision.md)
-- [Communication: Let Each Other Be Heard](threads/part-2/communication.md)
-- [Relationships: Becoming an Adult in Connection](threads/part-2/relationships.md)
-- [Care: Finding Strength in the People We Love](threads/part-2/care-and-carry-on.md)
-- [Entrepreneurship: From Ambition to Purpose](threads/part-2/entrepreneurship.md)
-
 ## Part III: Amplify Ability
 
 - [Part III Introduction: Amplify Ability](threads/part-3/amplify-ability.md)
@@ -56,8 +57,6 @@
 - [Attention: Return Your Attention to Yourself](threads/part-3/3-attention-and-judgment.md)
 - [Artifacts: Turn Learning into Something Made](threads/part-3/4-artifacts-and-delivery.md)
 - [Evidence: How Change Becomes Visible](threads/part-3/5-evidence-and-transfer.md)
-- [AI Development and Resource-layer Business](threads/part-3/2-ai-development-and-resource-layer.md)
-- [Author Projects and Practice](projects.md)
 
 ## Part IV: Practice and Recovery
 
@@ -71,7 +70,6 @@
 
 - [Part V Introduction: Long-Term Action](threads/part-5/long-term-action.md)
 - [90-Day Action Plan](threads/part-5/90-day-plan.md)
-- [Case Study: Let the Book Prove Its Method](threads/part-5/book-as-proof.md)
 - [After Ninety Days: Let Change Remain in Life](threads/part-5/after-90-days.md)
 
 ## Part VI: Be Your Own Lifelong Friend
@@ -86,8 +84,15 @@
 
 - [The Greatest Progress Is Finding Your True Self](threads/part-6/afterword.md)
 
-## Toolkit
+## Terms and References
 
+- [Glossary of Terms and Methods](reference/glossary.md)
+- [Sources, Citation, and Verification](reference/sources-and-citation.md)
+- [Bibliography](reference/bibliography.md)
+
+## Toolkit and Templates
+
+- [Toolkit Overview](templates/toolkit.md)
 - [Toolkit Walkthrough: AI Learning across Sessions](templates/toolkit-walkthrough.md)
 - [Evidence Chain](templates/evidence-chain.md)
 - [Reader Field Note](templates/reader-field-note.md)
@@ -123,6 +128,17 @@
 - [Discipline and Consistency in Practice](threads/practice/discipline-and-consistency.md)
 - [AI Workflows](threads/practice/ai-workflows.md)
 - [AI Evaluation and Reliability](threads/practice/ai-evaluation.md)
+
+## Case Studies and Author Practice
+
+- [How This Book Was Made: A Publishing Case Study](threads/part-5/book-as-proof.md)
+- [Author Projects and Practice](projects.md)
+- [AI Development and the Resource Layer: A Case](threads/part-3/2-ai-development-and-resource-layer.md)
+- [The Resource Layer and Enterprise Services: A Practice Note](threads/practice/resource-layer-business.md)
+
+## Reading Map
+
+- [Reading Map: Enter by Problem](reference/reading-map.md)
 
 ## Archive
 

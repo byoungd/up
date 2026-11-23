@@ -199,4 +199,4 @@ Keep this toolkit beside the [Weekly Review template](https://byoungd.github.io/
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/life-practice-toolkit) · Manuscript updated: 2026-10-04. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Still Here](https://byoungd.github.io/up/en/templates/life-practice-toolkit) · Manuscript updated: 2026-10-04. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

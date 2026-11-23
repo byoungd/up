@@ -133,7 +133,7 @@ function buildFeed() {
   </entry>`).join("\n");
   return `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
-  <title>人生进阶指南 / Life Level-up Guide</title>
+  <title>人生进阶指南 / Still Here</title>
   <subtitle>英语、AI 学习、真实项目与长期改变的近期更新</subtitle>
   <id>${SITE_URL}feeds/updates.xml</id>
   <link href="${SITE_URL}feeds/updates.xml" rel="self" />
@@ -152,9 +152,9 @@ function buildRecentPage(language) {
   const isEnglish = language === "en";
   const items = recentItems(language);
   const latest = items[0]?.updated ?? "2026-01-01";
-  const title = isEnglish ? "Recent Updates | Life Level-up Guide" : "最近更新｜人生进阶指南";
+  const title = isEnglish ? "Recent Updates | Still Here" : "最近更新｜人生进阶指南";
   const description = isEnglish
-    ? "Recent changes from the Life Level-up Guide changelog and page review dates, with links to bilingual topic hubs and practice pages."
+    ? "Recent changes from the Still Here changelog and page review dates, with links to bilingual topic hubs and practice pages."
     : "从项目变更日志和页面复核日期生成的近期更新，连接英语、AI、真实项目与实践入口。";
   const heading = isEnglish ? "# Recent Updates" : "# 最近更新";
   const intro = isEnglish

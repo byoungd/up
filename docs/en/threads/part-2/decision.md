@@ -1,7 +1,7 @@
 ---
 title: "Decision-Making: Choosing Under Uncertainty"
 description: Use facts, values, decision authority, costs, reversibility, and stop gates to think through career, money, relationships, health, and AI-era decisions.
-updated: 2026-09-03
+updated: 2026-11-23
 ---
 
 # Decision-Making: Choosing Under Uncertainty
@@ -24,9 +24,7 @@ When a decision grows out of a complicated experience, use [Narrative and Eviden
 - define pause, stop, and rollback signals before commitment makes the thresholds move;
 - leave a decision record so your future self can review it instead of judging the past only by its result.
 
-### Let Confidence Set the Action Size
-
-Do not treat “I feel confident” as one number. Separate at least three things: how reliable the facts are, whether the key assumption has been tested, and how easy the choice is to reverse. Different combinations deserve different action sizes.
+**See where confidence comes from.** Do not treat “I feel confident” as one number. Separate at least three things: how reliable the facts are, whether the key assumption has been tested, and how easy the choice is to reverse. Different combinations deserve different action sizes.
 
 | Fact confidence | Assumption confidence | Reversibility | More suitable next step |
 | --- | --- | --- | --- |

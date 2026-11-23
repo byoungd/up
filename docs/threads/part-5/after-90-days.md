@@ -1,13 +1,7 @@
 ---
 title: 九十天以后：把改变留在生活里
 description: 在一个行动周期结束后，用关账、迁移、停止条件、季节节律与年度回看，把阶段成果变成能被生活继续使用的能力。
-updated: 2026-09-02
-prev:
-  text: "案例篇：让这本书证明它的方法"
-  link: /threads/part-5/book-as-proof
-next:
-  text: "了解自己：先看见自己如何运作"
-  link: /threads/part-6/1-understanding-yourself
+updated: 2026-11-23
 ---
 
 # 九十天以后：把改变留在生活里

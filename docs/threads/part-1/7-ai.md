@@ -1,8 +1,8 @@
 ---
 title: 用 AI 学英语：从练习到真实交付
 description: 用英语基线、真实材料、引导练习、四项能力反馈和延迟复测学习，而不是把英语能力外包给一个 AI 产品。
-updated: 2026-10-15
-sources_checked: 2026-10-15
+updated: 2026-11-23
+sources_checked: 2026-11-23
 source_review_interval: 30
 ---
 
@@ -19,7 +19,7 @@ AI 可以缩短找材料、生成练习和获得初步反馈的时间，却不�
 - 让 AI 提问、提示和生成平行练习，不替你完成关键回忆与表达；
 - 把结果写回[AI 学习记录](../../templates/ai-learning-log.md)和[九十日行动总表](../../templates/90-day-cycle.md)。
 
-> 本页产品功能上次核验于 **2026-08-24**。学习模式、项目空间、语音和写作工具会因地区、语言、设备、账号和套餐变化；使用前请重新打开官方页面核对。
+> 本页产品功能上次核验于 **2026-11-23**。学习模式、项目空间、语音和写作工具会因地区、语言、设备、账号和套餐变化；使用前请重新打开官方页面核对。
 
 ## 先定义“会英语”
 
@@ -209,12 +209,12 @@ AI 可以生成填空、改错和替换练习，但释义、搭配和例句要�
 
 - OpenAI：[学习模式简介](https://openai.com/zh-Hans-CN/index/chatgpt-study-mode/)；[Projects in ChatGPT](https://help.openai.com/en/articles/10169521-projects)
 - Google：[在 Gemini 应用中使用学习工具](https://support.google.com/gemini/answer/16448384)；[创建测验、抽认卡等](https://support.google.com/gemini/answer/16275879)；[Gemini Live](https://support.google.com/gemini/answer/15274899)
-- Anthropic：[What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
+- Anthropic：[What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)（免费账号可建，最多五个项目；增强知识检索需付费套餐）
 - Google：[NotebookLM](https://notebooklm.google/)
 - Perplexity：[Help Center](https://www.perplexity.ai/help-center/)
 - DeepL：[DeepL Write](https://www.deepl.com/write)
 
-这些页面只是可重新核验的产品入口，不是当前功能清单，也不构成工具排名或效果保证。产品入口的上次集中核验日期为 2026-08-24；使用前请重新核验功能、地区和套餐。
+这些页面只是可重新核验的产品入口，不是当前功能清单，也不构成工具排名或效果保证。产品入口的上次集中核验日期为 2026-11-23；使用前请重新核验功能、地区和套餐。
 
 ## 结语：工具离场以后
 

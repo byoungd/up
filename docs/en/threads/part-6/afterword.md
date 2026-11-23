@@ -1,13 +1,7 @@
 ---
 title: "Afterword: The Greatest Progress Is Finding Your True Self"
 description: "A closing return from the first English question to failure, health, relationships, AI, and ordinary action, asking whether our greatest progress lies in finding our true selves."
-updated: 2026-09-01
-prev:
-  text: "Being Your Own Lifelong Friend: Stay Connected to Yourself"
-  link: /en/threads/part-6/5-being-your-own-lifelong-friend
-next:
-  text: "Return home"
-  link: /en/
+updated: 2026-11-23
 ---
 
 # Afterword: The Greatest Progress Is Finding Your True Self

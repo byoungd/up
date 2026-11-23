@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
+.venv
 /dist
 docs/.vitepress/cache/
 docs/.vitepress/dist/

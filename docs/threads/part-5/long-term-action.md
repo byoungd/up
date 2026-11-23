@@ -1,13 +1,7 @@
 ---
 title: 第五部：行动与长期改变
 description: 把一个真实问题交给九十天，用阶段门槛、证据链、节律与停止条件，让长期改变接受生活和时间的检验。
-updated: 2026-09-02
-prev:
-  text: "节律篇：让小事穿过时间"
-  link: /threads/part-4/rhythm-and-compounding
-next:
-  text: "行动篇：九十天，把生活交还给自己"
-  link: /threads/part-5/90-day-plan
+updated: 2026-11-23
 ---
 
 # 第五部：行动与长期改变

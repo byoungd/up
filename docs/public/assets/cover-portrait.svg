@@ -1,15 +1,15 @@
 <svg width="1600" height="2560" viewBox="0 0 1600 2560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description">
   <title id="title">《人生进阶指南》中文电子书封面</title>
-  <desc id="description">韩先凯著。五级上升结构代表输入、生活、工具、实践与行动。</desc>
+  <desc id="description">韩先凯著。一个普通人的失败、恢复与重新学习。五级上升结构代表生活、输入、工具、实践与行动。</desc>
   <rect width="1600" height="2560" fill="#f5f7f3"/>
   <rect width="30" height="2560" fill="#176f5b"/>
   <path d="M110 210H1490M110 2290H1490" stroke="#cfd7d1" stroke-width="2"/>
 
   <g font-family="system-ui,-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
-    <text x="120" y="170" fill="#176f5b" font-size="44" font-weight="700">AI 时代终身学习指南</text>
+    <text x="120" y="170" fill="#176f5b" font-size="42" font-weight="700">一个普通人的失败、恢复与重新学习</text>
     <text x="112" y="560" fill="#1d2926" font-size="190" font-weight="800">人生进阶指南</text>
-    <text x="120" y="690" fill="#485652" font-size="54">从英语这扇门出发</text>
-    <text x="120" y="770" fill="#485652" font-size="54">走向学习、生活、AI 与长期行动</text>
+    <text x="120" y="690" fill="#485652" font-size="54">从一次失败开始</text>
+    <text x="120" y="770" fill="#485652" font-size="54">走向恢复、学习、AI 与长期行动</text>
   </g>
 
   <g fill="none" stroke="#dfe5e0" stroke-width="2">
@@ -47,7 +47,6 @@
     </g>
     <text x="120" y="2210" fill="#1d2926" font-size="42" font-weight="700">发现问题 → 主动学习 → 完成真实任务 → 保存证据 → 复盘迁移</text>
     <text x="120" y="2390" fill="#1d2926" font-size="50" font-weight="700">韩先凯 著</text>
-    <text x="405" y="2390" fill="#6b7773" font-size="36">笔名：离谱</text>
     <text x="120" y="2500" fill="#6b7773" font-size="30">byoungd.github.io/up</text>
   </g>
 </svg>

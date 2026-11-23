@@ -21,15 +21,22 @@ OUTPUTS = {
     700: FONT_DIR / "NotoSerifSC-LifeLevelUp-Bold.ttf",
 }
 EXTRA_TEXT = (
-    "人生进阶指南 AI 时代终身学习指南 韩先凯 目录 "
-    "https://byoungd.github.io/up/ CC BY-NC 4.0 2026-09-01 •"
+    "人生进阶指南 一个普通人的失败 恢复与重新学习 韩先凯 目录 Still Here 第一版 1.1.0 "
+    "https://byoungd.github.io/up/ CC BY-NC 4.0 2026-09-01 • "
+)
+# Punctuation that appears in either edition but not necessarily in the Chinese
+# EPUB: typographic quotes and dashes, the ASCII punctuation set, and CJK marks.
+EXTRA_PUNCTUATION = (
+    "".join(chr(code) for code in range(0x20, 0x7F))
+    + "\u2018\u2019\u201c\u201d\u2013\u2014\u2026\u00b7\u2022"
+    + "\u3001\u3002\u300a\u300b\u300c\u300d\u300e\u300f\uff0c\uff1a\uff1b\uff1f\uff01\uff08\uff09\u2014"
 )
 IPA_FALLBACK_CHARACTERS = set("ɪʌː")
 REQUIRED_SPACING_CHARACTERS = set(" \u00a0")
 
 
 def publication_characters(epub_path: Path) -> set[str]:
-    characters = set(EXTRA_TEXT)
+    characters = set(EXTRA_TEXT) | set(EXTRA_PUNCTUATION)
     with zipfile.ZipFile(epub_path) as archive:
         chapters = sorted(
             name

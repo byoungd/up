@@ -1,13 +1,7 @@
 ---
 title: "After Ninety Days: Let Change Remain in Life"
 description: Close an action cycle with evidence, transfer, stopping conditions, seasonal rhythm, and annual review so temporary progress becomes an ability life can keep using.
-updated: 2026-09-02
-prev:
-  text: "Case Study: Let the Book Prove Its Method"
-  link: /en/threads/part-5/book-as-proof
-next:
-  text: "Understanding Yourself: First See How You Operate"
-  link: /en/threads/part-6/1-understanding-yourself
+updated: 2026-11-23
 ---
 
 # After Ninety Days: Let Change Remain in Life

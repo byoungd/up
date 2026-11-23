@@ -48,4 +48,4 @@ Locations of baseline, assisted, and delayed independent retest:
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/ai-project-scorecard) · Manuscript updated: 2026-08-31. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Still Here](https://byoungd.github.io/up/en/templates/ai-project-scorecard) · Manuscript updated: 2026-08-31. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

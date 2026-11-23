@@ -14,10 +14,11 @@ export const zhNavigation = [
     publication: "frontmatter",
     items: [
       page("人生进阶指南", "/", "README.md"),
-      page("阅读指南：把书放回生活", "/threads/part-0/reader-guide"),
+      page("版权、版本与引用", "/threads/part-0/copyright"),
       page("序章：先不要急着改变人生", "/threads/part-0/prologue"),
-      page("术语与方法索引", "/reference/glossary"),
-      page("工具箱总览", "/templates/toolkit"),
+      page("如何读这本书", "/threads/part-0/reader-guide"),
+      page("这本书适合谁，不适合谁", "/threads/part-0/for-whom"),
+      page("本书路线图", "/threads/part-0/roadmap"),
     ],
   },
   {
@@ -31,10 +32,27 @@ export const zhNavigation = [
     ],
   },
   {
-    text: "第一部：打开输入",
+    text: "第一部：把自己放回生活",
     publication: "body",
     items: [
-      page("第一部导语：打开输入", "/threads/part-1/open-input"),
+      page("第一部导语：把自己放回生活", "/threads/part-2/return-to-life"),
+      page("我的故事", "/threads/part-2/my-story"),
+      page("我还在这里：从抑郁焦虑的黑暗中走出来", "/threads/part-2/depression-anxiety-recovery"),
+      page("恢复篇：先把自己接住", "/threads/part-2/recovery"),
+      page("叙事与证据篇：不把经历写成命运", "/threads/part-2/narrative-and-evidence"),
+      page("回声篇：不要把逃避写成浪漫", "/threads/part-2/x-misc"),
+      page("选择篇：在不确定中做决定", "/threads/part-2/decision"),
+      page("沟通篇：让彼此被听见", "/threads/part-2/communication"),
+      page("关系篇：在关系中成为成年人", "/threads/part-2/relationships"),
+      page("珍惜篇：从爱与牵挂中获得力量", "/threads/part-2/care-and-carry-on"),
+      page("创业篇：从野心到使命", "/threads/part-2/entrepreneurship"),
+    ],
+  },
+  {
+    text: "第二部：重新学习，打开输入",
+    publication: "body",
+    items: [
+      page("第二部导语：重新学习，打开输入", "/threads/part-1/open-input"),
       page("CEFR 目标与自测", "/threads/part-1/0-cefr"),
       page("1. 认知与训练原则", "/threads/part-1/1-understanding"),
       page("2. 词汇系统", "/threads/part-1/2-vocabulary"),
@@ -48,23 +66,6 @@ export const zhNavigation = [
     ],
   },
   {
-    text: "第二部：把自己放回生活",
-    publication: "body",
-    items: [
-      page("第二部导语：把自己放回生活", "/threads/part-2/return-to-life"),
-      page("我的故事", "/threads/part-2/my-story"),
-      page("我还在这里：从抑郁焦虑的黑暗中走出来", "/threads/part-2/depression-anxiety-recovery"),
-      page("叙事与证据篇：不把经历写成命运", "/threads/part-2/narrative-and-evidence"),
-      page("回声篇：不要把逃避写成浪漫", "/threads/part-2/x-misc"),
-      page("恢复篇：先把自己接住", "/threads/part-2/recovery"),
-      page("选择篇：在不确定中做决定", "/threads/part-2/decision"),
-      page("沟通篇：让彼此被听见", "/threads/part-2/communication"),
-      page("关系篇：在关系中成为成年人", "/threads/part-2/relationships"),
-      page("珍惜篇：从爱与牵挂中获得力量", "/threads/part-2/care-and-carry-on"),
-      page("创业篇：从野心到使命", "/threads/part-2/entrepreneurship"),
-    ],
-  },
-  {
     text: "第三部：借工具放大能力",
     publication: "body",
     items: [
@@ -74,8 +75,6 @@ export const zhNavigation = [
       page("注意力篇：把注意力还给自己", "/threads/part-3/3-attention-and-judgment"),
       page("作品篇：把学会变成做出", "/threads/part-3/4-artifacts-and-delivery"),
       page("证据篇：变化要如何被看见", "/threads/part-3/5-evidence-and-transfer"),
-      page("AI 开发与资源层创业", "/threads/part-3/2-ai-development-and-resource-layer"),
-      page("作者项目与现实实践", "/projects"),
     ],
   },
   {
@@ -95,7 +94,6 @@ export const zhNavigation = [
     items: [
       page("第五部导语：行动与长期改变", "/threads/part-5/long-term-action"),
       page("行动篇：九十天，把生活交还给自己", "/threads/part-5/90-day-plan"),
-      page("案例篇：让这本书证明它的方法", "/threads/part-5/book-as-proof"),
       page("九十天以后：把改变留在生活里", "/threads/part-5/after-90-days"),
     ],
   },
@@ -118,9 +116,19 @@ export const zhNavigation = [
     ],
   },
   {
-    text: "工具箱",
+    text: "术语与参考资料",
     publication: "appendix",
     items: [
+      page("术语与方法索引", "/reference/glossary"),
+      page("资料、引用与核验说明", "/reference/sources-and-citation"),
+      page("参考文献", "/reference/bibliography"),
+    ],
+  },
+  {
+    text: "工具箱与模板",
+    publication: "appendix",
+    items: [
+      page("工具箱总览", "/templates/toolkit"),
       page("工具箱实战：AI 跨会话学习", "/templates/toolkit-walkthrough"),
       page("证据链模板", "/templates/evidence-chain"),
       page("读者实践回执", "/templates/reader-field-note"),
@@ -162,6 +170,21 @@ export const zhNavigation = [
     ],
   },
   {
+    text: "案例与作者实践",
+    publication: "appendix",
+    items: [
+      page("这本书是怎样做成的：一次出版案例", "/threads/part-5/book-as-proof"),
+      page("作者项目与现实实践", "/projects"),
+      page("AI 开发与资源层案例", "/threads/part-3/2-ai-development-and-resource-layer"),
+      page("资源层与企业服务：一份实践说明", "/threads/practice/resource-layer-business"),
+    ],
+  },
+  {
+    text: "阅读地图",
+    publication: "appendix",
+    items: [page("阅读地图：按问题进入", "/reference/reading-map")],
+  },
+  {
     text: "旧文归档",
     items: [
       page("归档说明", "/threads/archive/", "threads/archive/README.md"),
@@ -190,11 +213,12 @@ export const enNavigation = [
     text: "Start Here",
     publication: "frontmatter",
     items: [
-      page("Life Level-up Guide", "/en/", "en/README.md"),
-      page("Reader's Guide: Put the Book Back into Life", "/en/threads/part-0/reader-guide"),
+      page("Still Here", "/en/", "en/README.md"),
+      page("Copyright, Edition, and Citation", "/en/threads/part-0/copyright"),
       page("Prologue: Do Not Rush to Change Your Life", "/en/threads/part-0/prologue"),
-      page("Glossary of Terms and Methods", "/en/reference/glossary"),
-      page("Toolkit Overview", "/en/templates/toolkit"),
+      page("How to Read This Book", "/en/threads/part-0/reader-guide"),
+      page("Who This Book Is For — and Not For", "/en/threads/part-0/for-whom"),
+      page("Book Roadmap", "/en/threads/part-0/roadmap"),
     ],
   },
   {
@@ -208,10 +232,27 @@ export const enNavigation = [
     ],
   },
   {
-    text: "Part I: Open Input",
+    text: "Part I: Return to Life",
     publication: "body",
     items: [
-      page("Part I Introduction: Open Input", "/en/threads/part-1/open-input"),
+      page("Part I Introduction: Return to Life", "/en/threads/part-2/return-to-life"),
+      page("My Story", "/en/threads/part-2/my-story"),
+      page("I Am Still Here: Coming Through Depression, Anxiety, and the Dark", "/en/threads/part-2/depression-anxiety-recovery"),
+      page("Recovery: Catch Yourself Before You Push Forward", "/en/threads/part-2/recovery"),
+      page("Narrative and Evidence: Do Not Turn Experience into Fate", "/en/threads/part-2/narrative-and-evidence"),
+      page("Echoes: Do Not Romanticise Avoidance", "/en/threads/part-2/x-misc"),
+      page("Decision-Making: Choosing Under Uncertainty", "/en/threads/part-2/decision"),
+      page("Communication: Let Each Other Be Heard", "/en/threads/part-2/communication"),
+      page("Relationships: Becoming an Adult in Connection", "/en/threads/part-2/relationships"),
+      page("Care: Finding Strength in the People We Love", "/en/threads/part-2/care-and-carry-on"),
+      page("Entrepreneurship: From Ambition to Purpose", "/en/threads/part-2/entrepreneurship"),
+    ],
+  },
+  {
+    text: "Part II: Learning Again, Opening Input",
+    publication: "body",
+    items: [
+      page("Part II Introduction: Learning Again, Opening Input", "/en/threads/part-1/open-input"),
       page("CEFR Goals and Self-check", "/en/threads/part-1/0-cefr"),
       page("1. Learning Principles", "/en/threads/part-1/1-understanding"),
       page("2. Vocabulary", "/en/threads/part-1/2-vocabulary"),
@@ -225,23 +266,6 @@ export const enNavigation = [
     ],
   },
   {
-    text: "Part II: Return to Life",
-    publication: "body",
-    items: [
-      page("Part II Introduction: Return to Life", "/en/threads/part-2/return-to-life"),
-      page("My Story", "/en/threads/part-2/my-story"),
-      page("I Am Still Here: Coming Through Depression, Anxiety, and the Dark", "/en/threads/part-2/depression-anxiety-recovery"),
-      page("Narrative and Evidence: Do Not Turn Experience into Fate", "/en/threads/part-2/narrative-and-evidence"),
-      page("Echoes: Do Not Romanticise Avoidance", "/en/threads/part-2/x-misc"),
-      page("Recovery: Catch Yourself Before You Push Forward", "/en/threads/part-2/recovery"),
-      page("Decision-Making: Choosing Under Uncertainty", "/en/threads/part-2/decision"),
-      page("Communication: Let Each Other Be Heard", "/en/threads/part-2/communication"),
-      page("Relationships: Becoming an Adult in Connection", "/en/threads/part-2/relationships"),
-      page("Care: Finding Strength in the People We Love", "/en/threads/part-2/care-and-carry-on"),
-      page("Entrepreneurship: From Ambition to Purpose", "/en/threads/part-2/entrepreneurship"),
-    ],
-  },
-  {
     text: "Part III: Amplify Ability",
     publication: "body",
     items: [
@@ -251,11 +275,6 @@ export const enNavigation = [
       page("Attention: Return Your Attention to Yourself", "/en/threads/part-3/3-attention-and-judgment"),
       page("Artifacts: Turn Learning into Something Made", "/en/threads/part-3/4-artifacts-and-delivery"),
       page("Evidence: How Change Becomes Visible", "/en/threads/part-3/5-evidence-and-transfer"),
-      page(
-        "AI Development and Resource-layer Business",
-        "/en/threads/part-3/2-ai-development-and-resource-layer",
-      ),
-      page("Author Projects and Practice", "/en/projects"),
     ],
   },
   {
@@ -275,7 +294,6 @@ export const enNavigation = [
     items: [
       page("Part V Introduction: Long-Term Action", "/en/threads/part-5/long-term-action"),
       page("90-Day Action Plan", "/en/threads/part-5/90-day-plan"),
-      page("Case Study: Let the Book Prove Its Method", "/en/threads/part-5/book-as-proof"),
       page("After Ninety Days: Let Change Remain in Life", "/en/threads/part-5/after-90-days"),
     ],
   },
@@ -298,9 +316,19 @@ export const enNavigation = [
     ],
   },
   {
-    text: "Toolkit",
+    text: "Terms and References",
     publication: "appendix",
     items: [
+      page("Glossary of Terms and Methods", "/en/reference/glossary"),
+      page("Sources, Citation, and Verification", "/en/reference/sources-and-citation"),
+      page("Bibliography", "/en/reference/bibliography"),
+    ],
+  },
+  {
+    text: "Toolkit and Templates",
+    publication: "appendix",
+    items: [
+      page("Toolkit Overview", "/en/templates/toolkit"),
       page("Toolkit Walkthrough: AI Learning across Sessions", "/en/templates/toolkit-walkthrough"),
       page("Evidence Chain", "/en/templates/evidence-chain"),
       page("Reader Field Note", "/en/templates/reader-field-note"),
@@ -342,6 +370,21 @@ export const enNavigation = [
     ],
   },
   {
+    text: "Case Studies and Author Practice",
+    publication: "appendix",
+    items: [
+      page("How This Book Was Made: A Publishing Case Study", "/en/threads/part-5/book-as-proof"),
+      page("Author Projects and Practice", "/en/projects"),
+      page("AI Development and the Resource Layer: A Case", "/en/threads/part-3/2-ai-development-and-resource-layer"),
+      page("The Resource Layer and Enterprise Services: A Practice Note", "/en/threads/practice/resource-layer-business"),
+    ],
+  },
+  {
+    text: "Reading Map",
+    publication: "appendix",
+    items: [page("Reading Map: Enter by Problem", "/en/reference/reading-map")],
+  },
+  {
     text: "Archive",
     items: [
       page("Archive Notes", "/en/threads/archive/", "en/threads/archive/README.md"),
@@ -364,12 +407,14 @@ export const enNavigation = [
 export function publicationSections(navigation, { frontMatter = "", appendices = "" } = {}) {
   const start = navigation.find((group) => group.publication === "frontmatter");
   if (!start) throw new Error("Publication navigation requires a frontmatter group");
+  // The homepage is a website landing page, not a chapter. It is listed in the
+  // navigation so coverage checks stay honest, but never enters the book.
+  const isHomepage = ({ source }) => /^(?:en\/)?README\.md$/.test(source);
   const isOpening = ({ source }) => /(?:^|\/)threads\/part-0\//.test(source);
-  const referencePages = start.items.filter((item) =>
-    !isOpening(item) && !/^(?:en\/)?README\.md$/.test(item.source),
-  );
+  const chapters = start.items.filter((item) => !isHomepage(item));
+  const referencePages = chapters.filter((item) => !isOpening(item));
   return [
-    { text: frontMatter, items: start.items.filter(isOpening) },
+    { text: frontMatter, items: chapters.filter(isOpening) },
     ...navigation.filter((group) => group.publication === "body"),
     {
       text: appendices,
@@ -395,12 +440,13 @@ export const bilingualRoutePairs = zhRoutes.map((zh) => {
   return { zh, en };
 });
 
-const collapsedGroups = new Set(["专题入口", "工具箱", "创业、自律与 AI 实操", "旧文归档", "词表", "Topic Hubs", "Toolkit", "Business, Discipline, and AI Practice", "Archive", "Word Lists"]);
+const collapsedGroups = new Set(["专题入口", "术语与参考资料", "工具箱与模板", "创业、自律与 AI 实操", "案例与作者实践", "阅读地图", "旧文归档", "词表", "Topic Hubs", "Terms and References", "Toolkit and Templates", "Business, Discipline, and AI Practice", "Case Studies and Author Practice", "Reading Map", "Archive", "Word Lists"]);
 
 export function toSidebar(groups) {
+  const isHomepage = ({ source }) => /^(?:en\/)?README\.md$/.test(source);
   return groups.map(({ text, items }) => ({
     text,
     collapsed: collapsedGroups.has(text),
-    items: items.map(({ text: itemText, link }) => ({ text: itemText, link })),
+    items: items.filter((item) => !isHomepage(item)).map(({ text: itemText, link }) => ({ text: itemText, link })),
   }));
 }

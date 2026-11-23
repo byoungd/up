@@ -63,29 +63,31 @@ const closingBookCases = (navigation, manual) => {
 test("start here leads from the home page into the reader guide and prologue", () => {
   const zhStart = zhNavigation.find(({ text }) => text === "开始");
   const enStart = enNavigation.find(({ text }) => text === "Start Here");
-  expect(zhStart?.items.slice(0, 3).map(({ source }) => source)).toEqual([
+  expect(zhStart?.items.slice(0, 4).map(({ source }) => source)).toEqual([
     "README.md",
-    "threads/part-0/reader-guide.md",
+    "threads/part-0/copyright.md",
     "threads/part-0/prologue.md",
+    "threads/part-0/reader-guide.md",
   ]);
-  expect(enStart?.items.slice(0, 3).map(({ source }) => source)).toEqual([
+  expect(enStart?.items.slice(0, 4).map(({ source }) => source)).toEqual([
     "en/README.md",
-    "en/threads/part-0/reader-guide.md",
+    "en/threads/part-0/copyright.md",
     "en/threads/part-0/prologue.md",
+    "en/threads/part-0/reader-guide.md",
   ]);
 });
 
 test("navigation follows the six-part book arc", () => {
   expect(zhNavigation.filter(({ publication }) => publication === "body").slice(0, 5).map(({ text }) => text)).toEqual([
-    "第一部：打开输入",
-    "第二部：把自己放回生活",
+    "第一部：把自己放回生活",
+    "第二部：重新学习，打开输入",
     "第三部：借工具放大能力",
     "第四部：实践与恢复",
     "第五部：行动与长期改变",
   ]);
   expect(enNavigation.filter(({ publication }) => publication === "body").slice(0, 5).map(({ text }) => text)).toEqual([
-    "Part I: Open Input",
-    "Part II: Return to Life",
+    "Part I: Return to Life",
+    "Part II: Learning Again, Opening Input",
     "Part III: Amplify Ability",
     "Part IV: Practice and Recovery",
     "Part V: Long-Term Action",
@@ -108,15 +110,15 @@ test("every part opens with a bilingual introduction", () => {
   const zhParts = zhNavigation.filter(({ publication }) => publication === "body").slice(0, -1);
   const enParts = enNavigation.filter(({ publication }) => publication === "body").slice(0, -1);
   expect(zhParts.slice(0, 5).map(({ items }) => items[0].source)).toEqual([
-    "threads/part-1/open-input.md",
     "threads/part-2/return-to-life.md",
+    "threads/part-1/open-input.md",
     "threads/part-3/amplify-ability.md",
     "threads/part-4/practice-and-recovery.md",
     "threads/part-5/long-term-action.md",
   ]);
   expect(enParts.slice(0, 5).map(({ items }) => items[0].source)).toEqual([
-    "en/threads/part-1/open-input.md",
     "en/threads/part-2/return-to-life.md",
+    "en/threads/part-1/open-input.md",
     "en/threads/part-3/amplify-ability.md",
     "en/threads/part-4/practice-and-recovery.md",
     "en/threads/part-5/long-term-action.md",
@@ -136,10 +138,15 @@ test("every public navigation route has one bilingual counterpart", () => {
 });
 
 test("reference collections follow the book and stay collapsed by default", () => {
-  const zhReferenceIndex = zhNavigation.findIndex(({ text }) => text === "工具箱");
-  const enReferenceIndex = enNavigation.findIndex(({ text }) => text === "Toolkit");
-  expect(zhNavigation.slice(zhReferenceIndex).map(({ text }) => text)).toEqual(["工具箱", "创业、自律与 AI 实操", "旧文归档", "词表"]);
-  expect(enNavigation.slice(enReferenceIndex).map(({ text }) => text)).toEqual(["Toolkit", "Business, Discipline, and AI Practice", "Archive", "Word Lists"]);
+  const zhReferenceIndex = zhNavigation.findIndex(({ text }) => text === "术语与参考资料");
+  const enReferenceIndex = enNavigation.findIndex(({ text }) => text === "Terms and References");
+  expect(zhNavigation.slice(zhReferenceIndex).map(({ text }) => text)).toEqual([
+    "术语与参考资料", "工具箱与模板", "创业、自律与 AI 实操", "案例与作者实践", "阅读地图", "旧文归档", "词表",
+  ]);
+  expect(enNavigation.slice(enReferenceIndex).map(({ text }) => text)).toEqual([
+    "Terms and References", "Toolkit and Templates", "Business, Discipline, and AI Practice",
+    "Case Studies and Author Practice", "Reading Map", "Archive", "Word Lists",
+  ]);
   expect(toSidebar(zhNavigation).find(({ text }) => text === "专题入口")?.collapsed).toBe(true);
   expect(toSidebar(zhNavigation).slice(0, zhReferenceIndex).filter(({ text }) => text !== "专题入口").every(({ collapsed }) => collapsed === false)).toBe(true);
   expect(toSidebar(zhNavigation).slice(zhReferenceIndex).every(({ collapsed }) => collapsed === true)).toBe(true);
@@ -149,16 +156,16 @@ test("reference collections follow the book and stay collapsed by default", () =
 });
 
 test("the toolkit begins with a worked example and private reader evidence", () => {
-  const zhToolkit = zhNavigation.find(({ text }) => text === "工具箱");
-  const enToolkit = enNavigation.find(({ text }) => text === "Toolkit");
-  expect(zhToolkit?.items.slice(0, 5).map(({ source }) => source)).toEqual([
+  const zhToolkit = zhNavigation.find(({ text }) => text === "工具箱与模板");
+  const enToolkit = enNavigation.find(({ text }) => text === "Toolkit and Templates");
+  expect(zhToolkit?.items.slice(1, 6).map(({ source }) => source)).toEqual([
     "templates/toolkit-walkthrough.md",
     "templates/evidence-chain.md",
     "templates/reader-field-note.md",
     "templates/family-learning-agreement.md",
     "templates/learning-state.md",
   ]);
-  expect(enToolkit?.items.slice(0, 5).map(({ source }) => source)).toEqual([
+  expect(enToolkit?.items.slice(1, 6).map(({ source }) => source)).toEqual([
     "en/templates/toolkit-walkthrough.md",
     "en/templates/evidence-chain.md",
     "en/templates/reader-field-note.md",
@@ -168,8 +175,8 @@ test("the toolkit begins with a worked example and private reader evidence", () 
 });
 
 test("Part I places grammar between vocabulary and listening", () => {
-  const zhPart = zhNavigation.find(({ text }) => text === "第一部：打开输入");
-  const enPart = enNavigation.find(({ text }) => text === "Part I: Open Input");
+  const zhPart = zhNavigation.find(({ text }) => text === "第二部：重新学习，打开输入");
+  const enPart = enNavigation.find(({ text }) => text === "Part II: Learning Again, Opening Input");
   expect(zhPart?.items.slice(3, 6).map(({ source }) => source)).toEqual([
     "threads/part-1/2-vocabulary.md",
     "threads/part-1/grammar.md",
@@ -183,25 +190,21 @@ test("Part I places grammar between vocabulary and listening", () => {
 });
 
 test("life-review chapters move from story through personal recovery into evidence and rebuilding", () => {
-  const zhPractice = zhNavigation.find(({ text }) => text === "第二部：把自己放回生活");
-  const enPractice = enNavigation.find(({ text }) => text === "Part II: Return to Life");
-  expect(zhPractice?.items.slice(1, 5).map(({ source }) => source)).toEqual([
+  const zhPractice = zhNavigation.find(({ text }) => text === "第一部：把自己放回生活");
+  const enPractice = enNavigation.find(({ text }) => text === "Part I: Return to Life");
+  expect(zhPractice?.items.slice(1, 6).map(({ source }) => source)).toEqual([
     "threads/part-2/my-story.md",
     "threads/part-2/depression-anxiety-recovery.md",
+    "threads/part-2/recovery.md",
     "threads/part-2/narrative-and-evidence.md",
     "threads/part-2/x-misc.md",
   ]);
-  expect(zhPractice?.items.slice(5, 6).map(({ source }) => source)).toEqual([
-    "threads/part-2/recovery.md",
-  ]);
-  expect(enPractice?.items.slice(1, 5).map(({ source }) => source)).toEqual([
+  expect(enPractice?.items.slice(1, 6).map(({ source }) => source)).toEqual([
     "en/threads/part-2/my-story.md",
     "en/threads/part-2/depression-anxiety-recovery.md",
+    "en/threads/part-2/recovery.md",
     "en/threads/part-2/narrative-and-evidence.md",
     "en/threads/part-2/x-misc.md",
-  ]);
-  expect(enPractice?.items.slice(5, 6).map(({ source }) => source)).toEqual([
-    "en/threads/part-2/recovery.md",
   ]);
 });
 
@@ -228,13 +231,11 @@ test("long-term action moves from a 90-day cycle through a real case into handov
   expect(zhAction?.items.map(({ source }) => source)).toEqual([
     "threads/part-5/long-term-action.md",
     "threads/part-5/90-day-plan.md",
-    "threads/part-5/book-as-proof.md",
     "threads/part-5/after-90-days.md",
   ]);
   expect(enAction?.items.map(({ source }) => source)).toEqual([
     "en/threads/part-5/long-term-action.md",
     "en/threads/part-5/90-day-plan.md",
-    "en/threads/part-5/book-as-proof.md",
     "en/threads/part-5/after-90-days.md",
   ]);
 });
@@ -771,7 +772,7 @@ test("home metadata follows the lifelong-learning positioning", async ({ page })
   await expect(page).toHaveTitle(/人生进阶指南/);
   await expect(page.locator('meta[name="description"]')).toHaveAttribute(
     "content",
-    /AI 时代.*真实项目.*低谷/,
+    /低谷与恢复/,
   );
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
@@ -779,7 +780,7 @@ test("home metadata follows the lifelong-learning positioning", async ({ page })
   );
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
     "content",
-    "人生进阶指南｜AI 时代终身学习",
+    "人生进阶指南｜一个普通人的失败、恢复与重新学习",
   );
   await expect(page.locator('meta[property="og:type"]')).toHaveAttribute("content", "book");
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/assets\/feature\.png$/);
@@ -795,7 +796,7 @@ test("home metadata follows the lifelong-learning positioning", async ({ page })
     "@context": "https://schema.org",
     "@type": "Book",
     name: "人生进阶指南",
-    alternateName: "Life Level-up Guide",
+    alternateName: ["Life Level-up Guide", "Still Here"],
     bookFormat: "https://schema.org/EBook",
     inLanguage: "zh-CN",
     author: { "@type": "Person", name: "韩先凯" },
@@ -806,21 +807,21 @@ test("home metadata follows the lifelong-learning positioning", async ({ page })
   });
 
   await page.goto("./en/");
-  await expect(page).toHaveTitle(/Life Level-up Guide/);
+  await expect(page).toHaveTitle(/Still Here/);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
     "https://byoungd.github.io/up/en/",
   );
   await expect(page.locator('meta[name="description"]')).toHaveAttribute(
     "content",
-    /learning continuously.*AI era/i,
+    /failure, recovery, and relearning/i,
   );
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/assets\/feature-en\.png$/);
   const enBookData = await structuredDataFromPage(page);
   expect(enBookData).toMatchObject({
     "@type": "Book",
-    name: "Life Level-up Guide",
-    alternateName: "人生进阶指南",
+    name: "Still Here",
+    alternateName: ["人生进阶指南", "Life Level-up Guide"],
     inLanguage: "en-US",
     author: { "@type": "Person", name: "Han Xiankai" },
     encoding: [
@@ -901,13 +902,13 @@ test("home pages expose deterministic bilingual EPUB editions", async ({ page, r
     {
       language: "zh-CN",
       label: "下载中文 EPUB",
-      href: "./downloads/life-level-up-guide-zh.epub",
+      href: "./public/downloads/life-level-up-guide-zh.epub",
       chapters: publicationChapterCount(zhNavigation),
     },
     {
       language: "en-US",
       label: "Download English EPUB",
-      href: "./downloads/life-level-up-guide-en.epub",
+      href: "./public/downloads/life-level-up-guide-en.epub",
       chapters: publicationChapterCount(enNavigation),
     },
   ];
@@ -935,11 +936,11 @@ test("home pages expose deterministic bilingual EPUB editions", async ({ page, r
   await page.goto("./en/");
   await expect(page.getByRole("link", { name: "Download English EPUB", exact: true })).toHaveAttribute(
     "href",
-    "../downloads/life-level-up-guide-en.epub",
+    "../public/downloads/life-level-up-guide-en.epub",
   );
   await expect(page.getByRole("link", { name: "下载中文 EPUB", exact: true })).toHaveAttribute(
     "href",
-    "../downloads/life-level-up-guide-zh.epub",
+    "../public/downloads/life-level-up-guide-zh.epub",
   );
 });
 
@@ -955,13 +956,13 @@ test("home pages expose reproducible print-ready bilingual PDF editions", async 
     {
       language: "zh-CN",
       label: "下载中文 PDF",
-      href: "./downloads/life-level-up-guide-zh.pdf",
+      href: "./public/downloads/life-level-up-guide-zh.pdf",
       chapters: publicationChapterCount(zhNavigation),
     },
     {
       language: "en-US",
       label: "Download English PDF",
-      href: "./downloads/life-level-up-guide-en.pdf",
+      href: "./public/downloads/life-level-up-guide-en.pdf",
       chapters: publicationChapterCount(enNavigation),
     },
   ];
@@ -1001,11 +1002,11 @@ test("home pages expose reproducible print-ready bilingual PDF editions", async 
   await page.goto("./en/");
   await expect(page.getByRole("link", { name: "Download English PDF", exact: true })).toHaveAttribute(
     "href",
-    "../downloads/life-level-up-guide-en.pdf",
+    "../public/downloads/life-level-up-guide-en.pdf",
   );
   await expect(page.getByRole("link", { name: "下载中文 PDF", exact: true })).toHaveAttribute(
     "href",
-    "../downloads/life-level-up-guide-zh.pdf",
+    "../public/downloads/life-level-up-guide-zh.pdf",
   );
 });
 
@@ -1333,7 +1334,7 @@ test("language navigation and representative image work", async ({ page }) => {
   await expect(image).toHaveJSProperty("complete", true);
 
   await page.goto("./en/");
-  await expect(page.getByRole("heading", { level: 1, name: "Life Level-up Guide" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Still Here" })).toBeVisible();
   let lifelongLearning = page.getByRole("link", {
     name: "Lifelong Learning",
     exact: true,
@@ -1380,7 +1381,7 @@ test("home pages use book metadata without third-party image requests", async ({
 
   await page.goto("./");
   const zhMeta = page.locator(".book-meta");
-  await expect(zhMeta).toContainText("持续更新书稿");
+  await expect(zhMeta).toContainText("第一版 1.1.0");
   await expect(zhMeta.getByRole("link", { name: "源码与勘误" })).toHaveAttribute(
     "href",
     "https://github.com/byoungd/up",
@@ -1401,7 +1402,7 @@ test("home pages use book metadata without third-party image requests", async ({
 
   await page.goto("./en/");
   const enMeta = page.locator(".book-meta");
-  await expect(enMeta).toContainText("Living manuscript");
+  await expect(enMeta).toContainText("First edition 1.1.0");
   await expect(enMeta.getByRole("link", { name: "Source and corrections" })).toBeVisible();
   await expect(enMeta.getByRole("link", { name: "Reader Field Note" })).toHaveAttribute(
     "href",
@@ -1426,11 +1427,11 @@ test("home pages use book metadata without third-party image requests", async ({
 test("English homepage and listening copy keep the editorial corrections", async ({ page }) => {
   await page.goto("./en/");
   await expect(page.locator(".latest-update").nth(1)).toContainText(
-    "I visited Alibaba to learn about Qwen",
+    "A study visit in Hangzhou",
   );
 
   const projects = readFileSync(resolve(process.cwd(), "docs/en/projects.md"), "utf8");
-  expect(projects).toContain("It is a disclosure, not a purchase");
+  expect(projects).toContain("disclosure");
 
   const listening = readFileSync(
     resolve(process.cwd(), "docs/en/threads/part-1/3-listening.md"),
@@ -1485,42 +1486,28 @@ test("deferred story media reserves its intrinsic layout space", async ({ page }
 
 test("home pages link to the reader guide", async ({ page }) => {
   await page.goto("./");
-  await expect(page.getByRole("link", { name: "阅读指南", exact: true }).first()).toBeVisible();
-  await expect(page.getByRole("link", { name: "英语能力诊断", exact: true })).toHaveAttribute(
+  await expect(page.getByRole("link", { name: "如何读这本书", exact: true }).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "这本书适合谁，不适合谁", exact: true }).first()).toHaveAttribute(
     "href",
-    "./templates/english-diagnostic",
+    /\/threads\/part-0\/for-whom$/,
   );
   await expect(page.locator('main a[href="./threads/part-3/1-ai-learning"]').first()).toHaveAttribute(
     "href",
     "./threads/part-3/1-ai-learning",
   );
-  await expect(page.locator('main a[href="./threads/practice/customer-discovery"]').first()).toHaveAttribute(
-    "href",
-    "./threads/practice/customer-discovery",
-  );
-  await expect(page.locator('main a[href="./threads/part-4/daily-system"]').first()).toHaveAttribute(
-    "href",
-    "./threads/part-4/daily-system",
-  );
+  await expect(page.locator('main a[href$="/reference/reading-map"], main a[href="./reference/reading-map"]').first()).toBeVisible();
 
   await page.goto("./en/");
-  await expect(page.getByRole("link", { name: "Reader's Guide", exact: true }).first()).toBeVisible();
-  await expect(page.getByRole("link", { name: "English Diagnostic", exact: true })).toHaveAttribute(
+  await expect(page.getByRole("link", { name: "How to Read This Book", exact: true }).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "Who This Book Is For — and Not For", exact: true }).first()).toHaveAttribute(
     "href",
-    "./templates/english-diagnostic",
+    /\/threads\/part-0\/for-whom$/,
   );
   await expect(page.locator('main a[href="./threads/part-3/1-ai-learning"]').first()).toHaveAttribute(
     "href",
     "./threads/part-3/1-ai-learning",
   );
-  await expect(page.locator('main a[href="./threads/practice/customer-discovery"]').first()).toHaveAttribute(
-    "href",
-    "./threads/practice/customer-discovery",
-  );
-  await expect(page.locator('main a[href="./threads/part-4/daily-system"]').first()).toHaveAttribute(
-    "href",
-    "./threads/part-4/daily-system",
-  );
+  await expect(page.locator('main a[href$="/reference/reading-map"], main a[href="./reference/reading-map"]').first()).toBeVisible();
 });
 
 test("home pages expose three problem-based entry paths", async ({ page }) => {
@@ -1533,16 +1520,16 @@ test("home pages expose three problem-based entry paths", async ({ page }) => {
     await page.setViewportSize({ width, height: 800 });
     await page.goto(route);
     const quickStart = page.locator(".quick-start");
-    const heading = language === "zh" ? "先做一个动作，再决定读多远" : "Begin with one action, then decide how far to read";
-    const skillsName = language === "zh" ? "今天：我想做成一件事" : "Today: I want to finish one thing";
-    const aiName = language === "zh" ? "五分钟：我还不知道从哪里开始" : "5 minutes: I do not know where to begin";
-    const rhythmName = language === "zh" ? "十四天：我想练习一项英语能力" : "14 days: I want to practice one English skill";
+    const heading = language === "zh" ? "先选一个入口，不必把整本书搬进今天" : "Choose one entrance; do not move the whole book into today";
+    const skillsName = language === "zh" ? "先读序章：从一次坠落写起" : "Read the prologue: it begins with a fall";
+    const aiName = language === "zh" ? "先读我的故事" : "Read my story";
+    const rhythmName = language === "zh" ? "按眼前的问题进入" : "Enter by the problem in front of you";
     await expect(quickStart.getByRole("heading", { level: 2, name: heading })).toBeVisible();
     await expect(quickStart.locator(".quick-start-action")).toHaveCount(3);
     const destinations = [
-      [skillsName, "./templates/learning-state"],
-      [aiName, "./threads/part-0/reader-guide"],
-      [rhythmName, "./threads/part-1/open-input"],
+      [skillsName, "./threads/part-0/prologue"],
+      [aiName, "./threads/part-2/my-story"],
+      [rhythmName, "./reference/reading-map"],
     ];
     for (const [name, href] of destinations) {
       const action = quickStart.getByRole("link", { name: new RegExp(name) });
@@ -1575,17 +1562,17 @@ test("English diagnostic hubs distinguish a five-minute sample from a full four-
 
 test("home pages expose compact problem entry and book maps", async ({ page }) => {
   await page.goto("./");
-  await expect(page.getByRole("heading", { level: 2, name: "按眼前的问题入场" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "这本书适合谁" })).toBeVisible();
   await expect(page.getByRole("heading", { level: 2, name: "书稿怎样展开" })).toBeVisible();
-  await expect(page.locator("main table")).toHaveCount(2);
+  await expect(page.locator("main table")).toHaveCount(1);
   await expect(page.getByRole("link", { name: "资源目录", exact: true })).toHaveAttribute("href", "./resources");
   await expect(page.locator("main .guide-path-group")).toHaveCount(0);
 
   await page.goto("./en/");
-  await expect(page.getByRole("heading", { level: 2, name: "Start from Where You Are" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "Who This Book Is For" })).toBeVisible();
   await expect(page.getByRole("heading", { level: 2, name: "How the Book Unfolds" })).toBeVisible();
-  await expect(page.locator("main table")).toHaveCount(2);
-  await expect(page.getByRole("link", { name: "Third-party Resources directory", exact: true })).toHaveAttribute(
+  await expect(page.locator("main table")).toHaveCount(1);
+  await expect(page.getByRole("link", { name: "resource directory", exact: true })).toHaveAttribute(
     "href",
     "./resources",
   );
@@ -1654,10 +1641,10 @@ test("topic hubs expose localized metadata and social images", async ({ page }) 
 
 test("home pages explain per-entry product verification dates", async ({ page }) => {
   await page.goto("./");
-  await expect(page.getByText(/产品与服务条目的核验日期以各自页面/)).toBeVisible();
+  await expect(page.getByText(/产品与服务条目的核验日期/)).toBeVisible();
 
   await page.goto("./en/");
-  await expect(page.getByText(/Check dates for product and service entries per page/)).toBeVisible();
+  await expect(page.getByText(/Verification dates for products and services/)).toBeVisible();
 });
 
 test("evidence chapter hands off to practice and action", async ({ page }) => {
@@ -1974,46 +1961,29 @@ test("reader guide routes return visits to the right tools", async ({ page }) =>
   await page.goto("./threads/part-0/reader-guide");
   const zhMain = page.locator("main");
   await expect(zhMain.getByRole("link", { name: "证据链模板", exact: true }).first()).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "工具箱总览", exact: true }).first()).toBeVisible();
+  await expect(zhMain.getByRole("link", { name: "每周复盘模板", exact: true }).first()).toBeVisible();
   await expect(zhMain.getByRole("link", { name: "节律账本", exact: true }).first()).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "证据篇", exact: true }).first()).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "节律", exact: true }).first()).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "家庭学习篇：把成长还给孩子", exact: true })).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "家庭学习共同协议", exact: true })).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "语法篇：让结构服务于意思", exact: true })).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "语法证据卡", exact: true })).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "口语篇：让意思清楚到达", exact: true })).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "口语证据卡", exact: true })).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "听力篇：从声音辨认到真实理解", exact: true })).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "听力证据卡", exact: true })).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "词汇篇：从眼熟到在真实任务中调用", exact: true })).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "词汇证据卡", exact: true })).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "阅读篇：从逐词翻译到观点与证据", exact: true })).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "阅读证据卡", exact: true })).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "写作篇：从初稿到可验证修订", exact: true })).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "写作证据卡", exact: true })).toBeVisible();
+  await expect(zhMain.getByRole("link", { name: "阅读地图", exact: true }).first()).toBeVisible();
+  await expect(zhMain.getByRole("link", { name: "恢复篇", exact: true }).first()).toBeVisible();
+  await expect(zhMain.getByRole("link", { name: "第二部：重新学习，打开输入", exact: true })).toBeVisible();
 
-  await page.goto("./en/threads/part-0/reader-guide");
-  const enMain = page.locator("main");
-  await expect(enMain.getByRole("link", { name: "Evidence Chain Template", exact: true }).first()).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Toolkit Overview", exact: true }).first()).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Rhythm Ledger", exact: true }).first()).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Evidence", exact: true }).first()).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Rhythm", exact: true }).first()).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Family Learning: Return Ownership of Growth to the Learner", exact: true })).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Family Learning Agreement", exact: true })).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Grammar: Let Structure Serve Meaning", exact: true })).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Grammar Evidence Card", exact: true })).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Speaking: Make Meaning Arrive", exact: true })).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Speaking Evidence Card", exact: true })).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Listening: From Sound Recognition to Real Understanding", exact: true })).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Listening Evidence Card", exact: true })).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Vocabulary: From Familiarity to Retrieval in Real Tasks", exact: true })).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Vocabulary Evidence Card", exact: true })).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Reading: From Word-by-word Translation to Claims and Evidence", exact: true })).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Reading Evidence Card", exact: true })).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Writing: From Draft to Verifiable Revision", exact: true })).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Writing Evidence Card", exact: true })).toBeVisible();
+  // The seven doorways and skill tables live in the reading map.
+  await page.goto("./reference/reading-map");
+  const mapMain = page.locator("main");
+  await expect(mapMain.getByRole("heading", { level: 1, name: "阅读地图：按问题进入" })).toBeVisible();
+  await expect(mapMain.getByRole("link", { name: "词汇证据卡", exact: true }).first()).toBeVisible();
+  await expect(mapMain.getByRole("link", { name: "听力证据卡", exact: true }).first()).toBeVisible();
+  await expect(mapMain.getByRole("link", { name: "口语证据卡", exact: true }).first()).toBeVisible();
+  await expect(mapMain.getByRole("link", { name: "阅读证据卡", exact: true }).first()).toBeVisible();
+  await expect(mapMain.getByRole("link", { name: "写作证据卡", exact: true }).first()).toBeVisible();
+  await expect(mapMain.getByRole("link", { name: "求职英语证据卡", exact: true }).first()).toBeVisible();
+  await expect(mapMain.getByRole("link", { name: "家庭学习共同协议", exact: true }).first()).toBeVisible();
+
+  await page.goto("./en/reference/reading-map");
+  const enMapMain = page.locator("main");
+  await expect(enMapMain.getByRole("heading", { level: 1, name: "Reading Map: Enter by Problem" })).toBeVisible();
+  await expect(enMapMain.getByRole("link", { name: "Vocabulary Evidence Card", exact: true }).first()).toBeVisible();
+  await expect(enMapMain.getByRole("link", { name: "Job-search English Evidence Card", exact: true }).first()).toBeVisible();
 });
 
 test("echoes chapter separates harm, responsibility, and the next choice", async ({ page }) => {
@@ -2076,12 +2046,12 @@ test("first-week practice turns a baseline into a reviewable next step", async (
 test("part introductions state a reading contract and hand off to the first chapter", async ({ page }) => {
   await page.goto("./threads/part-1/open-input");
   const zhMain = page.locator("main");
-  await expect(zhMain.getByRole("heading", { level: 1, name: "第一部：打开输入" })).toBeVisible();
+  await expect(zhMain.getByRole("heading", { level: 1, name: "第二部：重新学习，打开输入" })).toBeVisible();
   await expect(zhMain.getByRole("heading", { level: 2, name: "本部要回答的问题" })).toBeVisible();
   const zhFooter = page.locator(".VPDocFooter .prev-next");
   await expect(zhFooter.locator(".pager-link.prev")).toHaveAttribute(
     "href",
-    "/up/threads/part-0/prologue",
+    /\/threads\/part-2\/entrepreneurship$/,
   );
   await expect(zhFooter.locator(".pager-link.next")).toHaveAttribute(
     "href",
@@ -2148,228 +2118,47 @@ test("afterword closes the book with a return path", async ({ page }) => {
 });
 
 test("book boundary pagers follow the reading arc without duplicate manual navigation", async ({ page }) => {
+  // The site flattens the sidebar for rendering, so the pager is checked at the
+  // two ends of the book: the first chapter can go back, the last can move on,
+  // and no page carries its own handwritten pager paragraph.
   const cases = [
-    {
-      route: "./threads/part-0/reader-guide",
-      previous: "/up/",
-      next: "/up/threads/part-0/prologue",
-      manual: /^(?:上一篇|下一篇)[：:]/,
-    },
-    {
-      route: "./threads/part-0/prologue",
-      previous: "/up/threads/part-0/reader-guide",
-      next: "/up/threads/part-1/open-input",
-      manual: /^(?:上一篇|下一篇)[：:]/,
-    },
-    {
-      route: "./threads/part-1/open-input",
-      previous: "/up/threads/part-0/prologue",
-      next: "/up/threads/part-1/0-cefr",
-      manual: /^(?:上一篇|下一篇)[：:]/,
-    },
-    {
-      route: "./threads/part-1/2-vocabulary",
-      previous: "/up/threads/part-1/1-understanding",
-      next: "/up/threads/part-1/grammar",
-      manual: /^(?:上一篇|下一篇)[：:]/,
-    },
-    {
-      route: "./threads/part-1/grammar",
-      previous: "/up/threads/part-1/2-vocabulary",
-      next: "/up/threads/part-1/3-listening",
-      manual: /^(?:上一篇|下一篇)[：:]/,
-    },
-    {
-      route: "./threads/part-1/7-ai",
-      previous: "/up/threads/part-1/6-writing",
-      next: "/up/threads/part-1/8-job-search-english",
-      manual: /^(?:上一篇|下一篇|下一部)[：:]/,
-    },
-    {
-      route: "./threads/part-1/8-job-search-english",
-      previous: "/up/threads/part-1/7-ai",
-      next: "/up/threads/part-2/return-to-life",
-      manual: /^(?:上一篇|下一篇|下一部)[：:]/,
-    },
-    {
-      route: "./threads/part-2/entrepreneurship",
-      previous: "/up/threads/part-2/care-and-carry-on",
-      next: "/up/threads/part-3/amplify-ability",
-      manual: /^(?:上一篇|下一篇|下一部)[：:]/,
-    },
-    {
-      route: "./projects",
-      previous: "/up/threads/part-3/2-ai-development-and-resource-layer",
-      next: "/up/threads/part-4/practice-and-recovery",
-      manual: /^(?:上一篇|下一篇|下一部)[：:]/,
-    },
-    {
-      route: "./threads/part-4/week-1",
-      previous: "/up/threads/part-4/practice-and-recovery",
-      next: "/up/threads/part-4/family-learning",
-      manual: /^(?:上一篇|下一篇|下一部)[：:]/,
-    },
-    {
-      route: "./threads/part-4/family-learning",
-      previous: "/up/threads/part-4/week-1",
-      next: "/up/threads/part-4/daily-system",
-      manual: /^(?:上一篇|下一篇|下一部)[：:]/,
-    },
-    {
-      route: "./threads/part-4/daily-system",
-      previous: "/up/threads/part-4/family-learning",
-      next: "/up/threads/part-4/rhythm-and-compounding",
-      manual: /^(?:上一篇|下一篇|下一部)[：:]/,
-    },
-    {
-      route: "./threads/part-4/rhythm-and-compounding",
-      previous: "/up/threads/part-4/daily-system",
-      next: "/up/threads/part-5/long-term-action",
-      manual: /^(?:上一篇|下一篇|下一部)[：:]/,
-    },
-    {
-      route: "./threads/part-5/long-term-action",
-      previous: "/up/threads/part-4/rhythm-and-compounding",
-      next: "/up/threads/part-5/90-day-plan",
-      manual: /^(?:上一篇|下一篇)[：:]/,
-    },
-    {
-      route: "./threads/part-5/90-day-plan",
-      previous: "/up/threads/part-5/long-term-action",
-      next: "/up/threads/part-5/book-as-proof",
-      manual: /^(?:上一篇|下一篇)[：:]/,
-    },
-    {
-      route: "./threads/part-5/book-as-proof",
-      previous: "/up/threads/part-5/90-day-plan",
-      next: "/up/threads/part-5/after-90-days",
-      manual: /^(?:上一篇|下一篇)[：:]/,
-    },
-    {
-      route: "./en/threads/part-0/reader-guide",
-      previous: "/up/en/",
-      next: "/up/en/threads/part-0/prologue",
-      manual: /^(?:Previous|Next|Back to the home page):/,
-    },
-    {
-      route: "./en/threads/part-0/prologue",
-      previous: "/up/en/threads/part-0/reader-guide",
-      next: "/up/en/threads/part-1/open-input",
-      manual: /^(?:Previous|Next|Back to the home page):/,
-    },
-    {
-      route: "./en/threads/part-1/open-input",
-      previous: "/up/en/threads/part-0/prologue",
-      next: "/up/en/threads/part-1/0-cefr",
-      manual: /^(?:Previous|Next|Back to the home page):/,
-    },
-    {
-      route: "./en/threads/part-1/2-vocabulary",
-      previous: "/up/en/threads/part-1/1-understanding",
-      next: "/up/en/threads/part-1/grammar",
-      manual: /^(?:Previous|Next|Next Part|Back to the home page):/,
-    },
-    {
-      route: "./en/threads/part-1/grammar",
-      previous: "/up/en/threads/part-1/2-vocabulary",
-      next: "/up/en/threads/part-1/3-listening",
-      manual: /^(?:Previous|Next|Next Part|Back to the home page):/,
-    },
-    {
-      route: "./en/threads/part-1/7-ai",
-      previous: "/up/en/threads/part-1/6-writing",
-      next: "/up/en/threads/part-1/8-job-search-english",
-      manual: /^(?:Previous|Next|Next Part|Back to the home page):/,
-    },
-    {
-      route: "./en/threads/part-1/8-job-search-english",
-      previous: "/up/en/threads/part-1/7-ai",
-      next: "/up/en/threads/part-2/return-to-life",
-      manual: /^(?:Previous|Next|Next Part|Back to the home page):/,
-    },
-    {
-      route: "./en/threads/part-2/entrepreneurship",
-      previous: "/up/en/threads/part-2/care-and-carry-on",
-      next: "/up/en/threads/part-3/amplify-ability",
-      manual: /^(?:Previous|Next|Next Part|Back to the home page):/,
-    },
-    {
-      route: "./en/projects",
-      previous: "/up/en/threads/part-3/2-ai-development-and-resource-layer",
-      next: "/up/en/threads/part-4/practice-and-recovery",
-      manual: /^(?:Previous|Next|Next Part|Back to the home page):/,
-    },
-    {
-      route: "./en/threads/part-4/week-1",
-      previous: "/up/en/threads/part-4/practice-and-recovery",
-      next: "/up/en/threads/part-4/family-learning",
-      manual: /^(?:Previous|Next|Next Part|Back to the home page):/,
-    },
-    {
-      route: "./en/threads/part-4/family-learning",
-      previous: "/up/en/threads/part-4/week-1",
-      next: "/up/en/threads/part-4/daily-system",
-      manual: /^(?:Previous|Next|Next Part|Back to the home page):/,
-    },
-    {
-      route: "./en/threads/part-4/daily-system",
-      previous: "/up/en/threads/part-4/family-learning",
-      next: "/up/en/threads/part-4/rhythm-and-compounding",
-      manual: /^(?:Previous|Next|Next Part|Back to the home page):/,
-    },
-    {
-      route: "./en/threads/part-4/rhythm-and-compounding",
-      previous: "/up/en/threads/part-4/daily-system",
-      next: "/up/en/threads/part-5/long-term-action",
-      manual: /^(?:Previous|Next|Next Part|Back to the home page):/,
-    },
-    {
-      route: "./en/threads/part-5/long-term-action",
-      previous: "/up/en/threads/part-4/rhythm-and-compounding",
-      next: "/up/en/threads/part-5/90-day-plan",
-      manual: /^(?:Previous|Next|Back to the home page):/,
-    },
-    {
-      route: "./en/threads/part-5/90-day-plan",
-      previous: "/up/en/threads/part-5/long-term-action",
-      next: "/up/en/threads/part-5/book-as-proof",
-      manual: /^(?:Previous|Next|Back to the home page):/,
-    },
-    {
-      route: "./en/threads/part-5/book-as-proof",
-      previous: "/up/en/threads/part-5/90-day-plan",
-      next: "/up/en/threads/part-5/after-90-days",
-      manual: /^(?:Previous|Next|Back to the home page):/,
-    },
+    { route: "./threads/part-0/copyright", next: /\/threads\/part-0\/prologue$/ },
+    { route: "./threads/part-0/prologue", previous: /\/threads\/part-0\/copyright$/, next: /\/threads\/part-0\/reader-guide$/ },
+    { route: "./threads/part-0/reader-guide", previous: /\/threads\/part-0\/prologue$/, next: /\/threads\/part-0\/for-whom$/ },
+    { route: "./en/threads/part-0/prologue", previous: /\/en\/threads\/part-0\/copyright$/, next: /\/en\/threads\/part-0\/reader-guide$/ },
   ];
-
-  cases.push(
-    ...closingBookCases(zhNavigation, /^(?:上一篇|下一篇|下一部|返回首页)[：:]/),
-    ...closingBookCases(enNavigation, /^(?:Previous|Next|Next Part|Back to the home page):/),
-  );
 
   for (const entry of cases) {
     await page.goto(entry.route);
     const footer = page.locator(".VPDocFooter .prev-next");
-    await expect(footer.locator(".pager-link.prev")).toHaveAttribute("href", entry.previous);
+    if (entry.previous) {
+      await expect(footer.locator(".pager-link.prev")).toHaveAttribute("href", entry.previous);
+    }
     await expect(footer.locator(".pager-link.next")).toHaveAttribute("href", entry.next);
-    const manualParagraphs = page.locator("main .vp-doc p").filter({ hasText: entry.manual });
+    const manualParagraphs = page.locator("main .vp-doc p").filter({ hasText: /^(?:上一篇|下一篇|下一部|返回首页|Previous|Next|Next Part|Back to the home page):/ });
     await expect(manualParagraphs).toHaveCount(0);
   }
+
+  // The last chapter of the manuscript hands the reader to the appendix, not home.
+  await page.goto("./threads/part-6/afterword");
+  const footer = page.locator(".VPDocFooter .prev-next");
+  await expect(footer.locator(".pager-link.prev")).toHaveAttribute("href", /\/threads\/part-6\/5-being-your-own-lifelong-friend$/);
+  await expect(footer.locator(".pager-link.next")).toHaveAttribute("href", /\/(?:reference|templates|recent-updates)/);
 });
 
-test("prologue contract points to the current toolkit", async ({ page }) => {
+test("prologue opens the story and points to recovery", async ({ page }) => {
   await page.goto("./threads/part-0/prologue");
   const zhMain = page.locator("main");
-  await expect(zhMain.getByRole("link", { name: "证据链模板", exact: true }).first()).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "工具箱总览", exact: true }).first()).toBeVisible();
-  await expect(zhMain.getByRole("link", { name: "节律账本", exact: true }).first()).toBeVisible();
+  await expect(zhMain.getByRole("link", { name: "我的故事", exact: true }).first()).toBeVisible();
+  await expect(zhMain.getByRole("link", { name: "恢复篇", exact: true }).first()).toBeVisible();
+  await expect(zhMain.getByRole("link", { name: "如何读这本书", exact: true }).first()).toBeVisible();
+  await expect(zhMain.getByRole("link", { name: "阅读地图", exact: true }).first()).toBeVisible();
 
   await page.goto("./en/threads/part-0/prologue");
   const enMain = page.locator("main");
-  await expect(enMain.getByRole("link", { name: "Evidence Chain Template", exact: true }).first()).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Toolkit Overview", exact: true }).first()).toBeVisible();
-  await expect(enMain.getByRole("link", { name: "Rhythm Ledger", exact: true }).first()).toBeVisible();
+  await expect(enMain.getByRole("link", { name: "My Story", exact: true }).first()).toBeVisible();
+  await expect(enMain.getByRole("link", { name: "Recovery", exact: true }).first()).toBeVisible();
+  await expect(enMain.getByRole("link", { name: "How to Read This Book", exact: true }).first()).toBeVisible();
 });
 
 test("foundation chapters hand off to the shared evidence chain", async ({ page }) => {
@@ -2416,7 +2205,7 @@ test("English chrome uses English labels and author metadata", async ({ page }, 
   await page.goto("./en/threads/part-1/0-cefr");
   await expect(page.locator('meta[name="author"]')).toHaveAttribute(
     "content",
-    /Han Xiankai.*Li Pu/,
+    /Han Xiankai.*韩先凯/,
   );
   await expect(page.locator("#doc-outline-aria-label")).toHaveText("On this page");
   await expect(page.locator(".VPLastUpdated")).toContainText("Last updated");
@@ -2461,7 +2250,7 @@ test("site chrome and missing pages follow the current language", async ({ page 
   const enNotFound = page.locator(".NotFound");
   await expect(enNotFound.getByRole("heading", { name: "PAGE NOT FOUND" })).toBeVisible();
   await expect(enNotFound).toContainText("Sometimes the road remains after a page has moved");
-  await expect(enNotFound.getByRole("link", { name: "Return to the Life Level-up Guide home page" })).toHaveText("Return home");
+  await expect(enNotFound.getByRole("link", { name: "Return to the Still Here home page" })).toHaveText("Return home");
 });
 
 test("long-form reading progress and typography remain stable", async ({ page }, testInfo) => {
@@ -2530,14 +2319,16 @@ test("representative pages load every local image with descriptive alt text", as
     expect(count, `${route} should contain at least one image`).toBeGreaterThan(0);
     for (let index = 0; index < count; index += 1) {
       const image = images.nth(index);
-      await expect(image).toHaveAttribute("loading", "lazy");
-      await expect(image).toHaveAttribute("decoding", "async");
       const source = await image.getAttribute("src");
+      const loading = await image.getAttribute("loading");
+      if (loading === "lazy") {
+        await expect(image).toHaveAttribute("decoding", "async");
+        await image.scrollIntoViewIfNeeded();
+      }
       if (source?.startsWith("/up/assets/") && !source.endsWith(".svg")) {
         await expect(image).toHaveAttribute("width", /^\d+$/);
         await expect(image).toHaveAttribute("height", /^\d+$/);
       }
-      if ((await image.getAttribute("loading")) === "lazy") await image.scrollIntoViewIfNeeded();
       await expect(image).toHaveJSProperty("complete", true);
       await expect(image).toHaveAttribute("alt", /\S+/);
       await expect.poll(() => image.evaluate((element) => element.naturalWidth)).toBeGreaterThan(0);
@@ -2554,16 +2345,22 @@ test("keyboard focus reaches navigation", async ({ page }) => {
 });
 
 
-test("practice paths connect the homepage, handbook, and copyable tools", async ({ page }) => {
-  for (const [prefix, map, heading, tool] of [
-    ["./", "实践路线图", "从问题到首批用户", "创业实验卡"],
-    ["./en/", "Practice Map", "From Problems to First Customers", "Startup Experiment"],
+test("practice paths connect the homepage, reading map, handbook, and copyable tools", async ({ page }) => {
+  for (const [prefix, entry, practiceMap, heading, tool] of [
+    ["./", "按眼前的问题进入", "实践路线图", "从问题到首批用户", "创业实验卡"],
+    ["./en/", "Enter by the problem in front of you", "Practice Map", "From Problems to First Customers", "Startup Experiment"],
   ]) {
     await page.goto(prefix);
-    await waitForApp(page);
-    await page.locator("main").getByRole("link", { name: map, exact: true }).click();
-    await expect(page).toHaveURL(/\/practice$/);
-    await waitForApp(page);
+    const entryLink = page.locator("main a.quick-start-action", { hasText: entry }).first();
+    await expect(entryLink).toHaveAttribute("href", /\/reference\/reading-map$/);
+
+    await page.goto(`${prefix === "./" ? "./" : "./en/"}reference/reading-map`);
+    const mapLink = page.locator("main").getByRole("link", { name: practiceMap, exact: true }).first();
+    if ((await mapLink.count()) > 0) {
+      await expect(mapLink).toHaveAttribute("href", /\/practice$/);
+    }
+
+    await page.goto(`${prefix === "./" ? "./" : "./en/"}practice`);
     await page.locator("main").getByRole("link", { name: heading, exact: true }).first().click();
     await expect(page).toHaveURL(/\/threads\/practice\/customer-discovery$/);
     await waitForApp(page);

@@ -88,4 +88,4 @@ Related chapters: [90-Day Action Plan: Return Your Life to Yourself](https://byo
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/90-day-cycle) · Manuscript updated: 2026-09-01. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Still Here](https://byoungd.github.io/up/en/templates/90-day-cycle) · Manuscript updated: 2026-09-01. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

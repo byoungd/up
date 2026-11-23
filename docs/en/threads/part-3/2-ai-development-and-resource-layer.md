@@ -8,7 +8,7 @@ source_review_interval: 60
 
 # AI Learning, Project Development, and Resource-layer Entrepreneurship
 
-My name is Han Xiankai, also known online as Li Pu. Many readers first found me through this English-learning project and later through my writing about software entrepreneurship, failure, recovery, and beginning again. I now disclose my role as chairman of China Token Cloud Computing Co., Ltd. and place the next stage of my work inside a more concrete question: **as AI becomes a general capability, how can an ordinary person move from learner to builder, then from builder to an entrepreneur in the resource layer?**
+My name is Han Xiankai. Many readers first found me through this English-learning project and later through my writing about software entrepreneurship, failure, recovery, and beginning again. I now disclose my role as chairman of China Token Cloud Computing Co., Ltd. and place the next stage of my work inside a more concrete question: **as AI becomes a general capability, how can an ordinary person move from learner to builder, then from builder to an entrepreneur in the resource layer?**
 
 This is not a story about getting rich easily with AI, and it contains no return promise. It is a working map under real-world testing: what has happened, what methods may transfer, and what business outcomes must still be answered by real users, real costs, real incidents, and time. When the company failed in 2022, I saw how features that looked like AI could hide missing data, weak architecture, and unclear responsibility. Today's gates grew out of that failure.
 
@@ -343,7 +343,7 @@ Even if this path does not become a large enough business, it should leave three
 
 I still want to make money because revenue is one form of evidence that a value exchange can continue. It is not the only value, and it is not an ending that can be announced in advance. The more honest objective is to connect AI capability to real people, real organisations, and real responsibility, then see whether the work deserves to continue.
 
-## Sources and Verification
+## Sources and Boundaries
 
 - **Personal experience**: the 2022 failure, 2023 recovery, and 2026 return to AI are documented in [My Story](../part-2/my-story.md) and [Entrepreneurship](../part-2/entrepreneurship.md).
 - **Project affiliations**: China Token Cloud, `token.love`, `ku0.com`, and the WeChat articles are disclosed in [Author Projects and Real-world Practice](../../projects.md); they are not independent reviews.

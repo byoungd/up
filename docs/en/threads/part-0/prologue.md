@@ -1,18 +1,24 @@
 ---
 title: "Prologue: Do Not Rush to Change Your Life"
-description: An author’s contract with the reader, connecting English, AI, failure, and small daily actions into one path of growth.
-updated: 2026-09-01
-prev:
-  text: "Reader's Guide: Put the Book Back into Life"
-  link: /en/threads/part-0/reader-guide
-next:
-  text: "Part I: Open Input"
-  link: /en/threads/part-1/open-input
+description: Begin with a real fall. After a company fails, a body breaks, and relationships strain, one ordinary person learns to catch himself first, then begin learning again through English, AI, real work, and time.
+updated: 2026-11-23
 ---
 
 # Prologue: Do Not Rush to Change Your Life
 
-By Han Xiankai, pen name “Li Pu”.
+By Han Xiankai (former pen name: Li Pu)
+
+In the late autumn of 2022, I could not pay for a meal in a hot-pot restaurant.
+
+My card was frozen. The phone screen stayed lit with a balance warning that arrived like a late verdict. The friend across the table kept talking. The broth boiled. The room was loud, and all I could hear was my own heartbeat. Only then did I admit that the company's cash flow had run out, and that the thing I had been sure would hold if I just held on a little longer had finally let go.
+
+The body had warned me earlier. Insomnia, a racing heart, sudden cold sweats, sitting in an empty office at two in the morning, staring at numbers that did not improve because I refused to stop. Then the relationships. A person who is falling cannot take good care of anyone else; some sentences, once spoken, do not return to their earlier place.
+
+Eventually I packed, went back to my hometown, and slept in the room I had lived in as a child. The curtains were old. The desk was still there. Outside the window was the road I had looked at when I was fifteen. I was in my thirties, the failure was not dignified, and no inspirational sentence would work that afternoon. I could only do small things: eat on time, see a doctor, sleep for a full night, and say the overdue apologies one by one.
+
+That is where this book actually begins.
+
+## The Question from 2017
 
 In July 2017, a friend named `W.` was preparing for the TOEFL. She asked me: “How can I learn English efficiently?”
 
@@ -20,46 +26,26 @@ At the time, I thought it was a question about vocabulary, grammar, and study me
 
 Later I understood that she may have been asking a larger question: **How can an ordinary person keep moving a little forward when time is limited, setbacks repeat, and life is far from ideal?**
 
-This guide grew from that question.
+It took me years to hear the question properly. English is a concrete door. It can help you read an untranslated article, follow a work meeting, write to someone far away, and see the world through more than one information channel. But after the door opens, you still have to face yourself: how you use time, care for your body, carry failure, turn an idea into an artifact, and look after the people beside you after something has been lost.
 
-It begins with English because English is a concrete door. It can help you read an untranslated article, follow a work meeting, write to someone far away, and see the world through more than one information channel. But after the door opens, you still have to face yourself: how you use time, care for your body, carry failure, turn an idea into an artifact, and look after the people beside you.
+I once imagined life as a game with an upgrade path. Finish one goal and receive the next piece of equipment; earn enough money and happiness becomes stable; ship a product and your earlier choices are justified. Then the company failed, my body stopped cooperating, and relationships and self-respect fell together. I learned that life is closer to a room that must be put back in order every day. Yesterday's dust is still there. A broken piece of furniture cannot be repaired with a louder slogan. The weather outside does not follow our schedule. Progress often means sweeping the floor, saying the apology that is due, seeing a doctor, and finishing the next thing that can honestly be finished today.
 
-I once imagined life as a game with an upgrade path. Finish one goal and receive the next piece of equipment; earn enough money and happiness will become stable; ship a product and your earlier choices will be justified. Then the company failed, my body stopped cooperating, and relationships and self-respect fell together. I learned that life is not a map waiting to be cleared.
+## What This Book Offers
 
-Life is closer to a room that must be put back in order every day. Yesterday’s dust is still there. A broken piece of furniture cannot be repaired with a louder slogan. The weather outside does not follow our schedule. Progress often means sweeping the floor, saying the apology that is due, seeing a doctor, and finishing the next thing that can honestly be finished today.
+This is not a book that promises to make you impressive. It offers four things, in the order I needed them:
 
-This is not a book that promises to make you impressive. It offers four things:
+1. **A way to catch yourself first** — safety, sleep, asking for help, turning shame back into facts, and permission to do only the smallest next step when capacity is low;
+2. **An executable English path** — input, output, feedback, and review forming a loop, with English as the first training ground for re-entering the world;
+3. **A way to work with AI** — a tool that grows judgment instead of replacing thought, without outsourcing sources, privacy, or responsibility;
+4. **A 90-day action plan and a set of real records** — a chance for what you read to become work, feedback, and a new rhythm, and for personal experience to answer to evidence.
 
-1. An executable English path in which input, output, feedback, and review form a loop;
-2. A way to work with AI that grows judgment instead of replacing thought;
-3. A personal record that does not hide its mess, reminding us to place ability, work, relationships, and health on one timeline;
-4. A 90-day action plan that gives what you read a chance to become work, feedback, and a new rhythm.
+## How to Read This Book
 
-## A Contract with the Reader
+You do not have to read every page in order. If you are in a low season, start with [My Story](../part-2/my-story.md) and [Recovery](../part-2/recovery.md); today's goal may be only to get through the day safely. If you are steadier and want to begin learning again, enter through [Part II: Learning Again, Opening Input](../part-1/open-input.md). If you have many resources but no artifact, read [Learning Anything with AI](../part-3/1-ai-learning.md) and the [90-Day Action Plan](../part-5/90-day-plan.md).
 
-You do not have to read every page in order. Find the obstacle that is real today:
-
-- If you do not know why you are learning, start with [Understanding](../part-1/1-understanding.md).
-- If you keep forgetting, start with [Vocabulary](../part-1/2-vocabulary.md).
-- If you understand more than you can say, start with [Speaking](../part-1/5-speaking.md).
-- If you have many resources but no artifact, read [Learning Anything with AI](../part-3/1-ai-learning.md) and the [90-Day Action Plan](../part-5/90-day-plan.md).
-- If you have many records but cannot tell whether anything changed, start with the [Evidence Chain Template](../../templates/evidence-chain.md), then read [Evidence](../part-3/5-evidence-and-transfer.md).
-- If you do not know which worksheet to choose, open the [Toolkit Overview](../../templates/toolkit.md) and choose one entry point by the block in front of you.
-- If you are in a low season, read [My Story](../part-2/my-story.md), then sleep, eat, and decide what comes next.
+The full reading route, the doorways by problem, and the traces each chapter can leave are in [How to Read This Book](reader-guide.md) and the appendix [Reading Map](../../reference/reading-map.md). This page only brings you to the entrance.
 
 Treat each chapter as a workbench, not an exam. Take one thing from it: a sentence, an exercise, a habit to stop, or a thought worth returning to. Knowledge that leaves no mark on life is still only a signpost.
-
-## A Reading Path You Can Revisit
-
-Read through “problem → skill → tool → delivery → recovery”, or enter at the part that is most urgent today:
-
-1. **Problem**: use [Learning State](../../templates/learning-state.md) to name the real context, baseline, and completion standard;
-2. **Skill**: choose one of listening, reading, speaking, or writing and keep its evidence card;
-3. **Tool**: if you use AI, read [Learning Anything with AI](../part-3/1-ai-learning.md) and record sources, privacy, and human judgment in the task;
-4. **Delivery and verification**: give the draft, recording, code, or report to a real person; use the [Evidence Chain Template](../../templates/evidence-chain.md) to compare the first version, feedback, delayed retention, and transfer; then schedule a retest in the [90-Day Cycle Map](../../templates/90-day-cycle.md);
-5. **Recovery and return**: when the plan breaks, return to [Recovery](../part-2/recovery.md) and the [Rhythm Ledger](../../templates/rhythm-ledger.md), restoring safety and minimum order before adding pressure.
-
-This is not a required table of contents. It is a reminder that learning should return to life, and action should remain allowed to return to learning.
 
 ## To the Person Opening This Page
 

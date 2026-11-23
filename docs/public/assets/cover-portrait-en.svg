@@ -1,16 +1,15 @@
 <svg width="1600" height="2560" viewBox="0 0 1600 2560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description">
-  <title id="title">Life Level-up Guide English ebook cover</title>
-  <desc id="description">By Han Xiankai. Five rising stages represent input, life, tools, practice, and action.</desc>
+  <title id="title">Still Here English ebook cover</title>
+  <desc id="description">By Han Xiankai. A Field Guide to Beginning Again. Five rising stages represent life, input, tools, practice, and action.</desc>
   <rect width="1600" height="2560" fill="#f5f7f3"/>
   <rect width="30" height="2560" fill="#176f5b"/>
   <path d="M110 210H1490M110 2290H1490" stroke="#cfd7d1" stroke-width="2"/>
 
   <g font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
-    <text x="120" y="170" fill="#176f5b" font-size="38" font-weight="700">A LIFELONG LEARNING GUIDE FOR THE AI ERA</text>
-    <text x="112" y="500" fill="#1d2926" font-size="158" font-weight="800">LIFE LEVEL-UP</text>
-    <text x="112" y="675" fill="#1d2926" font-size="158" font-weight="800">GUIDE</text>
-    <text x="120" y="800" fill="#485652" font-size="46">Begin with language. Move through life, AI,</text>
-    <text x="120" y="870" fill="#485652" font-size="46">practice, and the work of changing over time.</text>
+    <text x="120" y="170" fill="#176f5b" font-size="38" font-weight="700">A FIELD GUIDE TO BEGINNING AGAIN</text>
+    <text x="112" y="560" fill="#1d2926" font-size="190" font-weight="800">STILL HERE</text>
+    <text x="120" y="720" fill="#485652" font-size="46">After failure, a way back: recovery, learning,</text>
+    <text x="120" y="790" fill="#485652" font-size="46">AI, practice, and the work of changing over time.</text>
   </g>
 
   <g fill="none" stroke="#dfe5e0" stroke-width="2">
@@ -46,7 +45,7 @@
       <text x="1055" y="2015">04</text>
       <text x="1330" y="2015">05</text>
     </g>
-    <text x="120" y="2210" fill="#1d2926" font-size="37" font-weight="700">QUESTION → LEARN → DELIVER → PRESERVE EVIDENCE → TRANSFER</text>
+    <text x="120" y="2210" fill="#1d2926" font-size="37" font-weight="700">CATCH YOURSELF → LEARN AGAIN → DELIVER → KEEP EVIDENCE → TRANSFER</text>
     <text x="120" y="2390" fill="#1d2926" font-size="50" font-weight="700">HAN XIANKAI</text>
     <text x="120" y="2500" fill="#6b7773" font-size="30">byoungd.github.io/up/en</text>
   </g>

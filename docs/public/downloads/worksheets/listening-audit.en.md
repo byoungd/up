@@ -151,4 +151,4 @@ Related chapters: [Listening: From Sound Recognition to Real Understanding](http
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/listening-audit) · Manuscript updated: 2026-09-02. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Still Here](https://byoungd.github.io/up/en/templates/listening-audit) · Manuscript updated: 2026-09-02. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

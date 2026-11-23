@@ -74,7 +74,7 @@ export function worksheetMarkdown(source, { source: sourcePath, locale }) {
   transform(tree);
   const sourceUrl = `${site}${publicRoutePath(routes.get(sourcePath) || sourcePath.replace(/\.md$/, ""), base)}`;
   const credit = locale === "en"
-    ? `Source: [Life Level-up Guide](${sourceUrl})${updated ? ` · Manuscript updated: ${updated}` : ""}. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).`
+    ? `Source: [Still Here](${sourceUrl})${updated ? ` · Manuscript updated: ${updated}` : ""}. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).`
     : `来源：[人生进阶指南](${sourceUrl})${updated ? ` · 稿件更新：${updated}` : ""}。内容许可：[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)。`;
   return `${toMarkdown(tree, { extensions: [gfmToMarkdown()], bullet: "-", fences: true }).trim()}\n\n---\n\n${credit}\n`;
 }

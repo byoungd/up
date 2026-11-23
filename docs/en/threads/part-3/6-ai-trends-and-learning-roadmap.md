@@ -1,8 +1,8 @@
 ---
 title: "AI Trends and a Learning Roadmap: Turn Change into Ability"
 description: Use primary signals, reproducible experiments, and independent transfer to decide which AI capabilities are worth learning, covering agents, multimodal inputs, context, local models, evaluation, and provenance.
-updated: 2026-10-16
-sources_checked: 2026-10-16
+updated: 2026-11-23
+sources_checked: 2026-11-23
 source_review_interval: 30
 ---
 
@@ -10,7 +10,7 @@ source_review_interval: 30
 
 AI changes quickly, but your learning time does not. A product demo can suggest many possibilities without showing whether a capability fits your materials, budget, permissions, or responsibilities. Trend learning is not a prediction contest. It is a way to ask better questions when a capability appears, run a small experiment that can be reversed, and retain enough evidence to decide.
 
-This chapter separates three levels: an **observation** is a capability or limit stated by a source; a **conditional judgment** says what may change if it works on your task; a **prediction** is an unproven future claim. Only the first can be repeated as a fact. The other two need experiments. Dates, regions, accounts, model versions, and terms change results; the sources below were checked on 16 October 2026.
+This chapter separates three levels: an **observation** is a capability or limit stated by a source; a **conditional judgment** says what may change if it works on your task; a **prediction** is an unproven future claim. Only the first can be repeated as a fact. The other two need experiments. Dates, regions, accounts, model versions, and terms change results; the sources below were checked on 23 November 2026.
 
 ## Build a Trend Radar First
 
@@ -27,7 +27,7 @@ Fill an [AI Trend Experiment](../../templates/ai-trend-radar.md) before spending
 
 This table is a map for choosing practice, not a capability leaderboard. A signal means “observe it”, not “adopt it”.
 
-## New Signals Verified on 16 October 2026
+## New Engineering Signals from This Review
 
 This review turns the current AI conversation into four engineering questions that transfer across tools:
 

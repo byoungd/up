@@ -166,4 +166,4 @@ Before accepting a suggestion, check your calendar, actual work, and other peopl
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/consistency-plan) · Manuscript updated: 2026-09-19. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Still Here](https://byoungd.github.io/up/en/templates/consistency-plan) · Manuscript updated: 2026-09-19. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

@@ -77,4 +77,4 @@ Related chapters: [Rhythm: Let Small Things Travel Through Time](https://byoungd
 
 ---
 
-Source: [Life Level-up Guide](https://byoungd.github.io/up/en/templates/rhythm-ledger) · Manuscript updated: 2026-09-19. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+Source: [Still Here](https://byoungd.github.io/up/en/templates/rhythm-ledger) · Manuscript updated: 2026-09-19. Content: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
