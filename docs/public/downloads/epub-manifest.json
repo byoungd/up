@@ -8,8 +8,8 @@
       "language": "zh-CN",
       "chapters": 88,
       "images": 20,
-      "bytes": 2808881,
-      "sha256": "d22206e250660ee2eff1848393d0801dd2508c537ee3ec54caf2f8ba9339d401",
+      "bytes": 2808857,
+      "sha256": "b058bb46e7088166ce7e7acba16658fb1fab7175da7f82ec5a8c0173669ff7fe",
       "sourceSha256": "155477ad063c47d962c1a47ae364652a36ac3329920429e3216a9273742edcfb"
     },
     "en-US": {
@@ -17,8 +17,8 @@
       "language": "en-US",
       "chapters": 88,
       "images": 20,
-      "bytes": 2767487,
-      "sha256": "4095203cf5fb51bc7372508d47b3006049f8b9783e27816a7b19908a360a18c5",
+      "bytes": 2767475,
+      "sha256": "fb9a60148d07fccdd45313590dfeb648c803f68657731c998200d4702d194301",
       "sourceSha256": "25b2d825df756a80114548e8b57ef55fc92228d073438a616ee249b9e79d308e"
     }
   }

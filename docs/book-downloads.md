@@ -33,7 +33,7 @@ updated: 2026-10-02
     <a class="download-action" href="./downloads/life-level-up-guide-zh.epub" download>下载中文 EPUB</a>
     <details>
       <summary>查看 SHA-256</summary>
-      <code>d22206e250660ee2eff1848393d0801dd2508c537ee3ec54caf2f8ba9339d401</code>
+      <code>b058bb46e7088166ce7e7acba16658fb1fab7175da7f82ec5a8c0173669ff7fe</code>
     </details>
   </section>
   <section class="download-card">
@@ -42,7 +42,7 @@ updated: 2026-10-02
     <a class="download-action" href="./downloads/life-level-up-guide-en.epub" download>Download English EPUB</a>
     <details>
       <summary>View SHA-256</summary>
-      <code>4095203cf5fb51bc7372508d47b3006049f8b9783e27816a7b19908a360a18c5</code>
+      <code>fb9a60148d07fccdd45313590dfeb648c803f68657731c998200d4702d194301</code>
     </details>
   </section>
 </div>

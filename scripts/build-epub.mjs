@@ -443,10 +443,13 @@ ${navSections}
   );
   const spine = chapterRecords.map(({ id }) => `    <itemref idref="${id}" />`);
   const identifier = `${ONLINE_ROOT}downloads/${edition.file}`;
+  // The OPF unique identifier and the legacy NCX uid must agree; EPUBCheck treats
+  // a mismatch as a fatal package error.
+  const publicationIdentifier = `urn:uuid:${edition.key === "zh" ? "0d6e2f4a-7c1b-5e39-9a8e-2f6b3c1d4e70" : "b7c1d2e3-4f5a-5b6c-8d9e-0f1a2b3c4d5e"}`;
   const opf = `<?xml version="1.0" encoding="UTF-8"?>
 <package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="pub-id" xml:lang="${edition.lang}">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <dc:identifier id="pub-id">urn:uuid:${edition.key === "zh" ? "0d6e2f4a-7c1b-5e39-9a8e-2f6b3c1d4e70" : "b7c1d2e3-4f5a-5b6c-8d9e-0f1a2b3c4d5e"}</dc:identifier>
+    <dc:identifier id="pub-id">${escapeXml(publicationIdentifier)}</dc:identifier>
     <dc:identifier>${escapeXml(identifier)}</dc:identifier>
     <dc:title id="main-title">${escapeXml(edition.title)}</dc:title>
     <meta refines="#main-title" property="title-type">main</meta>
@@ -501,7 +504,7 @@ ${spine.join("\n")}
   ];
   const ncx = `<?xml version="1.0" encoding="UTF-8"?>
 <ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="${edition.lang}">
-  <head><meta name="dtb:uid" content="${escapeXml(identifier)}" /></head>
+  <head><meta name="dtb:uid" content="${escapeXml(publicationIdentifier)}" /></head>
   <docTitle><text>${escapeXml(edition.title)}</text></docTitle>
   <navMap>
 ${navPoints.map(({ id, title, href }, index) => `    <navPoint id="${id}" playOrder="${index + 1}"><navLabel><text>${escapeXml(title)}</text></navLabel><content src="${href}" /></navPoint>`).join("\n")}
