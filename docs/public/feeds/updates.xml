@@ -14,11 +14,25 @@
     <summary xml:lang="zh-CN">《人生进阶指南》中英双语开放书稿：以低谷与恢复为主线，从英语、AI 与真实项目出发，用可复测的行动把改变交给时间。</summary>
   </entry>
   <entry>
+    <title xml:lang="zh-CN">下载中心｜人生进阶指南</title>
+    <id>https://byoungd.github.io/up/book-downloads</id>
+    <link href="https://byoungd.github.io/up/book-downloads" />
+    <updated>2026-11-23T00:00:00+08:00</updated>
+    <summary xml:lang="zh-CN">下载《人生进阶指南》的中文与英文 PDF、EPUB 版本，并核对公开文件的校验值。</summary>
+  </entry>
+  <entry>
     <title xml:lang="en-US">Still Here: A Field Guide to Beginning Again</title>
-    <id>https://byoungd.github.io/up/en</id>
-    <link href="https://byoungd.github.io/up/en" />
+    <id>https://byoungd.github.io/up/en/</id>
+    <link href="https://byoungd.github.io/up/en/" />
     <updated>2026-11-23T00:00:00+08:00</updated>
     <summary xml:lang="en-US">A bilingual open manuscript about failure, recovery, and relearning — with English, AI, real work, and evidence, from Life Level-up Guide.</summary>
+  </entry>
+  <entry>
+    <title xml:lang="en-US">Download Center | Life Level-up Guide</title>
+    <id>https://byoungd.github.io/up/en/book-downloads</id>
+    <link href="https://byoungd.github.io/up/en/book-downloads" />
+    <updated>2026-11-23T00:00:00+08:00</updated>
+    <summary xml:lang="en-US">Download the Chinese and English PDF and EPUB editions of the Life Level-up Guide and verify their published checksums.</summary>
   </entry>
   <entry>
     <title xml:lang="en-US">Bibliography</title>
@@ -147,13 +161,6 @@
     <summary xml:lang="en-US">Give one real problem ninety days, using phase gates, evidence, rhythm, and stopping conditions so long-term change can face life and time.</summary>
   </entry>
   <entry>
-    <title xml:lang="en-US">Afterword: The Greatest Progress Is Finding Your True Self</title>
-    <id>https://byoungd.github.io/up/en/threads/part-6/afterword</id>
-    <link href="https://byoungd.github.io/up/en/threads/part-6/afterword" />
-    <updated>2026-11-23T00:00:00+08:00</updated>
-    <summary xml:lang="en-US">A closing return from the first English question to failure, health, relationships, AI, and ordinary action, asking whether our greatest progress lies in finding our true selves.</summary>
-  </entry>
-  <entry>
     <title xml:lang="zh-CN">参考文献</title>
     <id>https://byoungd.github.io/up/reference/bibliography</id>
     <link href="https://byoungd.github.io/up/reference/bibliography" />
@@ -278,12 +285,5 @@
     <link href="https://byoungd.github.io/up/threads/part-5/long-term-action" />
     <updated>2026-11-23T00:00:00+08:00</updated>
     <summary xml:lang="zh-CN">把一个真实问题交给九十天，用阶段门槛、证据链、节律与停止条件，让长期改变接受生活和时间的检验。</summary>
-  </entry>
-  <entry>
-    <title xml:lang="zh-CN">后记：人生最大的进阶，是找到真正的自己</title>
-    <id>https://byoungd.github.io/up/threads/part-6/afterword</id>
-    <link href="https://byoungd.github.io/up/threads/part-6/afterword" />
-    <updated>2026-11-23T00:00:00+08:00</updated>
-    <summary xml:lang="zh-CN">从最初的英语问题回到失败、身体、关系、AI 与日常行动，回答人生最大的进阶为何是找到真正的自己。</summary>
   </entry>
 </feed>

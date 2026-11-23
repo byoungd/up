@@ -23,7 +23,7 @@ After changing PDF layout, run `python3 tests/pdf_layout_test.py` in the Python 
 - Every public Chinese page needs a complete English counterpart, and vice versa. Preserve meaning rather than translating word for word.
 - Add `title`, `description`, and `updated: YYYY-MM-DD` frontmatter to new narrative pages.
 - Use real calendar dates for `updated` and `sources_checked`, no later than today in `Asia/Shanghai`. Keep translated pages on the same `updated` date.
-- Narrative files under `threads/` named `ai-...` or `<number>-ai...` require `sources_checked`; all declared source-review dates must be within 120 days. Set this date only after checking the sources, not merely after editing the page.
+- Narrative files under `threads/` named `ai-...` or `<number>-ai...` require `sources_checked`. AI pages declare `source_review_interval: 30`, `60`, or `120` days (product and policy facts 30, specifications 60, stable background 120; default 120) and must be rechecked within that window. Set `sources_checked` only after checking the sources, not merely after editing the page; see [MAINTENANCE.md](MAINTENANCE.md).
 - Write descriptive image alt text that conveys the scene or purpose; generic placeholders such as `image`, `photo`, or `hotel` are rejected. Decorative images should normally be omitted rather than given meaningless alt text.
 
 ## Navigation and Generated Files

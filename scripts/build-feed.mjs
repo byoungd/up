@@ -42,7 +42,9 @@ function frontmatter(source) {
 
 function routeUrl(link) {
   const route = link.replace(/^\/+/, "").replace(/\/+$/, "");
-  return route ? `${SITE_URL}${route}` : SITE_URL;
+  if (!route) return SITE_URL;
+  // `/en/` is a directory route; every other page uses VitePress clean URLs.
+  return route === "en" ? `${SITE_URL}en/` : `${SITE_URL}${route}`;
 }
 
 function feedItems() {
