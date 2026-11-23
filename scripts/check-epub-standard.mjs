@@ -57,10 +57,24 @@ try {
   let failures = 0;
   for (const edition of editions) {
     console.log(`Validating ${edition} with EPUBCheck ${VERSION}`);
+    const report = join(reportsDir, `${edition}.json`);
     try {
-      run(java, ["-jar", jar, "--failonwarnings", "--json", join(reportsDir, `${edition}.json`), join(inputDir, edition)]);
+      run(java, ["-jar", jar, "--failonwarnings", "--json", report, join(inputDir, edition)]);
     } catch (error) {
       console.error(`${edition}: ${error.message}`);
+      if (existsSync(report)) {
+        try {
+          const { messages = [] } = JSON.parse(readFileSync(report, "utf8"));
+          for (const message of messages) {
+            const where = (message.locations || [])
+              .map((location) => `${location.path}${location.line ? `:${location.line}` : ""}`)
+              .join(", ");
+            console.error(`  ${String(message.severity).toUpperCase()} ${message.id}: ${message.message}${where ? ` @ ${where}` : ""}`);
+          }
+        } catch (parseError) {
+          console.error(`  could not read ${report}: ${parseError.message}`);
+        }
+      }
       failures += 1;
     }
   }
