@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -14,6 +15,17 @@ const manifests = ["pdf-manifest.json", "epub-manifest.json"].map((file) =>
 const outputs = new Map(
   manifests.flatMap(({ outputs: entries }) => Object.values(entries).map((entry) => [entry.file, entry])),
 );
+
+function publicationDate() {
+  const opf = execFileSync(
+    "unzip",
+    ["-p", join(DOWNLOADS, "life-level-up-guide-zh.epub"), "OEBPS/package.opf"],
+    { encoding: "utf8" },
+  );
+  const match = opf.match(/<meta property="dcterms:modified">(\d{4}-\d{2}-\d{2})T/);
+  if (!match) throw new Error("EPUB 缺少 dcterms:modified 日期");
+  return match[1];
+}
 
 function sizeInMiB(bytes) {
   return (bytes / 1024 / 1024).toFixed(2);
@@ -47,6 +59,8 @@ function syncPage(file) {
     output = output.replace(section, updated);
   }
 
+  const date = publicationDate();
+  output = output.replace(/^updated: \d{4}-\d{2}-\d{2}$/m, `updated: ${date}`);
   if (seen.size !== outputs.size) {
     const missing = [...outputs.keys()].filter((fileName) => !seen.has(fileName));
     throw new Error(`${file}: 缺少出版文件卡片 ${missing.join(", ")}`);

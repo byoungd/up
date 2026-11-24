@@ -1,7 +1,7 @@
 ---
 title: Download Center | Life Level-up Guide
 description: Download the Chinese and English PDF and EPUB editions of the Life Level-up Guide and verify their published checksums.
-updated: 2026-10-02
+updated: 2026-11-23
 ---
 
 # Download the Life Level-up Guide

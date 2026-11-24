@@ -11,6 +11,7 @@ This list combines dated project changes from the changelog with the latest revi
 ## Latest 20 updates
 
 - **2026-11-23** · [Still Here: A Field Guide to Beginning Again](./) — A bilingual open manuscript about failure, recovery, and relearning — with English, AI, real work, and evidence, from Life Level-up Guide.
+- **2026-11-23** · [Download Center | Life Level-up Guide](./book-downloads) — Download the Chinese and English PDF and EPUB editions of the Life Level-up Guide and verify their published checksums.
 - **2026-11-23** · [Bibliography](./reference/bibliography) — The studies, official guidance, and specifications actually cited in Still Here, grouped by subject and mapped to the chapter that uses each source.
 - **2026-11-23** · [Reading Map: Enter by Problem](./reference/reading-map) — Seven doorways into Still Here, a table for choosing one English skill, one complete reading arc, and the four traces worth leaving from every chapter.
 - **2026-11-23** · [Sources, Citation, and Verification](./reference/sources-and-citation) — How Still Here separates research findings, personal experience, and untested hypotheses, how AI material is rechecked, and how to cite the book correctly.
@@ -29,7 +30,6 @@ This list combines dated project changes from the changelog with the latest revi
 - **2026-11-23** · [After Ninety Days: Let Change Remain in Life](./threads/part-5/after-90-days) — Close an action cycle with evidence, transfer, stopping conditions, seasonal rhythm, and annual review so temporary progress becomes an ability life can keep using.
 - **2026-11-23** · [Case Study: Let the Book Prove Its Method](./threads/part-5/book-as-proof) — Use Life Level-up Guide itself as an end-to-end case, showing how a long-running content project can move from an unclear wish into structure, artifacts, evidence, publication, reader feedback, and maintainable handover.
 - **2026-11-23** · [Part V: Long-Term Action](./threads/part-5/long-term-action) — Give one real problem ninety days, using phase gates, evidence, rhythm, and stopping conditions so long-term change can face life and time.
-- **2026-11-23** · [Afterword: The Greatest Progress Is Finding Your True Self](./threads/part-6/afterword) — A closing return from the first English question to failure, health, relationships, AI, and ordinary action, asking whether our greatest progress lies in finding our true selves.
 
 ## Continue
 

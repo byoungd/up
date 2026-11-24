@@ -92,18 +92,13 @@ tests/content/                        内容规则与出版完整性回归
 
 本轮结果保存在本地分支与工作区，未推送或触发线上部署。
 
-## 出版文件清单（截至 2026-10-19）
+## 出版文件清单
 
-下表数据来自当前跟踪的 [`epub-manifest.json`](docs/public/downloads/epub-manifest.json) 与 [`pdf-manifest.json`](docs/public/downloads/pdf-manifest.json)，不是 2026-10-07 的验收结果。四个文件都覆盖 81 个出版章节；范围为主书稿、词汇表与工具箱，归档和词表仍仅在线提供。字节数、页数和 SHA-256 已与本地出版文件交叉核对。
+出版统计只有一个数字来源：构建时生成并随仓库提交的 [`epub-manifest.json`](docs/public/downloads/epub-manifest.json) 与 [`pdf-manifest.json`](docs/public/downloads/pdf-manifest.json)。章节数、页数、字节数和 SHA-256 都从这两个文件读取，下载页由 `sync-downloads.mjs` 同步；本页不再复制一份容易过期的表格。
 
-| 版本 | 语言 | 章节 | 页数 | 字节 | SHA-256 |
-| --- | --- | ---: | ---: | ---: | --- |
-| EPUB 3.3 | 中文 | 81 | — | 2,781,072 | `e8446b2244ba029ab36418b12b758938253d4f7aa0e06a8c7208591ffa8b5c48` |
-| EPUB 3.3 | English | 81 | — | 2,748,707 | `882a1f99f3bd46c3bed6276d7d10c013933922d0340b1f484189313d049be3a7` |
-| PDF 1.7 | 中文 | 81 | 434 | 5,111,215 | `2451f4c2e85f1d4852e36911aab53e7a6ed8be2d470324b451e6f1d1befeb251` |
-| PDF 1.7 | English | 81 | 493 | 4,228,820 | `4401a8d3370c2ca2b2e009b360e514ab6be48a5b0bd857efb545003791b93c9d` |
-
-PDF 页面尺寸为 6 × 9.6 英寸，manifest 标注的检查器为 pypdf 6.16.2。以后更新出版统计时，以本次构建生成的 manifest 为准，不沿用下方的历史验收数字。
+- 检查器：pypdf 6.16.2；PDF 页面尺寸 6 × 9.6 英寸；版本 1.1.0。
+- 范围：主书稿、术语与参考资料、工具箱与模板、实操、案例与阅读地图；归档和词表仍仅在线提供。
+- 需要人工核对历史发布时，以对应版本的 GitHub Release 附件与 manifest 为准，不以本页旧数字为准。
 
 ## 历史验证记录与后续维护
 
