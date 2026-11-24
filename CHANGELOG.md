@@ -13,6 +13,9 @@ All notable project-level changes are documented here. Content pages retain thei
 - 首页重写：封面主视觉、一句话承诺、适合谁、六个入口、分部表；作者照片与账号入口下沉。README 路径转换支持 docs 相对与站点绝对两种写法。
 - 校验与工具：新增日期型标题、署名一致性、来源小节命名规则；链接提取器屏蔽行内代码与注释；新增 `check:audit` 依赖告警白名单（含复核日期）与 `test:unit`，把三份孤儿测试重新接入；CI 依赖审计改为生产依赖 + 白名单。
 - 重新生成中英 EPUB（88 章）与 PDF（中文 455 页、英文 573 页），同步下载页校验值。
+- 修复 EPUBCheck 报错：toc.ncx 的 `dtb:uid` 与 OPF 唯一标识统一为同一 UUID；校验脚本在失败时输出具体消息。
+- 下载页 `updated` 日期改为从 EPUB 的 `dcterms:modified` 读取；`PROJECT_REVIEW.md` 的出版清单只指向 manifest，不再复制易过期表格；Atom feed 的英文首页保留尾斜杠；`CONTRIBUTING.md` 说明 30/60/120 天来源复核分级。
+- 参考文献中 Hu & Nation (2000) 改用 Crossref 登记记录，移除已退役的 ScholarSpace DOI；退役链接守卫排除构建产物，并按源文件执行。
 
 ## 2026-10-16
 
