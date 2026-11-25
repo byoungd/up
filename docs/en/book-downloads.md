@@ -15,7 +15,7 @@ Download the book for offline reading or printing. PDF keeps a fixed print layou
     <a class="download-action" href="../downloads/life-level-up-guide-en.pdf" download>Download English PDF</a>
     <details>
       <summary>View SHA-256</summary>
-      <code>ce4fe697830b598c7c2a501b5fa7059945b242fbac5b7a0fa1c353e51cfc599b</code>
+      <code>4fc4916475495e5481d9568ab3bbf30cc65798920ce63b3bbbfa7071dada62db</code>
     </details>
   </section>
   <section class="download-card">
@@ -24,7 +24,7 @@ Download the book for offline reading or printing. PDF keeps a fixed print layou
     <a class="download-action" href="../downloads/life-level-up-guide-zh.pdf" download>下载中文 PDF</a>
     <details>
       <summary>查看 SHA-256</summary>
-      <code>796e09952c085fac397e924b7aab526a78656162983af47835e113bf47c9bf64</code>
+      <code>62dfc6ed3b834fdbc53343c36b1347d488abc065e09af6f78cdda6a12fd5dc87</code>
     </details>
   </section>
   <section class="download-card">
@@ -33,7 +33,7 @@ Download the book for offline reading or printing. PDF keeps a fixed print layou
     <a class="download-action" href="../downloads/life-level-up-guide-en.epub" download>Download English EPUB</a>
     <details>
       <summary>View SHA-256</summary>
-      <code>fb9a60148d07fccdd45313590dfeb648c803f68657731c998200d4702d194301</code>
+      <code>ecbe61cc38cecbb77dbe4647197b5b324f3f35bdb6f28031d32edb0fded14926</code>
     </details>
   </section>
   <section class="download-card">
@@ -42,7 +42,7 @@ Download the book for offline reading or printing. PDF keeps a fixed print layou
     <a class="download-action" href="../downloads/life-level-up-guide-zh.epub" download>下载中文 EPUB</a>
     <details>
       <summary>查看 SHA-256</summary>
-      <code>b058bb46e7088166ce7e7acba16658fb1fab7175da7f82ec5a8c0173669ff7fe</code>
+      <code>cd8f6c69e0f6e7a82d5957e160f91b0f5d62c2bb213d7f839c2988583fc4ee16</code>
     </details>
   </section>
 </div>

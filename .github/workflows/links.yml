@@ -30,7 +30,8 @@ jobs:
       - name: Guard retired failure URLs
         run: |
           set -euo pipefail
-          if grep -REni 'scholarspace\.manoa\.hawaii\.edu|doi\.org/10\.64152/10125/66973|10\.1076/edre\.7\.1\.403\.3989|web\.archive\.org/web/20160424221725' \
+          if grep -REni --exclude-dir=dist --exclude-dir=node_modules --exclude-dir=.vitepress \
+            'scholarspace\.manoa\.hawaii\.edu|doi\.org/10\.64152/10125/66973|10\.1076/edre\.7\.1\.403\.3989|web\.archive\.org/web/20160424221725' \
             ATTRIBUTIONS.md docs README.md; then
             echo 'A retired URL from the 193-197 failure series has returned.' >&2
             exit 1

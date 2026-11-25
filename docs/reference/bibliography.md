@@ -25,7 +25,7 @@ updated: 2026-11-23
 
 ## 词汇与语言测评
 
-- Hu, M., & Nation, I. S. P. (2000). *Vocabulary Density and Reading Comprehension*. <https://doi.org/10.64152/10125/66973> — 用于[词汇篇](../threads/part-1/2-vocabulary.md)。
+- Hu, M., & Nation, I. S. P. (2000). *Vocabulary Density and Reading Comprehension*. [Crossref 记录](https://api.crossref.org/works/10.64152%2F10125%2F66973) — 用于[词汇篇](../threads/part-1/2-vocabulary.md)；原 ScholarSpace 与 DOI 跳转已退役，只保留可核验的登记记录。
 - Nation, I. S. P. (2006). *How Large a Vocabulary Is Needed for Reading and Listening?* <https://doi.org/10.3138/cmlr.63.1.59> — 用于[词汇篇](../threads/part-1/2-vocabulary.md)。
 - Schmitt, N., Jiang, X., & Grabe, W. (2011). *The Percentage of Words Known in a Text and Reading Comprehension*. <https://doi.org/10.1111/j.1540-4781.2011.01146.x> — 用于[词汇篇](../threads/part-1/2-vocabulary.md)。
 - Webb, S. (2008). *Receptive and Productive Vocabulary Sizes of L2 Learners*. <https://doi.org/10.1017/S0272263108080042> — 用于[词汇篇](../threads/part-1/2-vocabulary.md)。
